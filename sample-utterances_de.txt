@@ -1,0 +1,9 @@
+RadioParadiseIntent was das ist
+RadioParadiseIntent was gerade läuft
+RadioParadiseIntent nach der Playlist
+RadioParadiseIntent nach der aktuellen Playlist
+RadioParadiseIntent nach dem aktuellen Lied
+RadioParadiseIntent nach dem aktuellen Song
+RadioParadiseIntent nach dem aktuellen Stück
+RadioParadiseIntent nach der aktuellen Band
+RadioParadiseIntent nach dem aktuellen Künstler
