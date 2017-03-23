@@ -6,7 +6,7 @@ var index = require('../index');
 const context = require('aws-lambda-mock-context');
 const ctx = context();
 
-describe("Testing a session with the RadioParadiseIntent", function() {
+describe('Testing a session with the RadioParadiseIntent', () => {
     var speechResponse = null
     var speechError = null
     
@@ -41,29 +41,34 @@ describe("Testing a session with the RadioParadiseIntent", function() {
             .catch(err => { speechError = err; done(); })
     })
     
-    describe("The response is structurally correct for Alexa Speech Services", function() {
-        it('should not have errored',function() {
+    describe('The response is structurally correct for Alexa Speech Services', () => {
+        it('should not have errored', () => {
             expect(speechError).to.be.null
         })
         
-        it('should have a version', function() {
-            expect(speechResponse.version).not.to.be.null
+        it('should have a version', () => {
+            expect(speechResponse.version).to.exist
         })
         
-        it('should have a speechlet response', function() {
-            expect(speechResponse.response).not.to.be.null
+        it('should have a speechlet response', () => {
+            expect(speechResponse.response).to.exist
         })
 
-        it('should have session attributes', function() {
-            expect(speechResponse.response.sessionAttributes).not.to.be.null
+        it('should have a spoken response', () => {
+            expect(speechResponse.response.outputSpeech).to.exist
         })
-        
-        it("should have a spoken response", () => {
-            expect(speechResponse.response.outputSpeech).not.to.be.null
+
+        it('should have a card response', () => {
+            expect(speechResponse.response.card).to.exist
         })
+
+        /*
+        it('should have session attributes', () => {
+            expect(speechResponse.response.sessionAttributes).to.exist
+        })
+        */
         
-        it("should end the alexa session", function() {
-            expect(speechResponse.response.shouldEndSession).not.to.be.null
+        it('should end the alexa session', () => {
             expect(speechResponse.response.shouldEndSession).to.be.true
         })
     })
