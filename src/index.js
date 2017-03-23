@@ -17,7 +17,7 @@ const APP_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
 const languageStrings = {
     'en': {
         translation: {
-            HELP_MESSAGE: 'You can say „Ask Radio Paradise for the current song“, or you can say „Exit“. What can I help you with?',
+            HELP_MESSAGE: 'You can say „Ask Paradise Playlist for current song“, or you can say „Exit“. What can I help you with?',
             HELP_REPROMPT: 'What can I help you with?',
             STOP_MESSAGE: 'Goodbye!',
             CURRENTLY_PLAYING_MESSAGE: 'You\'re listening to {song} by {artist} from the {year} album {album}.',
@@ -28,7 +28,7 @@ const languageStrings = {
         
     'de': {
         translation: {
-            HELP_MESSAGE: 'Du kannst sagen „Frag Radio Paradise Online nach dem aktuellen Lied“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
+            HELP_MESSAGE: 'Du kannst sagen „Frage Paradise Playlist nach dem aktuellen Lied“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
             HELP_REPROMPT: 'Wie kann ich dir helfen?',
             STOP_MESSAGE: 'Auf Wiedersehen!',
             CURRENTLY_PLAYING_MESSAGE: 'Du hörst gerade {song} von {artist} aus dem Album {album} von {year}.',
