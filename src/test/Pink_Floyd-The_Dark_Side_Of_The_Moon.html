@@ -1,0 +1,318 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<script language="javascript">
+if(self.location==top.location)self.location="rp_2.php#name=Playlist"
+</script>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>RP Playlist - Radio Paradise - eclectic commercial free Internet radio</title>
+<meta name="description" content="Modern & classic rock, electronica, world music & more - picked & mixed by real humans - high quality sound with no subscription fees or ads.">
+<meta name="keywords" content="radio, rock, progressive, FM, DJ, HD, music, free, high fidelity, high bitrate, 320k, 192k, high resolution">
+<meta name="ROBOTS" content="ALL">
+<meta name="REVISIT-AFTER" content="10 DAYS">
+<meta name="distribution" content="global">
+<meta http-equiv="EXPIRES" content="0">
+<meta name="AUTHOR" content="Radioparadise.com">
+<meta name="COPYRIGHT" content="Copyright (c) 1999-2016 by radioparadise.com">
+<base href="http://www.radioparadise.com"></base>
+
+<link rel="StyleSheet" href="css/rp2-style.1.css?version=1.804" type="text/css">
+
+	
+<link rel="image_src" href="http://www.radioparadise.com/graphics/fb_logo.png">
+<meta property="og:image" content="http://www.radioparadise.com/graphics/fb_logo.png">
+
+<link type="text/css" href="http://www.radioparadise.com/scripts/themes/base/jquery.ui.all.css?version=1.61" rel="stylesheet" />
+<script type="text/javascript" src="http://www.radioparadise.com/scripts/jquery_1_7_1.js"></script>
+<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.slider.js"></script>
+	<script type="text/javascript" src="http://www.radioparadise.com/scripts/rp2.js?version=2.001"></script>
+
+<style type="text/css">.ui-slider-horizontal .ui-state-default { height: 12px; width: 6px; }</style>
+
+<style>ul#nav {width:440px;}</style>
+
+<script type="text/javascript">
+
+	function changeHash(hash) {
+		if(history.pushState) {
+			top.history.replaceState(null, top.document.title, '#'+hash);
+		} else {
+			top.document.location.hash = hash;
+		}
+	}	
+	top.document.title = "RP Playlist - Radio Paradise - eclectic commercial free Internet radio";
+	changeHash('name=Playlist');
+	
+	var pos = getPos();
+	if (!pos) pos = 70;
+	$(function(){
+		$( "#slider" ).slider({
+			value: pos,
+			min: 0,
+			max: 100,
+			slide: function( event, ui ) {
+				setVolume( ui.value );
+			}
+		});
+	});
+
+	function change_img(div_id,img_id) {
+		$(div_id).css("background-image", "url(graphics/" + img_id + ")");  
+	}
+	function load_topic_content(file) {
+		$('#topic_content').load('content/Playlist/' + file + '.php');
+		$('html, body').animate({ scrollTop: 0 }, 0);
+	}
+	function load_page_content(name, file) {
+		$('#content').load('content/' + name + '/' + file + '.php');
+	}
+</script>
+
+<script type="text/javascript">
+	window.onload=function(){
+		setTimeout("playlist_update()", 98000);		
+			}
+
+	function setCookie(c_name,value,exdays)
+	{
+		var exdate=new Date();
+		exdate.setDate(exdate.getDate() + exdays);
+		var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+		document.cookie=c_name + "=" + c_value;
+	}
+	function hideHeader(){
+		$('#appeal_header').hide(200);
+		setCookie("C_hide_appeal", "true", 5)
+	}
+	
+
+	
+</script>
+
+
+
+</head>
+<body>
+<div align="center">
+
+
+<div id="container">
+
+
+
+
+<div align="center">
+
+
+<div id="header">
+	<table border="0" width="900" cellpadding="0" cellspacing="0" ><tr><td width="20">&nbsp;</td>
+	<td width="420" class="logo">
+	
+	<a href="rp2-content.php?name=Home">
+	<img src="clear.gif" width="420" height="46" border="0"></a>
+	<div style="font-weight:bold;letter-spacing:1px;margin-left:202px;margin-bottom:20px;">
+	<a class="black" href="https://www.radioparadise.com/rp2s-content.php?name=Support" target="_blank">Listener Supported</a>
+	</div>
+	<div id="controls">
+		<div id="slider" title="Volume">
+		</div>
+		<form action="rp_2.php#name=Playlist" target="_top" method="post" style="display:inline">
+		<select name="change_bitrate" onchange="this.form.submit();" style="outline: none" title="Select main stream bitrate">
+		<option value="0">32k</option>
+		<option value="1" selected>96k</option>
+		<option value="2">192k</option>
+		</select></form>&nbsp;&nbsp;
+		<input type="button" class="button" value="Stop" title="Stop Audio" onclick="javacript: doStop(); return false;">
+		<input type="button" class="button" id="play_button"  value="Play >" title="Start or return to main RP stream" onclick="javacript: doReturn(); return false;">
+					<a href="rp2-content.php?name=Members&file=register_psd"><input type="button" title="Log in to activate the Something Different function"  class="button" value="PSD >>" ></a>
+			
+		<script type="text/javascript">
+	
+			if (parent.frames.player_2.playing == "yes") {
+				button_2();
+			}
+			if (parent.frames.player_1.playing == "yes") {
+				button_3();
+			}
+	
+		</script>
+	
+	</div>
+	</td><td align="center" valign="top" width="460" >
+	<form action="javascript: doRating()" id="rating_form_top" style="display:inline">
+	
+		<div id="nowplaying">
+			<div id="playlist_content">	
+			<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="bottom" width="1"></td><td valign="bottom"><div id="pre_list"><a class="song_title"  href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=37888">William Shatner &mdash; You'll Have Time</a><br /><a class="song_title"  href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=34829">Lindsey Buckingham &mdash; Go Insane (live)</a><br /><a class="song_title"  href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=42628">Pink Floyd &mdash; Speak To Me -> ...In The Sky (live)</a><br /></div><a class="song_title" href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=44115"><b>Steven Wilson &mdash; Perfect Life</b></a></td><td valign="bottom" ><a class="song_title" href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=44115"><img src="http://www.radioparadise.com/graphics/covers/m/B00QW4QWYQ.jpg" class = "cover_art" width="100" height="100" border="0" align="right" style="margin-left:12px;"></a></td></tr></table>			</div>
+		</div>
+		
+	</form>
+	</td></tr></table>
+</div>
+<table border="0" width="800" cellpadding="0" cellspacing="0" ><tr><td>
+<div id="classic" style="text-align:left;height:26px;"><div style="font-size:120%;font-weight:bold;color:#d63;background-color:#222;border:1px solid #d63;border-radius:4px;padding:4px;display:inline;"> NEW: <a class="song_title" href="https://beta.radioparadise.com/" target="_top">Beta Website/Player</a> </div>&nbsp;&nbsp&nbsp[ <a class="login" href="javascript:void();" onclick="javascript: startRPHD(); return false;">Slideshow Player</a> ]&nbsp;&nbsp&nbsp[ <a class="login" href="javascript:void();" onclick="javascript: startPlayer(); return false;">Audio Player</a> ]</div><div id="login">[ <a class="login" href="rp2-content.php?name=Members&file=login&query_n=PlaylistZZfile=index">Log In</a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ <a class="login" href="rp2-content.php?name=Members&file=register">Register</a> ]&nbsp;&nbsp;&nbsp;[ <a class="login" href="javascript://" onClick="window.location.reload()">refresh this window</a> ]</div></td></tr></table>
+
+<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr><td>
+
+<div id="menu">
+	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
+    <ul id="nav2">
+        <li><a href="rp2-content.php">Home</a></li>
+    	<li><a href="rp2-content.php?name=Forum">Community</a></li>
+    	<li><a href="https://www.radioparadise.com/rp2s-content.php?name=Support&file=support" target="_blank">Support&nbsp;RP</a></li>
+    	<li><a href="rp2-content.php?name=Help">Help&nbsp;&amp;&nbsp;Info</a></li>
+    </ul>
+    </td><td >
+    <ul id="nav">
+        <li class="activelink"><a href="rp2-content.php?name=Playlist">Playlist</a></li>
+        <li><a href="rp2-content.php?name=Music">Music/Artists</a></li>
+        <li><a href="rp2-content.php?name=Favorites">Favorites</a></li>
+                <li><a href="rp2-content.php?name=Submissions">Submissions</a></li>
+            </ul>
+    </td></tr></table>
+</div>
+</td></tr></table>
+<div align="center">
+<div id="content">
+<head>
+<style>
+
+.rating_10
+{
+	background-color: #009800;
+	color: #000
+}
+.rating_9
+{
+	background-color: #00c501;
+	color: #000
+}
+.rating_8
+{
+	background-color: #00f102;
+	color: #000
+}
+.rating_7
+{
+	background-color: #84f800;
+	color: #000
+}
+.rating_6
+{
+	background-color: #dcfa00;
+	color: #000
+}
+.rating_5
+{
+	background-color: #ffe100;
+	color: #000
+}
+.rating_4
+{
+	background-color: #ffae00;
+	color: #000
+}
+.rating_3
+{
+	background-color: #ff7305;
+	color: #000
+}
+.rating_2
+{
+	background-color: #f04e02;
+	color: #000
+}
+.rating_1
+{
+	background-color: #db1f00;
+	color: #000
+}
+
+
+.spacer
+{
+	background-color: #ccc;
+	height: 1px;
+	padding: 0px;
+}
+.break
+{
+	padding: 0px;
+}
+.tableheader
+{
+	font-size: 8pt;
+	padding: 2px;
+}
+.nullrow
+{
+	height: 0px;
+	padding: 0;
+}
+
+
+</style>
+
+<a name="top"></a><h1 style="text-align:center;">RP Playlist - Last Hour <span style="font-size: 12pt;margin-left:120px;">[ &nbsp;&nbsp;<a href="rp2-content.php?name=Playlist&more=true">6 hrs</a> &nbsp;&nbsp;| &nbsp;&nbsp;<a href="rp2-content.php?name=Playlist&offset=0">History</a> &nbsp;&nbsp;]</span><span style="font-size: 12pt;font-weight:normal;margin-left:120px;">Playlist via Twitter: <a href="http://twitter.com/rp_playlist" target="_blank">@rp_playlist</a></span></h1>	<table border="0" cellpadding="5" cellspacing="0" width="100%">
+	<tr><td class="tableheader">PST</td><td class="tableheader">Artist - Song</td><td class="tableheader">Album</td><td class="tableheader">Rating</td></tr>
+
+<tr class="shade"><td>4:08 am</td><td><a href="rp2-content.php?name=songinfo&song_id=44115">Steven Wilson<br>Perfect Life</a></td><td><a href="rp2-content.php?name=songinfo&song_id=44115"><img src="http://www.radioparadise.com/graphics/covers/s/B00QW4QWYQ.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Hand. Cannot. Erase.</a> (2015)</td><td class="rating_7">7.4</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>3:45 am</td><td><a href="rp2-content.php?name=songinfo&song_id=42628">Pink Floyd<br>Speak To Me -> ...In The Sky (live)</a></td><td><a href="rp2-content.php?name=songinfo&song_id=42628"><img src="http://www.radioparadise.com/graphics/covers/s/B004ZNARH4.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">The Dark Side Of The Moon (Immersion Box Set)</a> (1974)</td><td class="rating_8">8.7</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>3:41 am</td><td><a href="rp2-content.php?name=songinfo&song_id=34829">Lindsey Buckingham<br>Go Insane (live)</a></td><td><a href="rp2-content.php?name=songinfo&song_id=34829"><img src="http://www.radioparadise.com/graphics/covers/s/B000002NHG.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">The Dance (Fleetwood Mac)</a> (1997)</td><td class="rating_7">7.5</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>3:35 am</td><td><a href="rp2-content.php?name=songinfo&song_id=37888">William Shatner<br>You'll Have Time</a></td><td><a href="rp2-content.php?name=songinfo&song_id=37888"><img src="http://www.radioparadise.com/graphics/covers/s/B0002RUPH4.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Has Been</a> (2004)</td><td class="rating_5">5.6</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>3:33 am</td><td><a href="rp2-content.php?name=songinfo&song_id=44151">The Outsiders<br>Time Won't Let Me</a></td><td><a href="rp2-content.php?name=songinfo&song_id=44151"><img src="http://www.radioparadise.com/graphics/covers/s/B000T4F43A.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Time Won't Let Me</a> (1966)</td><td class="rating_7">7.4</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>3:28 am</td><td><a href="rp2-content.php?name=songinfo&song_id=30187">Refreshments<br>Banditos</a></td><td><a href="rp2-content.php?name=songinfo&song_id=30187"><img src="http://www.radioparadise.com/graphics/covers/s/B000001EID.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Fizzy Fuzzy Big & Buzzy</a> (1996)</td><td class="rating_6">6.3</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>3:24 am</td><td><a href="rp2-content.php?name=songinfo&song_id=32134">Belly<br>Slow Dog</a></td><td><a href="rp2-content.php?name=songinfo&song_id=32134"><img src="http://www.radioparadise.com/graphics/covers/s/B000002MIA.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Star</a> (1993)</td><td class="rating_6">6.3</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>3:22 am</td><td><a href="rp2-content.php?name=songinfo&song_id=2625">Steve Earle<br>I Feel Alright</a></td><td><a href="rp2-content.php?name=songinfo&song_id=2625"><img src="http://www.radioparadise.com/graphics/covers/s/B000002N61.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">I Feel Alright</a> (1996)</td><td class="rating_6">6.9</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>3:18 am</td><td><a href="rp2-content.php?name=songinfo&song_id=30922">John Hiatt<br>My Old Friend</a></td><td><a href="rp2-content.php?name=songinfo&song_id=30922"><img src="http://www.radioparadise.com/graphics/covers/s/B00005NG1Y.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">The Tiki Bar Is Open</a> (2001)</td><td class="rating_6">6.7</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>3:15 am</td><td><a href="rp2-content.php?name=songinfo&song_id=38125">R.E.M.<br>Sitting Still</a></td><td><a href="rp2-content.php?name=songinfo&song_id=38125"><img src="http://www.radioparadise.com/graphics/covers/s/B000001I0A.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Murmur</a> (1983)</td><td class="rating_7">7.7</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>3:11 am</td><td><a href="rp2-content.php?name=songinfo&song_id=39670">Pernice Brothers<br>There Goes the Sun</a></td><td><a href="rp2-content.php?name=songinfo&song_id=39670"><img src="http://www.radioparadise.com/graphics/covers/s/B0009K7RB6.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Discover a Lovelier You</a> (2005)</td><td class="rating_6">6.6</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>3:07 am</td><td><a href="rp2-content.php?name=songinfo&song_id=43850">Future Islands<br>Balance</a></td><td><a href="rp2-content.php?name=songinfo&song_id=43850"><img src="http://www.radioparadise.com/graphics/covers/s/B005I735HU.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">On The Water</a> (2011)</td><td class="rating_6">6.6</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>3:03 am</td><td><a href="rp2-content.php?name=songinfo&song_id=38988">Paul Simon<br>One Man's Ceiling is Another Man's Floor</a></td><td><a href="rp2-content.php?name=songinfo&song_id=38988"><img src="http://www.radioparadise.com/graphics/covers/s/B00024WYKS.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">There Goes Rhymin' Simon</a> (1973)</td><td class="rating_6">6.8</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>2:59 am</td><td><a href="rp2-content.php?name=songinfo&song_id=42876">Joan Osborne<br>The Same Love That Made Me Laugh</a></td><td><a href="rp2-content.php?name=songinfo&song_id=42876"><img src="http://www.radioparadise.com/graphics/covers/s/B006M6URPY.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Bring It On Home</a> (2012)</td><td class="rating_7">7</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>2:54 am</td><td><a href="rp2-content.php?name=songinfo&song_id=39223">Fairport Convention<br>Who Knows Where the Time Goes</a></td><td><a href="rp2-content.php?name=songinfo&song_id=39223"><img src="http://www.radioparadise.com/graphics/covers/s/B00007J36V.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Unhalfbricking</a> (1969)</td><td class="rating_7">7.8</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>2:48 am</td><td><a href="rp2-content.php?name=songinfo&song_id=34595">Pat Metheny<br>A Map Of The World</a></td><td><a href="rp2-content.php?name=songinfo&song_id=34595"><img src="http://www.radioparadise.com/graphics/covers/s/B00002DEYS.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">A Map Of The World</a> (1999)</td><td class="rating_7">7.7</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>2:44 am</td><td><a href="rp2-content.php?name=songinfo&song_id=34278">Neko Case<br>Deep Red Bells</a></td><td><a href="rp2-content.php?name=songinfo&song_id=34278"><img src="http://www.radioparadise.com/graphics/covers/s/B00006BTC6.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Blacklisted</a> (2002)</td><td class="rating_7">7.5</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>2:41 am</td><td><a href="rp2-content.php?name=songinfo&song_id=36863">The Smiths<br>A Rush and a Push and the Land is Ours</a></td><td><a href="rp2-content.php?name=songinfo&song_id=36863"><img src="http://www.radioparadise.com/graphics/covers/s/B000002LCX.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Strangeways Here We Come</a> (1987)</td><td class="rating_7">7.2</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="shade"><td>2:38 am</td><td><a href="rp2-content.php?name=songinfo&song_id=42846">Regina Spektor<br>All the Rowboats</a></td><td><a href="rp2-content.php?name=songinfo&song_id=42846"><img src="http://www.radioparadise.com/graphics/covers/s/B007MDQW3W.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">What We Saw from the Cheap Seats</a> (2012)</td><td class="rating_7">7.1</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+<tr class="noshade"><td>2:32 am</td><td><a href="rp2-content.php?name=songinfo&song_id=43924">78 Saab<br>All A Lie</a></td><td><a href="rp2-content.php?name=songinfo&song_id=43924"><img src="http://www.radioparadise.com/graphics/covers/s/B00064WYLI.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Crossed Lines</a> (2004)</td><td class="rating_7">7.6</td></tr>
+<tr><td colspan="4" class="spacer"></td></tr>
+</table><div align="right"><a href="rp2-content.php?name=Playlist&more=true#more">...more</a></div>
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
+
+
+	
+	
+	
+		
