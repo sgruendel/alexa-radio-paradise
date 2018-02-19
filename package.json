@@ -1,7 +1,7 @@
 {
   "name": "radio-paradise",
-  "version": "1.1.0",
-  "description": "Lambda function for Alexa",
+  "version": "1.2.0",
+  "description": "Alexa Skill for querying playlist from Radio Paradise",
   "repository": {
     "type": "git",
     "url": "https://github.com/sgruendel/alexa-radio-paradise.git"
@@ -17,12 +17,12 @@
   "author": "Stefan Gründel",
   "license": "GPL-3.0",
   "dependencies": {
-    "alexa-sdk": "^1.0.7",
-    "cheerio": "^0.22.0"
+    "alexa-sdk": "^1.0.25",
+    "cheerio": "^1.0.0-rc.2"
   },
   "devDependencies": {
-    "aws-lambda-mock-context": "^3.0.1",
-    "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "aws-lambda-mock-context": "^3.1.1",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.1"
   }
 }
