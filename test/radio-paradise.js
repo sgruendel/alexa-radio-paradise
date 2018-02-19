@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const fs = require('fs');
-const radioParadise = require('../radio-paradise');
+const radioParadise = require('../src/radio-paradise');
 
 describe('Radio Paradise helpers', function() {
     describe('#parsePlaylistBody()', function() {
