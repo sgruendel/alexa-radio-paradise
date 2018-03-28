@@ -44,7 +44,7 @@ const handlers = {
                 const cardContent = this.t('CURRENTLY_PLAYING_MESSAGE',
                     {
                         artist: entry.artist, song: entry.song, album: entry.album, year: entry.year,
-                        escapeInterpolation: false,
+                        interpolation: { escapeValue: false },
                     })
                       + ' ' + this.t('AVERAGE_RATING_MESSAGE', { rating: entry.rating });
 
