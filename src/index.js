@@ -39,10 +39,13 @@ const handlers = {
         radioParadise.getPlaylist((err, playlist) => {
             if (playlist && playlist[0]) {
                 const entry = playlist[0];
-                const nowPlaying = this.t('CURRENTLY_PLAYING_MESSAGE',
+                const speechOutput = this.t('CURRENTLY_PLAYING_MESSAGE',
                     { artist: entry.artist, song: entry.song, album: entry.album, year: entry.year });
-                const speechOutput = nowPlaying;
-                const cardContent = nowPlaying
+                const cardContent = this.t('CURRENTLY_PLAYING_MESSAGE',
+                    {
+                        artist: entry.artist, song: entry.song, album: entry.album, year: entry.year,
+                        escapeInterpolation: false,
+                    })
                       + ' ' + this.t('AVERAGE_RATING_MESSAGE', { rating: entry.rating });
 
                 // TODO Can't use imageObj due to cross-origin resource sharing (CORS) restrictions, see
@@ -76,8 +79,8 @@ const handlers = {
     },
 };
 
-exports.handler = (event, context) => {
-    const alexa = Alexa.handler(event, context);
+exports.handler = (event, context, callback) => {
+    const alexa = Alexa.handler(event, context, callback);
     alexa.appId = APP_ID;
     // To enable string internationalization (i18n) features, set a resources object.
     alexa.resources = languageStrings;

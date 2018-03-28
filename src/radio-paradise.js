@@ -1,9 +1,12 @@
 'use strict';
 
-// TODO introduce constants for strings
-
-const https = require('https');
+const request = require('request-promise-native');
 const cheerio = require('cheerio');
+
+const baseRequest = request.defaults({
+    baseUrl: 'https://www.radioparadise.com',
+    gzip: true,
+});
 
 var exports = module.exports = {};
 
@@ -11,33 +14,24 @@ exports.parsePlaylistBody = function(body) {
     const $ = cheerio.load(body);
     const entries = $('div#content table').find('tr.shade,tr.noshade').map((i, tr) => {
         const cells = $('td', tr).map((j, td) => {
-            // For Artist - Song, parse something like
-            // <a href="rp2-content.php">Pink Floyd<br>Learning to Fly</a>
             if ($(td).find('br').length === 1) {
-                const html = $(td).html();
-                const artistStart = html.indexOf('">') + 2;
-                const artistEnd = html.indexOf('<br>', artistStart);
-                const songStart = artistEnd + 4;
-                const songEnd = html.indexOf('</a>', songStart);
-                const artist = html.substring(artistStart, artistEnd);
-                const song = html.substring(songStart, songEnd);
+                // for Artist - Song, parse something like
+                // <a href="rp2-content.php">Pink Floyd<br>Learning to Fly</a>
+                const htmlArtist = $(td).html().replace(/\<br\>.*\<\/a\>/, '</a>');
+                const htmlSong = $(td).html().replace(/\>.*\<br\>/, '>');
+                const artist = cheerio.load(htmlArtist).text();
+                const song = cheerio.load(htmlSong).text();
                 return [artist, song];
-            }
+            } else if ($(td).find('img').length === 1) {
+                // for Album, parse something like
+                // <a href="rp2-content.php"><img src="graphics/covers/s/B000002C1W.jpg" height="70" ...>Momentary Lapse of Reason</a> (1987)
+                const albumAndYear = $(td).text();
+                const yearStart = albumAndYear.lastIndexOf('(');
+                const yearEnd = albumAndYear.indexOf(')', yearStart);
 
-            // For Album, parse something like
-            // <a href="rp2-content.php"><img src="graphics/covers/s/B000002C1W.jpg" height="70" ...>Momentary Lapse of Reason</a> (1987)
-            if ($(td).find('img').length === 1) {
-                const html = $(td).html();
-                const coverStart = html.indexOf('<img src="') + 10;
-                const coverEnd = html.indexOf('"', coverStart);
-                const albumStart = html.indexOf('">', coverEnd) + 2;
-                const albumEnd = html.indexOf('</a>', albumStart);
-                const yearStart = html.indexOf('(', albumEnd) + 1;
-                const yearEnd = html.indexOf(')', yearStart);
-
-                const cover = html.substring(coverStart, coverEnd);
-                const album = html.substring(albumStart, albumEnd);
-                const year = html.substring(yearStart, yearEnd);
+                const cover = $(td).find('img').attr('src');
+                const album = albumAndYear.substring(0, yearStart).trimRight();
+                const year = albumAndYear.substring(yearStart + 1, yearEnd);
                 return [cover, album, year];
             }
 
@@ -58,49 +52,24 @@ exports.parsePlaylistBody = function(body) {
 };
 
 exports.getPlaylist = function(callback) {
-    const request = https.get({
-        host: 'www.radioparadise.com',
-        port: 443,
-        path: '/rp2-content.php?name=Playlist',
-    });
-
-    request.on('response', (response) => {
-        if (response.statusCode < 200 || response.statusCode > 299) {
-            callback(new Error(response.statusMessage));
-        }
-        response.on('error', err => {
-            console.error('error in response for playlist', err);
-            callback(err);
-        });
-        // explicitly treat incoming data as utf8
-        response.setEncoding('utf8');
-
-        // incrementally capture the incoming response body
-        var body = '';
-        response.on('data', chunk => {
-            body += chunk;
-        });
-
-        response.on('end', () => {
-            // we have now received the raw return data in the returnData variable.
-            // We can see it in the log output via:
-            // console.log(JSON.stringify(body));
-            // we may need to parse through it to extract the needed data
-
+    const options = {
+        uri: 'rp2-content.php',
+        qs: {
+            name: 'Playlist',
+        },
+    };
+    baseRequest(options)
+        .then(result => {
             try {
-                const entries = exports.parsePlaylistBody(body);
+                const entries = exports.parsePlaylistBody(result);
                 return callback(null, entries);
             } catch (err) {
-                console.error('error parsing playlist', err);
-                callback(err);
+                console.error('error parsing playlist:', err);
+                return callback(err);
             }
+        })
+        .catch(err => {
+            console.error('error in response for playlist:', err);
+            return callback(err);
         });
-    });
-
-    request.on('error', err => {
-        console.error('error requesting playlist', err.message);
-        callback(err);
-    });
-
-    request.end();
 };
