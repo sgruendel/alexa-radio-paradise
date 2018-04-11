@@ -12,7 +12,7 @@ var exports = module.exports = {};
 
 exports.parsePlaylistBody = function(body) {
     const $ = cheerio.load(body);
-    const entries = $('div#content table').find('tr.shade,tr.noshade').map((i, tr) => {
+    return $('div#content table').find('tr.shade,tr.noshade').map((i, tr) => {
         const cells = $('td', tr).map((j, td) => {
             if ($(td).find('br').length === 1) {
                 // for Artist - Song, parse something like
@@ -37,18 +37,11 @@ exports.parsePlaylistBody = function(body) {
 
             // default for PST and Rating
             return $(td).text();
-        });
-        var entry = [];
-        entry['pst'] = cells[0];
-        entry['artist'] = cells[1];
-        entry['song'] = cells[2];
-        entry['cover'] = cells[3];
-        entry['album'] = cells[4];
-        entry['year'] = cells[5];
-        entry['rating'] = cells[6];
-        return [entry];
-    });
-    return entries;
+        }).toArray();
+        return { pst: cells[0], artist: cells[1], song: cells[2],
+            cover: cells[3], album: cells[4], year: cells[5], rating: cells[6],
+        };
+    }).toArray();
 };
 
 exports.getPlaylist = function(callback) {
