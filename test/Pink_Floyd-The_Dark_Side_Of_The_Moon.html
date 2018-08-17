@@ -1,40 +1,42 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-<title>RP Playlist - Radio Paradise - eclectic commercial free Internet radio</title>
+<title>Pink Floyd - Speak To Me -> ...In The Sky (live) - Radio Paradise - eclectic commercial free Internet radio</title>
 <meta name="description" content="Modern & classic rock, electronica, world music & more - picked & mixed by real humans - high quality sound with no subscription fees or ads.">
-<meta name="keywords" content="radio, rock, progressive, FM, DJ, HD, music, free, high fidelity, high bitrate, 320k, 192k, high resolution">
+<meta name="keywords" content="radio, rock, progressive, FM, DJ, HD, music, free, free-form, freeform, high fidelity, high bitrate, 320k, 192k, high resolution, 24bit, 24 bit, commercial-free">
 <meta name="ROBOTS" content="ALL">
 <meta name="REVISIT-AFTER" content="10 DAYS">
 <meta name="distribution" content="global">
 <meta http-equiv="EXPIRES" content="0">
 <meta name="AUTHOR" content="Radioparadise.com">
-<meta name="COPYRIGHT" content="Copyright (c) 1999-2016 by radioparadise.com">
-<base href="http://www.radioparadise.com"></base>
-
-<link rel="StyleSheet" href="css/rp2-style.1.css?version=1.804" type="text/css">
+<meta name="COPYRIGHT" content="Copyright (c) 1999-2018 by radioparadise.com">
 
 	
-<link rel="image_src" href="http://www.radioparadise.com/graphics/fb_logo.png">
-<meta property="og:image" content="http://www.radioparadise.com/graphics/fb_logo.png">
-
-<link type="text/css" href="http://www.radioparadise.com/scripts/themes/base/jquery.ui.all.css?version=1.61" rel="stylesheet" />
-<script type="text/javascript" src="http://www.radioparadise.com/scripts/jquery_1_7_1.js"></script>
-<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.core.js"></script>
-<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.mouse.js"></script>
-<script type="text/javascript" src="http://www.radioparadise.com/scripts/ui/jquery.ui.slider.js"></script>
-	<script type="text/javascript" src="http://www.radioparadise.com/scripts/rp2.js?version=2.001"></script>
+<link rel="image_src" href="graphics/fb_logo.png">
+<meta property="og:image" content="graphics/fb_logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/ui-darkness/jquery-ui.css">
+<link rel="stylesheet" href="css/rp3.css?version=1534505804" type="text/css">
+<link rel="stylesheet" href="css/rp2-3.css?version=1534505804" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="css/swal-forms.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="scripts/sweetalert.min.js"></script>
+<script src="scripts/swal-forms.js"></script>
+<script src="scripts/rp2-x.js?version=1534505804"></script>
+<link type="text/css" href="scripts/themes/base/jquery.ui.all.css?version=1.61" rel="stylesheet" />
+<script type="text/javascript" src="scripts/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="scripts/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="scripts/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="scripts/ui/jquery.ui.slider.js"></script>
 
 <style type="text/css">.ui-slider-horizontal .ui-state-default { height: 12px; width: 6px; }</style>
 
-<style>ul#nav {width:440px;}</style>
-
 <script type="text/javascript">
 
+	if(self.location==top.location)self.location="rp_2.php#n=songinfo&id=42628"
 	function changeHash(hash) {
 		if(history.pushState) {
 			top.history.replaceState(null, top.document.title, '#'+hash);
@@ -42,8 +44,8 @@
 			top.document.location.hash = hash;
 		}
 	}	
-	top.document.title = "RP Playlist - Radio Paradise - eclectic commercial free Internet radio";
-	changeHash('name=Playlist');
+	top.document.title = "Pink Floyd - Speak To Me -> ...In The Sky (live) - Radio Paradise - eclectic commercial free Internet radio";
+	changeHash('n=songinfo&id=42628');
 	
 	var pos = getPos();
 	if (!pos) pos = 70;
@@ -58,248 +60,500 @@
 		});
 	});
 
+	
+	var offset = new Date().getTimezoneOffset();
+	document.cookie = "offset=" + offset;
+	var validated = '';
+	var first = 'yes';
+	
 	function change_img(div_id,img_id) {
 		$(div_id).css("background-image", "url(graphics/" + img_id + ")");  
 	}
 	function load_topic_content(file) {
-		$('#topic_content').load('content/Playlist/' + file + '.php');
+		$('#topic_content').load('rp3-content/Music/' + file + '.php');
 		$('html, body').animate({ scrollTop: 0 }, 0);
 	}
-	function load_page_content(name, file) {
-		$('#content').load('content/' + name + '/' + file + '.php');
-	}
-</script>
 
-<script type="text/javascript">
-	window.onload=function(){
-		setTimeout("playlist_update()", 98000);		
-			}
-
-	function setCookie(c_name,value,exdays)
-	{
-		var exdate=new Date();
-		exdate.setDate(exdate.getDate() + exdays);
-		var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-		document.cookie=c_name + "=" + c_value;
+	function rateThis(song_id) {
+		if (validated == 'yes') {
+			$("#info").load("rp3_web_rating.php", { "song_id": song_id  }).fadeIn(500);
+		}else{
+			logIn('Please Log In');
+		}
 	}
+	
+	function doRating(song_id, rating) {
+		$('#rating_' + song_id).load('ajax_rp3_web_rating.php?rating=' +  rating + '&song_id=' + song_id);
+		$("#info").fadeOut(500);
+	}
+
+	function hideInfo() {
+		$("#info").fadeOut(500);
+	}
+
+	function setCookie(c_name, value, sec){
+		var date = new Date();
+		date.setTime(date.getTime() + sec * 1000);
+		var c_value=escape(value) + ((sec == null) ? "" : "; expires=" + date.toUTCString() + "; domain=.radioparadise.com; path=/");
+		document.cookie = c_name + "=" + c_value;
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	}
+
+	function eraseCookie(name) {
+		setCookie(name,"",-1);
+	}
+	
 	function hideHeader(){
 		$('#appeal_header').hide(200);
-		setCookie("C_hide_appeal", "true", 5)
+		setCookie("C_hide_appeal", "true", 432000)
 	}
 	
+	var name = 'Music';
 
+	function logIn(title_text) {
+		swal.withForm({  
+			html: true, 
+			title: title_text,  
+			text: 'To sign up for an account or recover your password, go to <a style="color:#446" href="http://www.radioparadise.com/register" target="_blank">radioparadise.com/register</a>.',
+			confirmButtonText: 'Log In',
+			confirmButtonColor: '#6677cc',
+			showCancelButton: true,
+			cancelButtonColor: '#666',
+			closeOnConfirm: true,
+			formFields: [
+			  { id: 'username', placeholder: 'Username or email address' },
+			  { id: 'password', type: 'password' },
+			]
+		  }, function (isConfirm) {
+			if (isConfirm) {
+				$.getJSON("https://api.radioparadise.com/api/auth", { username: this.swalForm.username, passwd: this.swalForm.password }, function(data){
+					console.log(data);
+					if (data.status == 'fail') {
+						logIn('Invalid Login');
+					}else{
+						var exp = 31536000;
+						setCookie('C_username', data.username, exp);
+						setCookie('C_user_id', data.user_id, exp);
+						setCookie('C_passwd', data.passwd, exp);
+						window.location.reload(false);
+					}
+				});
+			}
+		  });
+	}
 	
+	function logOut() {
+		setCookie('C_passwd', '', -360);
+		setCookie('C_username', '', -360);
+		setCookie('C_user_id', '', -360);
+		window.location.reload(false);
+	}
+
+	window.onload=function(){
+		playlist_update();
+			}
+		
 </script>
-
-
-
 </head>
 <body>
 <div align="center">
-
-
 <div id="container">
-
-
-
-
 <div align="center">
-
-
 <div id="header">
 	<table border="0" width="900" cellpadding="0" cellspacing="0" ><tr><td width="20">&nbsp;</td>
 	<td width="420" class="logo">
 	
-	<a href="rp2-content.php?name=Home">
+	<a href="content.php?name=Home">
 	<img src="clear.gif" width="420" height="46" border="0"></a>
 	<div style="font-weight:bold;letter-spacing:1px;margin-left:202px;margin-bottom:20px;">
-	<a class="black" href="https://www.radioparadise.com/rp2s-content.php?name=Support" target="_blank">Listener Supported</a>
+	<a class="black" href="https://support.radioparadise.com" target="_blank">Listener Supported</a>
 	</div>
 	<div id="controls">
 		<div id="slider" title="Volume">
 		</div>
-		<form action="rp_2.php#name=Playlist" target="_top" method="post" style="display:inline">
+		<form action="rp_2.php#n=songinfo&id=42628" target="_top" method="post" style="display:inline">
 		<select name="change_bitrate" onchange="this.form.submit();" style="outline: none" title="Select main stream bitrate">
 		<option value="0">32k</option>
-		<option value="1" selected>96k</option>
+		<option value="1" selected>128k</option>
 		<option value="2">192k</option>
 		</select></form>&nbsp;&nbsp;
 		<input type="button" class="button" value="Stop" title="Stop Audio" onclick="javacript: doStop(); return false;">
 		<input type="button" class="button" id="play_button"  value="Play >" title="Start or return to main RP stream" onclick="javacript: doReturn(); return false;">
-					<a href="rp2-content.php?name=Members&file=register_psd"><input type="button" title="Log in to activate the Something Different function"  class="button" value="PSD >>" ></a>
+					<input type="button" class="button" id="psd_button" value="PSD >>" title="Play Something Different!" onclick="javascript: doReplace(); return false;"></a>
 			
 		<script type="text/javascript">
-	
 			if (parent.frames.player_2.playing == "yes") {
 				button_2();
 			}
 			if (parent.frames.player_1.playing == "yes") {
 				button_3();
 			}
-	
 		</script>
 	
 	</div>
 	</td><td align="center" valign="top" width="460" >
-	<form action="javascript: doRating()" id="rating_form_top" style="display:inline">
+	<form action="javascript: doTopRating()" id="rating_form_top" style="display:inline">
 	
 		<div id="nowplaying">
 			<div id="playlist_content">	
-			<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="bottom" width="1"></td><td valign="bottom"><div id="pre_list"><a class="song_title"  href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=37888">William Shatner &mdash; You'll Have Time</a><br /><a class="song_title"  href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=34829">Lindsey Buckingham &mdash; Go Insane (live)</a><br /><a class="song_title"  href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=42628">Pink Floyd &mdash; Speak To Me -> ...In The Sky (live)</a><br /></div><a class="song_title" href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=44115"><b>Steven Wilson &mdash; Perfect Life</b></a></td><td valign="bottom" ><a class="song_title" href="http://www.radioparadise.com/rp2-content.php?name=Music&file=songinfo&song_id=44115"><img src="http://www.radioparadise.com/graphics/covers/m/B00QW4QWYQ.jpg" class = "cover_art" width="100" height="100" border="0" align="right" style="margin-left:12px;"></a></td></tr></table>			</div>
+			
+			</div>
 		</div>
 		
 	</form>
 	</td></tr></table>
 </div>
-<table border="0" width="800" cellpadding="0" cellspacing="0" ><tr><td>
-<div id="classic" style="text-align:left;height:26px;"><div style="font-size:120%;font-weight:bold;color:#d63;background-color:#222;border:1px solid #d63;border-radius:4px;padding:4px;display:inline;"> NEW: <a class="song_title" href="https://beta.radioparadise.com/" target="_top">Beta Website/Player</a> </div>&nbsp;&nbsp&nbsp[ <a class="login" href="javascript:void();" onclick="javascript: startRPHD(); return false;">Slideshow Player</a> ]&nbsp;&nbsp&nbsp[ <a class="login" href="javascript:void();" onclick="javascript: startPlayer(); return false;">Audio Player</a> ]</div><div id="login">[ <a class="login" href="rp2-content.php?name=Members&file=login&query_n=PlaylistZZfile=index">Log In</a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ <a class="login" href="rp2-content.php?name=Members&file=register">Register</a> ]&nbsp;&nbsp;&nbsp;[ <a class="login" href="javascript://" onClick="window.location.reload()">refresh this window</a> ]</div></td></tr></table>
-
-<table border="0" width="100%" cellpadding="0" cellspacing="0"><tr><td>
-
-<div id="menu">
-	<table border="0" cellpadding="0" cellspacing="0"><tr><td>
-    <ul id="nav2">
-        <li><a href="rp2-content.php">Home</a></li>
-    	<li><a href="rp2-content.php?name=Forum">Community</a></li>
-    	<li><a href="https://www.radioparadise.com/rp2s-content.php?name=Support&file=support" target="_blank">Support&nbsp;RP</a></li>
-    	<li><a href="rp2-content.php?name=Help">Help&nbsp;&amp;&nbsp;Info</a></li>
-    </ul>
-    </td><td >
-    <ul id="nav">
-        <li class="activelink"><a href="rp2-content.php?name=Playlist">Playlist</a></li>
-        <li><a href="rp2-content.php?name=Music">Music/Artists</a></li>
-        <li><a href="rp2-content.php?name=Favorites">Favorites</a></li>
-                <li><a href="rp2-content.php?name=Submissions">Submissions</a></li>
-            </ul>
-    </td></tr></table>
+<table border="0" width="900" cellpadding="0" cellspacing="0" ><tr><td>
+<div id="classic" style="text-align:left;height:26px;margin-left:20px;">[ <a class="login" a href="https://new.radioparadise.com" target="_top">Beta Player</a> ]&nbsp;&nbsp&nbsp[ <a class="login" href="javascript: startRPHD();">Slideshow Player</a> ]&nbsp;&nbsp&nbsp[ <a class="login" href="javascript: startPlayer();">Audio Player</a> ]</div><div id="login" style="margin-top:54px;">[ <a class="login" href="javascript:logIn('Log In')">Log In</a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ <a class="login" href="?n=Help&f=register">Register</a> ]&nbsp;&nbsp;&nbsp;[ <a class="login" href="javascript://" onClick="window.location.reload()">refresh this window</a> ]</div></td></tr></table>
 </div>
-</td></tr></table>
+
+<ul id="nav2">
+	<li><a href="rp3.php">Home</a></li>
+	<li><a href="rp3.php?name=Listen">Listen&nbsp;+&nbsp;Apps</a></li>
+	<li class="activelink"><a href="rp3.php?name=Music">Music</a></li>
+	<li><a href="rp3.php?name=Forum">Forum</a></li>
+	<li><a href="https://support.radioparadise.com" target="_blank">Support&nbsp;RP</a></li>
+	<li><a href="rp3.php?name=Help">Help&nbsp;+&nbsp;Info</a></li>
+	<li><a href="javascript:logIn('Please Log In')">log in</a></li>
+</ul>
+<div id="info"></div>
 <div align="center">
 <div id="content">
-<head>
+
 <style>
-
-.rating_10
-{
-	background-color: #009800;
-	color: #000
+#div_info {
+	float:left;
+	margin-right:12px;
 }
-.rating_9
-{
-	background-color: #00c501;
-	color: #000
-}
-.rating_8
-{
-	background-color: #00f102;
-	color: #000
-}
-.rating_7
-{
-	background-color: #84f800;
-	color: #000
-}
-.rating_6
-{
-	background-color: #dcfa00;
-	color: #000
-}
-.rating_5
-{
-	background-color: #ffe100;
-	color: #000
-}
-.rating_4
-{
-	background-color: #ffae00;
-	color: #000
-}
-.rating_3
-{
-	background-color: #ff7305;
-	color: #000
-}
-.rating_2
-{
-	background-color: #f04e02;
-	color: #000
-}
-.rating_1
-{
-	background-color: #db1f00;
-	color: #000
+#div_lyrics {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 8px;
+	height: 390px;
+	overflow: auto;
 }
 
 
-.spacer
-{
-	background-color: #ccc;
-	height: 1px;
-	padding: 0px;
+#div_comments {
+	clear: left;
 }
-.break
-{
-	padding: 0px;
+.rating-div a{
+	display: block;
+	padding-top:0px;
+	height:18px;
+	width: 24px;
 }
-.tableheader
-{
-	font-size: 8pt;
-	padding: 2px;
+.rating-div{
+	width: 24px;
+	height: 18px;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	display: inline-block;
 }
-.nullrow
+#rating_dist
 {
-	height: 0px;
-	padding: 0;
+
+}
+#rating_dist td {
+	margin: 0px;
+	margin-right: 2px;
+}
+.sales_links a {
+	color: #ccc;
+    text-decoration: none;
+	outline: none;
+	display:inline;
+	border: 0;
 }
 
+.misc_links {
+	margin-top: 20px;
+	clear: left;
+}
+.misc_links a {
+	color: #ccc;
+	outline: none;
+	margin-right: 20px;
+}
+.comments {
+	padding: 12px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid #aaa;
+	word-wrap: break-word;
+}
 
+.comments img {
+	max-width: 90%;
+	height: auto;
+}
+
+.comments_footer {
+	text-align:right;
+	padding:6px;
+	margin-right:4px;
+	margin-top:10px;
+	font-size: 90%;
+}
+
+.quote
+{
+	border: #999 1px dotted;
+	background-color: #ddd;
+	margin-left: 20px;
+	margin-top: 8px;
+	padding: 10px;
+	font-size: 9pt;
+	overflow: visible; 
+	overflow-x:auto; 
+	overflow-y:hidden; 
+	padding-bottom:15px;
+}
+.comments a {
+	color: #119;
+}
+
+.song_info_nav {
+	float: right;
+}
+.song_info_nav a{
+	opacity: 0.7;
+}
+.song_info_nav a:hover {
+	opacity: 1;
+}
 </style>
+<script>
+	var song_id = '42628';
+	var validated = '';
+	
+	function deletePost(post_id) {
+		swal({
+		  title: "Delete Post",
+		  text: "Are you sure you want to permanently delete this post?",
+		  showCancelButton: true,
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "Yes, Delete it",
+		  closeOnConfirm: true,
+		  showLoaderOnConfirm: false
+		},
+		function(){
+		  location.href='/rp3.php?n=Music&f=post&song_id=' + song_id + '&delete=' + post_id;
+		});
+	}
+	
+	function postComment() {
+		if (validated == 'yes') {
+			location.href='/rp3.php?n=Music&f=post&song_id=' + song_id;
+		}else{
+			logIn('Please Log In');
+		}
+	}
 
-<a name="top"></a><h1 style="text-align:center;">RP Playlist - Last Hour <span style="font-size: 12pt;margin-left:120px;">[ &nbsp;&nbsp;<a href="rp2-content.php?name=Playlist&more=true">6 hrs</a> &nbsp;&nbsp;| &nbsp;&nbsp;<a href="rp2-content.php?name=Playlist&offset=0">History</a> &nbsp;&nbsp;]</span><span style="font-size: 12pt;font-weight:normal;margin-left:120px;">Playlist via Twitter: <a href="http://twitter.com/rp_playlist" target="_blank">@rp_playlist</a></span></h1>	<table border="0" cellpadding="5" cellspacing="0" width="100%">
-	<tr><td class="tableheader">PST</td><td class="tableheader">Artist - Song</td><td class="tableheader">Album</td><td class="tableheader">Rating</td></tr>
+	var offset = 20;
+	var remaining_comments =  - offset; 
 
-<tr class="shade"><td>4:08 am</td><td><a href="rp2-content.php?name=songinfo&song_id=44115">Steven Wilson<br>Perfect Life</a></td><td><a href="rp2-content.php?name=songinfo&song_id=44115"><img src="http://www.radioparadise.com/graphics/covers/s/B00QW4QWYQ.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Hand. Cannot. Erase.</a> (2015)</td><td class="rating_7">7.4</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>3:45 am</td><td><a href="rp2-content.php?name=songinfo&song_id=42628">Pink Floyd<br>Speak To Me -> ...In The Sky (live)</a></td><td><a href="rp2-content.php?name=songinfo&song_id=42628"><img src="http://www.radioparadise.com/graphics/covers/s/B004ZNARH4.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">The Dark Side Of The Moon (Immersion Box Set)</a> (1974)</td><td class="rating_8">8.7</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>3:41 am</td><td><a href="rp2-content.php?name=songinfo&song_id=34829">Lindsey Buckingham<br>Go Insane (live)</a></td><td><a href="rp2-content.php?name=songinfo&song_id=34829"><img src="http://www.radioparadise.com/graphics/covers/s/B000002NHG.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">The Dance (Fleetwood Mac)</a> (1997)</td><td class="rating_7">7.5</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>3:35 am</td><td><a href="rp2-content.php?name=songinfo&song_id=37888">William Shatner<br>You'll Have Time</a></td><td><a href="rp2-content.php?name=songinfo&song_id=37888"><img src="http://www.radioparadise.com/graphics/covers/s/B0002RUPH4.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Has Been</a> (2004)</td><td class="rating_5">5.6</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>3:33 am</td><td><a href="rp2-content.php?name=songinfo&song_id=44151">The Outsiders<br>Time Won't Let Me</a></td><td><a href="rp2-content.php?name=songinfo&song_id=44151"><img src="http://www.radioparadise.com/graphics/covers/s/B000T4F43A.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Time Won't Let Me</a> (1966)</td><td class="rating_7">7.4</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>3:28 am</td><td><a href="rp2-content.php?name=songinfo&song_id=30187">Refreshments<br>Banditos</a></td><td><a href="rp2-content.php?name=songinfo&song_id=30187"><img src="http://www.radioparadise.com/graphics/covers/s/B000001EID.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Fizzy Fuzzy Big & Buzzy</a> (1996)</td><td class="rating_6">6.3</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>3:24 am</td><td><a href="rp2-content.php?name=songinfo&song_id=32134">Belly<br>Slow Dog</a></td><td><a href="rp2-content.php?name=songinfo&song_id=32134"><img src="http://www.radioparadise.com/graphics/covers/s/B000002MIA.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Star</a> (1993)</td><td class="rating_6">6.3</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>3:22 am</td><td><a href="rp2-content.php?name=songinfo&song_id=2625">Steve Earle<br>I Feel Alright</a></td><td><a href="rp2-content.php?name=songinfo&song_id=2625"><img src="http://www.radioparadise.com/graphics/covers/s/B000002N61.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">I Feel Alright</a> (1996)</td><td class="rating_6">6.9</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>3:18 am</td><td><a href="rp2-content.php?name=songinfo&song_id=30922">John Hiatt<br>My Old Friend</a></td><td><a href="rp2-content.php?name=songinfo&song_id=30922"><img src="http://www.radioparadise.com/graphics/covers/s/B00005NG1Y.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">The Tiki Bar Is Open</a> (2001)</td><td class="rating_6">6.7</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>3:15 am</td><td><a href="rp2-content.php?name=songinfo&song_id=38125">R.E.M.<br>Sitting Still</a></td><td><a href="rp2-content.php?name=songinfo&song_id=38125"><img src="http://www.radioparadise.com/graphics/covers/s/B000001I0A.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Murmur</a> (1983)</td><td class="rating_7">7.7</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>3:11 am</td><td><a href="rp2-content.php?name=songinfo&song_id=39670">Pernice Brothers<br>There Goes the Sun</a></td><td><a href="rp2-content.php?name=songinfo&song_id=39670"><img src="http://www.radioparadise.com/graphics/covers/s/B0009K7RB6.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Discover a Lovelier You</a> (2005)</td><td class="rating_6">6.6</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>3:07 am</td><td><a href="rp2-content.php?name=songinfo&song_id=43850">Future Islands<br>Balance</a></td><td><a href="rp2-content.php?name=songinfo&song_id=43850"><img src="http://www.radioparadise.com/graphics/covers/s/B005I735HU.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">On The Water</a> (2011)</td><td class="rating_6">6.6</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>3:03 am</td><td><a href="rp2-content.php?name=songinfo&song_id=38988">Paul Simon<br>One Man's Ceiling is Another Man's Floor</a></td><td><a href="rp2-content.php?name=songinfo&song_id=38988"><img src="http://www.radioparadise.com/graphics/covers/s/B00024WYKS.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">There Goes Rhymin' Simon</a> (1973)</td><td class="rating_6">6.8</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>2:59 am</td><td><a href="rp2-content.php?name=songinfo&song_id=42876">Joan Osborne<br>The Same Love That Made Me Laugh</a></td><td><a href="rp2-content.php?name=songinfo&song_id=42876"><img src="http://www.radioparadise.com/graphics/covers/s/B006M6URPY.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Bring It On Home</a> (2012)</td><td class="rating_7">7</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>2:54 am</td><td><a href="rp2-content.php?name=songinfo&song_id=39223">Fairport Convention<br>Who Knows Where the Time Goes</a></td><td><a href="rp2-content.php?name=songinfo&song_id=39223"><img src="http://www.radioparadise.com/graphics/covers/s/B00007J36V.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Unhalfbricking</a> (1969)</td><td class="rating_7">7.8</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>2:48 am</td><td><a href="rp2-content.php?name=songinfo&song_id=34595">Pat Metheny<br>A Map Of The World</a></td><td><a href="rp2-content.php?name=songinfo&song_id=34595"><img src="http://www.radioparadise.com/graphics/covers/s/B00002DEYS.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">A Map Of The World</a> (1999)</td><td class="rating_7">7.7</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>2:44 am</td><td><a href="rp2-content.php?name=songinfo&song_id=34278">Neko Case<br>Deep Red Bells</a></td><td><a href="rp2-content.php?name=songinfo&song_id=34278"><img src="http://www.radioparadise.com/graphics/covers/s/B00006BTC6.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Blacklisted</a> (2002)</td><td class="rating_7">7.5</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>2:41 am</td><td><a href="rp2-content.php?name=songinfo&song_id=36863">The Smiths<br>A Rush and a Push and the Land is Ours</a></td><td><a href="rp2-content.php?name=songinfo&song_id=36863"><img src="http://www.radioparadise.com/graphics/covers/s/B000002LCX.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Strangeways Here We Come</a> (1987)</td><td class="rating_7">7.2</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="shade"><td>2:38 am</td><td><a href="rp2-content.php?name=songinfo&song_id=42846">Regina Spektor<br>All the Rowboats</a></td><td><a href="rp2-content.php?name=songinfo&song_id=42846"><img src="http://www.radioparadise.com/graphics/covers/s/B007MDQW3W.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">What We Saw from the Cheap Seats</a> (2012)</td><td class="rating_7">7.1</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-<tr class="noshade"><td>2:32 am</td><td><a href="rp2-content.php?name=songinfo&song_id=43924">78 Saab<br>All A Lie</a></td><td><a href="rp2-content.php?name=songinfo&song_id=43924"><img src="http://www.radioparadise.com/graphics/covers/s/B00064WYLI.jpg" height="70" width="70" border="0" align="left" style="margin-right:10px;">Crossed Lines</a> (2004)</td><td class="rating_7">7.6</td></tr>
-<tr><td colspan="4" class="spacer"></td></tr>
-</table><div align="right"><a href="rp2-content.php?name=Playlist&more=true#more">...more</a></div>
+	function update_morelink() {
+		if (remaining_comments > 0) {
+			$('#morelink').html('<div class="heading_2"> <a href="javascript:add_comments()">(more)</a></div>');
+		 }else{
+			$('#morelink').html("&nbsp;");
+		 }
+	}
 
+	function add_comments()
+	{
+	   $.ajax({
+		 type: "GET",
+		 url: 'ajax_rp3_get_comments.php',
+		 data: "song_id=42628&offset=" + offset, 
+		 success: function(data) {
+			$('#div_comments').append(data);
+			offset = offset + 20;
+			remaining_comments = remaining_comments - 20;
+			update_morelink();
+		 }
+
+	   });
+	}
+	$(update_morelink);	
+</script>
+		
+<div id="topic_nav" style="margin-bottom:12px;">
+  <ul>
+  	<li><a href="/rp3.php?n=Music&f=play_history">Play History</a></li>
+  	<li ><a href="/rp3.php?n=Music&f=songinfo">Now Playing</a></li>
+  	<li><a href="/rp3.php?n=Music&f=artists">Artists</a></li>
+    <li><a href="/rp3.php?n=Music&f=top_lists">Top Lists</a></li>
+    <li><a href="/rp3.php?n=Music&f=search">Search</a></li>
+    <li><a href="/rp3.php?n=Music&f=favorites">Your Favorites</a></li>
+    <li><a href="/rp3.php?n=Submissions">Submissions</a></li>    <li class="topic_nav_active"><a href="/rp3.php?n=Music&f=songinfo&song_id="42628">Song Info</a></li>
+      </ul>
+</div>
+
+<div class="topic_head">
+<a href="/rp3.php?n=Music&f=artists&artist=Pink+Floyd">Pink Floyd</a> &mdash; Speak To Me -> ...In The Sky (live)<span class="song_info_nav"></span></div>
+<div id="div_info" style="width:50%">
+<div style="position:relative; padding:10px;">
+<a href="/rp3.php?n=Music&f=album&asin=B004ZNARH4"><img src="https://img.radioparadise.com/covers/m/B004ZNARH4.jpg" align="left" style="width:200px;height:200px;margin-right:12px;margin-bottom:24px;" ></a>Album: <a href="/rp3.php?n=Music&f=album&asin=B004ZNARH4">The Dark Side Of The Moon (Immersion Box Set)</a><br />
+Avg rating: <div class="rating-div rating_9" style="margin-left:5px;">8.7</div><br />
+Your rating: <div id="rating_42628" style="display:inline-block;"><div title="Your rating - click to change" class="rating-div rating_0" ><a href="javascript:rateThis('42628')"><span id="rating_text">0</a></span></div></div><br />
+Total ratings: 854<br />
+<div id="histogram">
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:38px;background-color:#ddd;" title="1 votes: 28 (3.3%)"><br /><img src="graphics/clear.gif" style="width:12px;height:2px;background-color:#db1f00;" title="1 votes: 28 (3.3%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:38px;background-color:#ddd;" title="2 votes: 17 (2%)"><br /><img src="graphics/clear.gif" style="width:12px;height:2px;background-color:#f04e02;" title="2 votes: 17 (2%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:38px;background-color:#ddd;" title="3 votes: 16 (1.9%)"><br /><img src="graphics/clear.gif" style="width:12px;height:2px;background-color:#ff7305;" title="3 votes: 16 (1.9%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:40px;background-color:#ddd;" title="4 votes: 5 (0.59%)"><br /><img src="graphics/clear.gif" style="width:12px;height:0px;background-color:#ffae00;" title="4 votes: 5 (0.59%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:39px;background-color:#ddd;" title="5 votes: 9 (1.1%)"><br /><img src="graphics/clear.gif" style="width:12px;height:1px;background-color:#ffe100;" title="5 votes: 9 (1.1%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:38px;background-color:#ddd;" title="6 votes: 19 (2.2%)"><br /><img src="graphics/clear.gif" style="width:12px;height:2px;background-color:#dcfa00;" title="6 votes: 19 (2.2%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:37px;background-color:#ddd;" title="7 votes: 36 (4.2%)"><br /><img src="graphics/clear.gif" style="width:12px;height:3px;background-color:#84f800;" title="7 votes: 36 (4.2%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:31px;background-color:#ddd;" title="8 votes: 106 (12%)"><br /><img src="graphics/clear.gif" style="width:12px;height:9px;background-color:#00f102;" title="8 votes: 106 (12%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:25px;background-color:#ddd;" title="9 votes: 175 (20%)"><br /><img src="graphics/clear.gif" style="width:12px;height:15px;background-color:#00c501;" title="9 votes: 175 (20%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:40px;background-color:#009800;" title="10 votes: 442 (52%)"></div> 
+</div>
+<span style="font-size: 80%;">
+Released: 1974<br />
+Length: 24:05<br />
+Plays (last 30 days): 0<br />
+</span>
+</div>
+<div class="misc_links"><a href="http://www.facebook.com/sharer/sharer.php?u=http://www.radioparadise.com/?file=songinfo&song_id=42628" target="_blank"><img src="graphics/facebook-logo.png" width="20" height="20" border="0" align="center"> share</a><a href="http://www.radioparadise.com/tweet.php?url=http://www.radioparadise.com/%3Ffile%3Dsonginfo%26song_id%3D42628&song=Pink+Floyd+-+Speak+To+Me+-%3E+...In+The+Sky+%28live%29" target="_blank"><img src="graphics/twitter-logo.png" width="20" height="20" border="0"  align="center"> tweet</a><a href="https://en.wikipedia.org/wiki/Pink_Floyd" target="_blank"> wiki</a><a href="http://www.google.com/search?q=Pink+Floyd" target="_blank">website</a><a href="http://www.google.com/search?q=Pink+Floyd" target="_blank">search</a><a href="http://www.allmusic.com/search/artist/Pink+Floyd" target="_blank">amg</a></div><div class="sales_links"><img src="graphics/amazon_trans_100x40.png" style="margin-right:8px;float:left;"><div class="amazon_links"><a href="https://assoc-redirect.amazon.com/g/r/http://www.amazon.com/Pink-Floyd-The-Dark-Side-Of-The-Moon-%28Immersion-Box-Set%29/dp/B004ZNARH4?tag=radioparadise-20" target="_blank">cd</a></div><div class="amazon_links"><a href="https://assoc-redirect.amazon.com/g/r/http://www.amazon.com/Pink-Floyd-The-Dark-Side-Of-The-Moon-%28Immersion-Box-Set%29/dp/B005NPCUC8?tag=radioparadise-20" target="_blank">mp3</a></div><div class="amazon_links"><a href="https://www.amazon.com/s?url=search-alias%3Ddigital-music&field-keywords=Pink+Floyd&tag=radioparadise-20" target="_blank">search</a></div></div><div class="sales_links"><img src="graphics/itunes_trans_100x40.png" style="margin-right:8px;float:left;" ><div id="itunes" style="display:inline;"><div class="itunes_links"><a href="" target="_blank">song</a></div><div class="itunes_links"><a href="" target="_blank">album</a></div><div class="itunes_links"><a href="https://geo.itunes.apple.com/us/artist/pink-floyd-floydhead/39362144?uo=4&at=10l7mg" target="_blank">artist</a></div></div></div></div>
+<div id="div_lyrics">
+I've been mad for fucking years, absolutely years, <br />Been over the edge for yonks, <br />Been working me buns off for bands<br />I've always been mad, I know I've been mad, <br />Like the most of us, very hard to explain why you're mad, <br />Even if you're not mad<br /><br />--<br /><br />Breathe, breathe in the air <br />Don't be afraid to care <br />Leave but don't leave me <br />Look around and choose your own ground<br />Long you live and high you fly <br />And smiles you'll give and tears you'll cry <br />And all you touch and all you see <br />Is all your life will ever be<br />Run, rabbit run<br />Dig that hole, forget the sun<br />And when at last the work is done <br />Don't sit down it's time to dig another one<br />For long you live and high you fly <br />But only if you ride the tide <br />And balanced on the biggest wave <br />You race towards an early grave<br /><br />--<br /><br />Ticking away the moments that make up a dull day<br />Fritter and waste the hours in an off-hand way<br />Kicking around on a piece of ground in your home town<br />Waiting for someone or something to show you the way<br /><br />Tired of lying in the sunshine staying home to watch the rain<br />You are young and life is long and there is time to kill today<br />And then one day you find ten years have got behind you<br />No one told you when to run, you missed the starting gun<br /><br />And you run and you run to catch up with the sun but it's sinking<br />Racing around to come up behind you again<br />The sun is the same in a relative way, but you're older<br />Shorter of breath and one day closer to death<br /><br />Every year is getting shorter, never seem to find the time<br />Plans that either come to naught or half a page of scribbled lines<br />Hanging on in quiet desperation is the English way<br />The time is gone, the song is over, thought I'd something more to say<br /><br />Home, home again<br />I like to be here when I can<br />When I come home cold and tired<br />It's good to warm my bones beside the fire<br />Far away, across the field<br />The tolling of the iron bell<br />Calls the faithful to their knees<br />To hear the softly spoken magic spell</div>
+<div class="topic_head">Comments (178)<span style="font-weight:normal;font-size:70%;float:right;margin-right:24px;"><a href="javascript:postComment()">add comment</a></span>
+</div>
+<div id="div_comments">
+<div class="comments">I actually prefer the studio version.<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Stefen" target="_blank">Stefen</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=971b491544a87e5c76537710e376c436"> Reply ]</a></div></div>
+<div class="comments">Just saw Roger Waters in concert...he did mostly Pink Floyd hits (from Meddle, Dark Side Of the Moon, Wish You Were Here, Animals, The Wall) with some really great visual effects and a couple live acting pieces. &nbsp;I highly recommend it to any Pink Floyd fan out there. &nbsp;Roger Water's concert is the closest you will ever get to a real Pink Floyd concert with one of the original members.<br /><br /><br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=rpdevotee" target="_blank">rpdevotee</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4b8eb93b47b7063496017641e68c0623"> Reply ]</a></div></div>
+<div class="comments">That was mindblowing. Thanks!<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=nickstamat" target="_blank">nickstamat</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=766160c99b04b92b06a1ffd04c92b2f5"> Reply ]</a></div></div>
+<div class="comments">G R E A T ! ! !<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=vanmas" target="_blank">vanmas</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=ae8a1373bfac903e0e475ec447df5951"> Reply ]</a></div></div>
+<div class="comments"><img title="{#Sunny}" src="http://graphics.radioparadise.com/emoji/sunny.gif" alt="{#Sunny}" border="0" /><br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=sunflowerbee" target="_blank">sunflowerbee</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=297c9b2c7bd4edba07ac149482f428d4"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>jsd52756 wrote:</strong><div class="quote">My daughter gave me the Immersion Set for Christmas about five years ago.&nbsp; I've never listened to the live CD.&nbsp; Thanks Bill for setting me <br />straight.&nbsp; And my daughter too...&nbsp;&nbsp; Nice version for sure.<br />-John<br /><br /></div><em>&nbsp;</em> <br />Yes, very nice live!!<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=helgigermany" target="_blank">helgigermany</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=f3d5fefd614156c8ac86bf25859c9c7e"> Reply ]</a></div></div>
+<div class="comments">My daughter gave me the Immersion Set for Christmas about five years ago.&nbsp; I've never listened to the live CD.&nbsp; Thanks Bill for setting me <br />straight.&nbsp; And my daughter too...&nbsp;&nbsp; Nice version for sure.<br />-John<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=jsd52756" target="_blank">jsd52756</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=1e94f83620d72922d0d09bfbe19327af"> Reply ]</a></div></div>
+<div class="comments">That was an excellent version, I too have never heard before. &nbsp;<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Mindahl" target="_blank">Mindahl</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4eb7be50e42e8ab9a400a5a582dd9734"> Reply ]</a></div></div>
+<div class="comments">Any live version rarely equals the studio original. This one does not. &nbsp;The many intricacies of the studio are impossible to exactly reproduce, but I'm sure the mystique of the live experience was thrilling nonetheless. It's hard to step too hard on one of the greatest records ever made.&nbsp;<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=kingart" target="_blank">kingart</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=54e089ec49917fa0461800ecd2b63a52"> Reply ]</a></div></div>
+<div class="comments">excellent<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=1wolfy" target="_blank">1wolfy</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=0d365d71acc2a310e3efba1500460aec"> Reply ]</a></div></div>
+<div class="comments">All the genius composition and musicianship of the recorded version - and much, much less. At least it's just like being there live - oh, wait a minute, it's actually nothing like that, either. I guess the boys couldn't hear themselves sing, cause even that's not much to cheer about. All told, a waste of several minutes, apart from the female vocals. IMHO, of course. pxd<div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=pxd" target="_blank">pxd</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=1d1b52532cd697d55b4ae4b924411ff9"> Reply ]</a></div></div>
+<div class="comments"><img title="{#Notworthy}" src="http://graphics.radioparadise.com/emoji/icon_notworthy.gif" alt="{#Notworthy}" border="0" /><br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=CCinSB" target="_blank">CCinSB</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=53a9f04339a97877a28d2e9b51474752"> Reply ]</a></div></div>
+<div class="comments">A fabulous version I've never heard!! Thanks.<br /><div class="comments_footer">Posted 1 year ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=boxofrain" target="_blank">boxofrain</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=10ce5b48ab99b232a9c4f0ba8585af96"> Reply ]</a></div></div>
+<div class="comments">a blessing from PSD....headphones, please.&nbsp; Wish I was there......<br /><div class="comments_footer">Posted 3 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=amoreena" target="_blank">amoreena</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=dfca8157a2b0013eb849a1008f846ba2"> Reply ]</a></div></div>
+<div class="comments">Ah, this is bringing &nbsp;back great memories of my departed friend , Christos. &nbsp;Both great!<div class="comments_footer">Posted 3 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=sheeelaaa" target="_blank">sheeelaaa</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=33a50cf6ccb22a926872b486b188df61"> Reply ]</a></div></div>
+<div class="comments">An awesome soundtrack for the eclipse. Thanks Bill!<br /><div class="comments_footer">Posted 4 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=myasma" target="_blank">myasma</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=0456032228103d95ecea20fc0af46e70"> Reply ]</a></div></div>
+<div class="comments">Sj*** wanted to get out of bed.... will have to postpone it now...<div class="comments_footer">Posted 4 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Blackbirds" target="_blank">Blackbirds</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=c0afadbf9552a7ce0f772059c03d79bb"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>galste wrote:</strong><div class="quote">8.9 average rating... nuff said. &nbsp;Clearly this is great nostalgia. &nbsp;I don't understand the negative comments. &nbsp;Are you too young to have experienced a Pink Floyd concert?</div><em>&nbsp;</em> <br />Someone's age has very little to do with their liking or disliking this tune.&nbsp; Generally, when one writes "nuff said" in a statement, there should not have to be any more words following it.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Proclivities" target="_blank">Proclivities</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=e4d83c7c6926b50304abc36db17bae61"> Reply ]</a></div></div>
+<div class="comments"><div style="overflow:auto;"><strong>&nbsp;</strong><b>coding_to_music wrote:</b><div class="quote"><a href="http://en.wikipedia.org/wiki/Clare_Torry">http://en.wikipedia.org/wiki/Clare_Torry</a><br /><h2><span id=".22The_Great_Gig_in_the_Sky.22" class="mw-headline">"The Great Gig in the Sky"</span></h2><p>In 2004, she sued Pink Floyd and&nbsp;<a title="EMI" href="http://en.wikipedia.org/wiki/EMI">EMI</a>&nbsp;for songwriting royalties on the basis that her contribution to "The Great Gig in the Sky" constituted co-authorship with keyboardist&nbsp;<a title="Richard Wright (musician)" href="http://en.wikipedia.org/wiki/Richard_Wright_(musician)">Richard Wright</a>. Originally, she was paid the standard flat fee of &pound;30 for Sunday studio work. In 2005, an out-of-court settlement was reached in Torry's favour, although the terms of the settlement were not disclosed.<sup id="cite_ref-4" class="reference"><a href="http://en.wikipedia.org/wiki/Clare_Torry#cite_note-4"><5></a></sup>&nbsp;All releases after 2005 credit 'Richard Wright/Clare Torry' for the "Great Gig in the Sky" segment.</p><br /></div><em>&nbsp;</em><br /><br /><br /><br />Fitting and well deserved tribute and restitution. Far too often musicians blame the moneymen for screwing over the hired help. It shouldn't take lawyers for them to figure out how to do the right thing.<br /></div><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Sasha2001" target="_blank">Sasha2001</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=02d5bedf5437900d616cd6585aace8c8"> Reply ]</a></div></div>
+<div class="comments">Wow....I&nbsp; purchased the album in 1975, watched my high school kids in Phoenix, OR paint the side of the gym to an identical replica of the cover...and today this sure is&nbsp;sounding so, so&nbsp;good.&nbsp;&nbsp; Thanks, RP.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Larry_Rosenow" target="_blank">Larry_Rosenow</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=da4787be808270294a68652d5ba1ab4b"> Reply ]</a></div></div>
+<div class="comments">Very cool that y'all're playing the Empire Pool performance of this!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=StoneyG" target="_blank">StoneyG</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=fbc892b74cc8fd49e286cd5c08818a35"> Reply ]</a></div></div>
+<div class="comments">here we go - turning the speakers up to 11<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ycb661" target="_blank">ycb661</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=52ac72d1d039e9f86da1fc837f67e7b4"> Reply ]</a></div></div>
+<div class="comments">I gave a 12 to this. Given that the top rating is ten, I have 2 to spare... will give it to next song, that way I will be in peace.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=tupicetti" target="_blank">tupicetti</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=fa308c5a6626db0b3b1636f3c7ab6241"> Reply ]</a></div></div>
+<div class="comments"><a href="http://en.wikipedia.org/wiki/Clare_Torry">http://en.wikipedia.org/wiki/Clare_Torry</a><br /><h2><span id=".22The_Great_Gig_in_the_Sky.22" class="mw-headline">"The Great Gig in the Sky"</span></h2><p>In 2004, she sued Pink Floyd and&nbsp;<a title="EMI" href="http://en.wikipedia.org/wiki/EMI">EMI</a>&nbsp;for songwriting royalties on the basis that her contribution to "The Great Gig in the Sky" constituted co-authorship with keyboardist&nbsp;<a title="Richard Wright (musician)" href="http://en.wikipedia.org/wiki/Richard_Wright_(musician)">Richard Wright</a>. Originally, she was paid the standard flat fee of &pound;30 for Sunday studio work. In 2005, an out-of-court settlement was reached in Torry's favour, although the terms of the settlement were not disclosed.<sup id="cite_ref-4" class="reference"><a href="http://en.wikipedia.org/wiki/Clare_Torry#cite_note-4"><5></a></sup>&nbsp;All releases after 2005 credit 'Richard Wright/Clare Torry' for the "Great Gig in the Sky" segment.</p><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=coding_to_music" target="_blank">coding_to_music</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=fc22e69dbfba31723eece43d5a5e0495"> Reply ]</a></div></div>
+<div class="comments">this is a magical recording. Excellent sound and great performance.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Oidos" target="_blank">Oidos</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=8d72f8bea0e88ffaf2c69029958a6fdd"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>Art_Carnage wrote:</strong><div class="quote">It's a shame that Clare Torry had to sue, in order to get the credit she deserved on "Great Gig...".</div><em>&nbsp;</em> <br />I doubt she sued, she sang with Dave recently, I would imagine it was just a sence of fairplay on the part of the band &lt; edit &gt;whatever Wikipedia says!&lt; /edit &gt;.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=stunix" target="_blank">stunix</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=5bc4e4545dc2a56df996b9b27c37df82"> Reply ]</a></div></div>
+<div class="comments">why must the scale go only to 10? &nbsp;so worthy of an 11 here.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=myersei" target="_blank">myersei</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=072fe4aabf2b4de196fdaf24f61eafe5"> Reply ]</a></div></div>
+<div class="comments">f&mdash;-ing yummy...<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=linzie" target="_blank">linzie</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=8f07518ab1e32463d600d200191bcbe3"> Reply ]</a></div></div>
+<div class="comments">Nooooooooo......<br />When the piece started I prepared for one hour of splendor. Only to have Bill's voice bring me down hard saying "we won't be hearing the whole piece today". Pity...<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=andreicio" target="_blank">andreicio</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=81c102c84edc47add12cfdc9e7b9edee"> Reply ]</a></div></div>
+<div class="comments">GOT TO LOVE ALL THINGS LIVE!!!! keep'm coming!!&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ksua" target="_blank">ksua</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=213e0148354e6fc10bece37ab0d42adc"> Reply ]</a></div></div>
+<div class="comments">Excellent choice Bill !!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Gwarmerdam" target="_blank">Gwarmerdam</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=2cd2a64216565045592133241f408fb5"> Reply ]</a></div></div>
+<div class="comments">had to skip it - twice!<br />&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ploba" target="_blank">ploba</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=217273416bb630decd6badc0906ef64a"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>ziakut wrote:</strong><div class="quote">Oh no...the Pink Floyd orgy. Whenever I hear a track from this and see this album cover...I know we're in for a long...overdrawn set of Pink Floyd. I like PF greatly...but this is like celebrating 1st place in a pie eating contest and indulging in the first place prize...more damn pie.&nbsp;<img title="{#No}" src="http://graphics.radioparadise.com/emoji/icon_no.gif" alt="{#No}" border="0" /><br /><br />If this were regular radio...I would assume that the DJ needed a diarrhea / cigarette break.</div><em>&nbsp;</em> <br />Completely agree with Ziakut. The music is nice, but once a year is enough. Can't you break it into pieces and just play a slice at a time? <br />There is no "Play something Different" that stands the lenght of this song. :-/<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=anjo" target="_blank">anjo</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=b3bcea239fe6a2783599d037a5ca0f18"> Reply ]</a></div></div>
+<div class="comments">Love this!<br />Please more of them live!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=vanmas" target="_blank">vanmas</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=e776663c01454f50b533ca37decf2a6e"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>ziakut wrote:</strong><div class="quote">Oh no...the Pink Floyd orgy. Whenever I hear a track from this and see this album cover...I know we're in for a long...overdrawn set of Pink Floyd. I like PF greatly...but this is like celebrating 1st place in a pie eating contest and indulging in the first place prize...more damn pie.&nbsp;<img title="{#No}" src="http://graphics.radioparadise.com/emoji/icon_no.gif" alt="{#No}" border="0" /><br /><br />If this were regular radio...I would assume that the DJ needed a diarrhea / cigarette break.</div><em>&nbsp;</em> <br /><img title="{#Lol}" src="http://graphics.radioparadise.com/emoji/icon_lol.gif" alt="{#Lol}" border="0" /> <img title="{#Clap}" src="http://graphics.radioparadise.com/emoji/icon_clap.gif" alt="{#Clap}" border="0" /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=fredriley" target="_blank">fredriley</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=acf3697eaa4b992e6324133a7fde0388"> Reply ]</a></div></div>
+<div class="comments"><p>8.9 means ??? This is not music and i can't wait for it to end.</p><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=macbags" target="_blank">macbags</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=7954999a69982682d509eaec26cb0782"> Reply ]</a></div></div>
+<div class="comments">Wow.&nbsp; This is really trippy even on my S%*##y work computer speakers!&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Seahunt" target="_blank">Seahunt</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=85d61514c05f9dfb59b1c1dc52a2747d"> Reply ]</a></div></div>
+<div class="comments">8.9 average rating... nuff said. &nbsp;Clearly this is great nostalgia. &nbsp;I don't understand the negative comments. &nbsp;Are you too young to have experienced a Pink Floyd concert?<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=galste" target="_blank">galste</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=ccb1dd297656e966568faa2290a8704c"> Reply ]</a></div></div>
+<div class="comments">Old, worn out and never ending song.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Ericocean" target="_blank">Ericocean</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=3aab68fab6db02cf968b33ad0f160e52"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>acamon wrote:</strong><div class="quote">Occasionally I hear some PF and it sounds experimental, atmospheric and interesting, I begin to think I've misjudged them. Then the 'song' starts and we're back in boring, MOR, blues funk. I guess it was experimental enough for the public at the time, but I wonder what they could have been like...<br /><br />Obviously, their gazillions of fans disagree.</div><em>&nbsp;</em> <br />Well yeah, but a big part of your&nbsp;argument&nbsp;is a result of the age of the song...a song that anyone who has ever listened to a rock radio station is familiar with. The result is that over time, what we heard as quite unique now feels quite&nbsp;familiar. Best thing to do is probably what they did and package a few versions of the old material up so we can get a sense of both the complexity and the difficulty of reproducing such truly amazing studio energy.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=oldsaxon" target="_blank">oldsaxon</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=06915934ce9ba6ed5ad45ff558890b95"> Reply ]</a></div></div>
+<div class="comments">It's a shame that Clare Torry had to sue, in order to get the credit she deserved on "Great Gig...".<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Art_Carnage" target="_blank">Art_Carnage</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=a2931ea54eb0472d304cd88d4af7858a"> Reply ]</a></div></div>
+<div class="comments">Occasionally I hear some PF and it sounds experimental, atmospheric and interesting, I begin to think I've misjudged them. Then the 'song' starts and we're back in boring, MOR, blues funk. I guess it was experimental enough for the public at the time, but I wonder what they could have been like...<br /><br />Obviously, their gazillions of fans disagree.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=acamon" target="_blank">acamon</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=05b6bd260d9a82465cfd030108398bb5"> Reply ]</a></div></div>
+<div class="comments"><p>There are few things better than Pink Floyd Live! Goose Bumps everytime!</p><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=oindjr" target="_blank">oindjr</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=b593800f21c9326de60229ccdf1392d1"> Reply ]</a></div></div>
+<div class="comments"><span style="font-size: large; font-family: comic sans ms, sans-serif; color: #008000;">The more I listen to this box set, the more I like.&nbsp; Must. Have.</span> <img title="{#Jump}" src="http://graphics.radioparadise.com/emoji/icon_jump.gif" alt="{#Jump}" border="0" /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=laozilover" target="_blank">laozilover</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=b83acca0f68b4515e4bd92004d121894"> Reply ]</a></div></div>
+<div class="comments">Oh no...the Pink Floyd orgy. Whenever I hear a track from this and see this album cover...I know we're in for a long...overdrawn set of Pink Floyd. I like PF greatly...but this is like celebrating 1st place in a pie eating contest and indulging in the first place prize...more damn pie.&nbsp;<img title="{#No}" src="http://graphics.radioparadise.com/emoji/icon_no.gif" alt="{#No}" border="0" /><br /><br />If this were regular radio...I would assume that the DJ needed a diarrhea / cigarette break.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ziakut" target="_blank">ziakut</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=26fd76262f60d928d02280fbb7ec760e"> Reply ]</a></div></div>
+<div class="comments">Oh, it's <em>speaking to me</em>, and <strong>well</strong>, as I enjoy a big ol' salad bowl of Pre-'98 Bubba Kush, Planewreck, and Deep Space Full Melt...nothing like PF, RP, and Rocky Mountain Way!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=coloradojohn" target="_blank">coloradojohn</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=392fbbd09187b69e4398477c2cc98728"> Reply ]</a></div></div>
+<div class="comments">Ticking away the moments&nbsp;that make up&nbsp;the dull day...<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=misterbearbaby" target="_blank">misterbearbaby</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=6d43d4982af0f7954212d5499819d979"> Reply ]</a></div></div>
+<div class="comments">Just loving this!<br />&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=RoaringGirl" target="_blank">RoaringGirl</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=df0ba6bd42b7577f542e89f9623ded64"> Reply ]</a></div></div>
+<div class="comments">Yes!!!!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=shellbella" target="_blank">shellbella</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=7189e2259df76c807c7fda882cc4baf3"> Reply ]</a></div></div>
+<div class="comments">And we're back.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=mike_chouinard" target="_blank">mike_chouinard</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4144a2498cb54b4fe2b79b0da4b61bf9"> Reply ]</a></div></div>
+<div class="comments">Great set Mr. B....thank you!<br />Next best thing to seeing them live...well, almost.;-)<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=godspeed" target="_blank">godspeed</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=b93779d0cfa6e74524c0e188b0137f08"> Reply ]</a></div></div>
+<div class="comments">HAS to be THE LONGEST song RP plays...<br />And thats a GREAT thing... LOVE IT&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ckcotton" target="_blank">ckcotton</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=171d7cc437384df8665eea388cde136a"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>thewiseking wrote:</strong><div class="quote"><p>if you ever wondered if a guitarist could fall asleep in the middle of a solo, the answer is apparently yes.</p></div><em>&nbsp;</em> <br />Ok, we get it, you have no musical taste and like to shout it out, broadcast it indefinitely over the interwebs.&nbsp; Type it out until your fingers bleed.&nbsp; Instead, I would suggest saving your time and changing the station.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=sbegf" target="_blank">sbegf</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=5d011757e32d70c61308505cba1b2b27"> Reply ]</a></div></div>
+<div class="comments"><p>if you ever wondered if a guitarist could fall asleep in the middle of a solo, the answer is apparently yes.</p><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=113fe1e311c37a46634e2990cd311cbd"> Reply ]</a></div></div>
+<div class="comments"><div style="overflow:auto;">I just raised a lighter over my head this song is so good only to set the fire alarm off. Oh well, at least the battery's still good.<br /></div><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Sasha2001" target="_blank">Sasha2001</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=205a18899a91335dae270c3794401db3"> Reply ]</a></div></div>
+<div class="comments">let's see, root canal, a visit to the Department of Motor Vehicles or listening to Pink Floyd's "classic" Money again? Think I'll take the root canal.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=643c205531d6471280755fce956bdf99"> Reply ]</a></div></div>
+<div class="comments">Ok, I have to get this box set!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=sbegf" target="_blank">sbegf</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=5e8c173318b6cdc679538a5d055ec801"> Reply ]</a></div></div>
+<div class="comments">This is like time travel.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=suntreader" target="_blank">suntreader</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=ef13fe0a2e99d6572952f98396496633"> Reply ]</a></div></div>
+<div class="comments">heh, heh, hey man, it's the Giant Pig, COOL!!! ya gonna smoke that?<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=359f22349a54539e5ff6c3a4b8d56816"> Reply ]</a></div></div>
+<div class="comments">11.5<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Roguewarer" target="_blank">Roguewarer</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=86e1e08144f19fe88df5eea5aa73e688"> Reply ]</a></div></div>
+<div class="comments">here we go, wake up stoners, the screeching Star Search Contestant is running vocal scales again.....zzzzzzzzzzzzzz........zzzzzzz<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=0365c6aaa7a332e47003748208cb83de"> Reply ]</a></div></div>
+<div class="comments">I LOVE LOVE LOVE Pink Floyd, but this is really hard to listen to.<br />I'm going to need to turn this off and put in the studio recording.&nbsp;<br /><br />...a little addendum...I saw the Wall concert back in 79-80? it was pure genius, flawless.<br />This dark Side doesn't even come CLOSE .<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Jelani" target="_blank">Jelani</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=19c5d239f3a70a2a4f279815d28a0643"> Reply ]</a></div></div>
+<div class="comments">..........bored..................<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=jules44" target="_blank">jules44</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=d7fa9152ce744559012d6d8d117eea8d"> Reply ]</a></div></div>
+<div class="comments"><strong><strong><strong>Are you&nbsp;twelve? Shut up and enjoy. Or better yet, go play in your haunted house!</strong></strong>&nbsp;</strong><strong>thewiseking wrote:</strong><div class="quote">must have had auto tune back in the day cause these wasted blokes are singin way off key</div><em>&nbsp;</em> <br /><br /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=jcoleman" target="_blank">jcoleman</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=cb7b50bf0ad7227a6b5ab089e45f9d59"> Reply ]</a></div></div>
+<div class="comments">must have had auto tune back in the day cause these wasted blokes are singin way off key<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=6a0c91408539b30a4663d7685f170259"> Reply ]</a></div></div>
+<div class="comments">Not the best version to be sure...<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=sneff" target="_blank">sneff</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=589dacbe14661b1690019ff2942b15d7"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>thewiseking wrote:</strong><div class="quote">could this be any cheesier? sounds like the sound effects from the Rye Playland Haunted House</div><em>&nbsp;</em> <br /><br />I was wondering when the yang to the yin of my child-like exhuberance would show up. Now could you let me know where to download&nbsp;that Rye thing? <img title="Smile" src="http://graphics.radioparadise.com/emoji/smiley-smile.gif" alt="Smile" border="0" /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=katiediddler" target="_blank">katiediddler</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=44eeee15081107172e75941a4c1f8d76"> Reply ]</a></div></div>
+<div class="comments">I think I just blew out my speakers!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=6-Jags" target="_blank">6-Jags</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=fc43c84cf1122d06deec8a1da3946cb0"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>thewiseking wrote:</strong><div class="quote"><p>here it goes again, soul crushing tedium for the now balding, pot bellied, way over the hill stoner set. <br />couldn't stand it then but hey, they filled the stadium</p></div><em>&nbsp;</em> <br />I think the Ozzie Osbourne you are looking for is on another station........<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=amoreena" target="_blank">amoreena</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=cdea81fb14a3ede0a57bb323b5232f20"> Reply ]</a></div></div>
+<div class="comments">could this be any cheesier? sounds like the sound effects from the Rye Playland Haunted House<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=f890cbe4e0095a057333ab52157c4944"> Reply ]</a></div></div>
+<div class="comments">where's the laser light show, man?<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=scraig" target="_blank">scraig</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=980d9e5930f26797d16ac355a79ae4a9"> Reply ]</a></div></div>
+<div class="comments">Wow.<br />This reminds me of stumbling on a bootleg in the old days, before the internet made things so accessible and hearing something that you and maybe a handful of others were lucky enough to know about (or so&nbsp;you thought).<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=katiediddler" target="_blank">katiediddler</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=18805e7945e0175d98338028bb8c0a95"> Reply ]</a></div></div>
+<div class="comments">Thank you!<br /><br />Nice piece of music.<br /><br />I sit here in Sk&aelig;lsk&oslash;r and enjoy life!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Hr-Rosendahl" target="_blank">Hr-Rosendahl</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=7ded60af0de623a9a5b8a8ad750771c8"> Reply ]</a></div></div>
+<div class="comments">My little tube amp just loves this<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=oldsaxon" target="_blank">oldsaxon</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=e3582f308e8331d1ea7524dfb681ffdb"> Reply ]</a></div></div>
+<div class="comments"><p>here it goes again, soul crushing tedium for the now balding, pot bellied, way over the hill stoner set. <br />couldn't stand it then but hey, they filled the stadium</p><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=bab2b4ed7d7ae31962548310e4bb9378"> Reply ]</a></div></div>
+<div class="comments">Love this Live Immersion Box version. A refreshing change. Thanks Bill and Rebecca! Just now listening to "On the Run" being performed completely LIVE with the synthesizers of the time. Pink Floyd were true pioneers in this area.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=krysthal" target="_blank">krysthal</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=720835d55e9d7f27f1544a32fe32a5d5"> Reply ]</a></div></div>
+<div class="comments">YYYYYYYYEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSSSSSSSSSS!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=obstetricus" target="_blank">obstetricus</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4327fa626efa8590aa6eee3c52b6a553"> Reply ]</a></div></div>
+<div class="comments">Sure like Bill's taste in music, but I'm obviously not a huge Fink Ployd fan as this was literally the first time I used that PSD button.&nbsp; Unfortunately for me the other song ended before this one so I got to hear a bit more of the screeching women.&nbsp; Still love RP though.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=skibbenr" target="_blank">skibbenr</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=41ae940f9b34e8a1fd0349f6d1659d77"> Reply ]</a></div></div>
+<div class="comments">Thank you Bill, and deepest Thank You to Pink, which ever one he is......for creating this Anthem to our souls.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=amoreena" target="_blank">amoreena</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=899403dcb680998cc2da329f93fd4d8a"> Reply ]</a></div></div>
+<div class="comments"><br /><br /><span style="color: #008000; font-size: medium;">marvelous... &nbsp;love it...</span><br />&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=%28anonymous%29" target="_blank">(anonymous)</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=0c3dc90dd3cb40d08db4db98a719b610"> Reply ]</a></div></div>
+<div class="comments">Wow! I never heard this before. Awesome performance. Thanks for playing MUSIC.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=CinnamonGirl" target="_blank">CinnamonGirl</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=cbcfe6cdd23e51ea5af9933593875264"> Reply ]</a></div></div>
+<div class="comments">Only you Bill, only you!<br />Thanks<br /><br />Dirk&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Dirkle" target="_blank">Dirkle</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=167f06e55bfef0c7e34714dd764f218a"> Reply ]</a></div></div>
+<div class="comments">raced sailboats all day here in seattle.&nbsp; a cool february day, overcast, showers, 15 - 22 knots, 40 deg F.&nbsp; no better what to end the day than sitting by the fire listening to Pink Floyd live.<br /><br />thank you Bill.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=walchenbach" target="_blank">walchenbach</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=562713c57328e32fbb7239b047d9b13a"> Reply ]</a></div></div>
+<div class="comments">Simply in a class all by themselves!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=godspeed" target="_blank">godspeed</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=498cf87872096fc407d8ef4dd70c665a"> Reply ]</a></div></div>
+<div class="comments">THANK YOU FOR THIS!!<br /><br />Nobody matches the original, unbeatable Clare Torry on the "The Great Gig In The Sky", but hair splitting aside,<br />THIS IS AMAZING! &nbsp;<br />Nobody does concerts like this anymore...probably never will!&nbsp;&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=rpdevotee" target="_blank">rpdevotee</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=ed58c405fe1efd569b0d627cc7311b9a"> Reply ]</a></div></div>
+<div class="comments">I'm so sorry, but i truly hate those ladies screaming "wwoooooooohhhooohhh, waaaaaAAAAAAAAAAAAAAH haaaaaahhhaaaaaaaaaahooooowwwwwww"&nbsp;<br /><br />Further more, i can not understand how this is a 9,1.&nbsp;An 8 i can understand, but a 9,1... No sorry, not for me...<br /><br />4<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Sjaaks" target="_blank">Sjaaks</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4c90aab97fe4dc090a0a7c5fbd1ea4a1"> Reply ]</a></div></div>
+<div class="comments">Middle of a handover report-hands are resting now.. Thank you Bill!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ereme" target="_blank">ereme</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=50e51046f6d7768e3509d5fc8a38ebc7"> Reply ]</a></div></div>
+<div class="comments">I first heard this album in 1973 while tripping on magic mushrooms at a beach in North Queensland. Never eaten magic mushies since, but the album still does it for me.<br />&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=clydes" target="_blank">clydes</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=2add6f76d42d3c9a71d4e7c72ee8be37"> Reply ]</a></div></div>
+<div class="comments">One of those songs that really gets me, roots me to the spot, makes me remember every time I've ever heard it, inducing the current of Life to surge through me like some kind of Quantum Entanglement coming from the Core of Everything via my freaking speakers...<br /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=coloradojohn" target="_blank">coloradojohn</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=c1c47f35edb278b96531db74ed692a5b"> Reply ]</a></div></div>
+<div class="comments">Mesmerizing<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=casey1024" target="_blank">casey1024</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=2af9704b7c24c3adab7d7aa7fd48b591"> Reply ]</a></div></div>
+<div class="comments">incessant lifeless droning with a Star Search contestant running vocal scales in the background. welcome to Pink Void.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=thewiseking" target="_blank">thewiseking</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=7a88169fcaba34435372dc655b0907b9"> Reply ]</a></div></div>
+<div class="comments">new logo for the new year? keep it up RP, this is a nice treat since I doubt I will buy the set... not that I don't want it.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Delawhere" target="_blank">Delawhere</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=1aceb9675fab481113476386b985b81a"> Reply ]</a></div></div>
+<div class="comments">Thanks for playing such an extended track ! I thoroughly enjoyed it, seating comfortably in my sofa, almost falling asleep, and yet having all my attention to every single details of it. Long leave RP !<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ollieD" target="_blank">ollieD</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=a325d63d00e2a1670fa82b298f02ae94"> Reply ]</a></div></div>
+<div class="comments">EPIC!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=tenfourty" target="_blank">tenfourty</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=7af2e00e0deb62bc01938955196de01f"> Reply ]</a></div></div>
+<div class="comments">D A N K E&nbsp; <img title="{#Good-vibes}" src="http://graphics.radioparadise.com/emoji/good-vibes.gif" border="0" alt="{#Good-vibes}" /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=mistabird" target="_blank">mistabird</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=55b59a47c20a4075b96f1b64673ecaf2"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>aspicer wrote:</strong><div class="quote">I SO want to own this - but at a $120 Amazon price....REALLY?!? &nbsp;Sadly, the record industry STILL doesn't get it! &nbsp;$120 for the one album....Please...?!?<br /></div><em>&nbsp;</em> <br />...there's a lot more to the immersion edition than just one album...<br /><br /><strong>CD 1</strong>&nbsp;- Dark Side of the Moon (2011 Remaster, New)<br /><strong>CD 2</strong> - Dark Side of the Moon (1974 Live Recording, New)<br /><strong>CD 3</strong> - Dark Side of the Moon (1974 Early Album Mix, new)<br />+ 3 Dark Side of the Moon Early Live tracks (New)<br />+&nbsp;3 Dark Side of the Moon Demo tracks (New)<br />+ 1 Household Objects track (New)<br /><strong>DVD 1</strong> - Dark Side of the Moon (2003 5.1 SACD Mix)<br />+ Dark Side of the Moon (1973 Quadraphonic Mix)<br />+ Dark Side of the Moon (Original Stereo Mix)<br /><strong>DVD 2</strong> - Dark Side of the Moon&nbsp;Concert Screen&nbsp;Films (1974/1975, New)<br />+ 2 Saucerful of Secrets&nbsp;tracks (1972 Live Performances, New)<br />+ Dark Side of the Moon Documentary (2003)<br /><strong>BRD 1</strong> - High-resolution DVD1 + DVD2 content<br /><br />Dark Side of the Moon Art Book<br />Dark Side of the Moon Photo Book<br />Dark Side of the Moon Art Print<br />(5) Dark Side of the Moon Art Cards<br />(9) Dark side of the Moon Art Coasters<br />Dark Side of the Moon Scarf<br />Dark Side of the Moon Marbles + Pouch<br />Replica Tour Ticket<br />Replica Backstage Pass<br />Immersion Edition Credits Booklet<br /><br />...i can't say i'm particularly fond of all the extra swag, nor the box cover art, but the discs and two books deliver what i've always felt a proper flagship edition should encompass - for that content alone, i don't feel one hundred twenty dollars is at all unreasonable...<br /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=mandolin" target="_blank">mandolin</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=e7e51dccef7aa27cbe5e26c9d48a2399"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>musickat wrote:</strong><div class="quote">Missed it the first time.....love repeats on RP!!&nbsp;&nbsp; Love you for playing it!&nbsp; <img title="{#Hearteyes}" src="http://graphics.radioparadise.com/emoji/icon_hearteyes.gif" border="0" alt="{#Hearteyes}" />&nbsp;<br /></div><em>&nbsp;</em> <br />I guess it's NOT a repeat&nbsp; <img title="{#Sad}" src="http://graphics.radioparadise.com/emoji/icon_sad.gif" border="0" alt="{#Sad}" />&nbsp; Yes let's hear the whole thing next time PLEASE<br /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=musickat" target="_blank">musickat</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=3638973459da1162560ea709644a2ce5"> Reply ]</a></div></div>
+<div class="comments">	Yes hope you didn't miss ;-)<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=philgood63" target="_blank">philgood63</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=55415f67482f0a77d6c11978bc38aa57"> Reply ]</a></div></div>
+<div class="comments">Did that just last 20 minutes?<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=djblitz" target="_blank">djblitz</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=0672208ae9a0a2de72f65bb53c60d3d7"> Reply ]</a></div></div>
+<div class="comments">Just took a temporary leave of absence from work.&nbsp; <br /><br />Thanks.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=cmarcan" target="_blank">cmarcan</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4beeb3e2188b1f308a3eeb0d08fe3708"> Reply ]</a></div></div>
+<div class="comments">Whoah&mdash; Nice long tune, Bill. &nbsp;Thanks!&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=CaffeineIsMyDrug" target="_blank">CaffeineIsMyDrug</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=d532919ad31cb18df5b661575af99f88"> Reply ]</a></div></div>
+<div class="comments">Just frickin' fantastic. What a way to head into the last hr at the desk on a Friday.<br />Thanks Bill<br /><br />and radio stations wonder why their going down the tubes? Pretty simple, they don't do sets like Bill's&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Johnny-smooth" target="_blank">Johnny-smooth</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=ff048daf1b97e64316048fbadcdeb35f"> Reply ]</a></div></div>
+<div class="comments">Just noticed all my hairs are standing on end... full body erection! 8^)<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=teadye" target="_blank">teadye</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=d0b788258a9f9a4cb95c1a0264e97927"> Reply ]</a></div></div>
+<div class="comments">And some bands nowadays consider themselves them innovative? Think again.<br /><br />This is the kind of radio which does what it has to do (as does a lot of the stuff here). Playing such an extended set really makes you want to go and buy the album, have it, hold it, cherish it. I am now thinking of investing in a turntable just to hear this.<br /><br />The whinging &nbsp;record companies really should just up. Radio works for them, whether Internet or not.&nbsp;<br /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=catnip" target="_blank">catnip</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=537d98228d200e749c243a77202f1f2e"> Reply ]</a></div></div>
+<div class="comments">thank you just thank you<br /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=erdemimi" target="_blank">erdemimi</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=d6bdec0f9c9a39f858cf8309c53494c6"> Reply ]</a></div></div>
+<div class="comments">	ITunes sorry<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=philgood63" target="_blank">philgood63</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=bebbdec26c29489ea56d326a8ca4c700"> Reply ]</a></div></div>
+<div class="comments"><em><span style="font-size: large;">''All The Faithful To Their Knees''&nbsp;</span> </em><span style="font-size: small;">Thankyou RP for airing this track </span>................<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Toke" target="_blank">Toke</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=84ba98c12a7329df326f22d3a78f3529"> Reply ]</a></div></div>
+<div class="comments">Ahhh.... it's like having your DNA tweaked or your favourite pair slippers resoled. It's <span style="text-decoration: underline;">so</span> familiar, but... different. I love it.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Jive" target="_blank">Jive</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=a7df64925be364f6d1f907272137a88e"> Reply ]</a></div></div>
+<div class="comments">I love these rare super-treats. &nbsp;Because most of RP is always a treat.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=kuril" target="_blank">kuril</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=e79d7015c86fd6a8a595991dcb839562"> Reply ]</a></div></div>
+<div class="comments">	Funny to see that on French AppStore clicking on " buy on app store" leads you to an " unfindable" answer .......<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=philgood63" target="_blank">philgood63</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=3b86df7e81ffe404111511c1d86e5ae0"> Reply ]</a></div></div>
+<div class="comments">Isn't it cool to see how many people are tuned in and turned on all together at the same time!!!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=musickat" target="_blank">musickat</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=f4ea8bf604698867f97552743e899dc2"> Reply ]</a></div></div>
+<div class="comments">reminds me of midnight 'perfect album sides' on FM radio in days gone by ... could be a regular feature<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=drucev" target="_blank">drucev</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=4abf357d7190855c5ef2963d714d99b5"> Reply ]</a></div></div>
+<div class="comments">Nice set! Can't hear&nbsp;stuff&nbsp;put together like this&nbsp;on commercial radio.<br />Hat's off the guy behind the mike.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=proguesser" target="_blank">proguesser</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=62f11d07aa13aacf75d36646a86cb015"> Reply ]</a></div></div>
+<div class="comments">Foggy, cool and&nbsp;rainy today, love it, but this fits especially well this afternoon...as&nbsp;I fritter away my Friday afternoon, working...&nbsp;&nbsp; <img title="{#Music}" src="http://graphics.radioparadise.com/emoji/icon_music.gif" border="0" alt="{#Music}" /><br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=OneSpyGirl" target="_blank">OneSpyGirl</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=45cc540dbaaee2c519300bce8523556f"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>terryp17 wrote:</strong><div class="quote">Has anyone got a drink?<br /></div><em>&nbsp;</em> <br /><br />A drink?&nbsp; More like a smoke of sumthin other than tobacco.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=2cats" target="_blank">2cats</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=d11d7a12cf36b71c863ab2cdadf1cf19"> Reply ]</a></div></div>
+<div class="comments">Yeah...this works.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=CamLwalk" target="_blank">CamLwalk</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=cf1d1057634c3108f854d9e3a720f8f8"> Reply ]</a></div></div>
+<div class="comments">Takes me right back to their concert in Frankfurt. F-ing amazing!<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Old_Pat" target="_blank">Old_Pat</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=38eeac325cbd53d0fc40549dc0c6c3d9"> Reply ]</a></div></div>
+<div class="comments">I SO want to own this - but at a $120 Amazon price....REALLY?!? &nbsp;Sadly, the record industry STILL doesn't get it! &nbsp;$120 for the one album....Please...?!?<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=aspicer" target="_blank">aspicer</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=b0b4703ca00a560ca9690cdec10ce09d"> Reply ]</a></div></div>
+<div class="comments">Haven't heard this in years...&nbsp; as awesome as it always was, even without the black light and mind expansion..<br /><br />Funny thing is my 13 year old daughter asked about the album out of the blue the other day.&nbsp; It's cool to see her wade into the old classics.<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=heliskimaster" target="_blank">heliskimaster</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=887d5136b19254991464df7496c334e2"> Reply ]</a></div></div>
+<div class="comments"><br /><br /><span style="color: #008000; font-size: medium;">absolutely love this... &nbsp;incredible...</span><br />&nbsp;<br /><div class="comments_footer">Posted 6 years ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=%28anonymous%29" target="_blank">(anonymous)</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=42628&reply=e9b515abcc77aaf49a7fecebc5d4506e"> Reply ]</a></div></div>
+</div>
+<div  id = "morelink" align="center"></div>
 </div>
 </div>
 </div>
@@ -307,9 +561,3 @@
 
 </body>
 </html>
-
-
-	
-	
-	
-		

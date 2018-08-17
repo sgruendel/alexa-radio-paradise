@@ -1,0 +1,456 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Jeff Beck - The Pump - Radio Paradise - eclectic commercial free Internet radio</title>
+<meta name="description" content="Modern & classic rock, electronica, world music & more - picked & mixed by real humans - high quality sound with no subscription fees or ads.">
+<meta name="keywords" content="radio, rock, progressive, FM, DJ, HD, music, free, free-form, freeform, high fidelity, high bitrate, 320k, 192k, high resolution, 24bit, 24 bit, commercial-free">
+<meta name="ROBOTS" content="ALL">
+<meta name="REVISIT-AFTER" content="10 DAYS">
+<meta name="distribution" content="global">
+<meta http-equiv="EXPIRES" content="0">
+<meta name="AUTHOR" content="Radioparadise.com">
+<meta name="COPYRIGHT" content="Copyright (c) 1999-2018 by radioparadise.com">
+
+	
+<link rel="image_src" href="graphics/fb_logo.png">
+<meta property="og:image" content="graphics/fb_logo.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/ui-darkness/jquery-ui.css">
+<link rel="stylesheet" href="css/rp3.css?version=1534507597" type="text/css">
+<link rel="stylesheet" href="css/rp2-3.css?version=1534507597" type="text/css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="css/swal-forms.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<script src="scripts/sweetalert.min.js"></script>
+<script src="scripts/swal-forms.js"></script>
+<script src="scripts/rp2-x.js?version=1534507597"></script>
+<link type="text/css" href="scripts/themes/base/jquery.ui.all.css?version=1.61" rel="stylesheet" />
+<script type="text/javascript" src="scripts/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="scripts/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="scripts/ui/jquery.ui.mouse.js"></script>
+<script type="text/javascript" src="scripts/ui/jquery.ui.slider.js"></script>
+
+<style type="text/css">.ui-slider-horizontal .ui-state-default { height: 12px; width: 6px; }</style>
+
+<script type="text/javascript">
+
+	if(self.location==top.location)self.location="rp_2.php#n=songinfo&id=44712"
+	function changeHash(hash) {
+		if(history.pushState) {
+			top.history.replaceState(null, top.document.title, '#'+hash);
+		} else {
+			top.document.location.hash = hash;
+		}
+	}	
+	top.document.title = "Jeff Beck - The Pump - Radio Paradise - eclectic commercial free Internet radio";
+	changeHash('n=songinfo&id=44712');
+	
+	var pos = getPos();
+	if (!pos) pos = 70;
+	$(function(){
+		$( "#slider" ).slider({
+			value: pos,
+			min: 0,
+			max: 100,
+			slide: function( event, ui ) {
+				setVolume( ui.value );
+			}
+		});
+	});
+
+	
+	var offset = new Date().getTimezoneOffset();
+	document.cookie = "offset=" + offset;
+	var validated = '';
+	var first = 'yes';
+	
+	function change_img(div_id,img_id) {
+		$(div_id).css("background-image", "url(graphics/" + img_id + ")");  
+	}
+	function load_topic_content(file) {
+		$('#topic_content').load('rp3-content/Music/' + file + '.php');
+		$('html, body').animate({ scrollTop: 0 }, 0);
+	}
+
+	function rateThis(song_id) {
+		if (validated == 'yes') {
+			$("#info").load("rp3_web_rating.php", { "song_id": song_id  }).fadeIn(500);
+		}else{
+			logIn('Please Log In');
+		}
+	}
+	
+	function doRating(song_id, rating) {
+		$('#rating_' + song_id).load('ajax_rp3_web_rating.php?rating=' +  rating + '&song_id=' + song_id);
+		$("#info").fadeOut(500);
+	}
+
+	function hideInfo() {
+		$("#info").fadeOut(500);
+	}
+
+	function setCookie(c_name, value, sec){
+		var date = new Date();
+		date.setTime(date.getTime() + sec * 1000);
+		var c_value=escape(value) + ((sec == null) ? "" : "; expires=" + date.toUTCString() + "; domain=.radioparadise.com; path=/");
+		document.cookie = c_name + "=" + c_value;
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0;i < ca.length;i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	}
+
+	function eraseCookie(name) {
+		setCookie(name,"",-1);
+	}
+	
+	function hideHeader(){
+		$('#appeal_header').hide(200);
+		setCookie("C_hide_appeal", "true", 432000)
+	}
+	
+	var name = 'Music';
+
+	function logIn(title_text) {
+		swal.withForm({  
+			html: true, 
+			title: title_text,  
+			text: 'To sign up for an account or recover your password, go to <a style="color:#446" href="http://www.radioparadise.com/register" target="_blank">radioparadise.com/register</a>.',
+			confirmButtonText: 'Log In',
+			confirmButtonColor: '#6677cc',
+			showCancelButton: true,
+			cancelButtonColor: '#666',
+			closeOnConfirm: true,
+			formFields: [
+			  { id: 'username', placeholder: 'Username or email address' },
+			  { id: 'password', type: 'password' },
+			]
+		  }, function (isConfirm) {
+			if (isConfirm) {
+				$.getJSON("https://api.radioparadise.com/api/auth", { username: this.swalForm.username, passwd: this.swalForm.password }, function(data){
+					console.log(data);
+					if (data.status == 'fail') {
+						logIn('Invalid Login');
+					}else{
+						var exp = 31536000;
+						setCookie('C_username', data.username, exp);
+						setCookie('C_user_id', data.user_id, exp);
+						setCookie('C_passwd', data.passwd, exp);
+						window.location.reload(false);
+					}
+				});
+			}
+		  });
+	}
+	
+	function logOut() {
+		setCookie('C_passwd', '', -360);
+		setCookie('C_username', '', -360);
+		setCookie('C_user_id', '', -360);
+		window.location.reload(false);
+	}
+
+	window.onload=function(){
+		playlist_update();
+			}
+		
+</script>
+</head>
+<body>
+<div align="center">
+<div id="container">
+<div align="center">
+<div id="header">
+	<table border="0" width="900" cellpadding="0" cellspacing="0" ><tr><td width="20">&nbsp;</td>
+	<td width="420" class="logo">
+	
+	<a href="content.php?name=Home">
+	<img src="clear.gif" width="420" height="46" border="0"></a>
+	<div style="font-weight:bold;letter-spacing:1px;margin-left:202px;margin-bottom:20px;">
+	<a class="black" href="https://support.radioparadise.com" target="_blank">Listener Supported</a>
+	</div>
+	<div id="controls">
+		<div id="slider" title="Volume">
+		</div>
+		<form action="rp_2.php#n=songinfo&id=44712" target="_top" method="post" style="display:inline">
+		<select name="change_bitrate" onchange="this.form.submit();" style="outline: none" title="Select main stream bitrate">
+		<option value="0">32k</option>
+		<option value="1" selected>128k</option>
+		<option value="2">192k</option>
+		</select></form>&nbsp;&nbsp;
+		<input type="button" class="button" value="Stop" title="Stop Audio" onclick="javacript: doStop(); return false;">
+		<input type="button" class="button" id="play_button"  value="Play >" title="Start or return to main RP stream" onclick="javacript: doReturn(); return false;">
+					<input type="button" class="button" id="psd_button" value="PSD >>" title="Play Something Different!" onclick="javascript: doReplace(); return false;"></a>
+			
+		<script type="text/javascript">
+			if (parent.frames.player_2.playing == "yes") {
+				button_2();
+			}
+			if (parent.frames.player_1.playing == "yes") {
+				button_3();
+			}
+		</script>
+	
+	</div>
+	</td><td align="center" valign="top" width="460" >
+	<form action="javascript: doTopRating()" id="rating_form_top" style="display:inline">
+	
+		<div id="nowplaying">
+			<div id="playlist_content">	
+			
+			</div>
+		</div>
+		
+	</form>
+	</td></tr></table>
+</div>
+<table border="0" width="900" cellpadding="0" cellspacing="0" ><tr><td>
+<div id="classic" style="text-align:left;height:26px;margin-left:20px;">[ <a class="login" a href="https://new.radioparadise.com" target="_top">Beta Player</a> ]&nbsp;&nbsp&nbsp[ <a class="login" href="javascript: startRPHD();">Slideshow Player</a> ]&nbsp;&nbsp&nbsp[ <a class="login" href="javascript: startPlayer();">Audio Player</a> ]</div><div id="login" style="margin-top:54px;">[ <a class="login" href="javascript:logIn('Log In')">Log In</a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ <a class="login" href="?n=Help&f=register">Register</a> ]&nbsp;&nbsp;&nbsp;[ <a class="login" href="javascript://" onClick="window.location.reload()">refresh this window</a> ]</div></td></tr></table>
+</div>
+
+<ul id="nav2">
+	<li><a href="rp3.php">Home</a></li>
+	<li><a href="rp3.php?name=Listen">Listen&nbsp;+&nbsp;Apps</a></li>
+	<li class="activelink"><a href="rp3.php?name=Music">Music</a></li>
+	<li><a href="rp3.php?name=Forum">Forum</a></li>
+	<li><a href="https://support.radioparadise.com" target="_blank">Support&nbsp;RP</a></li>
+	<li><a href="rp3.php?name=Help">Help&nbsp;+&nbsp;Info</a></li>
+	<li><a href="javascript:logIn('Please Log In')">log in</a></li>
+</ul>
+<div id="info"></div>
+<div align="center">
+<div id="content">
+
+<style>
+#div_info {
+	float:left;
+	margin-right:12px;
+}
+#div_lyrics {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 8px;
+	height: 390px;
+	overflow: auto;
+}
+
+
+#div_comments {
+	clear: left;
+}
+.rating-div a{
+	display: block;
+	padding-top:0px;
+	height:18px;
+	width: 24px;
+}
+.rating-div{
+	width: 24px;
+	height: 18px;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	display: inline-block;
+}
+#rating_dist
+{
+
+}
+#rating_dist td {
+	margin: 0px;
+	margin-right: 2px;
+}
+.sales_links a {
+	color: #ccc;
+    text-decoration: none;
+	outline: none;
+	display:inline;
+	border: 0;
+}
+
+.misc_links {
+	margin-top: 20px;
+	clear: left;
+}
+.misc_links a {
+	color: #ccc;
+	outline: none;
+	margin-right: 20px;
+}
+.comments {
+	padding: 12px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid #aaa;
+	word-wrap: break-word;
+}
+
+.comments img {
+	max-width: 90%;
+	height: auto;
+}
+
+.comments_footer {
+	text-align:right;
+	padding:6px;
+	margin-right:4px;
+	margin-top:10px;
+	font-size: 90%;
+}
+
+.quote
+{
+	border: #999 1px dotted;
+	background-color: #ddd;
+	margin-left: 20px;
+	margin-top: 8px;
+	padding: 10px;
+	font-size: 9pt;
+	overflow: visible; 
+	overflow-x:auto; 
+	overflow-y:hidden; 
+	padding-bottom:15px;
+}
+.comments a {
+	color: #119;
+}
+
+.song_info_nav {
+	float: right;
+}
+.song_info_nav a{
+	opacity: 0.7;
+}
+.song_info_nav a:hover {
+	opacity: 1;
+}
+</style>
+<script>
+	var song_id = '44712';
+	var validated = '';
+	
+	function deletePost(post_id) {
+		swal({
+		  title: "Delete Post",
+		  text: "Are you sure you want to permanently delete this post?",
+		  showCancelButton: true,
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "Yes, Delete it",
+		  closeOnConfirm: true,
+		  showLoaderOnConfirm: false
+		},
+		function(){
+		  location.href='/rp3.php?n=Music&f=post&song_id=' + song_id + '&delete=' + post_id;
+		});
+	}
+	
+	function postComment() {
+		if (validated == 'yes') {
+			location.href='/rp3.php?n=Music&f=post&song_id=' + song_id;
+		}else{
+			logIn('Please Log In');
+		}
+	}
+
+	var offset = 20;
+	var remaining_comments =  - offset; 
+
+	function update_morelink() {
+		if (remaining_comments > 0) {
+			$('#morelink').html('<div class="heading_2"> <a href="javascript:add_comments()">(more)</a></div>');
+		 }else{
+			$('#morelink').html("&nbsp;");
+		 }
+	}
+
+	function add_comments()
+	{
+	   $.ajax({
+		 type: "GET",
+		 url: 'ajax_rp3_get_comments.php',
+		 data: "song_id=44712&offset=" + offset, 
+		 success: function(data) {
+			$('#div_comments').append(data);
+			offset = offset + 20;
+			remaining_comments = remaining_comments - 20;
+			update_morelink();
+		 }
+
+	   });
+	}
+	$(update_morelink);	
+</script>
+		
+<div id="topic_nav" style="margin-bottom:12px;">
+  <ul>
+  	<li><a href="/rp3.php?n=Music&f=play_history">Play History</a></li>
+  	<li ><a href="/rp3.php?n=Music&f=songinfo">Now Playing</a></li>
+  	<li><a href="/rp3.php?n=Music&f=artists">Artists</a></li>
+    <li><a href="/rp3.php?n=Music&f=top_lists">Top Lists</a></li>
+    <li><a href="/rp3.php?n=Music&f=search">Search</a></li>
+    <li><a href="/rp3.php?n=Music&f=favorites">Your Favorites</a></li>
+    <li><a href="/rp3.php?n=Submissions">Submissions</a></li>    <li class="topic_nav_active"><a href="/rp3.php?n=Music&f=songinfo&song_id="44712">Song Info</a></li>
+      </ul>
+</div>
+
+<div class="topic_head">
+<a href="/rp3.php?n=Music&f=artists&artist=Jeff+Beck">Jeff Beck</a> &mdash; The Pump<span class="song_info_nav"></span></div>
+<div id="div_info" style="width:50%">
+<div style="position:relative; padding:10px;">
+<a href="/rp3.php?n=Music&f=album&asin=B0012GMXQK"><img src="https://img.radioparadise.com/covers/m/B0012GMXQK.jpg" align="left" style="width:200px;height:200px;margin-right:12px;margin-bottom:24px;" ></a>Album: <a href="/rp3.php?n=Music&f=album&asin=B0012GMXQK">There & Back</a><br />
+Avg rating: <div class="rating-div rating_7" style="margin-left:5px;">6.9</div><br />
+Your rating: <div id="rating_44712" style="display:inline-block;"><div title="Your rating - click to change" class="rating-div rating_0" ><a href="javascript:rateThis('44712')"><span id="rating_text">0</a></span></div></div><br />
+Total ratings: 140<br />
+<div id="histogram">
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:36px;background-color:#ddd;" title="1 votes: 4 (2.9%)"><br /><img src="graphics/clear.gif" style="width:12px;height:4px;background-color:#db1f00;" title="1 votes: 4 (2.9%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:38px;background-color:#ddd;" title="2 votes: 2 (1.4%)"><br /><img src="graphics/clear.gif" style="width:12px;height:2px;background-color:#f04e02;" title="2 votes: 2 (1.4%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:32px;background-color:#ddd;" title="3 votes: 7 (5%)"><br /><img src="graphics/clear.gif" style="width:12px;height:8px;background-color:#ff7305;" title="3 votes: 7 (5%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:30px;background-color:#ddd;" title="4 votes: 9 (6.4%)"><br /><img src="graphics/clear.gif" style="width:12px;height:10px;background-color:#ffae00;" title="4 votes: 9 (6.4%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:30px;background-color:#ddd;" title="5 votes: 9 (6.4%)"><br /><img src="graphics/clear.gif" style="width:12px;height:10px;background-color:#ffe100;" title="5 votes: 9 (6.4%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:22px;background-color:#ddd;" title="6 votes: 17 (12%)"><br /><img src="graphics/clear.gif" style="width:12px;height:18px;background-color:#dcfa00;" title="6 votes: 17 (12%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:11px;background-color:#ddd;" title="7 votes: 27 (19%)"><br /><img src="graphics/clear.gif" style="width:12px;height:29px;background-color:#84f800;" title="7 votes: 27 (19%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:40px;background-color:#00f102;" title="8 votes: 36 (26%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:29px;background-color:#ddd;" title="9 votes: 10 (7.1%)"><br /><img src="graphics/clear.gif" style="width:12px;height:11px;background-color:#00c501;" title="9 votes: 10 (7.1%)"></div> 
+<div class="rating_cell"><img src="graphics/clear.gif" style="width:12px;height:18px;background-color:#ddd;" title="10 votes: 19 (14%)"><br /><img src="graphics/clear.gif" style="width:12px;height:22px;background-color:#009800;" title="10 votes: 19 (14%)"></div> 
+</div>
+<span style="font-size: 80%;">
+Released: 1980<br />
+Length: 5:20<br />
+Plays (last 30 days): 1<br />
+</span>
+</div>
+<div class="misc_links"><a href="http://www.facebook.com/sharer/sharer.php?u=http://www.radioparadise.com/?file=songinfo&song_id=44712" target="_blank"><img src="graphics/facebook-logo.png" width="20" height="20" border="0" align="center"> share</a><a href="http://www.radioparadise.com/tweet.php?url=http://www.radioparadise.com/%3Ffile%3Dsonginfo%26song_id%3D44712&song=Jeff+Beck+-+The+Pump" target="_blank"><img src="graphics/twitter-logo.png" width="20" height="20" border="0"  align="center"> tweet</a><a href="https://en.wikipedia.org/wiki/Jeff_Beck" target="_blank"> wiki</a><a href="http://www.google.com/search?q=Jeff+Beck" target="_blank">website</a><a href="http://www.google.com/search?q=Jeff+Beck" target="_blank">search</a><a href="http://www.allmusic.com/search/artist/Jeff+Beck" target="_blank">amg</a></div><div class="sales_links"><img src="graphics/amazon_trans_100x40.png" style="margin-right:8px;float:left;"><div class="amazon_links"><a href="https://assoc-redirect.amazon.com/g/r/http://www.amazon.com/Jeff-Beck-There-%26-Back/dp/B0012GMXQK?tag=radioparadise-20" target="_blank">cd</a></div><div class="amazon_links"><a href="https://assoc-redirect.amazon.com/g/r/http://www.amazon.com/Jeff-Beck-There-%26-Back/dp/B00138F4GI?tag=radioparadise-20" target="_blank">mp3</a></div><div class="amazon_links"><a href="https://www.amazon.com/s?url=search-alias%3Ddigital-music&field-keywords=Jeff+Beck&tag=radioparadise-20" target="_blank">search</a></div></div><div class="sales_links"><img src="graphics/itunes_trans_100x40.png" style="margin-right:8px;float:left;" ><div id="itunes" style="display:inline;"><div class="itunes_links"><a href="" target="_blank">song</a></div><div class="itunes_links"><a href="" target="_blank">album</a></div><div class="itunes_links"><a href="Array" target="_blank">artist</a></div></div></div></div>
+<div id="div_lyrics">
+(instrumental)</div>
+<div class="topic_head">Comments (13)<span style="font-weight:normal;font-size:70%;float:right;margin-right:24px;"><a href="javascript:postComment()">add comment</a></span>
+</div>
+<div id="div_comments">
+<div class="comments">if jeff beck isn't a rock god i don't know who/what is.&nbsp;<div class="comments_footer">Posted 2 weeks ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=jambo" target="_blank">jambo</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=22de50ea06acd1d571357bf99f19fbc3"> Reply ]</a></div></div>
+<div class="comments">M&egrave;h, lame....indeed a seventies porn score<div class="comments_footer">Posted 4 weeks ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Ghiaap" target="_blank">Ghiaap</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=b7e8a4cac67ea700f934ab9b6075d9cd"> Reply ]</a></div></div>
+<div class="comments"><strong>&nbsp;</strong><strong>bschena wrote:</strong><div class="quote">Must be just me....all I can hear is a 1970's porn soundtrack...</div><br />Maybe you should back off on the PornHub...<div class="comments_footer">Posted 1 month ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ImaOldman" target="_blank">ImaOldman</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=cdb95661b786514574f166417400590c"> Reply ]</a></div></div>
+<div class="comments">Radio Paradise is a guitar lover's Paradise today! From the soulful sound of Bridge of Sighs, to the crunchy Strat of The Shadows, to the jangly Rickenbacker of Tom Petty, and now the other wordly awesomeness of Jeff Beck. Thanks for the mix, Bill!<div class="comments_footer">Posted 1 month ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Laptopdog" target="_blank">Laptopdog</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=ef7902a48fda9e533bd9f79e629a14d0"> Reply ]</a></div></div>
+<div class="comments">Must be just me....all I can hear is a 1970's porn soundtrack...<div class="comments_footer">Posted 2 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=bschena" target="_blank">bschena</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=e0c8a17baf2d7230d5808b334b89f4d9"> Reply ]</a></div></div>
+<div class="comments">Wank levels high<div class="comments_footer">Posted 2 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ExploitingChaos" target="_blank">ExploitingChaos</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=0099438d2545a175affb9db80599a3be"> Reply ]</a></div></div>
+<div class="comments">my God.<div class="comments_footer">Posted 2 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=eveliko" target="_blank">eveliko</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=2c777d64464145672e5a9ce337f640b3"> Reply ]</a></div></div>
+<div class="comments">*shudder*<div class="comments_footer">Posted 3 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=ScottFromWyoming" target="_blank">ScottFromWyoming</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=0888f23b5a9aad3de22624b9ad91ef8b"> Reply ]</a></div></div>
+<div class="comments">sooo Groovy.&nbsp; Luvin this.&nbsp; <img title="{#Sunny}" src="http://graphics.radioparadise.com/emoji/sunny.gif" alt="{#Sunny}" border="0" /> 123K<div class="comments_footer">Posted 3 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=GoodKarm" target="_blank">GoodKarm</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=ae25388b43c97a4d724f0f9f92539738"> Reply ]</a></div></div>
+<div class="comments">Wasn't this on the Risky Business album? My folks rocked the tape in our 70s VW Rabbit.<br /><div class="comments_footer">Posted 5 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=Spiderwoman" target="_blank">Spiderwoman</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=affe474e9eb25e70a6c17c0320da44c5"> Reply ]</a></div></div>
+<div class="comments">Positive 80's rock who knew?&nbsp; &nbsp;: )<br /><div class="comments_footer">Posted 5 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=hayduke2" target="_blank">hayduke2</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=170130cedae1dd38c720301e879c0fa2"> Reply ]</a></div></div>
+<div class="comments">Classic JB!<br /><br />Thanks for adding this to the playlist. He's been a favorite of mine for ages.<br /><div class="comments_footer">Posted 8 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=nagsheadlocal" target="_blank">nagsheadlocal</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=1714252890151adaafb0005c6be38376"> Reply ]</a></div></div>
+<div class="comments">Never been first... Love this LP..<br /><div class="comments_footer">Posted 8 months ago by <a href="https://www.radioparadise.com/rp3.php?n=Help&f=profile&uname=parttime" target="_blank">parttime</a> &nbsp;&nbsp;&nbsp;[  <a href="rp3.php?name=Music&file=post&song_id=44712&reply=167a5acd6ac7eaa4a23000de42b5c58f"> Reply ]</a></div></div>
+</div>
+<div  id = "morelink" align="center"></div>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
