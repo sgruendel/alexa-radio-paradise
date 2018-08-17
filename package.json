@@ -1,6 +1,6 @@
 {
   "name": "radio-paradise",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Alexa Skill for querying playlist from Radio Paradise",
   "repository": {
     "type": "git",
