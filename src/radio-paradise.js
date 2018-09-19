@@ -3,7 +3,7 @@
 const request = require('request-promise-native');
 const cheerio = require('cheerio');
 
-const baseRequest = request.defaults({
+const rpRequest = request.defaults({
     baseUrl: 'https://www.radioparadise.com',
     gzip: true,
 });
@@ -14,7 +14,7 @@ const regexPlays = /Plays.*: (.+)<br>/;
 
 var exports = module.exports = {};
 
-exports.parseSongInfoBody = function(body) {
+exports.parseSongInfoBody = (body) => {
     const $ = cheerio.load(body);
 
     const divTopicHead1 = $('div#content div.topic_head').slice(0, 1);
@@ -41,7 +41,7 @@ exports.parseSongInfoBody = function(body) {
     };
 };
 
-exports.getNowPlaying = function(callback) {
+exports.getNowPlaying = async function() {
     const options = {
         uri: 'rp3.php',
         qs: {
@@ -49,18 +49,5 @@ exports.getNowPlaying = function(callback) {
             f: 'songinfo',
         },
     };
-    baseRequest(options)
-        .then(result => {
-            try {
-                const songInfo = exports.parseSongInfoBody(result);
-                return callback(null, songInfo);
-            } catch (err) {
-                console.error('error parsing song info:', err);
-                return callback(err);
-            }
-        })
-        .catch(err => {
-            console.error('error in response for "now playing":', err);
-            return callback(err);
-        });
+    return exports.parseSongInfoBody(await rpRequest(options));
 };

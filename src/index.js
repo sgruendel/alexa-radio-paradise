@@ -1,9 +1,12 @@
 'use strict';
 
-const Alexa = require('alexa-sdk');
+const Alexa = require('ask-sdk-core');
+const i18n = require('i18next');
+const sprintf = require('i18next-sprintf-postprocessor');
+
 const radioParadise = require('./radio-paradise');
 
-const APP_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
+const SKILL_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
 const languageStrings = {
     en: {
         translation: {
@@ -28,63 +31,115 @@ const languageStrings = {
     },
 };
 
-const handlers = {
-    LaunchRequest: function() {
-        this.emit('RadioParadise');
+const RadioParadiseIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'LaunchRequest'
+            || (handlerInput.requestEnvelope.request.type === 'IntentRequest'
+                && handlerInput.requestEnvelope.request.intent.name === 'RadioParadiseIntent');
     },
-    RadioParadiseIntent: function() {
-        this.emit('RadioParadise');
-    },
-    RadioParadise: function() {
-        radioParadise.getNowPlaying((err, songInfo) => {
-            if (songInfo) {
-                const speechOutput = this.t('CURRENTLY_PLAYING_MESSAGE',
-                    {
-                        artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
-                        released: songInfo.released,
-                    });
-                const cardContent = this.t('CURRENTLY_PLAYING_MESSAGE',
-                    {
-                        artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
-                        released: songInfo.released,
-                        interpolation: { escapeValue: false },
-                    })
-                    + ' ' + this.t('ADDITIONAL_INFO_MESSAGE',
-                    { avgRating: songInfo.avgRating, length: songInfo.length, plays: songInfo.plays });
-                const imageObj = {
-                    smallImageUrl: songInfo.cover.replace('\/m\/', '/s/'),
-                    largeImageUrl: songInfo.cover.replace('\/m\/', '/l/'),
-                };
-                console.log(cardContent);
+    async handle(handlerInput) {
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
 
-                this.emit(':tellWithCard', speechOutput, 'Radio Paradise Playlist', cardContent, imageObj);
-            } else {
-                console.error('Error getting playlist', err);
-                this.emit(':tell', this.t('CANT_GET_PLAYLIST_MESSAGE'));
-            }
+        try {
+            const songInfo = await radioParadise.getNowPlaying();
+            const speechOutput = requestAttributes.t('CURRENTLY_PLAYING_MESSAGE',
+                {
+                    artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
+                    released: songInfo.released,
+                });
+            const cardContent = requestAttributes.t('CURRENTLY_PLAYING_MESSAGE',
+                {
+                    artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
+                    released: songInfo.released,
+                    interpolation: { escapeValue: false },
+                })
+                + ' ' + requestAttributes.t('ADDITIONAL_INFO_MESSAGE',
+                { avgRating: songInfo.avgRating, length: songInfo.length, plays: songInfo.plays });
+            console.log(cardContent);
+            const smallImageUrl = songInfo.cover.replace('\/m\/', '/s/');
+            const largeImageUrl = songInfo.cover.replace('\/m\/', '/l/');
+
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .withStandardCard('Radio Paradise Playlist', cardContent, smallImageUrl, largeImageUrl)
+                .getResponse();
+        } catch (err) {
+            console.error('Error getting playlist', err);
+            const speechOutput = requestAttributes.t('CANT_GET_PLAYLIST_MESSAGE');
+            return handlerInput.responseBuilder
+                .speak(speechOutput)
+                .getResponse();
+        }
+    },
+};
+
+const HelpIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
+    },
+    handle(handlerInput) {
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('HELP_MESSAGE');
+        const repromptSpeechOutput = requestAttributes.t('HELP_REPROMPT');
+        return handlerInput.responseBuilder
+            .speak(speechOutput)
+            .reprompt(repromptSpeechOutput)
+            .getResponse();
+    },
+};
+
+const CancelAndStopIntentHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'IntentRequest'
+            && (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent'
+                || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+    },
+    handle(handlerInput) {
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('STOP_MESSAGE');
+        return handlerInput.responseBuilder
+            .speak(speechOutput)
+            .getResponse();
+    },
+};
+
+const ErrorHandler = {
+    canHandle() {
+        return true;
+    },
+    handle(handlerInput, error) {
+        console.log(`Error handled: ${error.message}`);
+
+        return handlerInput.responseBuilder
+            .speak('Sorry, I can\'t understand the command. Please say again?')
+            .reprompt('Sorry, I can\'t understand the command. Please say again?')
+            .getResponse();
+    },
+};
+
+const LocalizationInterceptor = {
+    process(handlerInput) {
+        const localizationClient = i18n.use(sprintf).init({
+            lng: handlerInput.requestEnvelope.request.locale,
+            overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
+            resources: languageStrings,
+            returnObjects: true,
         });
-    },
-    'AMAZON.HelpIntent': function() {
-        const speechOutput = this.t('HELP_MESSAGE');
-        const reprompt = this.t('HELP_REPROMPT');
-        this.emit(':ask', speechOutput, reprompt);
-    },
-    'AMAZON.CancelIntent': function() {
-        this.emit(':tell', this.t('STOP_MESSAGE'));
-    },
-    'AMAZON.StopIntent': function() {
-        this.emit(':tell', this.t('STOP_MESSAGE'));
-    },
-    SessionEndedRequest: function() {
-        this.emit(':tell', this.t('STOP_MESSAGE'));
+
+        const attributes = handlerInput.attributesManager.getRequestAttributes();
+        attributes.t = (...args) => {
+            return localizationClient.t(...args);
+        };
     },
 };
 
-exports.handler = (event, context, callback) => {
-    const alexa = Alexa.handler(event, context, callback);
-    alexa.appId = APP_ID;
-    // To enable string internationalization (i18n) features, set a resources object.
-    alexa.resources = languageStrings;
-    alexa.registerHandlers(handlers);
-    alexa.execute();
-};
+exports.handler = Alexa.SkillBuilders.custom()
+    .addRequestHandlers(
+        RadioParadiseIntentHandler,
+        HelpIntentHandler,
+        CancelAndStopIntentHandler)
+    .addRequestInterceptors(LocalizationInterceptor)
+    .addErrorHandlers(ErrorHandler)
+    .withSkillId(SKILL_ID)
+    .lambda();

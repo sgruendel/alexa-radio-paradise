@@ -4,9 +4,9 @@ const expect = require('chai').expect;
 const fs = require('fs');
 const radioParadise = require('../src/radio-paradise');
 
-describe('Radio Paradise helpers', function() {
-    describe('#parseSongInfoBody()', function() {
-        it('should parse Pink Floyd - The Dark Side Of The Moon (Immersion Box Set)', function() {
+describe('Radio Paradise helpers', () => {
+    describe('#parseSongInfoBody()', () => {
+        it('should parse Pink Floyd - The Dark Side Of The Moon (Immersion Box Set)', () => {
             const body = fs.readFileSync('test/Pink_Floyd-The_Dark_Side_Of_The_Moon.html');
             const tdsotm = radioParadise.parseSongInfoBody(body);
             expect(tdsotm.artist).to.equal('Pink Floyd');
@@ -20,7 +20,7 @@ describe('Radio Paradise helpers', function() {
             expect(tdsotm.lyrics).to.include('No one told you when to run, you missed the starting gun');
         });
 
-        it("should parse Kan'Nal - Gypsy", function() {
+        it("should parse Kan'Nal - Gypsy", () => {
             const body = fs.readFileSync('test/Kan_Nal-Gypsy.html');
             const gypsy = radioParadise.parseSongInfoBody(body);
             expect(gypsy.artist).to.equal("Kan'Nal");
@@ -34,7 +34,7 @@ describe('Radio Paradise helpers', function() {
             expect(gypsy.lyrics).to.include('(no lyrics available)');
         });
 
-        it('should parse Jeff Beck - The Pump', function() {
+        it('should parse Jeff Beck - The Pump', () => {
             const body = fs.readFileSync('test/Jeff_Beck-The_Pump.html');
             const pump = radioParadise.parseSongInfoBody(body);
             expect(pump.artist).to.equal('Jeff Beck');
@@ -48,7 +48,7 @@ describe('Radio Paradise helpers', function() {
             expect(pump.lyrics).to.equal('(instrumental)');
         });
 
-        it('should parse Tom Petty & The Heartbreakers - American Girl', function() {
+        it('should parse Tom Petty & The Heartbreakers - American Girl', () => {
             const body = fs.readFileSync('test/Tom_Petty_The_Heartbreakers-American_Girl.html');
             const ag = radioParadise.parseSongInfoBody(body);
             expect(ag.artist).to.equal('Tom Petty & The Heartbreakers');
@@ -63,21 +63,18 @@ describe('Radio Paradise helpers', function() {
         });
     });
 
-    describe('#getNowPlaying()', function() {
-        it('should give songs playing', function(done) {
-            radioParadise.getNowPlaying(function(err, result) {
-                expect(err).to.be.null;
-                expect(result.artist).to.be.a('string');
-                expect(result.song).to.be.a('string');
-                expect(result.cover).to.be.a('string');
-                expect(result.album).to.be.a('string');
-                expect(result.avgRating).to.be.a('string');
-                expect(result.released).to.be.a('string');
-                expect(result.length).to.be.a('string');
-                expect(result.plays).to.be.a('string');
-                expect(result.lyrics).to.be.a('string');
-                done();
-            });
+    describe('#getNowPlaying()', () => {
+        it('should give songs playing', async function() {
+            const result = await radioParadise.getNowPlaying();
+            expect(result.artist).to.be.a('string');
+            expect(result.song).to.be.a('string');
+            expect(result.cover).to.be.a('string');
+            expect(result.album).to.be.a('string');
+            expect(result.avgRating).to.be.a('string');
+            expect(result.released).to.be.a('string');
+            expect(result.length).to.be.a('string');
+            expect(result.plays).to.be.a('string');
+            expect(result.lyrics).to.be.a('string');
         });
     });
 });
