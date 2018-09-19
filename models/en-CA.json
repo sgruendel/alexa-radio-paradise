@@ -1,0 +1,34 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "paradise playlist",
+      "intents": [
+        {
+          "name": "RadioParadiseIntent",
+          "samples": [
+            "what's playing",
+            "what is playing",
+            "what's currently playing",
+            "for playlist",
+            "for current playlist",
+            "for current song",
+            "for current artist",
+            "for current band",
+            "about current song",
+            "about current artist",
+            "about current band"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent"
+        },
+        {
+          "name": "AMAZON.StopIntent"
+        },
+        {
+          "name": "AMAZON.CancelIntent"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "de-DE": {
+          "summary": "Radio Paradise Playlist (inoffiziell)",
+          "examplePhrases": [
+            "Alexa, öffne Paradise Playlist",
+            "Alexa, frage Paradise Playlist was gerade läuft",
+            "Alexa, frage Paradise Playlist nach dem aktuellen Song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ],
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/9dc8682e20a742c28510e5cea9521477/APP_ICON?versionId=ZjEtO0V9yk6AYfyqHu3kH37SsyVZTPgw&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=6RmQ7%2FudJhbLqPBv0zsgpDRU9K4%3D",
+          "description": "Du hörst Radio Paradise und möchtest wissen, was das für ein cooler Song ist der momentan läuft? Jetzt kannst du Alexa fragen, was gerade gespielt wird und erfährst Künstler/Band, Titel, Album und Jahr der Veröffentlichung.\n\nDieser Skill ist ein inoffizielles Fan-Projekt.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/30ce7392adf348f4a6d89308dee1e708/APP_ICON_LARGE?versionId=FMIhiEH09S9OKgfWqGA7iDBJCaK2HxnU&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=TQIetLSpl0a4rigaVO0seJ3dOMI%3D"
+        },
+        "en-US": {
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ],
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=xRW7uvtABpvLRzwHPe5NO93CHqQ%3D",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=M4TT%2B93Pj59h%2FY4qZQbplo%2BSpuM%3D"
+        },
+        "en-CA": {
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ],
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=xRW7uvtABpvLRzwHPe5NO93CHqQ%3D",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=M4TT%2B93Pj59h%2FY4qZQbplo%2BSpuM%3D"
+        },
+        "en-IN": {
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ],
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=xRW7uvtABpvLRzwHPe5NO93CHqQ%3D",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=M4TT%2B93Pj59h%2FY4qZQbplo%2BSpuM%3D"
+        },
+        "en-AU": {
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ],
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=xRW7uvtABpvLRzwHPe5NO93CHqQ%3D",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=M4TT%2B93Pj59h%2FY4qZQbplo%2BSpuM%3D"
+        },
+        "en-GB": {
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ],
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/7dd289c3f3454ec4b990c4eca6717ab3/APP_ICON?versionId=DHt4S_nj3wv18CpcZOKkrsvWo7Rv5hRl&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=Vm8%2B20LA%2FNNR8g2pnOsMutOpjjY%3D",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/511538972e354734a20754f25476eb76/APP_ICON_LARGE?versionId=bQ7Jp.qjIBcAzqQywCkTdOGPbZSD8OlK&AWSAccessKeyId=AKIAIEYXX6DHY7O4XWMA&Expires=1537436363&Signature=5s5gOTNnQoSl5D0XYxsHu0sd%2BZc%3D"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Changes to previous version (lambda version 2):\n* Adapted to new RP web player.\n* Show album cover.\n\nSee http://www.radioparadise.com for current playlist and give it a listen!",
+      "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "./src"
+        },
+        "interfaces": []
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}
