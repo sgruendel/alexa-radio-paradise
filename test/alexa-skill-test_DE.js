@@ -69,6 +69,15 @@ describe('Paradise Playlist Skill', () => {
         ]);
     });
 
+    describe('SessionEndedRequest', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getSessionEndedRequest(),
+                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+            },
+        ]);
+    });
+
     describe('ErrorHandler', () => {
         alexaTest.test([
             {

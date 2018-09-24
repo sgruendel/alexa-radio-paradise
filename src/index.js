@@ -133,6 +133,16 @@ const CancelAndStopIntentHandler = {
     },
 };
 
+const SessionEndedRequestHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
+    },
+    handle(handlerInput) {
+        console.log('Session ended with reason:', handlerInput.requestEnvelope.request.reason);
+        return handlerInput.responseBuilder.getResponse();
+    },
+};
+
 const ErrorHandler = {
     canHandle() {
         return true;
@@ -167,7 +177,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         RadioParadiseIntentHandler,
         HelpIntentHandler,
-        CancelAndStopIntentHandler)
+        CancelAndStopIntentHandler,
+        SessionEndedRequestHandler)
     .addRequestInterceptors(LocalizationInterceptor)
     .addErrorHandlers(ErrorHandler)
     .withApiClient(new Alexa.DefaultApiClient())
