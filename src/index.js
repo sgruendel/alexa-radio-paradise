@@ -7,6 +7,8 @@ const sprintf = require('i18next-sprintf-postprocessor');
 const radioParadise = require('./radio-paradise');
 
 const SKILL_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
+const TITLE = 'Radio Paradise Playlist'; // Used for card and display title
+
 const languageStrings = {
     en: {
         translation: {
@@ -33,6 +35,7 @@ const languageStrings = {
     },
 };
 
+// sends a progressive response, see https://forums.developer.amazon.com/questions/170300/progressive-response-in-nodejs-sdk-v2.html
 function callDirectiveService(handlerInput, speech) {
     const { apiEndpoint, apiAccessToken } = handlerInput.requestEnvelope.context.System;
     return handlerInput.serviceClientFactory.getDirectiveServiceClient().enqueue(
@@ -46,6 +49,16 @@ function callDirectiveService(handlerInput, speech) {
             },
         },
         apiEndpoint, apiAccessToken);
+}
+
+// returns true if the skill is running on a device with a display (show|spot)
+function supportsDisplay(handlerInput) {
+    const { context } = handlerInput.requestEnvelope;
+    return context
+        && context.System
+        && context.System.device
+        && context.System.device.supportedInterfaces
+        && context.System.device.supportedInterfaces.Display;
 }
 
 const RadioParadiseIntentHandler = {
@@ -67,21 +80,42 @@ const RadioParadiseIntentHandler = {
                         artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
                         released: songInfo.released,
                     });
+                const additionalInfo = requestAttributes.t('ADDITIONAL_INFO_MESSAGE',
+                    { avgRating: songInfo.avgRating, length: songInfo.length, plays: songInfo.plays });
                 const cardContent = requestAttributes.t('CURRENTLY_PLAYING_MESSAGE',
                     {
                         artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
                         released: songInfo.released,
                         interpolation: { escapeValue: false },
                     })
-                    + ' ' + requestAttributes.t('ADDITIONAL_INFO_MESSAGE',
-                    { avgRating: songInfo.avgRating, length: songInfo.length, plays: songInfo.plays });
+                    + ' ' + additionalInfo;
                 console.log(cardContent);
                 const smallImageUrl = songInfo.cover.replace('\/m\/', '/s/');
                 const largeImageUrl = songInfo.cover.replace('\/m\/', '/l/');
 
+                if (supportsDisplay(handlerInput)) {
+                    const coverImage = new Alexa.ImageHelper()
+                        .withDescription('album cover')
+                        .addImageInstance(songInfo.cover, 'X_SMALL', 160, 160)
+                        .addImageInstance(largeImageUrl, 'SMALL', 500, 500)
+                        .getImage();
+                    const textContent = new Alexa.RichTextContentHelper()
+                        .withPrimaryText(speechOutput)
+                        .withSecondaryText('<font size="2">' + additionalInfo + '</font>')
+                        // .withTertiaryText('<font size="2">' + songInfo.lyrics + '</font>')
+                        .getTextContent();
+                    handlerInput.responseBuilder
+                        .addRenderTemplateDirective({
+                            type: 'BodyTemplate2',
+                            backButton: 'HIDDEN',
+                            image: coverImage,
+                            title: TITLE,
+                            textContent: textContent,
+                        });
+                }
                 response = handlerInput.responseBuilder
                     .speak(speechOutput)
-                    .withStandardCard('Radio Paradise Playlist', cardContent, smallImageUrl, largeImageUrl)
+                    .withStandardCard(TITLE, cardContent, smallImageUrl, largeImageUrl)
                     .getResponse();
             })
             .catch((err) => {
@@ -96,7 +130,7 @@ const RadioParadiseIntentHandler = {
         // response call completes before you send the full response object.
         await progressiveResponse
             .catch((err) => {
-                console.log('error sending progressive response', err);
+                console.error('error sending progressive response', err);
             });
         return response;
     },
@@ -148,8 +182,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.log(`Error handled: ${error.message}`);
-
+        console.error('Error handled:', error);
         return handlerInput.responseBuilder
             .speak('Sorry, I can\'t understand the command. Please say again?')
             .reprompt('Sorry, I can\'t understand the command. Please say again?')
