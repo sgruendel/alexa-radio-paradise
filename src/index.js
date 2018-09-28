@@ -3,6 +3,7 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
+const dashbot = require('dashbot')(process.env.DASHBOT_API_KEY).alexa;
 
 const radioParadise = require('./radio-paradise');
 
@@ -206,14 +207,15 @@ const LocalizationInterceptor = {
     },
 };
 
-exports.handler = Alexa.SkillBuilders.custom()
-    .addRequestHandlers(
-        RadioParadiseIntentHandler,
-        HelpIntentHandler,
-        CancelAndStopIntentHandler,
-        SessionEndedRequestHandler)
-    .addRequestInterceptors(LocalizationInterceptor)
-    .addErrorHandlers(ErrorHandler)
-    .withApiClient(new Alexa.DefaultApiClient())
-    .withSkillId(SKILL_ID)
-    .lambda();
+exports.handler = dashbot.handler(
+    Alexa.SkillBuilders.custom()
+        .addRequestHandlers(
+            RadioParadiseIntentHandler,
+            HelpIntentHandler,
+            CancelAndStopIntentHandler,
+            SessionEndedRequestHandler)
+        .addRequestInterceptors(LocalizationInterceptor)
+        .addErrorHandlers(ErrorHandler)
+        .withApiClient(new Alexa.DefaultApiClient())
+        .withSkillId(SKILL_ID)
+        .lambda());
