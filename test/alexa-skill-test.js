@@ -16,11 +16,9 @@ describe('Paradise Playlist Skill', () => {
                 request: alexaTest.getLaunchRequest(),
                 saysLike: "You're listening to",
                 hasCardTitle: 'Radio Paradise Playlist',
-                callback: (context, response) => {
-                    // TODO context.assert(response.response.card.text);
-                    // TODO context.assert(response.response.card.image.smallImageUrl);
-                    // TODO context.assert(response.response.card.image.largeImageUrl);
-                },
+                hasCardTextLike: "You're listening to",
+                hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
+                hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -32,6 +30,9 @@ describe('Paradise Playlist Skill', () => {
                 request: alexaTest.getIntentRequest('RadioParadiseIntent'),
                 saysLike: "You're listening to",
                 hasCardTitle: 'Radio Paradise Playlist',
+                hasCardTextLike: "You're listening to",
+                hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
+                hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
