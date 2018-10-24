@@ -53,7 +53,7 @@ describe('Paradise Playlist Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                says: 'Goodbye!',
+                says: 'See you soon!',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
@@ -63,7 +63,7 @@ describe('Paradise Playlist Skill', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                says: 'Goodbye!',
+                says: 'See you soon!',
                 repromptsNothing: true, shouldEndSession: true,
             },
         ]);
