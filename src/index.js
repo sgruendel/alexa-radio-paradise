@@ -15,23 +15,55 @@ const languageStrings = {
         translation: {
             HELP_MESSAGE: 'You can say „Ask Paradise Playlist for current song“, or you can say „Exit“. What can I help you with?',
             HELP_REPROMPT: 'What can I help you with?',
-            STOP_MESSAGE: 'Goodbye!',
+            STOP_MESSAGE: 'See you soon!',
             ASK_BILL_MESSAGE: 'Let me ask Bill ...',
             CURRENTLY_PLAYING_MESSAGE: "You're listening to {{song}} by {{artist}} from the {{released}} album {{album}}.",
             ADDITIONAL_INFO_MESSAGE: 'Average rating by your fellow Radio Paradise listeners is {{avgRating}}, the length is {{length}} and it was played {{plays}} times in the last 30 days.',
-            CANT_GET_PLAYLIST_MESSAGE: "I'm sorry, I can't get that information currently.",
+            CANT_GET_PLAYLIST_MESSAGE: "I'm sorry, Bill's not there right now.",
         },
     },
-
     de: {
         translation: {
             HELP_MESSAGE: 'Du kannst sagen „Frage Paradise Playlist nach dem aktuellen Lied“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
             HELP_REPROMPT: 'Wie kann ich dir helfen?',
-            STOP_MESSAGE: 'Auf Wiedersehen!',
+            STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             ASK_BILL_MESSAGE: 'Ich frage mal Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Du hörst gerade {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist {{avgRating}}, die Länge beträgt {{length}} und es wurde in den letzten 30 Tagen {{plays}} Mal gespielt.',
-            CANT_GET_PLAYLIST_MESSAGE: 'Es tut mir leid, das kann ich gerade nicht herausfinden.',
+            CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">schade</say-as>, Bill ist gerade nicht da.',
+        },
+    },
+    es: {
+        translation: {
+            HELP_MESSAGE: 'Puede decir „Preguntar a Paradise Playlist después de la canción actual“, o puede decir „Salir“. ¿Cómo puedo ayudarte?',
+            HELP_REPROMPT: '¿Cómo puedo ayudarte?',
+            STOP_MESSAGE: '¡Adiós!',
+            ASK_BILL_MESSAGE: 'Dejame preguntarle a Bill ...',
+            CURRENTLY_PLAYING_MESSAGE: 'Estás escuchando {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
+            ADDITIONAL_INFO_MESSAGE: 'La calificación promedio de sus compañeros oyentes de Radio Paradise es {{avgRating}}, la duración es {{length}} y se jugó {{plays}} veces en los últimos 30 días.',
+            CANT_GET_PLAYLIST_MESSAGE: 'Lo siento, Bill no está ahí ahora.',
+        },
+    },
+    fr: {
+        translation: {
+            HELP_MESSAGE: 'Vous pouvez dire „Frage Paradise Playlist nach dem aktuellen Lied“, ou vous pouvez dire „Quitter“. Comment puis-je vous aider?',
+            HELP_REPROMPT: 'Comment puis-je vous aider?',
+            STOP_MESSAGE: 'Au revoir!',
+            ASK_BILL_MESSAGE: 'Je vais demander à Bill ...',
+            CURRENTLY_PLAYING_MESSAGE: "Vous écoutez {{song}} di {{artist}} de l'album {{album}} del {{released}}.",
+            ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}} et il a été joué {{plays}} fois au cours des 30 derniers jours.',
+            CANT_GET_PLAYLIST_MESSAGE: "Je suis désolé, Bill n'est pas là pour le moment.",
+        },
+    },
+    it: {
+        translation: {
+            HELP_MESSAGE: 'Puoi dire „Chiedi a Paradise Playlist dopo la canzone corrente“, o puoi dire „Esci“. Come posso aiutarti?',
+            HELP_REPROMPT: 'Come posso aiutarti?',
+            STOP_MESSAGE: 'Ci vediamo!',
+            ASK_BILL_MESSAGE: 'Chiederò a Bill ...',
+            CURRENTLY_PLAYING_MESSAGE: "Stai ascoltando {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
+            ADDITIONAL_INFO_MESSAGE: 'Il punteggio medio dei tuoi ascoltatori di Radio Paradise è {{avgRating}}, la lunghezza è {{length}} ed è stata giocata {{plays}} volte negli ultimi 30 giorni.',
+            CANT_GET_PLAYLIST_MESSAGE: 'Mi dispiace, Bill non è lì adesso.',
         },
     },
 };

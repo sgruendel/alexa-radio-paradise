@@ -6,25 +6,16 @@
         {
           "name": "RadioParadiseIntent",
           "samples": [
-            "was das ist",
-            "was gerade läuft",
-            "was gerade gespielt wird",
-            "nach der Playlist",
-            "nach der aktuellen Playlist",
-            "nach dem Lied",
-            "nach dem aktuellen Lied",
-            "nach dem Song",
-            "nach dem aktuellen Song",
-            "nach dem Stück",
-            "nach dem aktuellen Stück",
-            "nach der Band",
-            "nach der aktuellen Band",
-            "nach dem Sänger",
-            "nach dem aktuellen Sänger",
-            "nach der Sängerin",
-            "nach der aktuellen Sängerin",
-            "nach dem Künstler",
-            "nach dem aktuellen Künstler"
+            "qué está jugando",
+            "qué está jugando actualmente",
+            "por lista de reproducción",
+            "por la lista de reproducción actual",
+            "por la canción actual",
+            "por el artista actual",
+            "por la banda actual",
+            "sobre la canción actual",
+            "sobre el artista actual",
+            "sobre la banda actual"
           ]
         },
         {
