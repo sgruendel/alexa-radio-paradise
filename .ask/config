@@ -2,19 +2,22 @@
   "deploy_settings": {
     "default": {
       "skill_id": "amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526",
-      "was_cloned": false,
+      "was_cloned": true,
       "resources": {
         "manifest": {
-          "eTag": "491f0e8b46b8ac4d9c2c6869eff2d80d"
+          "eTag": "76f1c842ce9987a565fd981febd86386"
         },
         "interactionModel": {
+          "it-IT": {
+            "eTag": "ed7a14ed8638c973c86833deff7e6cd5"
+          },
           "de-DE": {
             "eTag": "4572e3bfbfc469eaf12b334801721514"
           },
-          "en-US": {
+          "en-CA": {
             "eTag": "0c52bb3c42a06b572c00d2619cd5edd0"
           },
-          "en-CA": {
+          "en-US": {
             "eTag": "0c52bb3c42a06b572c00d2619cd5edd0"
           },
           "en-IN": {
@@ -23,22 +26,19 @@
           "en-AU": {
             "eTag": "0c52bb3c42a06b572c00d2619cd5edd0"
           },
-          "en-GB": {
-            "eTag": "0c52bb3c42a06b572c00d2619cd5edd0"
-          },
           "es-ES": {
             "eTag": "a4cac4cd06afedd45db892940434f671"
           },
-          "it-IT": {
-            "eTag": "ed7a14ed8638c973c86833deff7e6cd5"
-          },
-          "fr-CA": {
+          "fr-FR": {
             "eTag": "df48b8f20e34a1e50de919fde88813b3"
+          },
+          "en-GB": {
+            "eTag": "0c52bb3c42a06b572c00d2619cd5edd0"
           },
           "es-MX": {
             "eTag": "a4cac4cd06afedd45db892940434f671"
           },
-          "fr-FR": {
+          "fr-CA": {
             "eTag": "df48b8f20e34a1e50de919fde88813b3"
           }
         },
@@ -50,7 +50,7 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "50f4c3b8-3b19-4724-ba68-68cfc3796286"
+            "revisionId": "80ccd422-519d-4905-abc9-5f38e4f67586"
           }
         ]
       },
