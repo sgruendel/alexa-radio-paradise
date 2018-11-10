@@ -213,7 +213,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "Changes to previous version (lambda version 4):\n* Add Italian, French and Spanish locales.\n\nSee http://www.radioparadise.com for current playlist and give it a listen!",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen! As getting playlist information may take some time, a progressive response of \"I'll ask Bill ...\" is used by the skill. Bill is the DJ of the radio station and well known to Radio Paradise listeners.\n\nChanges to previous version (lambda version 4):\n* add Italian, French and Spanish locales\n* optimized HelpIntent handling\n* Use English pronounciation for song/artist/album in non-English locales",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     },
