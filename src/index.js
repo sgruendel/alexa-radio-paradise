@@ -20,12 +20,13 @@ const radioParadise = require('./radio-paradise');
 
 const SKILL_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
 const TITLE = 'Radio Paradise Playlist'; // Used for card and display title
+const EN_ON = '<lang xml:lang="en-US">';
+const EN_OFF = '</lang>';
 
 const languageStrings = {
     en: {
         translation: {
-            HELP_MESSAGE: 'You can say „Ask Paradise Playlist for current song“, or you can say „Exit“. What can I help you with?',
-            HELP_REPROMPT: 'What can I help you with?',
+            HELP_MESSAGE: "You can say 'Open Paradise Playlist' and I will tell you what's playing now on Radio Paradise.",
             STOP_MESSAGE: 'See you soon!',
             NOT_UNDERSTOOD_MESSAGE: 'Sorry, I don\'t understand. Please say again?',
             ASK_BILL_MESSAGE: 'Let me ask Bill ...',
@@ -36,48 +37,44 @@ const languageStrings = {
     },
     de: {
         translation: {
-            HELP_MESSAGE: 'Du kannst sagen „Frage Paradise Playlist nach dem aktuellen Lied“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
-            HELP_REPROMPT: 'Wie kann ich dir helfen?',
+            HELP_MESSAGE: 'Du kannst sagen „Öffne Paradise Playlist“ und ich sage dir was gerade auf Radio Paradise läuft.',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
             ASK_BILL_MESSAGE: 'Ich frage mal Bill ...',
-            CURRENTLY_PLAYING_MESSAGE: 'Du hörst gerade {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
+            CURRENTLY_PLAYING_MESSAGE: 'Du hörst gerade ' + EN_ON + '{{song}}' + EN_OFF + ' von ' + EN_ON + '{{artist}}' + EN_OFF + ' aus dem Album ' + EN_ON + '{{album}}' + EN_OFF + ' von {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist {{avgRating}}, die Länge beträgt {{length}} und es wurde in den letzten 30 Tagen {{plays}} Mal gespielt.',
             CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">schade</say-as>, Bill ist gerade nicht da.',
         },
     },
     es: {
         translation: {
-            HELP_MESSAGE: 'Puede decir „Preguntar a Paradise Playlist después de la canción actual“, o puede decir „Salir“. ¿Cómo puedo ayudarte?',
-            HELP_REPROMPT: '¿Cómo puedo ayudarte?',
+            HELP_MESSAGE: 'Puedes decir „Abre Paradise Playlist“ y te diré qué se está reproduciendo ahora en Radio Paradise.',
             STOP_MESSAGE: '¡Adiós!',
             NOT_UNDERSTOOD_MESSAGE: 'Lo siento, no entiendo. Por favor repita eso?',
             ASK_BILL_MESSAGE: 'Dejame preguntarle a Bill ...',
-            CURRENTLY_PLAYING_MESSAGE: 'Estás escuchando {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
+            CURRENTLY_PLAYING_MESSAGE: 'Estás escuchando ' + EN_ON + '{{song}}' + EN_OFF + ' por ' + EN_ON + '{{artist}}' + EN_OFF + ' del álbum ' + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'La calificación promedio de sus compañeros oyentes de Radio Paradise es {{avgRating}}, la duración es {{length}} y se jugó {{plays}} veces en los últimos 30 días.',
             CANT_GET_PLAYLIST_MESSAGE: 'Lo siento, Bill no está ahí ahora.',
         },
     },
     fr: {
         translation: {
-            HELP_MESSAGE: 'Vous pouvez dire „Frage Paradise Playlist nach dem aktuellen Lied“, ou vous pouvez dire „Quitter“. Comment puis-je vous aider?',
-            HELP_REPROMPT: 'Comment puis-je vous aider?',
+            HELP_MESSAGE: 'Vous pouvez dire «Ouvre Paradise Playlist» et je vous dirai ce qui se passe actuellement sur Radio Paradise.',
             STOP_MESSAGE: 'Au revoir!',
             NOT_UNDERSTOOD_MESSAGE: 'Désolé, je ne comprends pas. Veuillez répéter ça?',
             ASK_BILL_MESSAGE: 'Je vais demander à Bill ...',
-            CURRENTLY_PLAYING_MESSAGE: "Vous écoutez {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
+            CURRENTLY_PLAYING_MESSAGE: 'Vous écoutez ' + EN_ON + '{{song}}' + EN_OFF + ' de ' + EN_ON + '{{artist}}' + EN_OFF + " de l'album " + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}} et il a été joué {{plays}} fois au cours des 30 derniers jours.',
             CANT_GET_PLAYLIST_MESSAGE: "Je suis désolé, Bill n'est pas là pour le moment.",
         },
     },
     it: {
         translation: {
-            HELP_MESSAGE: 'Puoi dire „Chiedi a Paradise Playlist dopo la canzone corrente“, o puoi dire „Esci“. Come posso aiutarti?',
-            HELP_REPROMPT: 'Come posso aiutarti?',
+            HELP_MESSAGE: 'Puoi dire „Apri Paradise Playlist“ e ti dirò cosa sta giocando ora su Radio Paradise.',
             STOP_MESSAGE: 'Ci vediamo!',
             NOT_UNDERSTOOD_MESSAGE: 'Scusa, non capisco. Per favore, ripetilo?',
             ASK_BILL_MESSAGE: 'Chiederò a Bill ...',
-            CURRENTLY_PLAYING_MESSAGE: "Stai ascoltando {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
+            CURRENTLY_PLAYING_MESSAGE: 'Stai ascoltando ' + EN_ON + '{{song}}' + EN_OFF + ' di ' + EN_ON + '{{artist}}' + EN_OFF + " dall'album " + EN_ON + '{{album}}' + EN_OFF + ' del {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'Il punteggio medio dei tuoi ascoltatori di Radio Paradise è {{avgRating}}, la lunghezza è {{length}} ed è stata giocata {{plays}} volte negli ultimi 30 giorni.',
             CANT_GET_PLAYLIST_MESSAGE: 'Mi dispiace, Bill non è lì adesso.',
         },
@@ -197,7 +194,6 @@ const HelpIntentHandler = {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         return handlerInput.responseBuilder
             .speak(requestAttributes.t('HELP_MESSAGE'))
-            .reprompt(requestAttributes.t('HELP_REPROMPT'))
             .getResponse();
     },
 };
