@@ -18,7 +18,7 @@
           ],
           "name": "Paradise Playlist",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Ascoltando Radio Paradise e c'è questa bella canzone ma non sai di cosa si tratta? Ora puoi chiedere ad Alexa cosa sta suonando attualmente, tra cui artista, canzone, album e anno di uscita.\n\nQuesta abilità è un progetto di fan non ufficiale.\n\nSuggerimenti per il miglioramento e feedback su https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Ascoltando Radio Paradise e c'è questa bella canzone ma non sai di cosa si tratta? Ora puoi chiedere ad Alexa cosa sta suonando attualmente, tra cui artista, canzone, album e anno di uscita.\n\nQuesta skill è un progetto di fan non ufficiale.\n\nSuggerimenti per il miglioramento e feedback su https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
         },
         "de-DE": {
@@ -132,7 +132,7 @@
           ],
           "name": "Paradise Playlist",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta habilidad es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
         },
         "fr-FR": {
@@ -151,7 +151,7 @@
           ],
           "name": "Paradise Playlist",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette compétence est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
         },
         "en-GB": {
@@ -189,7 +189,7 @@
           ],
           "name": "Paradise Playlist",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta habilidad es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
         },
         "fr-CA": {
@@ -208,7 +208,7 @@
           ],
           "name": "Paradise Playlist",
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette compétence est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
         }
       },

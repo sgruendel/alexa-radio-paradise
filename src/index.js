@@ -50,7 +50,7 @@ const languageStrings = {
             HELP_REPROMPT: 'Comment puis-je vous aider?',
             STOP_MESSAGE: 'Au revoir!',
             ASK_BILL_MESSAGE: 'Je vais demander à Bill ...',
-            CURRENTLY_PLAYING_MESSAGE: "Vous écoutez {{song}} di {{artist}} de l'album {{album}} del {{released}}.",
+            CURRENTLY_PLAYING_MESSAGE: "Vous écoutez {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
             ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}} et il a été joué {{plays}} fois au cours des 30 derniers jours.',
             CANT_GET_PLAYLIST_MESSAGE: "Je suis désolé, Bill n'est pas là pour le moment.",
         },

@@ -2,10 +2,10 @@
   "deploy_settings": {
     "default": {
       "skill_id": "amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526",
-      "was_cloned": true,
+      "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "76f1c842ce9987a565fd981febd86386"
+          "eTag": "792191923cce726a9fcfdaf288c175a2"
         },
         "interactionModel": {
           "it-IT": {
@@ -44,7 +44,7 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:5",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise",
             "awsRegion": "eu-west-1",
             "functionName": "radioParadise",
             "alexaUsage": [
@@ -59,7 +59,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:5"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise"
               }
             }
           }
