@@ -4,6 +4,17 @@ const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
 const dashbot = process.env.DASHBOT_API_KEY ? require('dashbot')(process.env.DASHBOT_API_KEY).alexa : undefined;
+const winston = require('winston');
+
+const logger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    transports: [
+        new winston.transports.Console({
+            format: winston.format.simple(),
+        }),
+    ],
+    exitOnError: false,
+});
 
 const radioParadise = require('./radio-paradise');
 
@@ -16,6 +27,7 @@ const languageStrings = {
             HELP_MESSAGE: 'You can say „Ask Paradise Playlist for current song“, or you can say „Exit“. What can I help you with?',
             HELP_REPROMPT: 'What can I help you with?',
             STOP_MESSAGE: 'See you soon!',
+            NOT_UNDERSTOOD_MESSAGE: 'Sorry, I don\'t understand. Please say again?',
             ASK_BILL_MESSAGE: 'Let me ask Bill ...',
             CURRENTLY_PLAYING_MESSAGE: "You're listening to {{song}} by {{artist}} from the {{released}} album {{album}}.",
             ADDITIONAL_INFO_MESSAGE: 'Average rating by your fellow Radio Paradise listeners is {{avgRating}}, the length is {{length}} and it was played {{plays}} times in the last 30 days.',
@@ -27,6 +39,7 @@ const languageStrings = {
             HELP_MESSAGE: 'Du kannst sagen „Frage Paradise Playlist nach dem aktuellen Lied“, oder du kannst „Beenden“ sagen. Wie kann ich dir helfen?',
             HELP_REPROMPT: 'Wie kann ich dir helfen?',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
+            NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
             ASK_BILL_MESSAGE: 'Ich frage mal Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Du hörst gerade {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist {{avgRating}}, die Länge beträgt {{length}} und es wurde in den letzten 30 Tagen {{plays}} Mal gespielt.',
@@ -38,6 +51,7 @@ const languageStrings = {
             HELP_MESSAGE: 'Puede decir „Preguntar a Paradise Playlist después de la canción actual“, o puede decir „Salir“. ¿Cómo puedo ayudarte?',
             HELP_REPROMPT: '¿Cómo puedo ayudarte?',
             STOP_MESSAGE: '¡Adiós!',
+            NOT_UNDERSTOOD_MESSAGE: 'Lo siento, no entiendo. Por favor repita eso?',
             ASK_BILL_MESSAGE: 'Dejame preguntarle a Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Estás escuchando {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'La calificación promedio de sus compañeros oyentes de Radio Paradise es {{avgRating}}, la duración es {{length}} y se jugó {{plays}} veces en los últimos 30 días.',
@@ -49,6 +63,7 @@ const languageStrings = {
             HELP_MESSAGE: 'Vous pouvez dire „Frage Paradise Playlist nach dem aktuellen Lied“, ou vous pouvez dire „Quitter“. Comment puis-je vous aider?',
             HELP_REPROMPT: 'Comment puis-je vous aider?',
             STOP_MESSAGE: 'Au revoir!',
+            NOT_UNDERSTOOD_MESSAGE: 'Désolé, je ne comprends pas. Veuillez répéter ça?',
             ASK_BILL_MESSAGE: 'Je vais demander à Bill ...',
             CURRENTLY_PLAYING_MESSAGE: "Vous écoutez {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
             ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}} et il a été joué {{plays}} fois au cours des 30 derniers jours.',
@@ -60,6 +75,7 @@ const languageStrings = {
             HELP_MESSAGE: 'Puoi dire „Chiedi a Paradise Playlist dopo la canzone corrente“, o puoi dire „Esci“. Come posso aiutarti?',
             HELP_REPROMPT: 'Come posso aiutarti?',
             STOP_MESSAGE: 'Ci vediamo!',
+            NOT_UNDERSTOOD_MESSAGE: 'Scusa, non capisco. Per favore, ripetilo?',
             ASK_BILL_MESSAGE: 'Chiederò a Bill ...',
             CURRENTLY_PLAYING_MESSAGE: "Stai ascoltando {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
             ADDITIONAL_INFO_MESSAGE: 'Il punteggio medio dei tuoi ascoltatori di Radio Paradise è {{avgRating}}, la lunghezza è {{length}} ed è stata giocata {{plays}} volte negli ultimi 30 giorni.',
@@ -122,7 +138,7 @@ const RadioParadiseIntentHandler = {
                         interpolation: { escapeValue: false },
                     })
                     + ' ' + additionalInfo;
-                console.log(cardContent);
+                logger.debug(cardContent);
                 const smallImageUrl = songInfo.cover.replace('\/m\/', '/s/');
                 const largeImageUrl = songInfo.cover.replace('\/m\/', '/l/');
 
@@ -152,7 +168,7 @@ const RadioParadiseIntentHandler = {
                     .getResponse();
             })
             .catch((err) => {
-                console.error('Error getting playlist', err);
+                logger.error(err);
                 const speechOutput = requestAttributes.t('CANT_GET_PLAYLIST_MESSAGE');
                 response = handlerInput.responseBuilder
                     .speak(speechOutput)
@@ -163,7 +179,7 @@ const RadioParadiseIntentHandler = {
         // response call completes before you send the full response object.
         await progressiveResponse
             .catch((err) => {
-                console.error('error sending progressive response', err);
+                logger.error(err);
             });
         return response;
     },
@@ -171,27 +187,31 @@ const RadioParadiseIntentHandler = {
 
 const HelpIntentHandler = {
     canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
+        const { request } = handlerInput.requestEnvelope;
         return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
-        const speechOutput = requestAttributes.t('HELP_MESSAGE');
-        const repromptSpeechOutput = requestAttributes.t('HELP_REPROMPT');
         return handlerInput.responseBuilder
-            .speak(speechOutput)
-            .reprompt(repromptSpeechOutput)
+            .speak(requestAttributes.t('HELP_MESSAGE'))
+            .reprompt(requestAttributes.t('HELP_REPROMPT'))
             .getResponse();
     },
 };
 
 const CancelAndStopIntentHandler = {
     canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
+        const { request } = handlerInput.requestEnvelope;
         return request.type === 'IntentRequest'
             && (request.intent.name === 'AMAZON.CancelIntent' || request.intent.name === 'AMAZON.StopIntent');
     },
     handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('STOP_MESSAGE');
         return handlerInput.responseBuilder
@@ -205,7 +225,16 @@ const SessionEndedRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
     },
     handle(handlerInput) {
-        console.log('Session ended with reason:', handlerInput.requestEnvelope.request.reason);
+        const { request } = handlerInput.requestEnvelope;
+        try {
+            if (request.reason === 'ERROR') {
+                logger.error(request.error.type + ': ' + request.error.message);
+            }
+        } catch (err) {
+            logger.error(err, request);
+        }
+
+        logger.debug('session ended', request);
         return handlerInput.responseBuilder.getResponse();
     },
 };
@@ -215,10 +244,13 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        console.error('Error handled:', error);
+        logger.error(error.message,
+            { request: handlerInput.requestEnvelope.request, stack: error.stack, error: error });
+        const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+        const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder
-            .speak('Sorry, I can\'t understand the command. Please say again?')
-            .reprompt('Sorry, I can\'t understand the command. Please say again?')
+            .speak(speechOutput)
+            .reprompt(speechOutput)
             .getResponse();
     },
 };
