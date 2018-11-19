@@ -87,7 +87,7 @@ const languageStrings = {
 };
 
 // sends a progressive response, see https://forums.developer.amazon.com/questions/170300/progressive-response-in-nodejs-sdk-v2.html
-function callDirectiveService(handlerInput, speech) {
+async function callDirectiveService(handlerInput, speech) {
     const { apiEndpoint, apiAccessToken } = handlerInput.requestEnvelope.context.System;
     return handlerInput.serviceClientFactory.getDirectiveServiceClient().enqueue(
         {
@@ -121,7 +121,11 @@ const RadioParadiseIntentHandler = {
     async handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
 
-        const progressiveResponse = callDirectiveService(handlerInput, requestAttributes.t('ASK_BILL_MESSAGE'));
+        const progressiveResponse =
+            callDirectiveService(handlerInput, requestAttributes.t('ASK_BILL_MESSAGE'))
+                .catch((err) => {
+                    logger.error(err.stack || err.toString());
+                });
 
         var response;
         await radioParadise.getNowPlaying()
@@ -175,7 +179,7 @@ const RadioParadiseIntentHandler = {
                     .getResponse();
             })
             .catch((err) => {
-                logger.error(err);
+                logger.error(err.stack || err.toString());
                 const speechOutput = requestAttributes.t('CANT_GET_PLAYLIST_MESSAGE');
                 response = handlerInput.responseBuilder
                     .speak(speechOutput)
@@ -184,10 +188,7 @@ const RadioParadiseIntentHandler = {
 
         // For the best customer experience, your skill should wait until the progressive
         // response call completes before you send the full response object.
-        await progressiveResponse
-            .catch((err) => {
-                logger.error(err);
-            });
+        await progressiveResponse;
         return response;
     },
 };
@@ -237,7 +238,7 @@ const SessionEndedRequestHandler = {
                 logger.error(request.error.type + ': ' + request.error.message);
             }
         } catch (err) {
-            logger.error(err, request);
+            logger.error(err.stack || err.toString(), request);
         }
 
         logger.debug('session ended', request);
@@ -250,8 +251,7 @@ const ErrorHandler = {
         return true;
     },
     handle(handlerInput, error) {
-        logger.error(error.message,
-            { request: handlerInput.requestEnvelope.request, stack: error.stack, error: error });
+        logger.error(error.stack || error.toString(), handlerInput.requestEnvelope.request);
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
         const speechOutput = requestAttributes.t('NOT_UNDERSTOOD_MESSAGE');
         return handlerInput.responseBuilder
