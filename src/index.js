@@ -36,6 +36,31 @@ const languageStrings = {
             CANT_GET_PLAYLIST_MESSAGE: "I'm sorry, Bill's not there right now.",
         },
     },
+    'en-US': {
+        translation: {
+            CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">bummer</say-as>, Bill\'s not there right now.',
+        },
+    },
+    'en-CA': {
+        translation: {
+            CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">bummer</say-as>, Bill\'s not there right now.',
+        },
+    },
+    'en-GB': {
+        translation: {
+            CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">blimey</say-as>, Bill\'s not there right now.',
+        },
+    },
+    'en-AU': {
+        translation: {
+            CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">blimey</say-as>, Bill\'s not there right now.',
+        },
+    },
+    'en-IN': {
+        translation: {
+            CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">blimey</say-as>, Bill\'s not there right now.',
+        },
+    },
     de: {
         translation: {
             HELP_MESSAGE: 'Du kannst sagen „Öffne Paradise Playlist“ und ich sage dir was gerade auf Radio Paradise läuft.',
@@ -137,7 +162,7 @@ const RadioParadiseIntentHandler = {
                     });
                 const additionalInfo = requestAttributes.t('ADDITIONAL_INFO_MESSAGE',
                     { avgRating: songInfo.avgRating, length: songInfo.length, plays: songInfo.plays });
-                const cardContent = requestAttributes.t('CURRENTLY_PLAYING_MESSAGE',
+                const cardContent = requestAttributes.t('CURRENTLY_PLAYING_TEXT',
                     {
                         artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
                         released: songInfo.released,
