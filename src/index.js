@@ -22,6 +22,7 @@ const SKILL_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
 const TITLE = 'Radio Paradise Playlist'; // Used for card and display title
 const EN_ON = '<lang xml:lang="en-US">';
 const EN_OFF = '</lang>';
+const RP_IMAGE_URL = 'https://img.radioparadise.com/';
 
 const languageStrings = {
     en: {
@@ -32,7 +33,7 @@ const languageStrings = {
             ASK_BILL_MESSAGE: 'Let me ask Bill ...',
             CURRENTLY_PLAYING_MESSAGE: "You're listening to {{song}} by {{artist}} from the {{released}} album {{album}}.",
             CURRENTLY_PLAYING_TEXT: "You're listening to {{song}} by {{artist}} from the {{released}} album {{album}}.",
-            ADDITIONAL_INFO_MESSAGE: 'Average rating by your fellow Radio Paradise listeners is {{avgRating}}, the length is {{length}} and it was played {{plays}} times in the last 30 days.',
+            ADDITIONAL_INFO_MESSAGE: 'Average rating by your fellow Radio Paradise listeners is {{avgRating}}, the length is {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: "I'm sorry, Bill's not there right now.",
         },
     },
@@ -66,10 +67,9 @@ const languageStrings = {
             HELP_MESSAGE: 'Du kannst sagen „Öffne Paradise Playlist“ und ich sage dir was gerade auf Radio Paradise läuft.',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
-            ASK_BILL_MESSAGE: 'Ich frage mal Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Du hörst gerade ' + EN_ON + '{{song}}' + EN_OFF + ' von ' + EN_ON + '{{artist}}' + EN_OFF + ' aus dem Album ' + EN_ON + '{{album}}' + EN_OFF + ' von {{released}}.',
             CURRENTLY_PLAYING_TEXT: 'Du hörst gerade {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
-            ADDITIONAL_INFO_MESSAGE: 'Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist {{avgRating}}, die Länge beträgt {{length}} und es wurde in den letzten 30 Tagen {{plays}} Mal gespielt.',
+            ADDITIONAL_INFO_MESSAGE: 'Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist {{avgRating}}, die Länge beträgt {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">schade</say-as>, Bill ist gerade nicht da.',
         },
     },
@@ -78,10 +78,9 @@ const languageStrings = {
             HELP_MESSAGE: 'Puedes decir „Abre Paradise Playlist“ y te diré qué se está reproduciendo ahora en Radio Paradise.',
             STOP_MESSAGE: '¡Adiós!',
             NOT_UNDERSTOOD_MESSAGE: 'Lo siento, no entiendo. Por favor repita eso?',
-            ASK_BILL_MESSAGE: 'Dejame preguntarle a Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Estás escuchando ' + EN_ON + '{{song}}' + EN_OFF + ' por ' + EN_ON + '{{artist}}' + EN_OFF + ' del álbum ' + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
             CURRENTLY_PLAYING_TEXT: 'Estás escuchando {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
-            ADDITIONAL_INFO_MESSAGE: 'La calificación promedio de sus compañeros oyentes de Radio Paradise es {{avgRating}}, la duración es {{length}} y se jugó {{plays}} veces en los últimos 30 días.',
+            ADDITIONAL_INFO_MESSAGE: 'La calificación promedio de sus compañeros oyentes de Radio Paradise es {{avgRating}}, la duración es {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: 'Lo siento, Bill no está ahí ahora.',
         },
     },
@@ -90,10 +89,9 @@ const languageStrings = {
             HELP_MESSAGE: 'Vous pouvez dire «Ouvre Paradise Playlist» et je vous dirai ce qui se passe actuellement sur Radio Paradise.',
             STOP_MESSAGE: 'Au revoir!',
             NOT_UNDERSTOOD_MESSAGE: 'Désolé, je ne comprends pas. Veuillez répéter ça?',
-            ASK_BILL_MESSAGE: 'Je vais demander à Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Vous écoutez ' + EN_ON + '{{song}}' + EN_OFF + ' de ' + EN_ON + '{{artist}}' + EN_OFF + " de l'album " + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
             CURRENTLY_PLAYING_TEXT: "Vous écoutez {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
-            ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}} et il a été joué {{plays}} fois au cours des 30 derniers jours.',
+            ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: "Je suis désolé, Bill n'est pas là pour le moment.",
         },
     },
@@ -102,30 +100,13 @@ const languageStrings = {
             HELP_MESSAGE: 'Puoi dire „Apri Paradise Playlist“ e ti dirò cosa sta giocando ora su Radio Paradise.',
             STOP_MESSAGE: 'Ci vediamo!',
             NOT_UNDERSTOOD_MESSAGE: 'Scusa, non capisco. Per favore, ripetilo?',
-            ASK_BILL_MESSAGE: 'Chiederò a Bill ...',
             CURRENTLY_PLAYING_MESSAGE: 'Stai ascoltando ' + EN_ON + '{{song}}' + EN_OFF + ' di ' + EN_ON + '{{artist}}' + EN_OFF + " dall'album " + EN_ON + '{{album}}' + EN_OFF + ' del {{released}}.',
             CURRENTLY_PLAYING_TEXT: "Stai ascoltando {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
-            ADDITIONAL_INFO_MESSAGE: 'Il punteggio medio dei tuoi ascoltatori di Radio Paradise è {{avgRating}}, la lunghezza è {{length}} ed è stata giocata {{plays}} volte negli ultimi 30 giorni.',
+            ADDITIONAL_INFO_MESSAGE: 'Il punteggio medio dei tuoi ascoltatori di Radio Paradise è {{avgRating}}, la lunghezza è {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: 'Mi dispiace, Bill non è lì adesso.',
         },
     },
 };
-
-// sends a progressive response, see https://forums.developer.amazon.com/questions/170300/progressive-response-in-nodejs-sdk-v2.html
-async function callDirectiveService(handlerInput, speech) {
-    const { apiEndpoint, apiAccessToken } = handlerInput.requestEnvelope.context.System;
-    return handlerInput.serviceClientFactory.getDirectiveServiceClient().enqueue(
-        {
-            header: {
-                requestId: handlerInput.requestEnvelope.request.requestId,
-            },
-            directive: {
-                type: 'VoicePlayer.Speak',
-                speech: speech,
-            },
-        },
-        apiEndpoint, apiAccessToken);
-}
 
 // returns true if the skill is running on a device with a display (show|spot)
 function supportsDisplay(handlerInput) {
@@ -146,48 +127,46 @@ const RadioParadiseIntentHandler = {
     async handle(handlerInput) {
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
 
-        const progressiveResponse =
-            callDirectiveService(handlerInput, requestAttributes.t('ASK_BILL_MESSAGE'))
-                .catch((err) => {
-                    logger.error(err.stack || err.toString());
-                });
-
         var response;
+        logger.debug('asking Bill ...');
         await radioParadise.getNowPlaying()
-            .then((songInfo) => {
+            .then((songs) => {
+                const song = songs.song[0];
+                var date = new Date(null);
+                date.setSeconds(song.duration / 1000);
+
                 const speechOutput = requestAttributes.t('CURRENTLY_PLAYING_MESSAGE',
                     {
-                        artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
-                        released: songInfo.released,
+                        artist: song.artist, song: song.title, album: song.album,
+                        released: song.year,
                     });
                 const additionalInfo = requestAttributes.t('ADDITIONAL_INFO_MESSAGE',
-                    { avgRating: songInfo.avgRating, length: songInfo.length, plays: songInfo.plays });
+                    { avgRating: song.rating, length: date.toISOString().substr(14, 5) });
                 const cardContent = requestAttributes.t('CURRENTLY_PLAYING_TEXT',
                     {
-                        artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
-                        released: songInfo.released,
+                        artist: song.artist, song: song.title, album: song.album,
+                        released: song.year,
                         interpolation: { escapeValue: false },
                     })
                     + ' ' + additionalInfo;
                 logger.debug(cardContent);
-                const smallImageUrl = songInfo.cover.replace('\/m\/', '/s/');
-                const largeImageUrl = songInfo.cover.replace('\/m\/', '/l/');
+                const smallImageUrl = RP_IMAGE_URL + song.cover.replace('\/l\/', '/s/');
+                const largeImageUrl = RP_IMAGE_URL + song.cover;
 
                 if (supportsDisplay(handlerInput)) {
                     const primaryText = requestAttributes.t('CURRENTLY_PLAYING_TEXT',
                         {
-                            artist: songInfo.artist, song: songInfo.song, album: songInfo.album,
-                            released: songInfo.released,
+                            artist: song.artist, song: song.title, album: song.album,
+                            released: song.year,
                         });
                     const coverImage = new Alexa.ImageHelper()
                         .withDescription('album cover')
-                        .addImageInstance(songInfo.cover, 'X_SMALL', 160, 160)
+                        .addImageInstance(smallImageUrl, 'X_SMALL', 160, 160)
                         .addImageInstance(largeImageUrl, 'SMALL', 500, 500)
                         .getImage();
                     const textContent = new Alexa.RichTextContentHelper()
                         .withPrimaryText(primaryText)
                         .withSecondaryText('<font size="2">' + additionalInfo + '</font>')
-                        // .withTertiaryText('<font size="2">' + songInfo.lyrics + '</font>')
                         .getTextContent();
                     handlerInput.responseBuilder
                         .addRenderTemplateDirective({
@@ -211,9 +190,6 @@ const RadioParadiseIntentHandler = {
                     .getResponse();
             });
 
-        // For the best customer experience, your skill should wait until the progressive
-        // response call completes before you send the full response object.
-        await progressiveResponse;
         return response;
     },
 };
