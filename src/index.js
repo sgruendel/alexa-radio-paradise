@@ -125,10 +125,12 @@ const RadioParadiseIntentHandler = {
             || (request.type === 'IntentRequest' && request.intent.name === 'RadioParadiseIntent');
     },
     async handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
         const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
 
         var response;
-        logger.debug('asking Bill ...');
         await radioParadise.getNowPlaying()
             .then((songs) => {
                 const song = songs.song[0];
@@ -149,7 +151,7 @@ const RadioParadiseIntentHandler = {
                         interpolation: { escapeValue: false },
                     })
                     + ' ' + additionalInfo;
-                logger.debug(cardContent);
+                logger.info(cardContent);
                 const smallImageUrl = RP_IMAGE_URL + song.cover.replace('\/l\/', '/s/');
                 const largeImageUrl = RP_IMAGE_URL + song.cover;
 
