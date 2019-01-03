@@ -213,7 +213,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (lambda version 8):\n* Switch to api.radioparadise.com for directly getting JSON data instead of parsing HTML\n* remove progressive reponse as new API is much faster",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 8):\n* Switch to api.radioparadise.com for directly getting JSON data instead of parsing HTML\n* remove progressive reponse as new API is much faster",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     },
