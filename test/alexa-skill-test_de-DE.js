@@ -72,6 +72,10 @@ describe('Paradise Playlist Skill', () => {
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
                 repromptsNothing: true, shouldEndSession: true,
+                hasAttributes: {
+                    index: 0,
+                    song: song => { return song && song[0] && song[0].title.length > 0; },
+                },
             },
         ]);
     });
@@ -86,6 +90,116 @@ describe('Paradise Playlist Skill', () => {
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
                 repromptsNothing: true, shouldEndSession: true,
+                hasAttributes: {
+                    index: 0,
+                    song: song => { return song && song[0] && song[0].title.length > 0; },
+                },
+            },
+        ]);
+    });
+
+    describe('PreviousIntent', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getIntentRequest('AMAZON.PreviousIntent'),
+                says: 'Davor hörtest du <lang xml:lang="en-US">Sunset Grill</lang> von <lang xml:lang="en-US">Don Henley</lang> aus dem Album <lang xml:lang="en-US">Building the Perfect Beast</lang> von 1984.',
+                hasCardTitle: 'Radio Paradise Playlist',
+                hasCardText: 'Davor hörtest du Sunset Grill von Don Henley aus dem Album Building the Perfect Beast von 1984. Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist 6.14, die Länge beträgt 06:16.',
+                hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
+                hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/B000000OPC.jpg',
+                repromptsNothing: true, shouldEndSession: true,
+                withSessionAttributes: {
+                    index: 0,
+                    song: {
+                        1: {
+                            duration: 376000,
+                            artist: 'Don Henley',
+                            title: 'Sunset Grill',
+                            album: 'Building the Perfect Beast',
+                            year: 1984,
+                            rating: 6.14,
+                            cover: 'covers/l/B000000OPC.jpg',
+                        },
+                    },
+                },
+                hasAttributes: {
+                    index: 1,
+                    song: song => { return song && song[1] && song[1].year === 1984; },
+                },
+            },
+        ]);
+    });
+
+    describe('PreviousIntent, last item', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getIntentRequest('AMAZON.PreviousIntent'),
+                says: 'Tut mir leid, aber das ist zu lange her.',
+                repromptsNothing: true, shouldEndSession: true,
+                withSessionAttributes: {
+                    index: 0,
+                    song: {
+                        0: {
+                            artist: 'Don Henley',
+                        },
+                    },
+                },
+                hasAttributes: {
+                    index: 0,
+                },
+            },
+        ]);
+    });
+
+    describe('NextIntent', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
+                says: 'Danach hörtest du <lang xml:lang="en-US">Sunset Grill</lang> von <lang xml:lang="en-US">Don Henley</lang> aus dem Album <lang xml:lang="en-US">Building the Perfect Beast</lang> von 1984.',
+                hasCardTitle: 'Radio Paradise Playlist',
+                hasCardText: 'Danach hörtest du Sunset Grill von Don Henley aus dem Album Building the Perfect Beast von 1984. Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist 6.14, die Länge beträgt 06:16.',
+                hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
+                hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/B000000OPC.jpg',
+                repromptsNothing: true, shouldEndSession: true,
+                withSessionAttributes: {
+                    index: 2,
+                    song: {
+                        1: {
+                            duration: 376000,
+                            artist: 'Don Henley',
+                            title: 'Sunset Grill',
+                            album: 'Building the Perfect Beast',
+                            year: 1984,
+                            rating: 6.14,
+                            cover: 'covers/l/B000000OPC.jpg',
+                        },
+                    },
+                },
+                hasAttributes: {
+                    index: 1,
+                    song: song => { return song && song[1] && song[1].year === 1984; },
+                },
+            },
+        ]);
+    });
+
+    describe('NextIntent, first item', () => {
+        alexaTest.test([
+            {
+                request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
+                saysLike: 'Du hörst gerade ',
+                hasCardTitle: 'Radio Paradise Playlist',
+                hasCardTextLike: 'Du hörst gerade ',
+                hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
+                hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
+                repromptsNothing: true, shouldEndSession: true,
+                withSessionAttributes: {
+                    index: 0,
+                },
+                hasAttributes: {
+                    index: 0,
+                    song: song => { return song && song[0] && song[0].title.length > 0; },
+                },
             },
         ]);
     });
