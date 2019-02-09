@@ -1,222 +1,5 @@
 {
   "manifest": {
-    "publishingInformation": {
-      "locales": {
-        "it-IT": {
-          "summary": "Radio Paradise Playlist (non ufficiale)",
-          "examplePhrases": [
-            "Alexa, apri Paradise Playlist",
-            "Alexa, chiedi a Paradise Playlist la playlist",
-            "Alexa, chiedi a Paradise Playlist cosa sta giocando"
-          ],
-          "keywords": [
-            "musica",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Ascoltando Radio Paradise e c'è questa bella canzone ma non sai di cosa si tratta? Ora puoi chiedere ad Alexa cosa sta suonando attualmente, tra cui artista, canzone, album e anno di uscita.\n\nQuesta skill è un progetto di fan non ufficiale.\n\nSuggerimenti per il miglioramento e feedback su https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "de-DE": {
-          "summary": "Radio Paradise Playlist (inoffiziell)",
-          "examplePhrases": [
-            "Alexa, öffne Paradise Playlist",
-            "Alexa, frage Paradise Playlist was gerade läuft",
-            "Alexa, frage Paradise Playlist nach dem aktuellen Song"
-          ],
-          "keywords": [
-            "musik",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/9dc8682e20a742c28510e5cea9521477/APP_ICON?versionId=ZjEtO0V9yk6AYfyqHu3kH37SsyVZTPgw&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=0fLf39dpM0Z9GYgtFdUkMlFzdbM%3D",
-          "description": "Du hörst Radio Paradise und möchtest wissen, was das für ein cooler Song ist der momentan läuft? Jetzt kannst du Alexa fragen, was gerade gespielt wird und erfährst Künstler/Band, Titel, Album und Jahr der Veröffentlichung.\n\nDieser Skill ist ein inoffizielles Fan-Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/30ce7392adf348f4a6d89308dee1e708/APP_ICON_LARGE?versionId=FMIhiEH09S9OKgfWqGA7iDBJCaK2HxnU&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=Xxd%2B43mrJRNHwxc5g2UemDN0TN0%3D"
-        },
-        "en-CA": {
-          "summary": "Radio Paradise Playlist (unofficial)",
-          "examplePhrases": [
-            "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
-          ],
-          "keywords": [
-            "music",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "en-US": {
-          "summary": "Radio Paradise Playlist (unofficial)",
-          "examplePhrases": [
-            "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
-          ],
-          "keywords": [
-            "music",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "en-IN": {
-          "summary": "Radio Paradise Playlist (unofficial)",
-          "examplePhrases": [
-            "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
-          ],
-          "keywords": [
-            "music",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "en-AU": {
-          "summary": "Radio Paradise Playlist (unofficial)",
-          "examplePhrases": [
-            "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
-          ],
-          "keywords": [
-            "music",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "es-ES": {
-          "summary": "Radio Paradise Playlist (no oficial)",
-          "examplePhrases": [
-            "Alexa, abre Paradise Playlist",
-            "Alexa, pregúntale a Paradise Playlist qué está jugando",
-            "Alexa, pide a Paradise Playlist por la lista de reproducción"
-          ],
-          "keywords": [
-            "música",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "fr-FR": {
-          "summary": "Radio Paradise Playlist (non officiel)",
-          "examplePhrases": [
-            "Alexa, ouvre Paradise Playlist",
-            "Alexa, lance Paradise Playlist",
-            "Alexa, demande à Paradise Playlist la playlist"
-          ],
-          "keywords": [
-            "musique",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "en-GB": {
-          "summary": "Radio Paradise Playlist (unofficial)",
-          "examplePhrases": [
-            "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
-          ],
-          "keywords": [
-            "music",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/7dd289c3f3454ec4b990c4eca6717ab3/APP_ICON?versionId=DHt4S_nj3wv18CpcZOKkrsvWo7Rv5hRl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=FKa6Hos0nS1ojSmVgP%2FGuD07YRI%3D",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/511538972e354734a20754f25476eb76/APP_ICON_LARGE?versionId=bQ7Jp.qjIBcAzqQywCkTdOGPbZSD8OlK&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=USsoq1im9jwi7ijAvjwpCaX8fQo%3D"
-        },
-        "es-MX": {
-          "summary": "Radio Paradise Playlist (no oficial)",
-          "examplePhrases": [
-            "Alexa, abre Paradise Playlist",
-            "Alexa, pregúntale a Paradise Playlist qué está jugando",
-            "Alexa, pide a Paradise Playlist por la lista de reproducción"
-          ],
-          "keywords": [
-            "música",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        },
-        "fr-CA": {
-          "summary": "Radio Paradise Playlist (non officiel)",
-          "examplePhrases": [
-            "Alexa, ouvre Paradise Playlist",
-            "Alexa, lance Paradise Playlist",
-            "Alexa, demande à Paradise Playlist la playlist"
-          ],
-          "keywords": [
-            "musique",
-            "internet",
-            "radio",
-            "paradise",
-            "playlist"
-          ],
-          "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bc3fb6ea8e27406c840c0825925aecac/APP_ICON?versionId=EQAJHEMm0.nnNkAjeXdlQaHwNlX0c3Lp&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=UONEY%2F0Z1VG9irO5%2BBaawtxTSJ0%3D",
-          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/0a4f805b22d74dd5b438205b8af99c54/APP_ICON_LARGE?versionId=h7F3VqkG5roiZan8l0QUelYk.y1x.h.y&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1540459624&Signature=mcLB2gu7j5l73LmiNmgtl4pRzcM%3D"
-        }
-      },
-      "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 8):\n* Switch to api.radioparadise.com for directly getting JSON data instead of parsing HTML\n* remove progressive reponse as new API is much faster",
-      "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
-      "distributionCountries": []
-    },
     "apis": {
       "custom": {
         "endpoint": {
@@ -233,11 +16,231 @@
     "manifestVersion": "1.0",
     "permissions": [],
     "privacyAndCompliance": {
+      "locales": {
+        "de-DE": {}
+      },
       "allowsPurchases": false,
-      "isExportCompliant": true,
-      "containsAds": false,
+      "usesPersonalInfo": false,
       "isChildDirected": false,
-      "usesPersonalInfo": false
+      "isExportCompliant": true,
+      "containsAds": false
+    },
+    "publishingInformation": {
+      "locales": {
+        "it-IT": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (non ufficiale)",
+          "description": "Ascoltando Radio Paradise e c'è questa bella canzone ma non sai di cosa si tratta? Ora puoi chiedere ad Alexa cosa sta suonando attualmente, tra cui artista, canzone, album e anno di uscita.\n\nQuesta skill è un progetto di fan non ufficiale.\n\nSuggerimenti per il miglioramento e feedback su https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, apri Paradise Playlist",
+            "Alexa, chiedi a Paradise Playlist la playlist",
+            "Alexa, chiedi a Paradise Playlist cosa sta giocando"
+          ],
+          "keywords": [
+            "musica",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "de-DE": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (inoffiziell)",
+          "description": "Du hörst Radio Paradise und möchtest wissen, was das für ein cooler Song ist der momentan läuft? Jetzt kannst du Alexa fragen, was gerade gespielt wird und erfährst Künstler/Band, Titel, Album und Jahr der Veröffentlichung.\n\nDieser Skill ist ein inoffizielles Fan-Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, öffne Paradise Playlist",
+            "Alexa, frage Paradise Playlist was gerade läuft",
+            "Alexa, frage Paradise Playlist nach dem aktuellen Song"
+          ],
+          "keywords": [
+            "musik",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "en-CA": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "en-US": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "en-IN": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "en-AU": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "es-ES": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (no oficial)",
+          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, abre Paradise Playlist",
+            "Alexa, pregúntale a Paradise Playlist qué está jugando",
+            "Alexa, pide a Paradise Playlist por la lista de reproducción"
+          ],
+          "keywords": [
+            "música",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "fr-FR": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (non officiel)",
+          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, ouvre Paradise Playlist",
+            "Alexa, lance Paradise Playlist",
+            "Alexa, demande à Paradise Playlist la playlist"
+          ],
+          "keywords": [
+            "musique",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "en-GB": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (unofficial)",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, open Paradise Playlist",
+            "Alexa, ask Paradise Playlist what's playing",
+            "Alexa, ask Paradise Playlist about current song"
+          ],
+          "keywords": [
+            "music",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "es-MX": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (no oficial)",
+          "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, abre Paradise Playlist",
+            "Alexa, pregúntale a Paradise Playlist qué está jugando",
+            "Alexa, pide a Paradise Playlist por la lista de reproducción"
+          ],
+          "keywords": [
+            "música",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        },
+        "fr-CA": {
+          "name": "Paradise Playlist",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
+          "summary": "Radio Paradise Playlist (non officiel)",
+          "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "examplePhrases": [
+            "Alexa, ouvre Paradise Playlist",
+            "Alexa, lance Paradise Playlist",
+            "Alexa, demande à Paradise Playlist la playlist"
+          ],
+          "keywords": [
+            "musique",
+            "internet",
+            "radio",
+            "paradise",
+            "playlist"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 8):\n* Switch to api.radioparadise.com for directly getting JSON data instead of parsing HTML\n* remove progressive reponse as new API is much faster",
+      "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
+      "distributionCountries": []
     }
   }
 }
