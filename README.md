@@ -2,8 +2,6 @@
 Alexa Skill for querying playlist from Radio Paradise
 
 ## TODOs
-- Handle built-in intents for DisplayInterface like NavigateHome, More, Next ...
-- switch to SDK V2 ApiClient http://www.talkingtocomputers.com/alexa-skills-kit-ask-sdk-v2#apiclient
 - support CanFulfillIntentRequest
   * https://developer.amazon.com/docs/custom-skills/quick-start-canfulfill-intent-request.html
   * https://developer.amazon.com/docs/custom-skills/name-free-interaction.html
