@@ -51,7 +51,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
           "summary": "Radio Paradise Playlist (inoffiziell)",
-          "description": "Du hörst Radio Paradise und möchtest wissen, was das für ein cooler Song ist der momentan läuft? Jetzt kannst du Alexa fragen, was gerade gespielt wird und erfährst Künstler/Band, Titel, Album und Jahr der Veröffentlichung.\n\nDieser Skill ist ein inoffizielles Fan-Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Du hörst Radio Paradise und möchtest wissen, was das für ein cooler Song ist der momentan läuft? Jetzt kannst du Alexa fragen, was gerade gespielt wird und erfährst Künstler/Band, Titel, Album und Jahr der Veröffentlichung. Du kannst auch durch die Playlist navigieren mit \"Alexa zurück\" und \"Alexa weiter\".\n\nDieser Skill ist ein inoffizielles Fan-Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, öffne Paradise Playlist",
             "Alexa, frage Paradise Playlist was gerade läuft",
@@ -70,7 +70,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
           "summary": "Radio Paradise Playlist (unofficial)",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
             "Alexa, ask Paradise Playlist what's playing",
@@ -89,7 +89,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
           "summary": "Radio Paradise Playlist (unofficial)",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
             "Alexa, ask Paradise Playlist what's playing",
@@ -108,7 +108,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
           "summary": "Radio Paradise Playlist (unofficial)",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
             "Alexa, ask Paradise Playlist what's playing",
@@ -127,7 +127,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
           "summary": "Radio Paradise Playlist (unofficial)",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
             "Alexa, ask Paradise Playlist what's playing",
@@ -184,7 +184,7 @@
           "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=0vyY7aVgcn6BUbgWBJaWe9LKg7E%3D",
           "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1549816499&Signature=tigWkp4ByYJIMA7syKiaQgoD1Ik%3D",
           "summary": "Radio Paradise Playlist (unofficial)",
-          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release.\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
+          "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
             "Alexa, ask Paradise Playlist what's playing",
@@ -238,7 +238,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 8):\n* Switch to api.radioparadise.com for directly getting JSON data instead of parsing HTML\n* remove progressive reponse as new API is much faster",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 10):\n* Support PreviousIntent and NextIntent to move through playlist items",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     }

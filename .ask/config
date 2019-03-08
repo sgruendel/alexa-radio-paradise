@@ -5,7 +5,7 @@
       "was_cloned": false,
       "resources": {
         "manifest": {
-          "eTag": "ada2b709f6c75eecf726ed79462471b4"
+          "eTag": "d62cc1c282161bf8b7eee88198be7625"
         },
         "interactionModel": {
           "it-IT": {
@@ -44,7 +44,7 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:11",
             "awsRegion": "eu-west-1",
             "functionName": "radioParadise",
             "alexaUsage": [
@@ -59,7 +59,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise"
+                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:11"
               }
             }
           }
