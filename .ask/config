@@ -3,9 +3,10 @@
     "default": {
       "skill_id": "amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526",
       "was_cloned": false,
+      "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "ada2b709f6c75eecf726ed79462471b4"
+          "eTag": "06a78ab22f100cda3e929c0172ef862c"
         },
         "interactionModel": {
           "it-IT": {
@@ -44,26 +45,18 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:12",
             "awsRegion": "eu-west-1",
             "functionName": "radioParadise",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "254ff7fb-f30a-456a-8a38-b3ace48e4604"
+            "revisionId": "e828d268-7e3e-4b3e-a9ea-0ffa8b7ce974",
+            "codeUri": "src",
+            "handler": "index.handler",
+            "runtime": "nodejs8.10"
           }
         ]
-      },
-      "merge": {
-        "manifest": {
-          "apis": {
-            "custom": {
-              "endpoint": {
-                "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise"
-              }
-            }
-          }
-        }
       }
     }
   }
