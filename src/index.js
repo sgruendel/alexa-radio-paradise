@@ -133,16 +133,6 @@ const languageStrings = {
     },
 };
 
-// returns true if the skill is running on a device with a display (show|spot)
-function supportsDisplay(handlerInput) {
-    const { context } = handlerInput.requestEnvelope;
-    return context
-        && context.System
-        && context.System.device
-        && context.System.device.supportedInterfaces
-        && context.System.device.supportedInterfaces.Display;
-}
-
 function getResponseForSong(handlerInput, song, msg, txt) {
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
 
@@ -165,7 +155,7 @@ function getResponseForSong(handlerInput, song, msg, txt) {
     logger.info(cardContent);
     const smallImageUrl = RP_IMAGE_URL + song.cover.replace('\/l\/', '/s/');
     const largeImageUrl = RP_IMAGE_URL + song.cover;
-    if (supportsDisplay(handlerInput)) {
+    if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope).Display) {
         const primaryText = requestAttributes.t(txt, {
             artist: song.artist, song: song.title, album: song.album,
             released: song.year,
@@ -353,7 +343,7 @@ const ErrorHandler = {
 const LocalizationInterceptor = {
     process(handlerInput) {
         i18next.use(sprintf).init({
-            lng: handlerInput.requestEnvelope.request.locale,
+            lng: Alexa.getLocale(handlerInput.requestEnvelope),
             overloadTranslationOptionHandler: sprintf.overloadTranslationOptionHandler,
             resources: languageStrings,
             returnObjects: true,
