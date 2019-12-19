@@ -5,18 +5,46 @@
       "intents": [
         {
           "name": "RadioParadiseIntent",
+          "slots": [
+            {
+              "name": "channel",
+              "type": "LIST_OF_CHANNELS"
+            }
+          ],
           "samples": [
             "di cosa si tratta",
+            "di cosa si tratta a {channel}",
+            "di cosa si tratta sul {channel}",
             "cosa sta giocando",
+            "cosa sta giocando a {channel}",
+            "cosa sta giocando sul {channel}",
             "cosa si sta giocando",
+            "cosa si sta giocando a {channel}",
+            "cosa si sta giocando sul {channel}",
             "cosa sta giocando attualmente",
+            "cosa sta giocando attualmente a {channel}",
+            "cosa sta giocando attualmente sul {channel}",
             "cosa si sta giocando attualmente",
+            "cosa si sta giocando attualmente a {channel}",
+            "cosa si sta giocando attualmente sul {channel}",
             "la playlist",
+            "la playlist a {channel}",
+            "la playlist sul {channel}",
             "la playlist attuale",
+            "la playlist attuale a {channel}",
+            "la playlist attuale sul {channel}",
             "la canzone corrente",
+            "la canzone corrente a {channel}",
+            "la canzone corrente sul {channel}",
             "la band attuale",
+            "la band attuale a {channel}",
+            "la band attuale sul {channel}",
             "l'attuale cantante",
-            "l'artista attuale"
+            "l'attuale cantante a {channel}",
+            "l'attuale cantante sul {channel}",
+            "l'artista attuale",
+            "l'artista attuale a {channel}",
+            "l'artista attuale sul {channel}"
           ]
         },
         {
@@ -75,7 +103,51 @@
           "name": "AMAZON.ScrollUpIntent",
           "samples": []
         }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_CHANNELS",
+          "values": [
+            {
+              "id": "0",
+              "name": {
+                "value": "Main",
+                "synonyms": [
+                  "Main Mix"
+                ]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Mellow",
+                "synonyms": [
+                  "Mellow Mix"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "Rock",
+                "synonyms": [
+                  "Rock Mix"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "Eclectic",
+                "synonyms": [
+                  "Eclectic Mix"
+                ]
+              }
+            }
+          ]
+        }
       ]
     }
-  }
+  },
+  "version": "2"
 }

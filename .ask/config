@@ -6,55 +6,55 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "06a78ab22f100cda3e929c0172ef862c"
+          "eTag": "6649e6b4c2f5a10b144743e230cc2e3d"
         },
         "interactionModel": {
           "it-IT": {
-            "eTag": "b853f6da832c3c492702e84a2b3284b5"
+            "eTag": "e71d7c331f72e206147e6001e649ef3e"
           },
           "de-DE": {
-            "eTag": "a44a1ac5444d4401a6baff77aa7b3970"
+            "eTag": "a9e40c2550487706c5c03cdbbbccb4e7"
           },
           "en-CA": {
-            "eTag": "9af0c4cb7f99c1420c3c9ea9499439fd"
+            "eTag": "7ba1b4afff413626d56de402f2b61b45"
           },
           "en-US": {
-            "eTag": "9af0c4cb7f99c1420c3c9ea9499439fd"
+            "eTag": "5f0c46abf1a8f05bc414f297446f37dd"
           },
           "en-IN": {
-            "eTag": "9af0c4cb7f99c1420c3c9ea9499439fd"
+            "eTag": "211b1c6afeb551588379d481afeed99b"
           },
           "en-AU": {
-            "eTag": "9af0c4cb7f99c1420c3c9ea9499439fd"
+            "eTag": "c609e0af99eb76d65dc87b0c84ff88fc"
           },
           "es-ES": {
-            "eTag": "9fb7ea411ccb1ec5f778785ee0c984a0"
+            "eTag": "2df672e7471ebe22f4ae9e24f967e676"
           },
           "fr-FR": {
-            "eTag": "1517c8e7fc92846e4dc3d6c17b2f5b9e"
+            "eTag": "a8a4d3e86a1c4907a40b648a04c9a14a"
           },
           "en-GB": {
-            "eTag": "9af0c4cb7f99c1420c3c9ea9499439fd"
+            "eTag": "bb69bb173f01bd75fa2c4918f5d0c4ff"
           },
           "es-MX": {
-            "eTag": "9fb7ea411ccb1ec5f778785ee0c984a0"
+            "eTag": "7c21210e5c3865abcc5987e3f2fb738f"
           },
           "fr-CA": {
-            "eTag": "1517c8e7fc92846e4dc3d6c17b2f5b9e"
+            "eTag": "7a60f19203f0da4ae43a7cc5ead0dd17"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:12",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:13",
             "awsRegion": "eu-west-1",
             "functionName": "radioParadise",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "e828d268-7e3e-4b3e-a9ea-0ffa8b7ce974",
+            "revisionId": "351308b2-caaf-4d0f-bfd0-01aac85c50f9",
             "codeUri": "src",
             "handler": "index.handler",
-            "runtime": "nodejs8.10"
+            "runtime": "nodejs12.x"
           }
         ]
       }

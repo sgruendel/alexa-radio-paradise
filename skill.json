@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:12",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:13",
           "sourceDir": "./src"
         },
         "interfaces": [
@@ -30,14 +30,14 @@
       "locales": {
         "it-IT": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (non ufficiale)",
           "description": "Ascoltando Radio Paradise e c'è questa bella canzone ma non sai di cosa si tratta? Ora puoi chiedere ad Alexa cosa sta suonando attualmente, tra cui artista, canzone, album e anno di uscita.\n\nQuesta skill è un progetto di fan non ufficiale.\n\nSuggerimenti per il miglioramento e feedback su https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, apri Paradise Playlist",
             "Alexa, chiedi a Paradise Playlist la playlist",
-            "Alexa, chiedi a Paradise Playlist cosa sta giocando"
+            "Alexa, chiedi a Paradise Playlist per Rock Mix"
           ],
           "keywords": [
             "musica",
@@ -49,14 +49,14 @@
         },
         "de-DE": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (inoffiziell)",
           "description": "Du hörst Radio Paradise und möchtest wissen, was das für ein cooler Song ist der momentan läuft? Jetzt kannst du Alexa fragen, was gerade gespielt wird und erfährst Künstler/Band, Titel, Album und Jahr der Veröffentlichung. Du kannst auch durch die Playlist navigieren mit \"Alexa zurück\" und \"Alexa weiter\".\n\nDieser Skill ist ein inoffizielles Fan-Projekt.\n\nVerbesserungsvorschläge und Feedback gerne unter https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, öffne Paradise Playlist",
-            "Alexa, frage Paradise Playlist was gerade läuft",
-            "Alexa, frage Paradise Playlist nach dem aktuellen Song"
+            "Alexa, öffne Paradise Playlist für Rock Mix",
+            "Alexa, frage Paradise Playlist was gerade läuft"
           ],
           "keywords": [
             "musik",
@@ -69,14 +69,14 @@
         },
         "en-CA": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86399&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=59b55714ef6a6308369e6d40cdd47536706a7b18667c53b744070582545ded3f",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (unofficial)",
           "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
+            "Alexa, open Paradise Playlist for Rock Mix",
+            "Alexa, ask Paradise Playlist what's playing"
           ],
           "keywords": [
             "music",
@@ -89,14 +89,14 @@
         },
         "en-US": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86399&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=de2819820e5dfb3cdb3a55a958468caa6ea7cb42d28f4a95956391f983e066e1",
           "summary": "Radio Paradise Playlist (unofficial)",
           "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
+            "Alexa, open Paradise Playlist for Rock Mix",
+            "Alexa, ask Paradise Playlist what's playing"
           ],
           "keywords": [
             "music",
@@ -109,14 +109,14 @@
         },
         "en-IN": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (unofficial)",
           "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
+            "Alexa, open Paradise Playlist for Rock Mix",
+            "Alexa, ask Paradise Playlist what's playing"
           ],
           "keywords": [
             "music",
@@ -129,14 +129,14 @@
         },
         "en-AU": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (unofficial)",
           "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
+            "Alexa, open Paradise Playlist for Rock Mix",
+            "Alexa, ask Paradise Playlist what's playing"
           ],
           "keywords": [
             "music",
@@ -149,13 +149,13 @@
         },
         "es-ES": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (no oficial)",
           "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, abre Paradise Playlist",
-            "Alexa, pregúntale a Paradise Playlist qué está jugando",
+            "Alexa, pregúntale a Paradise Playlist por Rock Mix",
             "Alexa, pide a Paradise Playlist por la lista de reproducción"
           ],
           "keywords": [
@@ -168,14 +168,14 @@
         },
         "fr-FR": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (non officiel)",
           "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, ouvre Paradise Playlist",
             "Alexa, lance Paradise Playlist",
-            "Alexa, demande à Paradise Playlist la playlist"
+            "Alexa, lance Paradise Playlist pour Rock Mix"
           ],
           "keywords": [
             "musique",
@@ -187,14 +187,14 @@
         },
         "en-GB": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (unofficial)",
           "description": "Listening to Radio Paradise and there's this cool song but you don't know what it is? Now you can ask Alexa for what's currently playing, including artist, song, album and year of release. You can navigate the playlist saying \"Alexa back\" and \"Alexa next\".\n\nThis skill is an unofficial fan project.\n\nSuggestions for improvement and feedback welcome via https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, open Paradise Playlist",
-            "Alexa, ask Paradise Playlist what's playing",
-            "Alexa, ask Paradise Playlist about current song"
+            "Alexa, open Paradise Playlist for Rock Mix",
+            "Alexa, ask Paradise Playlist what's playing"
           ],
           "keywords": [
             "music",
@@ -206,13 +206,13 @@
         },
         "es-MX": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (no oficial)",
           "description": "Escuchando Radio Paradise y hay una canción genial, ¿pero no sabes qué es? Ahora puede preguntarle a Alexa qué está reproduciendo actualmente, incluido el artista, la canción, el álbum y el año de lanzamiento.\n\nEsta skill es un proyecto de fan no oficial.\n\nSugerencias de mejora y comentarios en https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, abre Paradise Playlist",
-            "Alexa, pregúntale a Paradise Playlist qué está jugando",
+            "Alexa, pregúntale a Paradise Playlist por Rock Mix",
             "Alexa, pide a Paradise Playlist por la lista de reproducción"
           ],
           "keywords": [
@@ -225,14 +225,14 @@
         },
         "fr-CA": {
           "name": "Paradise Playlist",
-          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=bDbD2m%2FgcTFOsbDrJ6ZqnemkY%2Bw%3D",
-          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1552323263&Signature=LoLmIV4xnP8X2JAf9iQHTtNS4S0%3D",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/bf15/f996f8633f444e67be7fdee7aa7f99c0/APP_ICON?versionId=m2_O9NVvy4ioass3yy7e98ONabVneBaq&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=aa320c033f8acc8a78057cedec1f9a6dc8aae96eaec796dd7f2d99f1433e8a58",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/cfa0/4a0c437e71054950944b16078a7b5667/APP_ICON_LARGE?versionId=Bn1fYuGGUanlioIrt6WpIbIO6w2rQytJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20191209T105031Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Credential=AKIAJFEYRBGIHK2BBYKA%2F20191209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ffbd47957c040e90551ffe6e01122349259628466aa39fb6d7dc6c197d09a9da",
           "summary": "Radio Paradise Playlist (non officiel)",
           "description": "En écoutant Radio Paradise, il y a cette chanson géniale mais vous ne savez pas ce que c'est? Vous pouvez maintenant demander à Alexa ce qui est en cours de lecture, notamment l'artiste, la chanson, l'album et l'année de sortie.\n\nCette skill est un projet de fan non officiel.\n\nSuggestions d’amélioration et commentaires sur https://github.com/sgruendel/alexa-radio-paradise/issues/new.",
           "examplePhrases": [
             "Alexa, ouvre Paradise Playlist",
             "Alexa, lance Paradise Playlist",
-            "Alexa, demande à Paradise Playlist la playlist"
+            "Alexa, lance Paradise Playlist pour Rock Mix"
           ],
           "keywords": [
             "musique",
@@ -244,7 +244,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 10):\n* Support PreviousIntent and NextIntent to move through playlist items",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 10):\n* Support PreviousIntent and NextIntent to move through playlist items\n* Channel (Main / Mellow / Rock / Eclectic) can be specified",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     }

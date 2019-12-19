@@ -5,26 +5,78 @@
       "intents": [
         {
           "name": "RadioParadiseIntent",
+          "slots": [
+            {
+              "name": "channel",
+              "type": "LIST_OF_CHANNELS"
+            }
+          ],
           "samples": [
+            "für {channel}",
+            "für Kanal {channel}",
+            "mit {channel}",
+            "mit Kanal {channel}",
             "was das ist",
+            "was das ist auf {channel}",
+            "was das ist im {channel}",
             "was gerade läuft",
+            "was gerade auf {channel} läuft",
+            "was gerade im {channel} läuft",
+            "was gerade läuft auf {channel}",
+            "was gerade läuft im {channel}",
             "was gerade gespielt wird",
+            "was gerade auf {channel} gespielt wird",
+            "was gerade im {channel} gespielt wird",
+            "was gerade gespielt wird auf {channel}",
+            "was gerade gespielt wird im {channel}",
             "nach der Playlist",
+            "nach der Playlist auf {channel}",
+            "nach der Playlist im {channel}",
             "nach der aktuellen Playlist",
+            "nach der aktuellen Playlist auf {channel}",
+            "nach der aktuellen Playlist im {channel}",
             "nach dem Lied",
+            "nach dem Lied auf {channel}",
+            "nach dem Lied im {channel}",
             "nach dem aktuellen Lied",
+            "nach dem aktuellen Lied auf {channel}",
+            "nach dem aktuellen Lied im {channel}",
             "nach dem Song",
+            "nach dem Song auf {channel}",
+            "nach dem Song im {channel}",
             "nach dem aktuellen Song",
+            "nach dem aktuellen Song auf {channel}",
+            "nach dem aktuellen Song im {channel}",
             "nach dem Stück",
+            "nach dem Stück auf {channel}",
+            "nach dem Stück im {channel}",
             "nach dem aktuellen Stück",
+            "nach dem aktuellen Stück auf {channel}",
+            "nach dem aktuellen Stück im {channel}",
             "nach der Band",
+            "nach der Band auf {channel}",
+            "nach der Band im {channel}",
             "nach der aktuellen Band",
+            "nach der aktuellen Band auf {channel}",
+            "nach der aktuellen Band im {channel}",
             "nach dem Sänger",
+            "nach dem Sänger auf {channel}",
+            "nach dem Sänger im {channel}",
             "nach dem aktuellen Sänger",
+            "nach dem aktuellen Sänger auf {channel}",
+            "nach dem aktuellen Sänger im {channel}",
             "nach der Sängerin",
+            "nach der Sängerin auf {channel}",
+            "nach der Sängerin im {channel}",
             "nach der aktuellen Sängerin",
+            "nach der aktuellen Sängerin auf {channel}",
+            "nach der aktuellen Sängerin im {channel}",
             "nach dem Künstler",
-            "nach dem aktuellen Künstler"
+            "nach dem Künstler auf {channel}",
+            "nach dem Künstler im {channel}",
+            "nach dem aktuellen Künstler",
+            "nach dem aktuellen Künstler auf {channel}",
+            "nach dem aktuellen Künstler im {channel}"
           ]
         },
         {
@@ -83,7 +135,51 @@
           "name": "AMAZON.ScrollUpIntent",
           "samples": []
         }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_CHANNELS",
+          "values": [
+            {
+              "id": "0",
+              "name": {
+                "value": "Main",
+                "synonyms": [
+                  "Main Mix"
+                ]
+              }
+            },
+            {
+              "id": "1",
+              "name": {
+                "value": "Mellow",
+                "synonyms": [
+                  "Mellow Mix"
+                ]
+              }
+            },
+            {
+              "id": "2",
+              "name": {
+                "value": "Rock",
+                "synonyms": [
+                  "Rock Mix"
+                ]
+              }
+            },
+            {
+              "id": "3",
+              "name": {
+                "value": "Eclectic",
+                "synonyms": [
+                  "Eclectic Mix"
+                ]
+              }
+            }
+          ]
+        }
       ]
     }
-  }
+  },
+  "version": "2"
 }

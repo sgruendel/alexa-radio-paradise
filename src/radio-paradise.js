@@ -10,10 +10,20 @@ const rpRequest = request.defaults({
 
 var exports = module.exports = {};
 
-exports.getNowPlaying = async function() {
-    // https://api.radioparadise.com/api/nowplaying_list?event=0&elapsed=0.001&chan=0
+exports.mix = {
+    main: 0,
+    mellow: 1,
+    rock: 2,
+    eclectic: 3,
+};
+
+exports.getNowPlaying = async function(mix) {
+    // https://api.radioparadise.com/api/nowplaying_list?&chan=0
     const options = {
         uri: 'nowplaying_list',
+        qs: {
+            chan: mix,
+        },
     };
     return rpRequest(options);
 };
