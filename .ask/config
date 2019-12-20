@@ -6,41 +6,41 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "6649e6b4c2f5a10b144743e230cc2e3d"
+          "eTag": "3557f34f3bced3e72566e9646a2391da"
         },
         "interactionModel": {
           "it-IT": {
-            "eTag": "e71d7c331f72e206147e6001e649ef3e"
+            "eTag": "e6aafd65e1ba4088fbbda6c168cd9d33"
           },
           "de-DE": {
-            "eTag": "a9e40c2550487706c5c03cdbbbccb4e7"
+            "eTag": "e0c5993d19d362ba421eb98369db03fe"
           },
           "en-CA": {
-            "eTag": "7ba1b4afff413626d56de402f2b61b45"
+            "eTag": "e7a25c7f007b7ee0c3dc384e419d5115"
           },
           "en-US": {
-            "eTag": "5f0c46abf1a8f05bc414f297446f37dd"
+            "eTag": "607431ac700b84efe924f1eda6a3e15b"
           },
           "en-IN": {
-            "eTag": "211b1c6afeb551588379d481afeed99b"
+            "eTag": "d9c1ad5d37e96690399dfd42865943f6"
           },
           "en-AU": {
-            "eTag": "c609e0af99eb76d65dc87b0c84ff88fc"
+            "eTag": "7b218cda98605469d587f975cfb1f7d2"
           },
           "es-ES": {
-            "eTag": "2df672e7471ebe22f4ae9e24f967e676"
+            "eTag": "a3cdbbaa3654628b3984759c5f5f3357"
           },
           "fr-FR": {
-            "eTag": "a8a4d3e86a1c4907a40b648a04c9a14a"
+            "eTag": "19313a9b2487cc98e67c8f6eb0880123"
           },
           "en-GB": {
-            "eTag": "bb69bb173f01bd75fa2c4918f5d0c4ff"
+            "eTag": "9a6d6dbb38688f83b6edb4a0056ea2a3"
           },
           "es-MX": {
-            "eTag": "7c21210e5c3865abcc5987e3f2fb738f"
+            "eTag": "d4e337da90f104de523b66a854126f1d"
           },
           "fr-CA": {
-            "eTag": "7a60f19203f0da4ae43a7cc5ead0dd17"
+            "eTag": "88796b427d28e56bdbe9c95809bd2ac8"
           }
         },
         "lambda": [
