@@ -12,6 +12,7 @@
             }
           ],
           "samples": [
+            "pour {channel}",
             "ce qui joue",
             "ce qui joue à {channel}",
             "ce qui joue sur {channel}",
