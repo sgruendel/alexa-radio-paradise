@@ -17,12 +17,11 @@ const logger = winston.createLogger({
 });
 
 const radioParadise = require('./radio-paradise');
+const utils = require('./utils');
 
 const SKILL_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
 const ER_SUCCESS_MATCH = 'ER_SUCCESS_MATCH';
 const ER_SUCCESS_NO_MATCH = 'ER_SUCCESS_NO_MATCH';
-const EN_ON = '<lang xml:lang="en-US">';
-const EN_OFF = '</lang>';
 const RP_IMAGE_URL = 'https://img.radioparadise.com/';
 
 const languageStrings = {
@@ -74,11 +73,11 @@ const languageStrings = {
             HELP_MESSAGE: 'Du kannst sagen „Öffne Paradise Playlist“ und ich sage dir was gerade im Radio Paradise Main Mix läuft. Oder du fragst nach einem Sender, z.B. „Öffne Paradise Playlist für Rock Mix“.',
             STOP_MESSAGE: '<say-as interpret-as="interjection">bis dann</say-as>.',
             NOT_UNDERSTOOD_MESSAGE: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
-            CURRENTLY_PLAYING_MESSAGE: 'Im ' + EN_ON + '{{channel}}' + EN_OFF + ' hörst du gerade ' + EN_ON + '{{song}}' + EN_OFF + ' von ' + EN_ON + '{{artist}}' + EN_OFF + ' aus dem Album ' + EN_ON + '{{album}}' + EN_OFF + ' von {{released}}.',
+            CURRENTLY_PLAYING_MESSAGE: 'Im ' + utils.speakAs(utils.EN_US, '{{channel}}') + ' hörst du gerade {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
             CURRENTLY_PLAYING_TEXT: 'Du hörst gerade {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
-            PREVIOUSLY_PLAYING_MESSAGE: 'Davor hörtest du ' + EN_ON + '{{song}}' + EN_OFF + ' von ' + EN_ON + '{{artist}}' + EN_OFF + ' aus dem Album ' + EN_ON + '{{album}}' + EN_OFF + ' von {{released}}.',
+            PREVIOUSLY_PLAYING_MESSAGE: 'Davor hörtest du {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
             PREVIOUSLY_PLAYING_TEXT: 'Davor hörtest du {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
-            NEXT_PLAYING_MESSAGE: 'Danach hörtest du ' + EN_ON + '{{song}}' + EN_OFF + ' von ' + EN_ON + '{{artist}}' + EN_OFF + ' aus dem Album ' + EN_ON + '{{album}}' + EN_OFF + ' von {{released}}.',
+            NEXT_PLAYING_MESSAGE: 'Danach hörtest du {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
             NEXT_PLAYING_TEXT: 'Danach hörtest du {{song}} von {{artist}} aus dem Album {{album}} von {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist {{avgRating}}, die Länge beträgt {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: '<say-as interpret-as="interjection">schade</say-as>, Bill ist gerade nicht da.',
@@ -91,11 +90,11 @@ const languageStrings = {
             HELP_MESSAGE: 'Puedes decir „Abre Paradise Playlist“ y te diré qué se está reproduciendo ahora en Radio Paradise.',
             STOP_MESSAGE: '¡Adiós!',
             NOT_UNDERSTOOD_MESSAGE: 'Lo siento, no entiendo. Por favor repita eso?',
-            CURRENTLY_PLAYING_MESSAGE: 'En ' + EN_ON + '{{channel}}' + EN_OFF + ' estás escuchando ' + EN_ON + '{{song}}' + EN_OFF + ' por ' + EN_ON + '{{artist}}' + EN_OFF + ' del álbum ' + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
+            CURRENTLY_PLAYING_MESSAGE: 'En ' + utils.speakAs(utils.EN_US, '{{channel}}') + ' estás escuchando {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
             CURRENTLY_PLAYING_TEXT: 'Estás escuchando {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
-            PREVIOUSLY_PLAYING_MESSAGE: 'Antes de eso, escuchaste ' + EN_ON + '{{song}}' + EN_OFF + ' por ' + EN_ON + '{{artist}}' + EN_OFF + ' del álbum ' + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
+            PREVIOUSLY_PLAYING_MESSAGE: 'Antes de eso, escuchaste {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
             PREVIOUSLY_PLAYING_TEXT: 'Antes de eso, escuchaste {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
-            NEXT_PLAYING_MESSAGE: 'Entonces oíste ' + EN_ON + '{{song}}' + EN_OFF + ' por ' + EN_ON + '{{artist}}' + EN_OFF + ' del álbum ' + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
+            NEXT_PLAYING_MESSAGE: 'Entonces oíste {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
             NEXT_PLAYING_TEXT: 'Entonces oíste {{song}} por {{artist}} del álbum {{album}} de {{released}}.',
             ADDITIONAL_INFO_MESSAGE: 'La calificación promedio de sus compañeros oyentes de Radio Paradise es {{avgRating}}, la duración es {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: 'Lo siento, Bill no está ahí ahora.',
@@ -108,11 +107,11 @@ const languageStrings = {
             HELP_MESSAGE: 'Vous pouvez dire «Ouvre Paradise Playlist» et je vous dirai ce qui se passe actuellement sur Radio Paradise.',
             STOP_MESSAGE: 'Au revoir!',
             NOT_UNDERSTOOD_MESSAGE: 'Désolé, je ne comprends pas. Veuillez répéter ça?',
-            CURRENTLY_PLAYING_MESSAGE: 'Sur ' + EN_ON + '{{channel}}' + EN_OFF + ' vous écoutez ' + EN_ON + '{{song}}' + EN_OFF + ' de ' + EN_ON + '{{artist}}' + EN_OFF + " de l'album " + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
+            CURRENTLY_PLAYING_MESSAGE: 'Sur ' + utils.speakAs(utils.EN_US, '{{channel}}') + " vous écoutez {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
             CURRENTLY_PLAYING_TEXT: "Vous écoutez {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
-            PREVIOUSLY_PLAYING_MESSAGE: 'Avant cela, vous avez entendu ' + EN_ON + '{{song}}' + EN_OFF + ' de ' + EN_ON + '{{artist}}' + EN_OFF + " de l'album " + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
+            PREVIOUSLY_PLAYING_MESSAGE: "Avant cela, vous avez entendu {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
             PREVIOUSLY_PLAYING_TEXT: "Avant cela, vous avez entendu  {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
-            NEXT_PLAYING_MESSAGE: 'Ensuite, vous avez entendu ' + EN_ON + '{{song}}' + EN_OFF + ' de ' + EN_ON + '{{artist}}' + EN_OFF + " de l'album " + EN_ON + '{{album}}' + EN_OFF + ' de {{released}}.',
+            NEXT_PLAYING_MESSAGE: "Ensuite, vous avez entendu {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
             NEXT_PLAYING_TEXT: "Ensuite, vous avez entendu {{song}} de {{artist}} de l'album {{album}} de {{released}}.",
             ADDITIONAL_INFO_MESSAGE: 'Note moyenne de vos autres auditeurs de Radio Paradise: {{avgRating}}, la durée est de {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: "Je suis désolé, Bill n'est pas là pour le moment.",
@@ -125,11 +124,11 @@ const languageStrings = {
             HELP_MESSAGE: 'Puoi dire „Apri Paradise Playlist“ e ti dirò cosa sta giocando ora su Radio Paradise.',
             STOP_MESSAGE: 'Ci vediamo!',
             NOT_UNDERSTOOD_MESSAGE: 'Scusa, non capisco. Per favore, ripetilo?',
-            CURRENTLY_PLAYING_MESSAGE: 'Sul ' + EN_ON + '{{channel}}' + EN_OFF + ' stai ascoltando ' + EN_ON + '{{song}}' + EN_OFF + ' di ' + EN_ON + '{{artist}}' + EN_OFF + " dall'album " + EN_ON + '{{album}}' + EN_OFF + ' del {{released}}.',
+            CURRENTLY_PLAYING_MESSAGE: 'Sul ' + utils.speakAs(utils.EN_US, '{{channel}}') + " stai ascoltando {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
             CURRENTLY_PLAYING_TEXT: "Stai ascoltando {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
-            PREVIOUSLY_PLAYING_MESSAGE: 'Prima di questo, hai sentito ' + EN_ON + '{{song}}' + EN_OFF + ' di ' + EN_ON + '{{artist}}' + EN_OFF + " dall'album " + EN_ON + '{{album}}' + EN_OFF + ' del {{released}}.',
+            PREVIOUSLY_PLAYING_MESSAGE: "Prima di questo, hai sentito {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
             PREVIOUSLY_PLAYING_TEXT: "Prima di questo, hai sentito {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
-            NEXT_PLAYING_MESSAGE: 'Poi hai sentito ' + EN_ON + '{{song}}' + EN_OFF + ' di ' + EN_ON + '{{artist}}' + EN_OFF + " dall'album " + EN_ON + '{{album}}' + EN_OFF + ' del {{released}}.',
+            NEXT_PLAYING_MESSAGE: "Poi hai sentito {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
             NEXT_PLAYING_TEXT: "Poi hai sentito {{song}} di {{artist}} dall'album {{album}} del {{released}}.",
             ADDITIONAL_INFO_MESSAGE: 'Il punteggio medio dei tuoi ascoltatori di Radio Paradise è {{avgRating}}, la lunghezza è {{length}}.',
             CANT_GET_PLAYLIST_MESSAGE: 'Mi dispiace, Bill non è lì adesso.',
@@ -141,13 +140,20 @@ const languageStrings = {
 
 function getResponseForSong(handlerInput, song, msg, txt) {
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+    const locale = Alexa.getLocale(handlerInput.requestEnvelope);
 
     const date = new Date(null);
     date.setSeconds(song.duration / 1000);
+
+    // i18next must not escape interpolation values, as they may contain <lang> tags
     const speechOutput = requestAttributes.t(msg,
         {
-            channel: song.channel.title, artist: song.artist, song: song.title, album: song.album,
+            channel: song.channel.title,
+            artist: utils.speakArtist(song.artist, locale),
+            song: utils.speakSong(song.title, locale),
+            album: utils.speakAlbum(song.album, locale),
             released: song.year,
+            interpolation: { escapeValue: false },
         });
     const additionalInfo = requestAttributes.t('ADDITIONAL_INFO_MESSAGE',
         { avgRating: song.rating, length: date.toISOString().substr(14, 5) });
