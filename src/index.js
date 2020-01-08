@@ -293,7 +293,11 @@ const CancelAndStopIntentHandler = {
 const PreviousIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
-        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.PreviousIntent';
+        if (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.PreviousIntent') {
+            const attributes = handlerInput.attributesManager.getSessionAttributes();
+            return attributes && Number.isInteger(attributes.index);
+        }
+        return false;
     },
     handle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
@@ -319,8 +323,11 @@ const PreviousIntentHandler = {
 const NextIntentOverflowHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
-        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.NextIntent'
-            && handlerInput.attributesManager.getSessionAttributes().index === 0;
+        if (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.NextIntent') {
+            const attributes = handlerInput.attributesManager.getSessionAttributes();
+            return attributes && attributes.index === 0;
+        }
+        return false;
     },
     async handle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
@@ -335,7 +342,11 @@ const NextIntentOverflowHandler = {
 const NextIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
-        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.NextIntent';
+        if (request.type === 'IntentRequest' && request.intent.name === 'AMAZON.NextIntent') {
+            const attributes = handlerInput.attributesManager.getSessionAttributes();
+            return attributes && Number.isInteger(attributes.index);
+        }
+        return false;
     },
     handle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
