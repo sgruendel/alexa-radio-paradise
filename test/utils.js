@@ -23,6 +23,38 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Kruder & Dorfmeister', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Kruder & Dorfmeister', locale);
+                const expected = locale.startsWith('de') ? 'Kruder &amp; Dorfmeister' : '<lang xml:lang="de-DE">Kruder &amp; Dorfmeister</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Nena', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Nena', locale);
+                const expected = locale.startsWith('de') ? 'Nena' : '<lang xml:lang="de-DE">Nena</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Sophie Hunger', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Sophie Hunger', locale);
+                const expected = locale.startsWith('de') ? 'Sophie Hunger' : '<lang xml:lang="de-DE">Sophie Hunger</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Tom Schilling', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Tom Schilling', locale);
+                const expected = locale.startsWith('de') ? 'Tom Schilling' : '<lang xml:lang="de-DE">Tom Schilling</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
         it('should escape Simon & Garfunkel', () => {
             const artist = utils.speakArtist('Simon & Garfunkel', 'en-US');
             expect(artist).to.equal('Simon &amp; Garfunkel');
@@ -68,6 +100,30 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const artist = utils.speakAlbum('Kind Of Blue', locale);
                 const expected = locale.startsWith('en') ? 'Kind Of Blue' : '<lang xml:lang="en-US">Kind Of Blue</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for 20 Jahre: Nena Ft Nena', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakAlbum('20 Jahre: Nena Ft Nena', locale);
+                const expected = locale.startsWith('de') ? '20 Jahre: Nena Ft Nena' : '<lang xml:lang="de-DE">20 Jahre: Nena Ft Nena</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for 99 Luftballons', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakAlbum('99 Luftballons', locale);
+                const expected = locale.startsWith('de') ? '99 Luftballons' : '<lang xml:lang="de-DE">99 Luftballons</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Alles Prima Und Viele Andere Hits', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakAlbum('Alles Prima Und Viele Andere Hits', locale);
+                const expected = locale.startsWith('de') ? 'Alles Prima Und Viele Andere Hits' : '<lang xml:lang="de-DE">Alles Prima Und Viele Andere Hits</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });

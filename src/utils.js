@@ -35,6 +35,10 @@ exports.speakArtist = function(artist, locale) {
     let artistLocale = EN_US;
     switch (artist) {
     case '2raumwohnung':
+    case 'Kruder & Dorfmeister':
+    case 'Nena':
+    case 'Sophie Hunger':
+    case 'Tom Schilling':
         artistLocale = DE_DE;
         break;
     }
@@ -46,8 +50,11 @@ exports.speakSong = function(song, locale) {
     let songLocale = EN_US;
     switch (song) {
     case '2 von Millionen von Sternen':
+    case '99 Luftballons':
     case 'Da Sind Wir':
     case 'Ich Weiß Warum':
+    case 'Major Tom (Völlig Losgelöst)':
+    case 'Shock den Affen': // sic!
         songLocale = DE_DE;
         break;
     }
@@ -58,6 +65,9 @@ exports.speakSong = function(song, locale) {
 exports.speakAlbum = function(album, locale) {
     let albumLocale = EN_US;
     switch (album) {
+    case '20 Jahre: Nena Ft Nena':
+    case '99 Luftballons':
+    case 'Alles Prima Und Viele Andere Hits':
     case 'In Wirklich':
     case 'Kommt zusammen':
         albumLocale = DE_DE;
