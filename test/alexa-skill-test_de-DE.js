@@ -12,6 +12,7 @@ alexaTest.initialize(
     'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526',
     'amzn1.ask.account.VOID');
 alexaTest.setLocale('de-DE');
+alexaTest.setExtraFeature('questionMarkCheck', false); // songs may contain question marks
 
 describe('Paradise Playlist Skill (de-DE)', () => {
 
