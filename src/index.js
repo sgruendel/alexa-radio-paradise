@@ -150,7 +150,7 @@ function getResponseForSong(handlerInput, song, msg, txt) {
         {
             channel: song.channel.title,
             artist: utils.speakArtist(song.artist, locale),
-            song: utils.speakSong(song.title, locale),
+            song: utils.speakTitle(song.title, locale),
             album: utils.speakAlbum(song.album, locale),
             released: song.year,
             interpolation: { escapeValue: false },
@@ -197,9 +197,15 @@ function getResponseForSong(handlerInput, song, msg, txt) {
 }
 
 async function getNowPlayingResponse(channelId, handlerInput) {
-    var response;
+    let response;
     await radioParadise.getNowPlaying(channelId)
         .then((songs) => {
+            let songArray = [];
+            for (let i = 0; songs.song[i]; i++) {
+                songArray.push(utils.fixSong(songs.song[i]));
+            }
+            songs.song = songArray;
+
             logger.debug('songs for ' + channelId, songs);
             response = getResponseForSong(handlerInput, songs.song[0], 'CURRENTLY_PLAYING_MESSAGE', 'CURRENTLY_PLAYING_TEXT');
             handlerInput.attributesManager.setSessionAttributes({ index: 0, song: songs.song });
@@ -232,7 +238,7 @@ const RadioParadiseIntentHandler = {
             && slots.channel.resolutions
             && slots.channel.resolutions.resolutionsPerAuthority[0];
         logger.debug('channel', rpaChannel);
-        var channelId = radioParadise.mix.main;
+        let channelId = radioParadise.mix.main;
         if (rpaChannel) {
             switch (rpaChannel.status.code) {
             case ER_SUCCESS_NO_MATCH:

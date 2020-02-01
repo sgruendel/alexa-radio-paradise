@@ -27,6 +27,17 @@ var exports = module.exports = {
     DE_DE,
 };
 
+exports.fixSong = function(song) {
+    if (song.title === 'Shock den Affen') {
+        song.title = 'Schock den Affen';
+    }
+    if (song.album === '20 Jahre: Nena Ft Nena') {
+        song.album = '20 Jahre: Nena feat. Nena';
+    }
+
+    return song;
+};
+
 exports.speakAs = function(locale, str) {
     return '<lang xml:lang="' + locale + '">' + str + '</lang>';
 };
@@ -46,26 +57,26 @@ exports.speakArtist = function(artist, locale) {
     return locale.startsWith(countryOf(artistLocale)) ? artist : exports.speakAs(artistLocale, artist);
 };
 
-exports.speakSong = function(song, locale) {
-    let songLocale = EN_US;
-    switch (song) {
+exports.speakTitle = function(title, locale) {
+    let titleLocale = EN_US;
+    switch (title) {
     case '2 von Millionen von Sternen':
     case '99 Luftballons':
     case 'Da Sind Wir':
     case 'Ich Weiß Warum':
     case 'Major Tom (Völlig Losgelöst)':
-    case 'Shock den Affen': // sic!
-        songLocale = DE_DE;
+    case 'Schock den Affen':
+        titleLocale = DE_DE;
         break;
     }
-    song = escape(song);
-    return locale.startsWith(countryOf(songLocale)) ? song : exports.speakAs(songLocale, song);
+    title = escape(title);
+    return locale.startsWith(countryOf(titleLocale)) ? title : exports.speakAs(titleLocale, title);
 };
 
 exports.speakAlbum = function(album, locale) {
     let albumLocale = EN_US;
     switch (album) {
-    case '20 Jahre: Nena Ft Nena':
+    case '20 Jahre: Nena feat. Nena':
     case '99 Luftballons':
     case 'Alles Prima Und Viele Andere Hits':
     case 'In Wirklich':
