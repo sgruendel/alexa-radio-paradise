@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:14",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:15",
           "sourceDir": "./src"
         },
         "interfaces": [
@@ -245,7 +245,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 10):\n* Support PreviousIntent and NextIntent to move through playlist items\n* Channel (Main / Mellow / Rock / Eclectic) can be specified",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 14):\n* Certain German songs are using German pronounciation (only testable when they are actually played on RP)",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     }

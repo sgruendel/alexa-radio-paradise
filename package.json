@@ -1,6 +1,6 @@
 {
   "name": "alexa-radio-paradise",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Alexa Skill for querying playlist from Radio Paradise",
   "main": "index.js",
   "scripts": {
