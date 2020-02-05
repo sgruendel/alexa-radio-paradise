@@ -51,6 +51,22 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Alexandra Stréliski', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Alexandra Stréliski', locale);
+                const expected = locale.startsWith('fr') ? 'Alexandra Stréliski' : '<lang xml:lang="fr-CA">Alexandra Stréliski</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Beethoven', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Beethoven', locale);
+                const expected = locale.startsWith('de') ? 'Beethoven' : '<lang xml:lang="de-DE">Beethoven</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Kruder & Dorfmeister', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Kruder & Dorfmeister', locale);
@@ -106,6 +122,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Busenfreund', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Busenfreund', locale);
+                const expected = locale.startsWith('de') ? 'Busenfreund' : '<lang xml:lang="de-DE">Busenfreund</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Da Sind Wir', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Da Sind Wir', locale);
@@ -114,10 +138,42 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Eine Kleine Nachtmusik - Allegro', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Eine Kleine Nachtmusik - Allegro', locale);
+                const expected = locale.startsWith('de') ? 'Eine Kleine Nachtmusik - Allegro' : '<lang xml:lang="de-DE">Eine Kleine Nachtmusik - Allegro</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Für Elise', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Für Elise', locale);
+                const expected = locale.startsWith('de') ? 'Für Elise' : '<lang xml:lang="de-DE">Für Elise</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Ich Weiß Warum', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Ich Weiß Warum', locale);
                 const expected = locale.startsWith('de') ? 'Ich Weiß Warum' : '<lang xml:lang="de-DE">Ich Weiß Warum</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Plus tôt', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Plus tôt', locale);
+                const expected = locale.startsWith('fr') ? 'Plus tôt' : '<lang xml:lang="fr-FR">Plus tôt</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Prelude', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Prelude', locale);
+                const expected = locale.startsWith('fr') ? 'Prelude' : '<lang xml:lang="fr-FR">Prelude</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -152,6 +208,23 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const album = utils.speakAlbum('Alles Prima Und Viele Andere Hits', locale);
                 const expected = locale.startsWith('de') ? 'Alles Prima Und Viele Andere Hits' : '<lang xml:lang="de-DE">Alles Prima Und Viele Andere Hits</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Hélène Grimaud - Bach', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Hélène Grimaud - Bach', locale);
+                const expected = locale.startsWith('fr') ? 'Hélène Grimaud - Bach' : '<lang xml:lang="fr-FR">Hélène Grimaud - Bach</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
+
+
+        it('should work for Eine Kleine Nachtmusik', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Eine Kleine Nachtmusik', locale);
+                const expected = locale.startsWith('de') ? 'Eine Kleine Nachtmusik' : '<lang xml:lang="de-DE">Eine Kleine Nachtmusik</lang>';
                 expect(album, locale).to.equal(expected);
             });
         });

@@ -21,6 +21,8 @@ function escape(str) {
 
 const EN_US = 'en-US';
 const DE_DE = 'de-DE';
+const FR_CA = 'fr-CA';
+const FR_FR = 'fr-FR';
 
 var exports = module.exports = {
     EN_US,
@@ -46,11 +48,15 @@ exports.speakArtist = function(artist, locale) {
     let artistLocale = EN_US;
     switch (artist) {
     case '2raumwohnung':
+    case 'Beethoven':
     case 'Kruder & Dorfmeister':
     case 'Nena':
     case 'Sophie Hunger':
     case 'Tom Schilling':
         artistLocale = DE_DE;
+        break;
+    case 'Alexandra Stréliski':
+        artistLocale = FR_CA;
         break;
     }
     artist = escape(artist);
@@ -62,11 +68,18 @@ exports.speakTitle = function(title, locale) {
     switch (title) {
     case '2 von Millionen von Sternen':
     case '99 Luftballons':
+    case 'Busenfreund':
     case 'Da Sind Wir':
+    case 'Eine Kleine Nachtmusik - Allegro':
+    case 'Für Elise':
     case 'Ich Weiß Warum':
     case 'Major Tom (Völlig Losgelöst)':
     case 'Schock den Affen':
         titleLocale = DE_DE;
+        break;
+    case 'Plus tôt':
+    case 'Prelude':
+        titleLocale = FR_FR;
         break;
     }
     title = escape(title);
@@ -79,9 +92,13 @@ exports.speakAlbum = function(album, locale) {
     case '20 Jahre: Nena feat. Nena':
     case '99 Luftballons':
     case 'Alles Prima Und Viele Andere Hits':
+    case 'Eine Kleine Nachtmusik':
     case 'In Wirklich':
     case 'Kommt zusammen':
         albumLocale = DE_DE;
+        break;
+    case 'Hélène Grimaud - Bach':
+        albumLocale = FR_FR;
         break;
     }
     album = escape(album);
