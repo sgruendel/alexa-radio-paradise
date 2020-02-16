@@ -30,9 +30,12 @@ var exports = module.exports = {
 };
 
 exports.fixSong = function(song) {
-    if (song.title === 'Shock den Affen') {
+    if (song.title === 'Gnossienne No1') {
+        song.title = 'Gnossienne No. 1';
+    } else if (song.title === 'Shock den Affen') {
         song.title = 'Schock den Affen';
     }
+
     if (song.album === '20 Jahre: Nena Ft Nena') {
         song.album = '20 Jahre: Nena feat. Nena';
     }
@@ -58,6 +61,11 @@ exports.speakArtist = function(artist, locale) {
     case 'Alexandra Stréliski':
         artistLocale = FR_CA;
         break;
+    case 'Claude Debussy':
+    case 'Erik Satie':
+    case 'Maurice Ravel':
+        artistLocale = FR_FR;
+        break;
     }
     artist = escape(artist);
     return locale.startsWith(countryOf(artistLocale)) ? artist : exports.speakAs(artistLocale, artist);
@@ -77,6 +85,9 @@ exports.speakTitle = function(title, locale) {
     case 'Schock den Affen':
         titleLocale = DE_DE;
         break;
+    case 'Gnossienne No. 1':
+    case 'Gymnopedie No. 1':
+    case 'Jardins sous la pluie':
     case 'Plus tôt':
     case 'Prelude':
         titleLocale = FR_FR;

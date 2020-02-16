@@ -17,6 +17,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Gnossienne No1', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Erik Satie', title: 'Gnossienne No1', album: '' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Gnossienne No. 1');
+            });
+        });
+
         it('should work for Shock den Affen', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Peter Gabriel', title: 'Shock den Affen', album: '' };
@@ -67,10 +75,34 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Claude Debussy', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Claude Debussy', locale);
+                const expected = locale.startsWith('fr') ? 'Claude Debussy' : '<lang xml:lang="fr-FR">Claude Debussy</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Erik Satie', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Erik Satie', locale);
+                const expected = locale.startsWith('fr') ? 'Erik Satie' : '<lang xml:lang="fr-FR">Erik Satie</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Kruder & Dorfmeister', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Kruder & Dorfmeister', locale);
                 const expected = locale.startsWith('de') ? 'Kruder &amp; Dorfmeister' : '<lang xml:lang="de-DE">Kruder &amp; Dorfmeister</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Maurice Ravel', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Maurice Ravel', locale);
+                const expected = locale.startsWith('fr') ? 'Maurice Ravel' : '<lang xml:lang="fr-FR">Maurice Ravel</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
@@ -154,10 +186,34 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Gnossienne No. 1', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Gnossienne No. 1', locale);
+                const expected = locale.startsWith('fr') ? 'Gnossienne No. 1' : '<lang xml:lang="fr-FR">Gnossienne No. 1</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Gymnopedie No. 1', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Gymnopedie No. 1', locale);
+                const expected = locale.startsWith('fr') ? 'Gymnopedie No. 1' : '<lang xml:lang="fr-FR">Gymnopedie No. 1</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Ich Weiß Warum', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Ich Weiß Warum', locale);
                 const expected = locale.startsWith('de') ? 'Ich Weiß Warum' : '<lang xml:lang="de-DE">Ich Weiß Warum</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Jardins sous la pluie', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Jardins sous la pluie', locale);
+                const expected = locale.startsWith('fr') ? 'Jardins sous la pluie' : '<lang xml:lang="fr-FR">Jardins sous la pluie</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
