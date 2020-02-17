@@ -62,7 +62,7 @@ describe('utils', () => {
         it('should work for Alexandra Stréliski', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Alexandra Stréliski', locale);
-                const expected = locale.startsWith('fr') ? 'Alexandra Stréliski' : '<lang xml:lang="fr-CA">Alexandra Stréliski</lang>';
+                const expected = locale.startsWith('fr') ? 'Alexandra Stréliski' : '<lang xml:lang="fr-FR">Alexandra Stréliski</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });

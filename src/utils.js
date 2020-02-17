@@ -21,7 +21,6 @@ function escape(str) {
 
 const EN_US = 'en-US';
 const DE_DE = 'de-DE';
-const FR_CA = 'fr-CA';
 const FR_FR = 'fr-FR';
 
 var exports = module.exports = {
@@ -59,8 +58,6 @@ exports.speakArtist = function(artist, locale) {
         artistLocale = DE_DE;
         break;
     case 'Alexandra Stréliski':
-        artistLocale = FR_CA;
-        break;
     case 'Claude Debussy':
     case 'Erik Satie':
     case 'Maurice Ravel':
