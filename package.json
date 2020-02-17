@@ -1,6 +1,6 @@
 {
   "name": "alexa-radio-paradise",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "Alexa Skill for querying playlist from Radio Paradise",
   "main": "index.js",
   "scripts": {
@@ -24,11 +24,11 @@
   "homepage": "https://github.com/sgruendel/alexa-radio-paradise#readme",
   "dependencies": {
     "ask-sdk-core": "^2.7.0",
-    "ask-sdk-model": "^1.25.1",
+    "ask-sdk-model": "^1.25.2",
     "dashbot": "^10.4.5",
     "i18next": "19.1.0",
     "i18next-sprintf-postprocessor": "^0.2.2",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "request-promise-native": "^1.0.8",
     "winston": "^3.2.1"
   },
