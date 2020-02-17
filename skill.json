@@ -245,7 +245,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 14):\n* Certain German songs are using German pronounciation (only testable when they are actually played on RP)",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 15):\n* Certain German and French songs are using respective pronounciation (only testable when they are actually played on RP)",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     }
