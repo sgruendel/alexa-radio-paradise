@@ -85,6 +85,10 @@ exports.speakTitle = function(title, locale) {
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
     case 'Jardins sous la pluie':
+    case 'La Femme Accident':
+    case "La Femme D'Argent":
+    case 'Le Voyage De Penelope':
+    case 'Mer Du Japon':
     case 'Plus tôt':
     case 'Prelude':
         titleLocale = FR_FR;

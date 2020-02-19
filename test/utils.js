@@ -218,6 +218,38 @@ describe('utils', () => {
             });
         });
 
+        it('should work for La Femme Accident', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('La Femme Accident', locale);
+                const expected = locale.startsWith('fr') ? 'La Femme Accident' : '<lang xml:lang="fr-FR">La Femme Accident</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it("should work for La Femme D'Argent", () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle("La Femme D'Argent", locale);
+                const expected = locale.startsWith('fr') ? "La Femme D&#39;Argent" : '<lang xml:lang="fr-FR">La Femme D&#39;Argent</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Le Voyage De Penelope', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Le Voyage De Penelope', locale);
+                const expected = locale.startsWith('fr') ? 'Le Voyage De Penelope' : '<lang xml:lang="fr-FR">Le Voyage De Penelope</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Mer Du Japon', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Mer Du Japon', locale);
+                const expected = locale.startsWith('fr') ? 'Mer Du Japon' : '<lang xml:lang="fr-FR">Mer Du Japon</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Plus tôt', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Plus tôt', locale);
