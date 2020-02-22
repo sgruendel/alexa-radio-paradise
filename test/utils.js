@@ -91,6 +91,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for José González', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('José González', locale);
+                const expected = locale.startsWith('es') ? 'José González' : '<lang xml:lang="es-ES">José González</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Kruder & Dorfmeister', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Kruder & Dorfmeister', locale);
@@ -111,6 +119,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Nena', locale);
                 const expected = locale.startsWith('de') ? 'Nena' : '<lang xml:lang="de-DE">Nena</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Rubén González', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Rubén González', locale);
+                const expected = locale.startsWith('es') ? 'Rubén González' : '<lang xml:lang="es-ES">Rubén González</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
@@ -158,6 +174,22 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Busenfreund', locale);
                 const expected = locale.startsWith('de') ? 'Busenfreund' : '<lang xml:lang="de-DE">Busenfreund</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Canción Del Mariachi', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Canción Del Mariachi', locale);
+                const expected = locale.startsWith('es') ? 'Canción Del Mariachi' : '<lang xml:lang="es-ES">Canción Del Mariachi</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Cumbanchero', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Cumbanchero', locale);
+                const expected = locale.startsWith('es') ? 'Cumbanchero' : '<lang xml:lang="es-ES">Cumbanchero</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -238,6 +270,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Le Voyage De Penelope', locale);
                 const expected = locale.startsWith('fr') ? 'Le Voyage De Penelope' : '<lang xml:lang="fr-FR">Le Voyage De Penelope</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Mandinga', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Mandinga', locale);
+                const expected = locale.startsWith('es') ? 'Mandinga' : '<lang xml:lang="es-ES">Mandinga</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });

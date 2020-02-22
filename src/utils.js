@@ -19,8 +19,9 @@ function escape(str) {
     });
 }
 
-const EN_US = 'en-US';
 const DE_DE = 'de-DE';
+const ES_ES = 'es-ES';
+const EN_US = 'en-US';
 const FR_FR = 'fr-FR';
 
 var exports = module.exports = {
@@ -57,6 +58,10 @@ exports.speakArtist = function(artist, locale) {
     case 'Tom Schilling':
         artistLocale = DE_DE;
         break;
+    case 'José González':
+    case 'Rubén González':
+        artistLocale = ES_ES;
+        break;
     case 'Alexandra Stréliski':
     case 'Claude Debussy':
     case 'Erik Satie':
@@ -81,6 +86,11 @@ exports.speakTitle = function(title, locale) {
     case 'Major Tom (Völlig Losgelöst)':
     case 'Schock den Affen':
         titleLocale = DE_DE;
+        break;
+    case 'Canción Del Mariachi':
+    case 'Cumbanchero':
+    case 'Mandinga':
+        titleLocale = ES_ES;
         break;
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
