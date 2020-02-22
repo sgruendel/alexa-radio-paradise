@@ -17,6 +17,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Paco de Lucia', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Paco de Lucia', title: 'Concierto de Aranjuez', album: '' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.artist).to.equal('Paco de Lucía');
+            });
+        });
+
         it('should work for Gnossienne No1', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Erik Satie', title: 'Gnossienne No1', album: '' };
@@ -123,6 +131,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Paco de Lucía', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Paco de Lucía', locale);
+                const expected = locale.startsWith('es') ? 'Paco de Lucía' : '<lang xml:lang="es-ES">Paco de Lucía</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Rubén González', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Rubén González', locale);
@@ -166,6 +182,22 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('2 von Millionen von Sternen', locale);
                 const expected = locale.startsWith('de') ? '2 von Millionen von Sternen' : '<lang xml:lang="de-DE">2 von Millionen von Sternen</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for A Pesar De Todo', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('A Pesar De Todo', locale);
+                const expected = locale.startsWith('es') ? 'A Pesar De Todo' : '<lang xml:lang="es-ES">A Pesar De Todo</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Alma, Corazon Y Vida', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Alma, Corazon Y Vida', locale);
+                const expected = locale.startsWith('es') ? 'Alma, Corazon Y Vida' : '<lang xml:lang="es-ES">Alma, Corazon Y Vida</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -261,7 +293,7 @@ describe('utils', () => {
         it("should work for La Femme D'Argent", () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle("La Femme D'Argent", locale);
-                const expected = locale.startsWith('fr') ? "La Femme D&#39;Argent" : '<lang xml:lang="fr-FR">La Femme D&#39;Argent</lang>';
+                const expected = locale.startsWith('fr') ? 'La Femme D&#39;Argent' : '<lang xml:lang="fr-FR">La Femme D&#39;Argent</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -340,19 +372,34 @@ describe('utils', () => {
             });
         });
 
-        it('should work for Hélène Grimaud - Bach', () => {
+        it('should work for Anthogia', () => {
             locales.forEach(locale => {
-                const album = utils.speakAlbum('Hélène Grimaud - Bach', locale);
-                const expected = locale.startsWith('fr') ? 'Hélène Grimaud - Bach' : '<lang xml:lang="fr-FR">Hélène Grimaud - Bach</lang>';
+                const album = utils.speakAlbum('Anthogia', locale);
+                const expected = locale.startsWith('es') ? 'Anthogia' : '<lang xml:lang="es-ES">Anthogia</lang>';
                 expect(album, locale).to.equal(expected);
             });
         });
 
+        it('should work for Concierto de Aranjuez (Joaquin Rodrigo, 1939)', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Concierto de Aranjuez (Joaquin Rodrigo, 1939)', locale);
+                const expected = locale.startsWith('es') ? 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)' : '<lang xml:lang="es-ES">Concierto de Aranjuez (Joaquin Rodrigo, 1939)</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
 
         it('should work for Eine Kleine Nachtmusik', () => {
             locales.forEach(locale => {
                 const album = utils.speakAlbum('Eine Kleine Nachtmusik', locale);
                 const expected = locale.startsWith('de') ? 'Eine Kleine Nachtmusik' : '<lang xml:lang="de-DE">Eine Kleine Nachtmusik</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Hélène Grimaud - Bach', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Hélène Grimaud - Bach', locale);
+                const expected = locale.startsWith('fr') ? 'Hélène Grimaud - Bach' : '<lang xml:lang="fr-FR">Hélène Grimaud - Bach</lang>';
                 expect(album, locale).to.equal(expected);
             });
         });

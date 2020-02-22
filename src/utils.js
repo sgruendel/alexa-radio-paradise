@@ -30,6 +30,10 @@ var exports = module.exports = {
 };
 
 exports.fixSong = function(song) {
+    if (song.artist === 'Paco de Lucia') {
+        song.artist = 'Paco de Lucía';
+    }
+
     if (song.title === 'Gnossienne No1') {
         song.title = 'Gnossienne No. 1';
     } else if (song.title === 'Shock den Affen') {
@@ -59,6 +63,7 @@ exports.speakArtist = function(artist, locale) {
         artistLocale = DE_DE;
         break;
     case 'José González':
+    case 'Paco de Lucía':
     case 'Rubén González':
         artistLocale = ES_ES;
         break;
@@ -87,9 +92,18 @@ exports.speakTitle = function(title, locale) {
     case 'Schock den Affen':
         titleLocale = DE_DE;
         break;
+    case 'A Pesar De Todo':
+    case 'Alma, Corazon Y Vida':
     case 'Canción Del Mariachi':
+    case 'Concierto de Aranjuez':
     case 'Cumbanchero':
+    case 'Entre Dos Aguas':
+    case 'La Flor De La Canela':
     case 'Mandinga':
+    case 'Siboney':
+    case 'Tomo Y Obligo':
+    case 'Virgen De Amor':
+    case 'Buana Buana King Kong':
         titleLocale = ES_ES;
         break;
     case 'Gnossienne No. 1':
@@ -118,6 +132,12 @@ exports.speakAlbum = function(album, locale) {
     case 'In Wirklich':
     case 'Kommt zusammen':
         albumLocale = DE_DE;
+        break;
+    case 'Anthogia':
+    case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
+    case 'Dos Guitarras Flamencas En America Latina':
+    case 'Pa Saber De Flamenco 2':
+        albumLocale = ES_ES;
         break;
     case 'Hélène Grimaud - Bach':
         albumLocale = FR_FR;
