@@ -30,7 +30,9 @@ var exports = module.exports = {
 };
 
 exports.fixSong = function(song) {
-    if (song.artist === 'Paco de Lucia') {
+    if (song.artist === 'Hans-Erik Phillip') {
+        song.artist = 'Hans-Erik Philip';
+    } else if (song.artist === 'Paco de Lucia') {
         song.artist = 'Paco de Lucía';
     }
 
@@ -56,6 +58,7 @@ exports.speakArtist = function(artist, locale) {
     switch (artist) {
     case '2raumwohnung':
     case 'Beethoven':
+    case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
     case 'Kruder & Dorfmeister':
     case 'Nena':
     case 'Sophie Hunger':
@@ -86,6 +89,7 @@ exports.speakTitle = function(title, locale) {
     case 'Busenfreund':
     case 'Da Sind Wir':
     case 'Eine Kleine Nachtmusik - Allegro':
+    case 'Fiskerne': // TODO: it's actually Danish, but German pronounciation should be close enough :)
     case 'Für Elise':
     case 'Ich Weiß Warum':
     case 'Major Tom (Völlig Losgelöst)':

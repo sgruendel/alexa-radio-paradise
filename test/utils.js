@@ -17,6 +17,15 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Hans-Erik Phillip', () => {
+            locales.forEach(locale => {
+                const song = {
+                    artist: 'Hans-Erik Phillip', title: 'Fiskerne', album: 'Original Soundtrack from Fiskerne' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.artist).to.equal('Hans-Erik Philip');
+            });
+        });
+
         it('should work for Paco de Lucia', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Paco de Lucia', title: 'Concierto de Aranjuez', album: '' };
