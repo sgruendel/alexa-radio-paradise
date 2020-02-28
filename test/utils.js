@@ -397,6 +397,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Des Visages des Figures', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Des Visages des Figures', locale);
+                const expected = locale.startsWith('fr') ? 'Des Visages des Figures' : '<lang xml:lang="fr-FR">Des Visages des Figures</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Eine Kleine Nachtmusik', () => {
             locales.forEach(locale => {
                 const album = utils.speakAlbum('Eine Kleine Nachtmusik', locale);

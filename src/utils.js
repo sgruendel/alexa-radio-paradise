@@ -74,6 +74,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Claude Debussy':
     case 'Erik Satie':
     case 'Maurice Ravel':
+    case 'Noir Désir':
         artistLocale = FR_FR;
         break;
     }
@@ -113,8 +114,10 @@ exports.speakTitle = function(title, locale) {
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
     case 'Jardins sous la pluie':
+    case "L' Enfant Roi":
     case 'La Femme Accident':
     case "La Femme D'Argent":
+    case 'Le Vent Nous Portera':
     case 'Le Voyage De Penelope':
     case 'Mer Du Japon':
     case 'Plus tôt':
@@ -143,6 +146,7 @@ exports.speakAlbum = function(album, locale) {
     case 'Pa Saber De Flamenco 2':
         albumLocale = ES_ES;
         break;
+    case 'Des Visages des Figures':
     case 'Hélène Grimaud - Bach':
         albumLocale = FR_FR;
         break;
