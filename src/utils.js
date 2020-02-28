@@ -36,7 +36,9 @@ exports.fixSong = function(song) {
         song.artist = 'Paco de Lucía';
     }
 
-    if (song.title === 'Gnossienne No1') {
+    if (song.title === 'Corazon Espinado (feat Mana)') {
+        song.title = 'Corazon Espinado (ft. Mana)';
+    } else if (song.title === 'Gnossienne No1') {
         song.title = 'Gnossienne No. 1';
     } else if (song.title === 'Shock den Affen') {
         song.title = 'Schock den Affen';
@@ -68,6 +70,7 @@ exports.speakArtist = function(artist, locale) {
     case 'José González':
     case 'Paco de Lucía':
     case 'Rubén González':
+    case 'Santana':
         artistLocale = ES_ES;
         break;
     case 'Alexandra Stréliski':
@@ -98,13 +101,24 @@ exports.speakTitle = function(title, locale) {
         titleLocale = DE_DE;
         break;
     case 'A Pesar De Todo':
+    case 'Africa Bamba':
     case 'Alma, Corazon Y Vida':
+    case 'Aye Aye Aye':
     case 'Canción Del Mariachi':
     case 'Concierto de Aranjuez':
+    case 'Corazon Espinado (ft. Mana)':
     case 'Cumbanchero':
+    case 'El Farol':
+    case 'El Fuego':
     case 'Entre Dos Aguas':
+    case 'Guajira':
     case 'La Flor De La Canela':
+    case 'Luz Amor Y Vida':
     case 'Mandinga':
+    case 'Migra':
+    case 'Oye Como Va':
+    case 'Samba Pa Ti':
+    case 'Se A Cabo':
     case 'Siboney':
     case 'Tomo Y Obligo':
     case 'Virgen De Amor':
@@ -122,6 +136,7 @@ exports.speakTitle = function(title, locale) {
     case 'Mer Du Japon':
     case 'Plus tôt':
     case 'Prelude':
+    case "Toussaint L'Overture": // as spelled by Santana :)
         titleLocale = FR_FR;
         break;
     }

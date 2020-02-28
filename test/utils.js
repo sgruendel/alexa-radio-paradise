@@ -34,6 +34,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Corazon Espinado (feat Mana)', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Santana', title: 'Corazon Espinado (feat Mana)', album: 'Supernatural' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Corazon Espinado (ft. Mana)');
+            });
+        });
+
         it('should work for Gnossienne No1', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Erik Satie', title: 'Gnossienne No1', album: '' };
