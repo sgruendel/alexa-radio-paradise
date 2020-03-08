@@ -60,6 +60,7 @@ exports.speakArtist = function(artist, locale) {
     switch (artist) {
     case '2raumwohnung':
     case 'Beethoven':
+    case 'Bohren & Der Club Of Gore':
     case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
     case 'Kruder & Dorfmeister':
     case 'Nena':
