@@ -6,46 +6,46 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "2f52ba572a0631f66dfb275206062e18"
+          "eTag": "cbf9539b87cf7b953e37729be44726a2"
         },
         "interactionModel": {
           "it-IT": {
-            "eTag": "7c2e17735e422ce7acb75560dd3a4e09"
+            "eTag": "4c7fde9cf7bc3064a694441f67aa76b6"
           },
           "de-DE": {
-            "eTag": "19d367cfaca5343fe259e0155378cc26"
+            "eTag": "f87e847830ed428be3349fc6e6911b9b"
           },
           "en-CA": {
-            "eTag": "06c21cf071ef525e228f13e241c5850f"
+            "eTag": "3b6f1e382f160215be00dbdd31f689e3"
           },
           "en-US": {
-            "eTag": "7582cf04b5c4a3d7f56fbd7e553dc547"
+            "eTag": "37752be03cf3098e491384cd7b5539b7"
           },
           "en-IN": {
-            "eTag": "a5a1691a3571abccc3c5fab36899b6e0"
+            "eTag": "f9a2da8e93d3ee5ddb9fb6b3ac54ce45"
           },
           "en-AU": {
-            "eTag": "117f063d18e72aee6a5471730daaf7fb"
+            "eTag": "44d1bb1417bd791928a31396332881fa"
           },
           "es-ES": {
-            "eTag": "e2a0daac30534721e1e4ae2934d39e89"
+            "eTag": "b0aed2526341cf693f45c9d6384e1c24"
           },
           "fr-FR": {
-            "eTag": "483272bc682d67fa6fcd9e3f5ee2c3a4"
+            "eTag": "6ff2f49a5c8374372c59e10fe05a3d63"
           },
           "en-GB": {
-            "eTag": "85a72ca7dac6fa71c884baf41b96828b"
+            "eTag": "ce73f094154ea8fc498aa0ee1972d882"
           },
           "es-MX": {
-            "eTag": "21fca2897b58bea2a71cf50092e34bae"
+            "eTag": "931f2d14b0db5f91ea9d88746ddc6e32"
           },
           "fr-CA": {
-            "eTag": "cd839212084c1f15b987be2ea29f0a3c"
+            "eTag": "e9597b3ae9043805bebc7dd19057a940"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:17",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:18",
             "awsRegion": "eu-west-1",
             "functionName": "radioParadise",
             "alexaUsage": [
