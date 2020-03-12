@@ -68,6 +68,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Tom Schilling':
         artistLocale = DE_DE;
         break;
+    case 'Chicha Libre':
     case 'José González':
     case 'Paco de Lucía':
     case 'Rubén González':
@@ -91,6 +92,7 @@ exports.speakTitle = function(title, locale) {
     switch (title) {
     case '2 von Millionen von Sternen':
     case '99 Luftballons':
+    case 'Bei Mir Bist Du Schön':
     case 'Busenfreund':
     case 'Da Sind Wir':
     case 'Eine Kleine Nachtmusik - Allegro':
@@ -157,6 +159,7 @@ exports.speakAlbum = function(album, locale) {
         albumLocale = DE_DE;
         break;
     case 'Anthogia':
+    case 'Chicha Libre ¡Sonido amazónico!':
     case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
     case 'Dos Guitarras Flamencas En America Latina':
     case 'Pa Saber De Flamenco 2':

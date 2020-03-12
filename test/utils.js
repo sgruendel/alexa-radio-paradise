@@ -100,6 +100,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Chicha Libre', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Chicha Libre', locale);
+                const expected = locale.startsWith('es') ? 'Chicha Libre' : '<lang xml:lang="es-ES">Chicha Libre</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Claude Debussy', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Claude Debussy', locale);
