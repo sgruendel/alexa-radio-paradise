@@ -12,6 +12,8 @@
             }
           ],
           "samples": [
+            "{channel}",
+            "channel {channel}",
             "for {channel}",
             "for channel {channel}",
             "what's playing",

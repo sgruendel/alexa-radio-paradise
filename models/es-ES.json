@@ -12,6 +12,7 @@
             }
           ],
           "samples": [
+            "{channel}",
             "por {channel}",
             "qué está jugando",
             "qué está jugando en {channel}",

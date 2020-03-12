@@ -12,6 +12,8 @@
             }
           ],
           "samples": [
+            "{channel}",
+            "Kanal {channel}",
             "für {channel}",
             "für Kanal {channel}",
             "mit {channel}",

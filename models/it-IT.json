@@ -12,6 +12,7 @@
             }
           ],
           "samples": [
+            "{channel}",
             "per {channel}",
             "di cosa si tratta",
             "di cosa si tratta a {channel}",
