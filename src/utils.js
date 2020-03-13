@@ -23,6 +23,7 @@ const DE_DE = 'de-DE';
 const ES_ES = 'es-ES';
 const EN_US = 'en-US';
 const FR_FR = 'fr-FR';
+const IT_IT = 'it-IT';
 
 var exports = module.exports = {
     EN_US,
@@ -59,6 +60,7 @@ exports.speakArtist = function(artist, locale) {
     let artistLocale = EN_US;
     switch (artist) {
     case '2raumwohnung':
+    case 'Andreas Vollenweider':
     case 'Beethoven':
     case 'Bohren & Der Club Of Gore':
     case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
@@ -70,6 +72,8 @@ exports.speakArtist = function(artist, locale) {
         break;
     case 'Chicha Libre':
     case 'José González':
+    case 'José Larralde':
+    case 'Los Fabulosos Cadillacs':
     case 'Paco de Lucía':
     case 'Rubén González':
     case 'Santana':
@@ -81,6 +85,10 @@ exports.speakArtist = function(artist, locale) {
     case 'Maurice Ravel':
     case 'Noir Désir':
         artistLocale = FR_FR;
+        break;
+    case 'Paolo Conte':
+    case 'Zucchero':
+        artistLocale = IT_IT;
         break;
     }
     artist = escape(artist);
@@ -113,13 +121,16 @@ exports.speakTitle = function(title, locale) {
     case 'Cumbanchero':
     case 'El Farol':
     case 'El Fuego':
+    case 'El Genio Del Dub':
     case 'Entre Dos Aguas':
     case 'Guajira':
     case 'La Flor De La Canela':
     case 'Luz Amor Y Vida':
     case 'Mandinga':
+    case 'Matador':
     case 'Migra':
     case 'Oye Como Va':
+    case 'Quimey Neuquen (Chancha Via Circuito remix)':
     case 'Samba Pa Ti':
     case 'Se A Cabo':
     case 'Siboney':
@@ -142,6 +153,9 @@ exports.speakTitle = function(title, locale) {
     case "Toussaint L'Overture": // as spelled by Santana :)
         titleLocale = FR_FR;
         break;
+    case 'Via Con Me':
+        titleLocale = IT_IT;
+        break;
     }
     title = escape(title);
     return locale.startsWith(countryOf(titleLocale)) ? title : exports.speakAs(titleLocale, title);
@@ -162,6 +176,7 @@ exports.speakAlbum = function(album, locale) {
     case 'Chicha Libre ¡Sonido amazónico!':
     case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
     case 'Dos Guitarras Flamencas En America Latina':
+    case 'Obras Cumbres':
     case 'Pa Saber De Flamenco 2':
         albumLocale = ES_ES;
         break;

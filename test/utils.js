@@ -164,6 +164,13 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Paolo Conte', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Paolo Conte', locale);
+                const expected = locale.startsWith('it') ? 'Paolo Conte' : '<lang xml:lang="it-IT">Paolo Conte</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
         it('should work for Rubén González', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Rubén González', locale);
@@ -191,6 +198,14 @@ describe('utils', () => {
         it('should escape Simon & Garfunkel', () => {
             const artist = utils.speakArtist('Simon & Garfunkel', 'en-US');
             expect(artist).to.equal('Simon &amp; Garfunkel');
+        });
+
+        it('should work for Zucchero', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Zucchero', locale);
+                const expected = locale.startsWith('it') ? 'Zucchero' : '<lang xml:lang="it-IT">Zucchero</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
         });
     });
 
@@ -359,6 +374,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Prelude', locale);
                 const expected = locale.startsWith('fr') ? 'Prelude' : '<lang xml:lang="fr-FR">Prelude</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Via Con Me', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Via Con Me', locale);
+                const expected = locale.startsWith('it') ? 'Via Con Me' : '<lang xml:lang="it-IT">Via Con Me</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
