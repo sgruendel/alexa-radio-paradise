@@ -34,11 +34,19 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Cancion Triste', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'J', title: 'Cancion Triste', album: 'Supernatural' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Canción Triste');
+            });
+        });
+
         it('should work for Corazon Espinado (feat Mana)', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Santana', title: 'Corazon Espinado (feat Mana)', album: 'Supernatural' };
                 const fixedSong = utils.fixSong(song);
-                expect(fixedSong.title).to.equal('Corazon Espinado (ft. Mana)');
+                expect(fixedSong.title).to.equal('Corazon Espinado (feat. Mana)');
             });
         });
 
@@ -88,6 +96,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Alexandra Stréliski', locale);
                 const expected = locale.startsWith('fr') ? 'Alexandra Stréliski' : '<lang xml:lang="fr-FR">Alexandra Stréliski</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Antonio Vivaldi', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Antonio Vivaldi', locale);
+                const expected = locale.startsWith('it') ? 'Antonio Vivaldi' : '<lang xml:lang="it-IT">Antonio Vivaldi</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
@@ -171,6 +187,7 @@ describe('utils', () => {
                 expect(artist, locale).to.equal(expected);
             });
         });
+
         it('should work for Rubén González', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Rubén González', locale);
@@ -258,6 +275,14 @@ describe('utils', () => {
             });
         });
 
+        it("should work for Ce N'est Pas Bon", () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle("Ce N'est Pas Bon", locale);
+                const expected = locale.startsWith('fr') ? 'Ce N&#39;est Pas Bon' : '<lang xml:lang="fr-FR">Ce N&#39;est Pas Bon</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Cumbanchero', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Cumbanchero', locale);
@@ -286,6 +311,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Für Elise', locale);
                 const expected = locale.startsWith('de') ? 'Für Elise' : '<lang xml:lang="de-DE">Für Elise</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Concerto Op 4 No 1: III Allegro', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Concerto Op 4 No 1: III Allegro', locale);
+                const expected = locale.startsWith('it') ? 'Concerto Op 4 No 1: III Allegro' : '<lang xml:lang="it-IT">Concerto Op 4 No 1: III Allegro</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });

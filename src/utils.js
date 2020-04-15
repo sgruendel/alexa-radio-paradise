@@ -37,8 +37,10 @@ exports.fixSong = function(song) {
         song.artist = 'Paco de Lucía';
     }
 
-    if (song.title === 'Corazon Espinado (feat Mana)') {
-        song.title = 'Corazon Espinado (ft. Mana)';
+    if (song.title === 'Cancion Triste') {
+        song.title = 'Canción Triste';
+    } else if (song.title === 'Corazon Espinado (feat Mana)') {
+        song.title = 'Corazon Espinado (feat. Mana)';
     } else if (song.title === 'Gnossienne No1') {
         song.title = 'Gnossienne No. 1';
     } else if (song.title === 'Shock den Affen') {
@@ -73,19 +75,29 @@ exports.speakArtist = function(artist, locale) {
     case 'Chicha Libre':
     case 'José González':
     case 'José Larralde':
+    case 'Los Bravos':
     case 'Los Fabulosos Cadillacs':
+    case 'Los Incas':
+    case 'Los Lobos':
+    case 'Los Lobos & Antonio Banderas':
     case 'Paco de Lucía':
     case 'Rubén González':
     case 'Santana':
         artistLocale = ES_ES;
         break;
     case 'Alexandra Stréliski':
+    case 'Amadou & Mariam':
     case 'Claude Debussy':
     case 'Erik Satie':
+    case 'Jean-Luc Ponty':
+    case 'Jean-Michel Jarre':
     case 'Maurice Ravel':
     case 'Noir Désir':
+    case 'Vieux Farka Touré':
         artistLocale = FR_FR;
         break;
+    case 'Antonio Vivaldi':
+    case 'Luca Stricagnoli':
     case 'Paolo Conte':
     case 'Zucchero':
         artistLocale = IT_IT;
@@ -107,6 +119,7 @@ exports.speakTitle = function(title, locale) {
     case 'Fiskerne': // TODO: it's actually Danish, but German pronounciation should be close enough :)
     case 'Für Elise':
     case 'Ich Weiß Warum':
+    case 'Lautlos':
     case 'Major Tom (Völlig Losgelöst)':
     case 'Schock den Affen':
         titleLocale = DE_DE;
@@ -115,10 +128,13 @@ exports.speakTitle = function(title, locale) {
     case 'Africa Bamba':
     case 'Alma, Corazon Y Vida':
     case 'Aye Aye Aye':
+    case 'Buana Buana King Kong':
     case 'Canción Del Mariachi':
+    case 'Canción Triste':
     case 'Concierto de Aranjuez':
-    case 'Corazon Espinado (ft. Mana)':
+    case 'Corazon Espinado (feat. Mana)':
     case 'Cumbanchero':
+    case 'El Condor Pasa':
     case 'El Farol':
     case 'El Fuego':
     case 'El Genio Del Dub':
@@ -126,21 +142,24 @@ exports.speakTitle = function(title, locale) {
     case 'Guajira':
     case 'La Flor De La Canela':
     case 'Luz Amor Y Vida':
+    case 'Luz De Mi Vida':
     case 'Mandinga':
     case 'Matador':
     case 'Migra':
     case 'Oye Como Va':
+    case 'Poquito Para Aqui':
     case 'Quimey Neuquen (Chancha Via Circuito remix)':
     case 'Samba Pa Ti':
     case 'Se A Cabo':
     case 'Siboney':
     case 'Tomo Y Obligo':
     case 'Virgen De Amor':
-    case 'Buana Buana King Kong':
         titleLocale = ES_ES;
         break;
+    case "Ce N'est Pas Bon":
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
+    case "Jardin d'hiver":
     case 'Jardins sous la pluie':
     case "L' Enfant Roi":
     case 'La Femme Accident':
@@ -151,8 +170,10 @@ exports.speakTitle = function(title, locale) {
     case 'Plus tôt':
     case 'Prelude':
     case "Toussaint L'Overture": // as spelled by Santana :)
+    case 'Viens Avec Moi':
         titleLocale = FR_FR;
         break;
+    case 'Concerto Op 4 No 1: III Allegro':
     case 'Via Con Me':
         titleLocale = IT_IT;
         break;
@@ -182,6 +203,7 @@ exports.speakAlbum = function(album, locale) {
         break;
     case 'Des Visages des Figures':
     case 'Hélène Grimaud - Bach':
+    case 'La biographie de Luka Philipsen':
         albumLocale = FR_FR;
         break;
     }
