@@ -75,6 +75,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Chicha Libre':
     case 'José González':
     case 'José Larralde':
+    case 'Juanes':
     case 'Los Bravos':
     case 'Los Fabulosos Cadillacs':
     case 'Los Incas':
@@ -140,6 +141,7 @@ exports.speakTitle = function(title, locale) {
     case 'El Genio Del Dub':
     case 'Entre Dos Aguas':
     case 'Guajira':
+    case 'La Camisa Negra':
     case 'La Flor De La Canela':
     case 'Luz Amor Y Vida':
     case 'Luz De Mi Vida':
@@ -197,6 +199,7 @@ exports.speakAlbum = function(album, locale) {
     case 'Chicha Libre ¡Sonido amazónico!':
     case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
     case 'Dos Guitarras Flamencas En America Latina':
+    case 'Mi Sangre':
     case 'Obras Cumbres':
     case 'Pa Saber De Flamenco 2':
         albumLocale = ES_ES;
