@@ -2,7 +2,7 @@
 Alexa Skill for querying playlist from Radio Paradise
 
 ## TODOs
-- support CanFulfillIntentRequest
+- Add tests for CanFulfillIntentRequest
   * https://developer.amazon.com/docs/custom-skills/quick-start-canfulfill-intent-request.html
   * https://developer.amazon.com/docs/custom-skills/name-free-interaction.html
   * https://developer.amazon.com/de/docs/custom-skills/understand-name-free-interaction-for-custom-skills.html
