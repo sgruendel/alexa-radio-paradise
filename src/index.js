@@ -221,6 +221,54 @@ async function getNowPlayingResponse(channelId, handlerInput) {
     return response;
 }
 
+const CFIRRadioParadiseIntentHandler = {
+    canHandle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        return request.type === 'CanFulfillIntentRequest' && request.intent.name === 'RadioParadiseIntent';
+    },
+    handle(handlerInput) {
+        const { request } = handlerInput.requestEnvelope;
+        logger.debug('request', request);
+
+        const slots = request.intent && request.intent.slots;
+        let canFulfillIntent = {
+            canFulfill: 'NO',
+            slots: {},
+        };
+        let canFulfillCountYes = 0;
+        let canFulfillCountNo = 0;
+        Object.keys(slots).forEach((slot) => {
+            const name = slots[slot].name;
+            const value = slots[slot].value;
+            if (name === 'channel'
+                && (value === 'Main' || value === 'Main Mix'
+                    || value === 'Mellow' || value === 'Mellow Mix'
+                    || value === 'Rock' || value === 'Rock Mix'
+                    || value === 'Eclectic' || value === 'Eclectic Mix')) {
+
+                canFulfillIntent.slots[name] = {
+                    canUnderstand: 'YES',
+                    canFulfill: 'YES',
+                };
+                canFulfillCountYes++;
+            } else {
+                canFulfillIntent.slots[name] = {
+                    canUnderstand: 'NO',
+                    canFulfill: 'NO',
+                };
+                canFulfillCountNo++;
+            }
+        });
+        if (canFulfillCountYes === 1 && canFulfillCountNo === 0) {
+            canFulfillIntent.canFulfill = 'YES';
+        }
+
+        return handlerInput.responseBuilder
+            .withCanFulfillIntent(canFulfillIntent)
+            .getResponse();
+    },
+};
+
 const RadioParadiseIntentHandler = {
     canHandle(handlerInput) {
         const { request } = handlerInput.requestEnvelope;
@@ -388,6 +436,29 @@ const SessionEndedRequestHandler = {
     },
 };
 
+const CFIRErrorHandler = {
+    canHandle(handlerInput) {
+        return handlerInput.requestEnvelope.request.type === 'CanFulfillIntentRequest';
+    },
+    handle(handlerInput, error) {
+        //console.log(`CFIR Error handled: ${error.message}`);
+        logger.error(error.stack || error.toString(), handlerInput.requestEnvelope.request);
+
+        return handlerInput.responseBuilder
+            .withCanFulfillIntent(
+                {
+                    canFulfill: 'NO',
+                    slots: {
+                        channel: {
+                            canUnderstand: 'NO',
+                            canFulfill: 'NO',
+                        },
+                    },
+                })
+            .getResponse();
+    },
+};
+
 const ErrorHandler = {
     canHandle() {
         return true;
@@ -421,6 +492,7 @@ const LocalizationInterceptor = {
 
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
+        CFIRRadioParadiseIntentHandler,
         RadioParadiseIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
@@ -429,7 +501,9 @@ exports.handler = Alexa.SkillBuilders.custom()
         NextIntentHandler,
         SessionEndedRequestHandler)
     .addRequestInterceptors(LocalizationInterceptor)
-    .addErrorHandlers(ErrorHandler)
+    .addErrorHandlers(
+        CFIRErrorHandler,
+        ErrorHandler)
     .withApiClient(new Alexa.DefaultApiClient())
     .withSkillId(SKILL_ID)
     .lambda();

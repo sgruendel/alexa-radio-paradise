@@ -10,6 +10,9 @@
           {
             "type": "RENDER_TEMPLATE",
             "minimumTemplateVersion": "1.0"
+          },
+          {
+            "type": "CAN_FULFILL_INTENT_REQUEST"
           }
         ]
       }
