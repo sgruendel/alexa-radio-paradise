@@ -90,6 +90,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Amadou & Mariam':
     case 'Claude Debussy':
     case 'Erik Satie':
+    case 'Francis Cabrel':
     case 'Jean-Luc Ponty':
     case 'Jean-Michel Jarre':
     case 'Maurice Ravel':
@@ -135,14 +136,18 @@ exports.speakTitle = function(title, locale) {
     case 'Concierto de Aranjuez':
     case 'Corazon Espinado (feat. Mana)':
     case 'Cumbanchero':
+    case 'El Capitalismo Foraneo':
     case 'El Condor Pasa':
     case 'El Farol':
     case 'El Fuego':
     case 'El Genio Del Dub':
+    case 'Epoca':
     case 'Entre Dos Aguas':
     case 'Guajira':
     case 'La Camisa Negra':
     case 'La Flor De La Canela':
+    case 'La Vigüela':
+    case 'Lunático':
     case 'Luz Amor Y Vida':
     case 'Luz De Mi Vida':
     case 'Mandinga':
@@ -150,11 +155,14 @@ exports.speakTitle = function(title, locale) {
     case 'Migra':
     case 'Oye Como Va':
     case 'Poquito Para Aqui':
+    case 'Queremos Paz':
     case 'Quimey Neuquen (Chancha Via Circuito remix)':
     case 'Samba Pa Ti':
+    case 'Santa María (del Buen Ayre)':
     case 'Se A Cabo':
     case 'Siboney':
     case 'Tomo Y Obligo':
+    case 'Una Música Brutal':
     case 'Virgen De Amor':
         titleLocale = ES_ES;
         break;
@@ -164,6 +172,7 @@ exports.speakTitle = function(title, locale) {
     case "Jardin d'hiver":
     case 'Jardins sous la pluie':
     case "L' Enfant Roi":
+    case 'La Corrida':
     case 'La Femme Accident':
     case "La Femme D'Argent":
     case 'Le Vent Nous Portera':
@@ -199,6 +208,8 @@ exports.speakAlbum = function(album, locale) {
     case 'Chicha Libre ¡Sonido amazónico!':
     case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
     case 'Dos Guitarras Flamencas En America Latina':
+    case 'La Revancha Del Tango':
+    case 'Lunático':
     case 'Mi Sangre':
     case 'Obras Cumbres':
     case 'Pa Saber De Flamenco 2':
@@ -207,6 +218,7 @@ exports.speakAlbum = function(album, locale) {
     case 'Des Visages des Figures':
     case 'Hélène Grimaud - Bach':
     case 'La biographie de Luka Philipsen':
+    case 'Samedi Soir Sur La Terre':
         albumLocale = FR_FR;
         break;
     }
