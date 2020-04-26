@@ -441,7 +441,6 @@ const CFIRErrorHandler = {
         return handlerInput.requestEnvelope.request.type === 'CanFulfillIntentRequest';
     },
     handle(handlerInput, error) {
-        //console.log(`CFIR Error handled: ${error.message}`);
         logger.error(error.stack || error.toString(), handlerInput.requestEnvelope.request);
 
         return handlerInput.responseBuilder
