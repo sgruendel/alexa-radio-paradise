@@ -190,8 +190,16 @@ function getResponseForSong(handlerInput, song, msg, txt) {
                 textContent: textContent,
             });
     }
+
+    let domainStart = '';
+    let domainEnd = '';
+    if (locale === 'en-US') {
+        logger.debug('Using music domain for ' + locale);
+        domainStart = '<amazon:domain name="music">';
+        domainEnd = '</amazon:domain>';
+    }
     return handlerInput.responseBuilder
-        .speak(speechOutput)
+        .speak(domainStart + speechOutput + domainEnd)
         .withStandardCard(song.channel.title, cardContent, smallImageUrl, largeImageUrl)
         .getResponse();
 }
