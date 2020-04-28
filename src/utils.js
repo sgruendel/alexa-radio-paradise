@@ -166,7 +166,10 @@ exports.speakTitle = function(title, locale) {
     case 'Virgen De Amor':
         titleLocale = ES_ES;
         break;
+    case 'Camions Sauvages':
     case "Ce N'est Pas Bon":
+    case 'Compagnon De La Vie':
+    case 'Coulibaly':
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
     case "Jardin d'hiver":
@@ -177,6 +180,8 @@ exports.speakTitle = function(title, locale) {
     case "La Femme D'Argent":
     case 'Le Vent Nous Portera':
     case 'Le Voyage De Penelope':
+    case "M'Bifé Balafon":
+    case 'Masiteladi':
     case 'Mer Du Japon':
     case 'Plus tôt':
     case 'Prelude':
@@ -216,6 +221,7 @@ exports.speakAlbum = function(album, locale) {
         albumLocale = ES_ES;
         break;
     case 'Des Visages des Figures':
+    case 'Dimanche à Bamako':
     case 'Hélène Grimaud - Bach':
     case 'La biographie de Luka Philipsen':
     case 'Samedi Soir Sur La Terre':
