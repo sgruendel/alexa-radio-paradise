@@ -114,6 +114,7 @@ exports.speakTitle = function(title, locale) {
     switch (title) {
     case '2 von Millionen von Sternen':
     case '99 Luftballons':
+    case 'Am Fenster':
     case 'Bei Mir Bist Du Schön':
     case 'Busenfreund':
     case 'Da Sind Wir':
@@ -204,6 +205,7 @@ exports.speakAlbum = function(album, locale) {
     case '20 Jahre: Nena feat. Nena':
     case '99 Luftballons':
     case 'Alles Prima Und Viele Andere Hits':
+    case 'Am Fenster':
     case 'Eine Kleine Nachtmusik':
     case 'In Wirklich':
     case 'Kommt zusammen':
