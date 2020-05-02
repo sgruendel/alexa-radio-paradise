@@ -267,6 +267,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Camions Sauvages', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Camions Sauvages', locale);
+                const expected = locale.startsWith('fr') ? 'Camions Sauvages' : '<lang xml:lang="fr-FR">Camions Sauvages</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Canción Del Mariachi', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Canción Del Mariachi', locale);
