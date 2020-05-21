@@ -68,8 +68,8 @@ exports.speakArtist = function(artist, locale) {
     case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
     case 'Kruder & Dorfmeister':
     case 'Nena':
+    case 'Peter Schilling':
     case 'Sophie Hunger':
-    case 'Tom Schilling':
         artistLocale = DE_DE;
         break;
     case 'Chicha Libre':
@@ -228,6 +228,9 @@ exports.speakAlbum = function(album, locale) {
     case 'La biographie de Luka Philipsen':
     case 'Samedi Soir Sur La Terre':
         albumLocale = FR_FR;
+        break;
+    case 'Luca Stricagnoli':
+        albumLocale = IT_IT;
         break;
     }
     album = escape(album);
