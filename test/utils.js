@@ -204,10 +204,10 @@ describe('utils', () => {
             });
         });
 
-        it('should work for Tom Schilling', () => {
+        it('should work for Peter Schilling', () => {
             locales.forEach(locale => {
-                const artist = utils.speakArtist('Tom Schilling', locale);
-                const expected = locale.startsWith('de') ? 'Tom Schilling' : '<lang xml:lang="de-DE">Tom Schilling</lang>';
+                const artist = utils.speakArtist('Peter Schilling', locale);
+                const expected = locale.startsWith('de') ? 'Peter Schilling' : '<lang xml:lang="de-DE">Peter Schilling</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
