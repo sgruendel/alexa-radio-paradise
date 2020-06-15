@@ -516,5 +516,13 @@ describe('utils', () => {
                 expect(album, locale).to.equal(expected);
             });
         });
+
+        it('should work for Luca Stricagnoli', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Luca Stricagnoli', locale);
+                const expected = locale.startsWith('it') ? 'Luca Stricagnoli' : '<lang xml:lang="it-IT">Luca Stricagnoli</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
     });
 });
