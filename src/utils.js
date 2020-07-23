@@ -45,10 +45,20 @@ exports.fixSong = function(song) {
         song.title = 'Gnossienne No. 1';
     } else if (song.title === 'Shock den Affen') {
         song.title = 'Schock den Affen';
+    } else {
+        song.title = song.title
+            .replace(/\(w\/ */, '(with ')
+            .replace(/\ w\/ */, ' with ');
     }
 
     if (song.album === '20 Jahre: Nena Ft Nena') {
         song.album = '20 Jahre: Nena feat. Nena';
+    } else if (song.album === 'Rodrigo Y Gabriela') {
+        song.album = 'Rodrigo y Gabriela';
+    } else {
+        song.album = song.album
+            .replace(/\(w\/ */, '(with ')
+            .replace(/\ w\/ */, ' with ');
     }
 
     return song;
@@ -66,7 +76,9 @@ exports.speakArtist = function(artist, locale) {
     case 'Beethoven':
     case 'Bohren & Der Club Of Gore':
     case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
+    case 'Johann Sebastian Bach':
     case 'Kruder & Dorfmeister':
+    case 'Mozart':
     case 'Nena':
     case 'Peter Schilling':
     case 'Sophie Hunger':
@@ -82,6 +94,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Los Lobos':
     case 'Los Lobos & Antonio Banderas':
     case 'Paco de Lucía':
+    case 'Rodrigo y Gabriela':
     case 'Rubén González':
     case 'Santana':
         artistLocale = ES_ES;
@@ -115,6 +128,7 @@ exports.speakTitle = function(title, locale) {
     case '2 von Millionen von Sternen':
     case '99 Luftballons':
     case 'Am Fenster':
+    case 'Bei Mir Bist du Schön':
     case 'Bei Mir Bist Du Schön':
     case 'Busenfreund':
     case 'Da Sind Wir':
@@ -137,6 +151,7 @@ exports.speakTitle = function(title, locale) {
     case 'Concierto de Aranjuez':
     case 'Corazon Espinado (feat. Mana)':
     case 'Cumbanchero':
+    case 'Diablo Rojo':
     case 'El Capitalismo Foraneo':
     case 'El Condor Pasa':
     case 'El Farol':
@@ -220,6 +235,7 @@ exports.speakAlbum = function(album, locale) {
     case 'Mi Sangre':
     case 'Obras Cumbres':
     case 'Pa Saber De Flamenco 2':
+    case 'Rodrigo y Gabriela':
         albumLocale = ES_ES;
         break;
     case 'Des Visages des Figures':

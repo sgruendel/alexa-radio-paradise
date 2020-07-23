@@ -17,6 +17,7 @@ describe('utils', () => {
             });
         });
 
+        // fix artist
         it('should work for Hans-Erik Phillip', () => {
             locales.forEach(locale => {
                 const song = {
@@ -34,6 +35,7 @@ describe('utils', () => {
             });
         });
 
+        // fix title
         it('should work for Cancion Triste', () => {
             locales.forEach(locale => {
                 const song = { artist: 'J', title: 'Cancion Triste', album: 'Supernatural' };
@@ -66,11 +68,69 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Braided Hair (w/ Neneh Cherry & Speech)', () => {
+            locales.forEach(locale => {
+                const song = { artist: '1 Giant Leap', title: 'Braided Hair (w/ Neneh Cherry & Speech)', album: '1 Giant Leap' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Braided Hair (with Neneh Cherry & Speech)');
+            });
+        });
+
+        it('should work for My Culture (w/Robbie Williams & Maxi Jazz)', () => {
+            locales.forEach(locale => {
+                const song = { artist: '1 Giant Leap', title: 'My Culture (w/Robbie Williams & Maxi Jazz)', album: '1 Giant Leap' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('My Culture (with Robbie Williams & Maxi Jazz)');
+            });
+        });
+
+        it('should work for Silent All These Years (Live w/ Leonard Cohen)', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Tori Amos', title: 'Silent All These Years (Live w/ Leonard Cohen)', album: 'Rare On Air Vol 1' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Silent All These Years (Live with Leonard Cohen)');
+            });
+        });
+
+        // fix album
         it('should work for 20 Jahre: Nena Ft Nena', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Nena', title: 'Anyplace, Anywhere, Anytime (w/ Kim Wilde)', album: '20 Jahre: Nena Ft Nena' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.album).to.equal('20 Jahre: Nena feat. Nena');
+            });
+        });
+
+        it('should work for Rodrigo Y Gabriela', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Rodrigo y Gabriela', title: 'Diablo Rojo', album: 'Rodrigo Y Gabriela' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.album).to.equal('Rodrigo y Gabriela');
+            });
+        });
+
+        it('should work for Real Live Roadrunning (w/ Mark Knopfler)', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Emmylou Harris', title: 'Red Dirt Girl (w/ Mark Knopfler)', album: 'Real Live Roadrunning (w/ Mark Knopfler)' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Red Dirt Girl (with Mark Knopfler)');
+                expect(fixedSong.album).to.equal('Real Live Roadrunning (with Mark Knopfler)');
+            });
+        });
+
+        it('should work for Jimmie Dale Gilmore w/ Mudhoney', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Jimmie Dale Gilmore', title: 'Buckskin Stallion Blues', album: 'Jimmie Dale Gilmore w/ Mudhoney' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.album).to.equal('Jimmie Dale Gilmore with Mudhoney');
+            });
+        });
+
+        it('should work for Yellow/Gold', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'The Spring Standards', title: 'Watch the Moon Disappear', album: 'Yellow/Gold' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.album).to.equal('Yellow/Gold');
             });
         });
     });
