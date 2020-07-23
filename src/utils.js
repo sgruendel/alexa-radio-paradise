@@ -101,6 +101,7 @@ exports.speakArtist = function(artist, locale) {
         break;
     case 'Alexandra Stréliski':
     case 'Amadou & Mariam':
+    case 'Angélique Kidjo':
     case 'Claude Debussy':
     case 'Erik Satie':
     case 'Francis Cabrel':
