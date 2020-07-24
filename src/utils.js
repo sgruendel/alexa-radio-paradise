@@ -97,6 +97,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Rodrigo y Gabriela':
     case 'Rubén González':
     case 'Santana':
+    case 'Ten Fé':
         artistLocale = ES_ES;
         break;
     case 'Alexandra Stréliski':
