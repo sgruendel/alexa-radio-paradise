@@ -6,7 +6,7 @@
       "merge": {},
       "resources": {
         "manifest": {
-          "eTag": "0f294e6548a772f3dec8820d3a152cd3"
+          "eTag": "0920a12ada28acec3e37ecf3f4a929f2"
         },
         "interactionModel": {
           "it-IT": {
@@ -45,7 +45,7 @@
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:20",
+            "arn": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:21",
             "awsRegion": "eu-west-1",
             "functionName": "radioParadise",
             "alexaUsage": [
