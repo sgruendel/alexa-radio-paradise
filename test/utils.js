@@ -20,16 +20,23 @@ describe('utils', () => {
         // fix artist
         it('should work for Hans-Erik Phillip', () => {
             locales.forEach(locale => {
-                const song = {
-                    artist: 'Hans-Erik Phillip', title: 'Fiskerne', album: 'Original Soundtrack from Fiskerne' };
+                const song = { artist: 'Hans-Erik Phillip', title: 'Fiskerne', album: 'Original Soundtrack from Fiskerne' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.artist).to.equal('Hans-Erik Philip');
             });
         });
 
-        it('should work for Paco de Lucia', () => {
+        it('should work for Les Negresses Vertes', () => {
             locales.forEach(locale => {
-                const song = { artist: 'Paco de Lucia', title: 'Concierto de Aranjuez', album: '' };
+                const song = { artist: 'Les Negresses Vertes', title: "200 Ans d'Hypocrosie", album: '10 Remixes 87-93' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.artist).to.equal('Les Négresses Vertes');
+            });
+        });
+
+        it('should work for Paco De Lucia', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Paco De Lucia', title: 'Concierto de Aranjuez', album: '' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.artist).to.equal('Paco de Lucía');
             });
@@ -52,6 +59,22 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Face à la mer (Massive Attack remix)', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Les Negresses Vertes', title: 'Face a la mer (Massive Attack remix)', album: '10 Remixes 87-93' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Face à la mer (Massive Attack remix)');
+            });
+        });
+
+        it('should work for Fior Di Nha Esperanca', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Cesária Évora', title: 'Fior Di Nha Esperanca', album: '' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Flôr Di Nha Esperança');
+            });
+        });
+
         it('should work for Gnossienne No1', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Erik Satie', title: 'Gnossienne No1', album: '' };
@@ -60,11 +83,27 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Que Vendra', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Zaz', title: 'Que Vendra', album: 'Effet Miroir' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Qué vendrá');
+            });
+        });
+
         it('should work for Shock den Affen', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Peter Gabriel', title: 'Shock den Affen', album: '' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.title).to.equal('Schock den Affen');
+            });
+        });
+
+        it("should work for Si Jamais J'oublie", () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Zaz', title: "Si Jamais J'oublie", album: 'Sur la Route' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal("Si jamais j'oublie");
             });
         });
 
@@ -172,6 +211,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const artist = utils.speakArtist('Beethoven', locale);
                 const expected = locale.startsWith('de') ? 'Beethoven' : '<lang xml:lang="de-DE">Beethoven</lang>';
+                expect(artist, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Cesária Évora', () => {
+            locales.forEach(locale => {
+                const artist = utils.speakArtist('Cesária Évora', locale);
+                const expected = locale.startsWith('es') ? 'Cesária Évora' : '<lang xml:lang="es-ES">Cesária Évora</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
@@ -323,6 +370,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Busenfreund', locale);
                 const expected = locale.startsWith('de') ? 'Busenfreund' : '<lang xml:lang="de-DE">Busenfreund</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it("should work for 200 Ans d'Hypocrosie", () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle("200 Ans d'Hypocrosie", locale);
+                const expected = locale.startsWith('fr') ? '200 Ans d&#39;Hypocrosie' : '<lang xml:lang="fr-FR">200 Ans d&#39;Hypocrosie</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -517,6 +572,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const album = utils.speakAlbum('Alles Prima Und Viele Andere Hits', locale);
                 const expected = locale.startsWith('de') ? 'Alles Prima Und Viele Andere Hits' : '<lang xml:lang="de-DE">Alles Prima Und Viele Andere Hits</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Amélie', () => {
+            locales.forEach(locale => {
+                const album = utils.speakAlbum('Amélie', locale);
+                const expected = locale.startsWith('fr') ? 'Amélie' : '<lang xml:lang="fr-FR">Amélie</lang>';
                 expect(album, locale).to.equal(expected);
             });
         });

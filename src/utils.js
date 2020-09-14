@@ -33,7 +33,9 @@ var exports = module.exports = {
 exports.fixSong = function(song) {
     if (song.artist === 'Hans-Erik Phillip') {
         song.artist = 'Hans-Erik Philip';
-    } else if (song.artist === 'Paco de Lucia') {
+    } else if (song.artist === 'Les Negresses Vertes') {
+        song.artist = 'Les Négresses Vertes';
+    } else if (song.artist === 'Paco De Lucia') {
         song.artist = 'Paco de Lucía';
     }
 
@@ -41,10 +43,18 @@ exports.fixSong = function(song) {
         song.title = 'Canción Triste';
     } else if (song.title === 'Corazon Espinado (feat Mana)') {
         song.title = 'Corazon Espinado (feat. Mana)';
+    } else if (song.title === 'Face a la mer (Massive Attack remix)') {
+        song.title = 'Face à la mer (Massive Attack remix)';
+    } else if (song.title === 'Fior Di Nha Esperanca') {
+        song.title = 'Flôr Di Nha Esperança';
     } else if (song.title === 'Gnossienne No1') {
         song.title = 'Gnossienne No. 1';
+    } else if (song.title === 'Que Vendra') {
+        song.title = 'Qué vendrá';
     } else if (song.title === 'Shock den Affen') {
         song.title = 'Schock den Affen';
+    } else if (song.title === "Si Jamais J'oublie") {
+        song.title = "Si jamais j'oublie";
     } else {
         song.title = song.title
             .replace(/\(w\/ */, '(with ')
@@ -75,15 +85,18 @@ exports.speakArtist = function(artist, locale) {
     case 'Andreas Vollenweider':
     case 'Beethoven':
     case 'Bohren & Der Club Of Gore':
+    case 'Edvard Grieg': // TODO: he's actually Norwegian, but German pronounciation should be close enough :)
     case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
     case 'Johann Sebastian Bach':
     case 'Kruder & Dorfmeister':
     case 'Mozart':
     case 'Nena':
     case 'Peter Schilling':
+    case 'Schiller':
     case 'Sophie Hunger':
         artistLocale = DE_DE;
         break;
+    case 'Cesária Évora':
     case 'Chicha Libre':
     case 'José González':
     case 'José Larralde':
@@ -93,6 +106,7 @@ exports.speakArtist = function(artist, locale) {
     case 'Los Incas':
     case 'Los Lobos':
     case 'Los Lobos & Antonio Banderas':
+    case 'Manu Chao':
     case 'Paco de Lucía':
     case 'Rodrigo y Gabriela':
     case 'Rubén González':
@@ -108,13 +122,19 @@ exports.speakArtist = function(artist, locale) {
     case 'Francis Cabrel':
     case 'Jean-Luc Ponty':
     case 'Jean-Michel Jarre':
+    case 'Les Négresses Vertes':
+    case 'Madeleine Peyroux':
     case 'Maurice Ravel':
     case 'Noir Désir':
     case 'Vieux Farka Touré':
+    case 'Yann Tiersen':
+    case 'Zaz':
         artistLocale = FR_FR;
         break;
     case 'Antonio Vivaldi':
+    case 'Ennio Morricone':
     case 'Luca Stricagnoli':
+    case 'Ludovico Einaudi':
     case 'Paolo Conte':
     case 'Zucchero':
         artistLocale = IT_IT;
@@ -129,6 +149,7 @@ exports.speakTitle = function(title, locale) {
     switch (title) {
     case '2 von Millionen von Sternen':
     case '99 Luftballons':
+    case 'Also Sprach Zarathustra':
     case 'Am Fenster':
     case 'Bei Mir Bist du Schön':
     case 'Bei Mir Bist Du Schön':
@@ -161,35 +182,47 @@ exports.speakTitle = function(title, locale) {
     case 'El Genio Del Dub':
     case 'Epoca':
     case 'Entre Dos Aguas':
+    case 'Flôr Di Nha Esperança': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Guajira':
     case 'La Camisa Negra':
     case 'La Flor De La Canela':
     case 'La Vigüela':
+    case 'Los Laureles':
     case 'Lunático':
     case 'Luz Amor Y Vida':
     case 'Luz De Mi Vida':
     case 'Mandinga':
     case 'Matador':
+    case 'Me Llaman Calle':
     case 'Migra':
+    case 'Miss Perfumado': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Oye Como Va':
     case 'Poquito Para Aqui':
+    case 'Que Te Parece, Cholita':
     case 'Queremos Paz':
     case 'Quimey Neuquen (Chancha Via Circuito remix)':
     case 'Samba Pa Ti':
+    case 'Sangue de Beirona': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Santa María (del Buen Ayre)':
     case 'Se A Cabo':
     case 'Siboney':
+    case 'Sodade': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
+    case 'Sodade (live)': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Tomo Y Obligo':
     case 'Una Música Brutal':
     case 'Virgen De Amor':
         titleLocale = ES_ES;
         break;
+    case "200 Ans d'Hypocrosie":
     case 'Camions Sauvages':
     case "Ce N'est Pas Bon":
     case 'Compagnon De La Vie':
+    case 'Comptine d`un autre ete - l`apres-midi':
     case 'Coulibaly':
+    case 'Face à la mer (Massive Attack remix)':
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
+    case 'Hou! Mamma Mia (Kwanzaa Posse Remix)':
     case "Jardin d'hiver":
     case 'Jardins sous la pluie':
     case "L' Enfant Roi":
@@ -198,11 +231,14 @@ exports.speakTitle = function(title, locale) {
     case "La Femme D'Argent":
     case 'Le Vent Nous Portera':
     case 'Le Voyage De Penelope':
+    case 'Les La Boulange':
     case "M'Bifé Balafon":
     case 'Masiteladi':
     case 'Mer Du Japon':
     case 'Plus tôt':
     case 'Prelude':
+    case 'Qué vendrá':
+    case "Si jamais j'oublie":
     case "Toussaint L'Overture": // as spelled by Santana :)
     case 'Viens Avec Moi':
         titleLocale = FR_FR;
@@ -226,25 +262,33 @@ exports.speakAlbum = function(album, locale) {
     case 'Eine Kleine Nachtmusik':
     case 'In Wirklich':
     case 'Kommt zusammen':
+    case 'Tag und Nacht':
         albumLocale = DE_DE;
         break;
     case 'Anthogia':
+    case 'Cabo Verde':
+    case 'Canciones De Mi Padre':
     case 'Chicha Libre ¡Sonido amazónico!':
     case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
     case 'Dos Guitarras Flamencas En America Latina':
     case 'La Revancha Del Tango':
     case 'Lunático':
     case 'Mi Sangre':
+    case 'Miss Perfumado':
     case 'Obras Cumbres':
     case 'Pa Saber De Flamenco 2':
     case 'Rodrigo y Gabriela':
         albumLocale = ES_ES;
         break;
+    case 'Amélie':
     case 'Des Visages des Figures':
     case 'Dimanche à Bamako':
+    case 'Effet Miroir':
     case 'Hélène Grimaud - Bach':
     case 'La biographie de Luka Philipsen':
+    case 'Les Retrouvailles':
     case 'Samedi Soir Sur La Terre':
+    case 'Sur la Route':
         albumLocale = FR_FR;
         break;
     case 'Luca Stricagnoli':
