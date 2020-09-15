@@ -148,9 +148,9 @@ function getResponseForSong(handlerInput, song, msg, txt) {
     const speechOutput = requestAttributes.t(msg,
         {
             channel: song.channel.title,
-            artist: utils.speakArtist(song.artist, locale),
-            song: utils.speakTitle(song.title, locale),
-            album: utils.speakAlbum(song.album, locale),
+            artist: utils.speakArtist(song.artist, locale, logger),
+            song: utils.speakTitle(song.title, locale, logger),
+            album: utils.speakAlbum(song.album, locale, logger),
             released: song.year,
             interpolation: { escapeValue: false },
         });

@@ -78,7 +78,7 @@ exports.speakAs = function(locale, str) {
     return '<lang xml:lang="' + locale + '">' + str + '</lang>';
 };
 
-exports.speakArtist = function(artist, locale) {
+exports.speakArtist = function(artist, locale, logger = null) {
     let artistLocale = EN_US;
     switch (artist) {
     case '2raumwohnung':
@@ -140,11 +140,15 @@ exports.speakArtist = function(artist, locale) {
         artistLocale = IT_IT;
         break;
     }
+
+    if (logger && artistLocale !== EN_US) {
+        logger.info('Using locale ' + artistLocale + ' for artist ' + artist);
+    }
     artist = escape(artist);
     return locale.startsWith(countryOf(artistLocale)) ? artist : exports.speakAs(artistLocale, artist);
 };
 
-exports.speakTitle = function(title, locale) {
+exports.speakTitle = function(title, locale, logger = null) {
     let titleLocale = EN_US;
     switch (title) {
     case '2 von Millionen von Sternen':
@@ -248,11 +252,15 @@ exports.speakTitle = function(title, locale) {
         titleLocale = IT_IT;
         break;
     }
+
+    if (logger && titleLocale !== EN_US) {
+        logger.info('Using locale ' + titleLocale + ' for title ' + title);
+    }
     title = escape(title);
     return locale.startsWith(countryOf(titleLocale)) ? title : exports.speakAs(titleLocale, title);
 };
 
-exports.speakAlbum = function(album, locale) {
+exports.speakAlbum = function(album, locale, logger = null) {
     let albumLocale = EN_US;
     switch (album) {
     case '20 Jahre: Nena feat. Nena':
@@ -294,6 +302,10 @@ exports.speakAlbum = function(album, locale) {
     case 'Luca Stricagnoli':
         albumLocale = IT_IT;
         break;
+    }
+
+    if (logger && albumLocale !== EN_US) {
+        logger.info('Using locale ' + albumLocale + ' for album ' + album);
     }
     album = escape(album);
     return locale.startsWith(countryOf(albumLocale)) ? album : exports.speakAs(albumLocale, album);

@@ -5,6 +5,9 @@ const utils = require('../src/utils');
 
 const locales = [ 'de-DE', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-US', 'es-ES', 'es-MX', 'fr-CA', 'fr-FR', 'it-IT' ];
 
+const mockLogger = {};
+mockLogger.info = (str) => str;
+
 describe('utils', () => {
     describe('#fixSong()', () => {
         it('should work for Miles Davis', () => {
@@ -185,7 +188,7 @@ describe('utils', () => {
 
         it('should work for 2raumwohnung', () => {
             locales.forEach(locale => {
-                const artist = utils.speakArtist('2raumwohnung', locale);
+                const artist = utils.speakArtist('2raumwohnung', locale, mockLogger);
                 const expected = locale.startsWith('de') ? '2raumwohnung' : '<lang xml:lang="de-DE">2raumwohnung</lang>';
                 expect(artist, locale).to.equal(expected);
             });
@@ -344,7 +347,7 @@ describe('utils', () => {
 
         it('should work for 2 von Millionen von Sternen', () => {
             locales.forEach(locale => {
-                const title = utils.speakTitle('2 von Millionen von Sternen', locale);
+                const title = utils.speakTitle('2 von Millionen von Sternen', locale, mockLogger);
                 const expected = locale.startsWith('de') ? '2 von Millionen von Sternen' : '<lang xml:lang="de-DE">2 von Millionen von Sternen</lang>';
                 expect(title, locale).to.equal(expected);
             });
@@ -554,7 +557,7 @@ describe('utils', () => {
 
         it('should work for 20 Jahre: Nena feat. Nena', () => {
             locales.forEach(locale => {
-                const album = utils.speakAlbum('20 Jahre: Nena feat. Nena', locale);
+                const album = utils.speakAlbum('20 Jahre: Nena feat. Nena', locale, mockLogger);
                 const expected = locale.startsWith('de') ? '20 Jahre: Nena feat. Nena' : '<lang xml:lang="de-DE">20 Jahre: Nena feat. Nena</lang>';
                 expect(album, locale).to.equal(expected);
             });
