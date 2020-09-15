@@ -3,7 +3,7 @@
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:21",
+          "uri": "arn:aws:lambda:eu-west-1:467353799488:function:radioParadise:22",
           "sourceDir": "./src"
         },
         "interfaces": [
@@ -248,7 +248,7 @@
         }
       },
       "isAvailableWorldwide": true,
-      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 20):\n* More German/French/Spanish songs are using respective pronounciation (only testable when they are actually played on RP)",
+      "testingInstructions": "See http://www.radioparadise.com for current playlist and give it a listen!\n\nChanges to previous version (Lambda version 21):\n* More German/French/Spanish songs are using respective pronounciation (only testable when they are actually played on RP)",
       "category": "MUSIC_INFO_REVIEWS_AND_RECOGNITION_SERVICE",
       "distributionCountries": []
     }
