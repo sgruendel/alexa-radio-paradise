@@ -1,12 +1,8 @@
 'use strict';
 
-const request = require('request-promise-native');
+const fetch = require('node-fetch');
 
-const rpRequest = request.defaults({
-    baseUrl: 'https://api.radioparadise.com/api',
-    gzip: true,
-    json: true,
-});
+const BASE_URL = 'https://api.radioparadise.com/api/';
 
 var exports = module.exports = {};
 
@@ -17,13 +13,10 @@ exports.mix = {
     eclectic: 3,
 };
 
-exports.getNowPlaying = async function(mix) {
+exports.getNowPlaying = async function (mix) {
     // https://api.radioparadise.com/api/nowplaying_list?&chan=0
-    const options = {
-        uri: 'nowplaying_list',
-        qs: {
-            chan: mix,
-        },
-    };
-    return rpRequest(options);
+    const response = await fetch(
+        BASE_URL + 'nowplaying_list?chan=' + mix,
+        { compress: true });
+    return response.json();
 };
