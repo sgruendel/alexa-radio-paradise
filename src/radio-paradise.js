@@ -13,7 +13,7 @@ exports.mix = {
     eclectic: 3,
 };
 
-exports.getNowPlaying = async function (mix) {
+exports.getNowPlaying = async mix => {
     // https://api.radioparadise.com/api/nowplaying_list?&chan=0
     const response = await fetch(
         BASE_URL + 'nowplaying_list?chan=' + mix,
