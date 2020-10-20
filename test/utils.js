@@ -21,6 +21,14 @@ describe('utils', () => {
         });
 
         // fix artist
+        it('should work for Al Jawala', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Al Jawala', title: 'LIke It', album: 'Like It' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.artist).to.equal('Äl Jawala');
+            });
+        });
+
         it('should work for Hans-Erik Phillip', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Hans-Erik Phillip', title: 'Fiskerne', album: 'Original Soundtrack from Fiskerne' };
@@ -46,6 +54,14 @@ describe('utils', () => {
         });
 
         // fix title
+        it('should work for Ca Plane Pour Moi', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Plastic Bertrand', title: 'Ca Plane Pour Moi', album: 'King Of The Divan' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Ça Plane Pour Moi');
+            });
+        });
+
         it('should work for Cancion Triste', () => {
             locales.forEach(locale => {
                 const song = { artist: 'J', title: 'Cancion Triste', album: 'Supernatural' };
@@ -83,6 +99,22 @@ describe('utils', () => {
                 const song = { artist: 'Erik Satie', title: 'Gnossienne No1', album: '' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.title).to.equal('Gnossienne No. 1');
+            });
+        });
+
+        it("should work for J'ai Tue Le Commissaire", () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Alpha Blondy', title: "J'ai Tue Le Commissaire", album: 'Mystic Power' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal("J'ai tué le commissaire");
+            });
+        });
+
+        it('should work for LIke It', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Al Jawala', title: 'LIke It', album: 'Like It' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Like It');
             });
         });
 
@@ -140,6 +172,14 @@ describe('utils', () => {
                 const song = { artist: 'Nena', title: 'Anyplace, Anywhere, Anytime (w/ Kim Wilde)', album: '20 Jahre: Nena Ft Nena' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.album).to.equal('20 Jahre: Nena feat. Nena');
+            });
+        });
+
+        it('should work for Deguello', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'ZZ Top', title: 'Cheap Sunglasses', album: 'Deguello' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.album).to.equal('Degüello');
             });
         });
 
@@ -306,10 +346,10 @@ describe('utils', () => {
             });
         });
 
-        it('should work for Sophie Hunger', () => {
+        it('should work for Wolfsheim', () => {
             locales.forEach(locale => {
-                const artist = utils.speakArtist('Sophie Hunger', locale);
-                const expected = locale.startsWith('de') ? 'Sophie Hunger' : '<lang xml:lang="de-DE">Sophie Hunger</lang>';
+                const artist = utils.speakArtist('Wolfsheim', locale);
+                const expected = locale.startsWith('de') ? 'Wolfsheim' : '<lang xml:lang="de-DE">Wolfsheim</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
@@ -449,6 +489,19 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Danza di Cala Luna (w/ John Williams & Paco Pena)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Danza di Cala Luna (with John Williams & Paco Pena)', locale);
+                let expected = '<lang xml:lang="it-IT">Danza di Cala Luna</lang><lang xml:lang="en-US"> (with John Williams & Paco Pena)</lang>';
+                if (locale.startsWith('it')) {
+                    expected = 'Danza di Cala Luna<lang xml:lang="en-US"> (with John Williams & Paco Pena)</lang>';
+                } else if (locale.startsWith('en')) {
+                    expected = '<lang xml:lang="it-IT">Danza di Cala Luna</lang> (with John Williams & Paco Pena)';
+                }
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Gnossienne No. 1', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Gnossienne No. 1', locale);
@@ -477,6 +530,19 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Jardins sous la pluie', locale);
                 const expected = locale.startsWith('fr') ? 'Jardins sous la pluie' : '<lang xml:lang="fr-FR">Jardins sous la pluie</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it("should work for L'Amour est blue (Love is blue)", () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle("L'Amour est blue (Love is blue)", locale, mockLogger);
+                let expected = '<lang xml:lang="fr-FR">L&#39;Amour est blue</lang><lang xml:lang="en-US"> (Love is blue)</lang>';
+                if (locale.startsWith('fr')) {
+                    expected = 'L&#39;Amour est blue<lang xml:lang="en-US"> (Love is blue)</lang>';
+                } else if (locale.startsWith('en')) {
+                    expected = '<lang xml:lang="fr-FR">L&#39;Amour est blue</lang> (Love is blue)';
+                }
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -643,10 +709,10 @@ describe('utils', () => {
             });
         });
 
-        it('should work for Luca Stricagnoli', () => {
+        it('should work for La Stravaganza', () => {
             locales.forEach(locale => {
-                const album = utils.speakAlbum('Luca Stricagnoli', locale);
-                const expected = locale.startsWith('it') ? 'Luca Stricagnoli' : '<lang xml:lang="it-IT">Luca Stricagnoli</lang>';
+                const album = utils.speakAlbum('La Stravaganza', locale);
+                const expected = locale.startsWith('it') ? 'La Stravaganza' : '<lang xml:lang="it-IT">La Stravaganza</lang>';
                 expect(album, locale).to.equal(expected);
             });
         });
