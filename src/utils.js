@@ -45,6 +45,8 @@ exports.fixSong = function(song) {
         song.title = 'Ça Plane Pour Moi';
     } else if (song.title === 'Cancion Triste') {
         song.title = 'Canción Triste';
+    } else if (song.title === 'Concerto Op 4 No 1: III Allegro') {
+        song.title = 'Concerto Op. 4 No. 1: III Allegro';
     } else if (song.title === 'Corazon Espinado (feat Mana)') {
         song.title = 'Corazon Espinado (feat. Mana)';
     } else if (song.title === 'Face a la mer (Massive Attack remix)') {
@@ -55,6 +57,8 @@ exports.fixSong = function(song) {
         song.title = 'Gnossienne No. 1';
     } else if (song.title === "J'ai Tue Le Commissaire") {
         song.title = "J'ai tué le commissaire";
+    } else if (song.title === "L' Enfant Roi") {
+        song.title = "L'enfant roi";
     } else if (song.title === 'LIke It') {
         song.title = 'Like It';
     } else if (song.title === 'Que Vendra') {
@@ -73,6 +77,10 @@ exports.fixSong = function(song) {
         song.album = '20 Jahre: Nena feat. Nena';
     } else if (song.album === 'Deguello') {
         song.album = 'Degüello';
+    } else if (song.album === 'El Rayo X') {
+        song.album = 'El Rayo-X';
+    } else if (song.album === 'In A time lapse') {
+        song.album = 'In a Time Lapse';
     } else if (song.album === 'Rodrigo Y Gabriela') {
         song.album = 'Rodrigo y Gabriela';
     } else {
@@ -129,7 +137,9 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Alexandra Stréliski':
     case 'Ali Farka Touré':
     case 'Amadou & Mariam':
+    case 'Amina':
     case 'Angélique Kidjo':
+    case 'Bizet':
     case 'Claude Debussy':
     case 'Cœur de Pirate':
     case 'Erik Satie':
@@ -218,13 +228,18 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Buana Buana King Kong':
     case 'Canción Del Mariachi':
     case 'Canción Triste':
+    case 'Candela':
+    case 'Chan Chan':
     case 'Concierto de Aranjuez':
     case 'Corazon Espinado (feat. Mana)':
     case 'Cumbanchero':
+    case 'De Camino a La Vereda':
     case 'Desaparecido':
     case 'Diablo Rojo':
     case 'El Capitalismo Foraneo':
+    case 'El Carretero':
     case 'El Condor Pasa':
+    case 'El Cuarto de Tula':
     case 'El Farol':
     case 'El Fuego':
     case 'El Genio Del Dub':
@@ -250,6 +265,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Migra':
     case 'Miss Perfumado': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Oye Como Va':
+    case 'Planta De Los Pies':
     case 'Plegaria del Árbol Negro':
     case 'Poquito Para Aqui':
     case 'Que Te Parece, Cholita':
@@ -277,6 +293,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Comptine d`un autre ete - l`apres-midi':
     case 'Coulibaly':
     case 'Dictature':
+    case 'Dis Moi Pourquoi':
     case 'Face à la mer (Massive Attack remix)':
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
@@ -284,7 +301,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case "J'ai tué le commissaire":
     case "Jardin d'hiver":
     case 'Jardins sous la pluie':
-    case "L' Enfant Roi":
+    case "L'enfant roi":
     case 'La Cerise':
     case 'La Corrida':
     case 'La Femme Accident':
@@ -306,7 +323,10 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Viens Avec Moi':
         titleLocale = FR_FR;
         break;
-    case 'Concerto Op 4 No 1: III Allegro':
+    case 'Andare':
+    case 'Concerto Op. 4 No. 1: III Allegro':
+    case 'Divenire':
+    case 'Primavera':
     case 'Via Con Me':
         titleLocale = IT_IT;
         break;
@@ -369,8 +389,10 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case 'Sur la Route':
         albumLocale = FR_FR;
         break;
+    case 'Divenire':
     case 'La Stravaganza':
     case 'Luca Stricagnoli':
+    case 'Una Mattina':
         albumLocale = IT_IT;
         break;
     }
