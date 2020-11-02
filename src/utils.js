@@ -30,66 +30,95 @@ var exports = module.exports = {
     DE_DE,
 };
 
-exports.fixSong = function(song) {
+exports.fixSong = function(song, locale) {
+    let fixedSong = Object.assign({}, song);
+
+    if (song.artist === 'Nikkfurie' && song.album === 'La Caution') {
+        // It's the other way round, Bill :)
+        fixedSong.artist = 'La Caution';
+        fixedSong.album = 'Peines de Maures / Arc-en-ciel pour daltoniens';
+    }
+
     if (song.artist === 'Al Jawala') {
-        song.artist = 'Äl Jawala';
+        fixedSong.artist = 'Äl Jawala';
     } else if (song.artist === 'Hans-Erik Phillip') {
-        song.artist = 'Hans-Erik Philip';
+        fixedSong.artist = 'Hans-Erik Philip';
     } else if (song.artist === 'Les Negresses Vertes') {
-        song.artist = 'Les Négresses Vertes';
+        fixedSong.artist = 'Les Négresses Vertes';
     } else if (song.artist === 'Paco De Lucia') {
-        song.artist = 'Paco de Lucía';
+        fixedSong.artist = 'Paco de Lucía';
     }
 
     if (song.title === 'Ca Plane Pour Moi') {
-        song.title = 'Ça Plane Pour Moi';
+        fixedSong.title = 'Ça Plane Pour Moi';
     } else if (song.title === 'Cancion Triste') {
-        song.title = 'Canción Triste';
+        fixedSong.title = 'Canción Triste';
     } else if (song.title === 'Concerto Op 4 No 1: III Allegro') {
-        song.title = 'Concerto Op. 4 No. 1: III Allegro';
+        if (locale && locale.startsWith('de')) {
+            fixedSong.title = 'Concerto Op. 4 Nr. 1: III Allegro';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.title = 'Concerto opus 4 núm. 1: III Allegro';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.title = 'Concerto op. 4 num. 1: III Allegro';
+        } else {
+            // This also works for French which would only differ in lower case for "op. 4 no. 1"
+            fixedSong.title = 'Concerto Op. 4 No. 1: III Allegro';
+        }
     } else if (song.title === 'Corazon Espinado (feat Mana)') {
-        song.title = 'Corazon Espinado (feat. Mana)';
+        fixedSong.title = 'Corazon Espinado (feat. Mana)';
     } else if (song.title === 'Face a la mer (Massive Attack remix)') {
-        song.title = 'Face à la mer (Massive Attack remix)';
+        fixedSong.title = 'Face à la mer (Massive Attack remix)';
     } else if (song.title === 'Fior Di Nha Esperanca') {
-        song.title = 'Flôr Di Nha Esperança';
+        fixedSong.title = 'Flôr Di Nha Esperança';
     } else if (song.title === 'Gnossienne No1') {
-        song.title = 'Gnossienne No. 1';
+        fixedSong.title = 'Gnossienne No. 1';
     } else if (song.title === "J'ai Tue Le Commissaire") {
-        song.title = "J'ai tué le commissaire";
+        fixedSong.title = "J'ai tué le commissaire";
     } else if (song.title === "L' Enfant Roi") {
-        song.title = "L'enfant roi";
+        fixedSong.title = "L'enfant roi";
     } else if (song.title === 'LIke It') {
-        song.title = 'Like It';
+        fixedSong.title = 'Like It';
     } else if (song.title === 'Que Vendra') {
-        song.title = 'Qué vendrá';
+        fixedSong.title = 'Qué vendrá';
     } else if (song.title === 'Shock den Affen') {
-        song.title = 'Schock den Affen';
+        fixedSong.title = 'Schock den Affen';
     } else if (song.title === "Si Jamais J'oublie") {
-        song.title = "Si jamais j'oublie";
+        fixedSong.title = "Si jamais j'oublie";
+    } else if (song.title === 'Vivaldi - Allegro, Concerto in G Major, Op 4 No 3') {
+        if (locale && locale.startsWith('de')) {
+            fixedSong.title = 'Vivaldi - Allegro, Concerto in G Dur, Op. 4 Nr. 3';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.title = 'Vivaldi - Allegro, Concierto en sol mayor, opus 4 núm. 3';
+        } else if (locale && locale.startsWith('fr')) {
+            fixedSong.title = 'Vivaldi - Allegro, Concerto en sol majeur, op. 4 no. 3';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.title = 'Vivaldi - Allegro, Concerto in sol maggiore, op. 4 num. 3';
+        } else {
+            fixedSong.title = 'Vivaldi - Allegro, Concerto in G Major, Op. 4 No. 3';
+        }
     } else {
-        song.title = song.title
+        fixedSong.title = fixedSong.title
             .replace(/\(w\/ */, '(with ')
             .replace(/\ w\/ */, ' with ');
     }
 
     if (song.album === '20 Jahre: Nena Ft Nena') {
-        song.album = '20 Jahre: Nena feat. Nena';
+        fixedSong.album = '20 Jahre: Nena feat. Nena';
     } else if (song.album === 'Deguello') {
-        song.album = 'Degüello';
+        fixedSong.album = 'Degüello';
     } else if (song.album === 'El Rayo X') {
-        song.album = 'El Rayo-X';
+        fixedSong.album = 'El Rayo-X';
     } else if (song.album === 'In A time lapse') {
-        song.album = 'In a Time Lapse';
+        fixedSong.album = 'In a Time Lapse';
     } else if (song.album === 'Rodrigo Y Gabriela') {
-        song.album = 'Rodrigo y Gabriela';
+        fixedSong.album = 'Rodrigo y Gabriela';
     } else {
-        song.album = song.album
+        fixedSong.album = fixedSong.album
             .replace(/\(w\/ */, '(with ')
             .replace(/\ w\/ */, ' with ');
     }
 
-    return song;
+    return fixedSong;
 };
 
 exports.speakAs = function(locale, str) {
@@ -148,6 +177,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Jean-Luc Ponty':
     case 'Jean-Michel Jarre':
     case 'Les Négresses Vertes':
+    case 'La Caution':
     case 'Madeleine Peyroux':
     case 'Matmatah':
     case 'Maurice Ravel':
@@ -190,7 +220,6 @@ exports.speakTitle = function(title, locale, logger = null) {
         title2 = ' (Love is blue)';
         title2Locale = EN_US;
     }
-
 
     if (title1 && title2) {
         if (logger) {
@@ -318,17 +347,29 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Prelude':
     case 'Qué vendrá':
     case "Si jamais j'oublie":
+    case 'Thé à la Menthe':
     case "Toussaint L'Overture": // as spelled by Santana :)
     case "Travailler C'est Trop Dur":
     case 'Viens Avec Moi':
         titleLocale = FR_FR;
         break;
     case 'Andare':
-    case 'Concerto Op. 4 No. 1: III Allegro':
     case 'Divenire':
     case 'Primavera':
     case 'Via Con Me':
         titleLocale = IT_IT;
+        break;
+    case 'Concerto Op. 4 Nr. 1: III Allegro':
+    case 'Concerto opus 4 núm. 1: III Allegro':
+    case 'Concerto op. 4 num. 1: III Allegro':
+    case 'Concerto Op. 4 No. 1: III Allegro':
+    case 'Vivaldi - Allegro, Concerto in G Dur, Op. 4 Nr. 3':
+    case 'Vivaldi - Allegro, Concierto en sol mayor, opus 4 núm. 3':
+    case 'Vivaldi - Allegro, Concerto en sol majeur, op. 4 no. 3':
+    case 'Vivaldi - Allegro, Concerto in sol maggiore, op. 4 num. 3':
+    case 'Vivaldi - Allegro, Concerto in G Major, Op. 4 No. 3':
+        // use native locale
+        titleLocale = locale;
         break;
     }
 
@@ -385,6 +426,7 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case 'La biographie de Luka Philipsen':
     case 'La Cerise':
     case 'Les Retrouvailles':
+    case 'Peines de Maures / Arc-en-ciel pour daltoniens':
     case 'Samedi Soir Sur La Terre':
     case 'Sur la Route':
         albumLocale = FR_FR;

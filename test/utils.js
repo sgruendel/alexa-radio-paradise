@@ -1,6 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
+const { DE_DE, EN_US } = require('../src/utils');
 const utils = require('../src/utils');
 
 const locales = [ 'de-DE', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-US', 'es-ES', 'es-MX', 'fr-CA', 'fr-FR', 'it-IT' ];
@@ -37,6 +38,15 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Nikkfurie / La Caution', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Nikkfurie', title: 'Thé à la Menthe', album: 'La Caution' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.artist, 'artist').to.equal('La Caution');
+                expect(fixedSong.album, 'album').to.equal('Peines de Maures / Arc-en-ciel pour daltoniens');
+            });
+        });
+
         it('should work for Les Negresses Vertes', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Les Negresses Vertes', title: "200 Ans d'Hypocrosie", album: '10 Remixes 87-93' };
@@ -67,6 +77,22 @@ describe('utils', () => {
                 const song = { artist: 'J', title: 'Cancion Triste', album: 'Supernatural' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.title).to.equal('Canción Triste');
+            });
+        });
+
+        it('should work for Concerto Op 4 No 1: III Allegro in English', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Antonio Vivaldi', title: 'Concerto Op 4 No 1: III Allegro', album: 'Vivaldi Masterworks' };
+                const fixedSong = utils.fixSong(song, EN_US);
+                expect(fixedSong.title).to.equal('Concerto Op. 4 No. 1: III Allegro');
+            });
+        });
+
+        it('should work for Concerto Op 4 No 1: III Allegro in German', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Antonio Vivaldi', title: 'Concerto Op 4 No 1: III Allegro', album: 'Vivaldi Masterworks' };
+                const fixedSong = utils.fixSong(song, DE_DE);
+                expect(fixedSong.title).to.equal('Concerto Op. 4 Nr. 1: III Allegro');
             });
         });
 
@@ -418,6 +444,14 @@ describe('utils', () => {
             });
         });
 
+        it("should work for 200 Ans d'Hypocrosie", () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle("200 Ans d'Hypocrosie", locale);
+                const expected = locale.startsWith('fr') ? '200 Ans d&#39;Hypocrosie' : '<lang xml:lang="fr-FR">200 Ans d&#39;Hypocrosie</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for A Pesar De Todo', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('A Pesar De Todo', locale);
@@ -442,14 +476,6 @@ describe('utils', () => {
             });
         });
 
-        it("should work for 200 Ans d'Hypocrosie", () => {
-            locales.forEach(locale => {
-                const title = utils.speakTitle("200 Ans d'Hypocrosie", locale);
-                const expected = locale.startsWith('fr') ? '200 Ans d&#39;Hypocrosie' : '<lang xml:lang="fr-FR">200 Ans d&#39;Hypocrosie</lang>';
-                expect(title, locale).to.equal(expected);
-            });
-        });
-
         it('should work for Camions Sauvages', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Camions Sauvages', locale);
@@ -470,6 +496,24 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle("Ce N'est Pas Bon", locale);
                 const expected = locale.startsWith('fr') ? 'Ce N&#39;est Pas Bon' : '<lang xml:lang="fr-FR">Ce N&#39;est Pas Bon</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Concerto Op 4 No 1: III Allegro', () => {
+            const song = { artist: 'Antonio Vivaldi', title: 'Concerto Op 4 No 1: III Allegro', album: 'Vivaldi Masterworks' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                let expected = 'Concerto Op. 4 No. 1: III Allegro';
+                if (locale.startsWith('de')) {
+                    expected = 'Concerto Op. 4 Nr. 1: III Allegro';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Concerto opus 4 núm. 1: III Allegro';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Concerto op. 4 num. 1: III Allegro';
+                }
+
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -632,6 +676,26 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Via Con Me', locale);
                 const expected = locale.startsWith('it') ? 'Via Con Me' : '<lang xml:lang="it-IT">Via Con Me</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Vivaldi - Allegro, Concerto in G Major, Op 4 No 3', () => {
+            const song = { artist: 'Rachel Podger', title: 'Vivaldi - Allegro, Concerto in G Major, Op 4 No 3', album: 'La Stravaganza' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                let expected = 'Vivaldi - Allegro, Concerto in G Major, Op. 4 No. 3';
+                if (locale.startsWith('de')) {
+                    expected = 'Vivaldi - Allegro, Concerto in G Dur, Op. 4 Nr. 3';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Vivaldi - Allegro, Concierto en sol mayor, opus 4 núm. 3';
+                } else if (locale.startsWith('fr')) {
+                    expected = 'Vivaldi - Allegro, Concerto en sol majeur, op. 4 no. 3';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Vivaldi - Allegro, Concerto in sol maggiore, op. 4 num. 3';
+                }
+
                 expect(title, locale).to.equal(expected);
             });
         });

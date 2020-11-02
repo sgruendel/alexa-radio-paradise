@@ -204,12 +204,14 @@ function getResponseForSong(handlerInput, song, msg, txt) {
 }
 
 async function getNowPlayingResponse(channelId, handlerInput) {
+    const locale = Alexa.getLocale(handlerInput.requestEnvelope);
+
     let response;
     await radioParadise.getNowPlaying(channelId)
         .then((songs) => {
             let songArray = [];
             for (let i = 0; songs.song[i]; i++) {
-                songArray.push(utils.fixSong(songs.song[i]));
+                songArray.push(utils.fixSong(songs.song[i], locale));
             }
             songs.song = songArray;
 
