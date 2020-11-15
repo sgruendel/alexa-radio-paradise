@@ -152,6 +152,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Pleine Lune En Decembre', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Zachary Richard', title: 'Pleine Lune En Decembre', album: 'Cap Enragé' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Pleine lune en décembre');
+            });
+        });
+
         it('should work for Que Vendra', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Zaz', title: 'Que Vendra', album: 'Effet Miroir' };
@@ -309,10 +317,10 @@ describe('utils', () => {
             });
         });
 
-        it('should work for Cesária Évora', () => {
+        it('should work for Carlos Núñez', () => {
             locales.forEach(locale => {
-                const artist = utils.speakArtist('Cesária Évora', locale);
-                const expected = locale.startsWith('es') ? 'Cesária Évora' : '<lang xml:lang="es-ES">Cesária Évora</lang>';
+                const artist = utils.speakArtist('Carlos Núñez', locale);
+                const expected = locale.startsWith('es') ? 'Carlos Núñez' : '<lang xml:lang="es-ES">Carlos Núñez</lang>';
                 expect(artist, locale).to.equal(expected);
             });
         });
@@ -468,6 +476,27 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Andare', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Andare', locale);
+                const expected = locale.startsWith('it') ? 'Andare' : '<lang xml:lang="it-IT">Andare</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Avant La Pluie (Part II)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Avant La Pluie (Part II)', locale);
+                let expected = '<lang xml:lang="fr-FR">Avant La Pluie</lang><lang xml:lang="en-US"> (Part II)</lang>';
+                if (locale.startsWith('fr')) {
+                    expected = 'Avant La Pluie<lang xml:lang="en-US"> (Part II)</lang>';
+                } else if (locale.startsWith('en')) {
+                    expected = '<lang xml:lang="fr-FR">Avant La Pluie</lang> (Part II)';
+                }
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Busenfreund', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Busenfreund', locale);
@@ -534,6 +563,19 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Danza di Cala Luna (w/ John Williams & Paco Pena)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Danza di Cala Luna (with John Williams & Paco Pena)', locale);
+                let expected = '<lang xml:lang="it-IT">Danza di Cala Luna</lang><lang xml:lang="en-US"> (with John Williams & Paco Pena)</lang>';
+                if (locale.startsWith('it')) {
+                    expected = 'Danza di Cala Luna<lang xml:lang="en-US"> (with John Williams & Paco Pena)</lang>';
+                } else if (locale.startsWith('en')) {
+                    expected = '<lang xml:lang="it-IT">Danza di Cala Luna</lang> (with John Williams & Paco Pena)';
+                }
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Eine Kleine Nachtmusik - Allegro', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Eine Kleine Nachtmusik - Allegro', locale);
@@ -546,27 +588,6 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Für Elise', locale);
                 const expected = locale.startsWith('de') ? 'Für Elise' : '<lang xml:lang="de-DE">Für Elise</lang>';
-                expect(title, locale).to.equal(expected);
-            });
-        });
-
-        it('should work for Andare', () => {
-            locales.forEach(locale => {
-                const title = utils.speakTitle('Andare', locale);
-                const expected = locale.startsWith('it') ? 'Andare' : '<lang xml:lang="it-IT">Andare</lang>';
-                expect(title, locale).to.equal(expected);
-            });
-        });
-
-        it('should work for Danza di Cala Luna (w/ John Williams & Paco Pena)', () => {
-            locales.forEach(locale => {
-                const title = utils.speakTitle('Danza di Cala Luna (with John Williams & Paco Pena)', locale);
-                let expected = '<lang xml:lang="it-IT">Danza di Cala Luna</lang><lang xml:lang="en-US"> (with John Williams & Paco Pena)</lang>';
-                if (locale.startsWith('it')) {
-                    expected = 'Danza di Cala Luna<lang xml:lang="en-US"> (with John Williams & Paco Pena)</lang>';
-                } else if (locale.startsWith('en')) {
-                    expected = '<lang xml:lang="it-IT">Danza di Cala Luna</lang> (with John Williams & Paco Pena)';
-                }
                 expect(title, locale).to.equal(expected);
             });
         });

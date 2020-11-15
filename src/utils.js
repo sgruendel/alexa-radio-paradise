@@ -78,6 +78,8 @@ exports.fixSong = function(song, locale) {
         fixedSong.title = "L'enfant roi";
     } else if (song.title === 'LIke It') {
         fixedSong.title = 'Like It';
+    } else if (song.title === 'Pleine Lune En Decembre') {
+        fixedSong.title = 'Pleine lune en décembre';
     } else if (song.title === 'Que Vendra') {
         fixedSong.title = 'Qué vendrá';
     } else if (song.title === 'Shock den Affen') {
@@ -145,6 +147,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Wolfsheim':
         artistLocale = DE_DE;
         break;
+    case 'Carlos Núñez':
     case 'Cesária Évora':
     case 'Chicha Libre':
     case 'José González':
@@ -184,6 +187,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Mory Kanté':
     case 'Noir Désir':
     case 'Paul Mauriat':
+    case 'René Aubry':
     case 'Vieux Farka Touré':
     case 'Yann Tiersen':
     case 'Zaz':
@@ -209,7 +213,12 @@ exports.speakArtist = function(artist, locale, logger = null) {
 exports.speakTitle = function(title, locale, logger = null) {
     // Test for mixed locales
     let title1, title2, title1Locale, title2Locale;
-    if (title === 'Danza di Cala Luna (with John Williams & Paco Pena)') {
+    if (title === 'Avant La Pluie (Part II)') {
+        title1 = 'Avant La Pluie';
+        title1Locale = FR_FR;
+        title2 = ' (Part II)';
+        title2Locale = EN_US;
+    } else if (title === 'Danza di Cala Luna (with John Williams & Paco Pena)') {
         title1 = 'Danza di Cala Luna';
         title1Locale = IT_IT;
         title2 = ' (with John Williams & Paco Pena)';
@@ -328,6 +337,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Gymnopedie No. 1':
     case 'Hou! Mamma Mia (Kwanzaa Posse Remix)':
     case "J'ai tué le commissaire":
+    case "J'peux pas m'empêcher":
     case "Jardin d'hiver":
     case 'Jardins sous la pluie':
     case "L'enfant roi":
@@ -335,11 +345,13 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'La Corrida':
     case 'La Femme Accident':
     case "La Femme D'Argent":
+    case 'La Grande Cascade':
     case 'Le Vent Nous Portera':
     case 'Le Voyage De Penelope':
     case 'Les La Boulange':
     case 'Les Martyrs':
     case "M'Bifé Balafon":
+    case 'Madame Papillon':
     case 'Masiteladi':
     case 'Mer Du Japon':
     case 'Mon Amour (with Vieux Farka Touré)':
@@ -355,6 +367,7 @@ exports.speakTitle = function(title, locale, logger = null) {
         break;
     case 'Andare':
     case 'Divenire':
+    case 'Non Ti Amo Più':
     case 'Primavera':
     case 'Via Con Me':
         titleLocale = IT_IT;
@@ -418,6 +431,8 @@ exports.speakAlbum = function(album, locale, logger = null) {
         albumLocale = ES_ES;
         break;
     case 'Amélie':
+    case 'Aprés La Pluie':
+    case 'Cap Enragé':
     case "Cours d'histoire":
     case 'Des Visages des Figures':
     case 'Dimanche à Bamako':
@@ -427,6 +442,7 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case 'La Cerise':
     case 'Les Retrouvailles':
     case 'Peines de Maures / Arc-en-ciel pour daltoniens':
+    case "Plaisirs D'amour":
     case 'Samedi Soir Sur La Terre':
     case 'Sur la Route':
         albumLocale = FR_FR;
