@@ -182,6 +182,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Les Négresses Vertes':
     case 'La Caution':
     case 'Madeleine Peyroux':
+    case 'Marc Moulin':
     case 'Matmatah':
     case 'Maurice Ravel':
     case 'Mory Kanté':
@@ -389,7 +390,14 @@ exports.speakTitle = function(title, locale, logger = null) {
     if (logger && titleLocale !== EN_US) {
         logger.info('Using locale ' + titleLocale + ' for title ' + title);
     }
-    title = escape(title);
+
+    // "... (Live Acoustic)" works, but "... (live)" or "... (Acoustic Live)" doesn't
+    if (titleLocale === EN_US && (title.endsWith('live)') || title.endsWith('Live)'))) {
+        title = escape(title.substr(0, title.length - 5))
+            + '<w role="amazon:NN">' + title.substr(title.length - 5, 4) + '</w>)';
+    } else {
+        title = escape(title);
+    }
     return locale.startsWith(countryOf(titleLocale)) ? title : exports.speakAs(titleLocale, title);
 };
 

@@ -584,6 +584,14 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Fly Like A Bird (Acoustic Live)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Fly Like A Bird (Acoustic Live)', locale);
+                const expected = locale.startsWith('en') ? 'Fly Like A Bird (Acoustic <w role="amazon:NN">Live</w>)' : '<lang xml:lang="en-US">Fly Like A Bird (Acoustic <w role="amazon:NN">Live</w>)</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Für Elise', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Für Elise', locale);
@@ -673,6 +681,14 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Mer Du Japon', locale);
                 const expected = locale.startsWith('fr') ? 'Mer Du Japon' : '<lang xml:lang="fr-FR">Mer Du Japon</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for On the Border (live)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('On the Border (live)', locale);
+                const expected = locale.startsWith('en') ? 'On the Border (<w role="amazon:NN">live</w>)' : '<lang xml:lang="en-US">On the Border (<w role="amazon:NN">live</w>)</lang>';
                 expect(title, locale).to.equal(expected);
             });
         });
