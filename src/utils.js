@@ -235,6 +235,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Maurice Ravel':
     case 'Mory Kanté':
     case 'Noir Désir':
+    case 'Olivia Ruiz':
     case 'Paul Mauriat':
     case 'René Aubry':
     case 'Vieux Farka Touré':
@@ -387,6 +388,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Gymnopedie No. 1':
     case 'Hou! Mamma Mia (Kwanzaa Posse Remix)':
     case "J'ai tué le commissaire":
+    case "J'traîne des pieds":
     case "J'peux pas m'empêcher":
     case "Jardin d'hiver":
     case 'Jardins sous la pluie':
@@ -508,7 +510,9 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case 'Hélène Grimaud - Bach':
     case 'La biographie de Luka Philipsen':
     case 'La Cerise':
+    case 'La Femme Chocolat':
     case 'Les Retrouvailles':
+    case 'Miss Météores':
     case 'Peines de Maures / Arc-en-ciel pour daltoniens':
     case "Plaisirs D'amour":
     case 'Samedi Soir Sur La Terre':
