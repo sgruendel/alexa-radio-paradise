@@ -1,6 +1,6 @@
 {
   "name": "alexa-radio-paradise",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Alexa Skill for querying playlist from Radio Paradise",
   "main": "index.js",
   "scripts": {
@@ -33,7 +33,7 @@
   "devDependencies": {
     "alexa-skill-test-framework": "1.2.4",
     "chai": "4.2.0",
-    "eslint": "7.13.0",
+    "eslint": "7.16.0",
     "eslint-config-strongloop": "2.1.0",
     "mocha": "8.2.1",
     "nyc": "15.1.0"
