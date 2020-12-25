@@ -49,20 +49,32 @@ exports.fixSong = function(song, locale) {
         fixedSong.artist = 'Paco de Lucía';
     }
 
-    if (song.title === 'Ca Plane Pour Moi') {
+    if (song.title === 'Brandenburg Concerto No. 5 In D') {
+        if (locale && locale.startsWith('de')) {
+            fixedSong.title = 'Brandenburgisches Konzert Nr. 5 D-Dur';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.title = 'Brandenburg Concierto núm. 5 en re mayor';
+        } else if (locale && locale.startsWith('fr')) {
+            fixedSong.title = 'Brandenburg Concerto no. 5 en ré majeur';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.title = 'Brandenburg Concerto num. 5 in re maggiore';
+        } else {
+            fixedSong.title = 'Brandenburg Concerto No. 5 in D major';
+        }
+    } else if (song.title === 'Ca Plane Pour Moi') {
         fixedSong.title = 'Ça Plane Pour Moi';
     } else if (song.title === 'Cancion Triste') {
         fixedSong.title = 'Canción Triste';
     } else if (song.title === 'Concerto Op 4 No 1: III Allegro') {
         if (locale && locale.startsWith('de')) {
-            fixedSong.title = 'Concerto Op. 4 Nr. 1: III Allegro';
+            fixedSong.title = 'Concerto Op. 4, Nr. 1: III Allegro';
         } else if (locale && locale.startsWith('es')) {
-            fixedSong.title = 'Concerto opus 4 núm. 1: III Allegro';
+            fixedSong.title = 'Concerto opus 4, núm. 1: III Allegro';
         } else if (locale && locale.startsWith('it')) {
-            fixedSong.title = 'Concerto op. 4 num. 1: III Allegro';
+            fixedSong.title = 'Concerto op. 4, num. 1: III Allegro';
         } else {
             // This also works for French which would only differ in lower case for "op. 4 no. 1"
-            fixedSong.title = 'Concerto Op. 4 No. 1: III Allegro';
+            fixedSong.title = 'Concerto Op. 4, No. 1: III Allegro';
         }
     } else if (song.title === 'Corazon Espinado (feat Mana)') {
         fixedSong.title = 'Corazon Espinado (feat. Mana)';
@@ -70,6 +82,16 @@ exports.fixSong = function(song, locale) {
         fixedSong.title = 'Face à la mer (Massive Attack remix)';
     } else if (song.title === 'Fior Di Nha Esperanca') {
         fixedSong.title = 'Flôr Di Nha Esperança';
+    } else if (song.title === 'Gavotte In B Minor') {
+        if (locale && locale.startsWith('de')) {
+            fixedSong.title = 'Gavotte in h-Moll';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.title = 'Gavotte en si menor';
+        } else if (locale && locale.startsWith('fr')) {
+            fixedSong.title = 'Gavotte en si mineur';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.title = 'Gavotte in si minore';
+        }
     } else if (song.title === 'Gnossienne No1') {
         fixedSong.title = 'Gnossienne No. 1';
     } else if (song.title === "J'ai Tue Le Commissaire") {
@@ -78,8 +100,22 @@ exports.fixSong = function(song, locale) {
         fixedSong.title = "L'enfant roi";
     } else if (song.title === 'LIke It') {
         fixedSong.title = 'Like It';
+    } else if (song.title === 'Morning Mood (Allegretto pas') {
+        fixedSong.title = 'Morning Mood (Allegretto pastorale)';
     } else if (song.title === 'Pleine Lune En Decembre') {
         fixedSong.title = 'Pleine lune en décembre';
+    } else if (song.title === 'Prelude No. 1 In C Major') {
+        if (locale && locale.startsWith('de')) {
+            fixedSong.title = 'Präludium Nr. 1 C-Dur';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.title = 'Preludio núm. 1 en Do mayor';
+        } else if (locale && locale.startsWith('fr')) {
+            fixedSong.title = 'Prélude no. 1 en ut majeur';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.title = 'Preludio num. 1 in do maggiore';
+        } else {
+            // keep english
+        }
     } else if (song.title === 'Que Vendra') {
         fixedSong.title = 'Qué vendrá';
     } else if (song.title === 'Shock den Affen') {
@@ -88,15 +124,15 @@ exports.fixSong = function(song, locale) {
         fixedSong.title = "Si jamais j'oublie";
     } else if (song.title === 'Vivaldi - Allegro, Concerto in G Major, Op 4 No 3') {
         if (locale && locale.startsWith('de')) {
-            fixedSong.title = 'Vivaldi - Allegro, Concerto in G Dur, Op. 4 Nr. 3';
+            fixedSong.title = 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3';
         } else if (locale && locale.startsWith('es')) {
-            fixedSong.title = 'Vivaldi - Allegro, Concierto en sol mayor, opus 4 núm. 3';
+            fixedSong.title = 'Vivaldi - Allegro, Concierto en sol mayor opus 4, núm. 3';
         } else if (locale && locale.startsWith('fr')) {
-            fixedSong.title = 'Vivaldi - Allegro, Concerto en sol majeur, op. 4 no. 3';
+            fixedSong.title = 'Vivaldi - Allegro, Concerto en sol majeur op. 4, no. 3';
         } else if (locale && locale.startsWith('it')) {
-            fixedSong.title = 'Vivaldi - Allegro, Concerto in sol maggiore, op. 4 num. 3';
+            fixedSong.title = 'Vivaldi - Allegro, Concerto in sol maggiore op. 4, num. 3';
         } else {
-            fixedSong.title = 'Vivaldi - Allegro, Concerto in G Major, Op. 4 No. 3';
+            fixedSong.title = 'Vivaldi - Allegro, Concerto in G Major Op. 4, No. 3';
         }
     } else {
         fixedSong.title = fixedSong.title
@@ -112,6 +148,17 @@ exports.fixSong = function(song, locale) {
         fixedSong.album = 'El Rayo-X';
     } else if (song.album === 'In A time lapse') {
         fixedSong.album = 'In a Time Lapse';
+    } else if (song.album === 'Peer Gynt Suite No. 1 Op.46 (Karajan - BPO)') {
+        if (locale && locale.startsWith('de')) {
+            fixedSong.album = 'Peer Gynt Suite Nr. 1, Op. 46 (Karajan - B.P.O.)';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.album = 'Peer Gynt Suite núm. 1, opus 46 (Karajan - B.P.O.)';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.album = 'Peer Gynt Suite num. 1, op. 46 (Karajan - B.P.O.)';
+        } else {
+            // This also works for French which would only differ in lower case for "op. 4 no. 1"
+            fixedSong.album = 'Peer Gynt Suite No. 1, Op. 46 (Karajan - B.P.O.)';
+        }
     } else if (song.album === 'Rodrigo Y Gabriela') {
         fixedSong.album = 'Rodrigo y Gabriela';
     } else {
@@ -177,6 +224,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Erik Satie':
     case 'Francis Cabrel':
     case 'Gabin':
+    case 'Jacques Loussier Trio':
     case 'Jean-Luc Ponty':
     case 'Jean-Michel Jarre':
     case 'Les Négresses Vertes':
@@ -315,6 +363,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Sangue de Beirona': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Santa María (del Buen Ayre)':
     case 'Se A Cabo':
+    case 'Siempre Que':
     case 'Siboney':
     case 'Sodade': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
     case 'Sodade (live)': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
@@ -373,15 +422,26 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Via Con Me':
         titleLocale = IT_IT;
         break;
-    case 'Concerto Op. 4 Nr. 1: III Allegro':
-    case 'Concerto opus 4 núm. 1: III Allegro':
-    case 'Concerto op. 4 num. 1: III Allegro':
-    case 'Concerto Op. 4 No. 1: III Allegro':
-    case 'Vivaldi - Allegro, Concerto in G Dur, Op. 4 Nr. 3':
-    case 'Vivaldi - Allegro, Concierto en sol mayor, opus 4 núm. 3':
-    case 'Vivaldi - Allegro, Concerto en sol majeur, op. 4 no. 3':
-    case 'Vivaldi - Allegro, Concerto in sol maggiore, op. 4 num. 3':
-    case 'Vivaldi - Allegro, Concerto in G Major, Op. 4 No. 3':
+    case 'Brandenburgisches Konzert Nr. 5 D-Dur':
+    case 'Brandenburg Concierto núm. 5 en re mayor':
+    case 'Brandenburg Concerto no. 5 en ré majeur':
+    case 'Brandenburg Concerto num. 5 in re maggiore':
+    case 'Concerto Op. 4, Nr. 1: III Allegro':
+    case 'Concerto opus 4, núm. 1: III Allegro':
+    case 'Concerto op. 4, num. 1: III Allegro':
+    case 'Concerto Op. 4, No. 1: III Allegro':
+    case 'Gavotte in h-Moll':
+    case 'Gavotte en si menor':
+    case 'Gavotte en si mineur':
+    case 'Gavotte in si minore':
+    case 'Präludium Nr. 1 C-Dur':
+    case 'Preludio núm. 1 en Do mayor':
+    case 'Prélude no. 1 en ut majeur':
+    case 'Preludio num. 1 in do maggiore':
+    case 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3':
+    case 'Vivaldi - Allegro, Concierto en sol mayor opus 4, núm. 3':
+    case 'Vivaldi - Allegro, Concerto en sol majeur op. 4, no. 3':
+    case 'Vivaldi - Allegro, Concerto in sol maggiore op. 4, num. 3':
         // use native locale
         titleLocale = locale;
         break;
@@ -460,6 +520,13 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case 'Luca Stricagnoli':
     case 'Una Mattina':
         albumLocale = IT_IT;
+        break;
+    case 'Peer Gynt Suite Nr. 1, Op. 46 (Karajan - B.P.O.)':
+    case 'Peer Gynt Suite núm. 1, opus 46 (Karajan - B.P.O.)':
+    case 'Peer Gynt Suite num. 1, op. 46 (Karajan - B.P.O.)':
+    case 'Peer Gynt Suite No. 1, Op. 46 (Karajan - B.P.O.)':
+        // use native locale
+        albumLocale = locale;
         break;
     }
 

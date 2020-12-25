@@ -84,7 +84,7 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Antonio Vivaldi', title: 'Concerto Op 4 No 1: III Allegro', album: 'Vivaldi Masterworks' };
                 const fixedSong = utils.fixSong(song, EN_US);
-                expect(fixedSong.title).to.equal('Concerto Op. 4 No. 1: III Allegro');
+                expect(fixedSong.title).to.equal('Concerto Op. 4, No. 1: III Allegro');
             });
         });
 
@@ -92,7 +92,7 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const song = { artist: 'Antonio Vivaldi', title: 'Concerto Op 4 No 1: III Allegro', album: 'Vivaldi Masterworks' };
                 const fixedSong = utils.fixSong(song, DE_DE);
-                expect(fixedSong.title).to.equal('Concerto Op. 4 Nr. 1: III Allegro');
+                expect(fixedSong.title).to.equal('Concerto Op. 4, Nr. 1: III Allegro');
             });
         });
 
@@ -149,6 +149,14 @@ describe('utils', () => {
                 const song = { artist: 'Al Jawala', title: 'LIke It', album: 'Like It' };
                 const fixedSong = utils.fixSong(song);
                 expect(fixedSong.title).to.equal('Like It');
+            });
+        });
+
+        it('should work for Morning Mood (Allegretto pas', () => {
+            locales.forEach(locale => {
+                const song = { artist: 'Edvard Grieg', title: 'Morning Mood (Allegretto pas', album: 'Peer Gynt Suite No. 1 Op.46 (Karajan - BPO)' };
+                const fixedSong = utils.fixSong(song);
+                expect(fixedSong.title).to.equal('Morning Mood (Allegretto pastorale)');
             });
         });
 
@@ -497,6 +505,26 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Brandenburg Concerto No. 5 In D', () => {
+            const song = { artist: 'Jacques Loussier Trio', title: 'Brandenburg Concerto No. 5 In D', album: 'Jacques Loussier Trio' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                let expected = 'Brandenburg Concerto No. 5 in D major';
+                if (locale.startsWith('de')) {
+                    expected = 'Brandenburgisches Konzert Nr. 5 D-Dur';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Brandenburg Concierto núm. 5 en re mayor';
+                } else if (locale.startsWith('fr')) {
+                    expected = 'Brandenburg Concerto no. 5 en ré majeur';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Brandenburg Concerto num. 5 in re maggiore';
+                }
+
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Busenfreund', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Busenfreund', locale);
@@ -534,13 +562,13 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const fixedSong = utils.fixSong(song, locale);
                 const title = utils.speakTitle(fixedSong.title, locale);
-                let expected = 'Concerto Op. 4 No. 1: III Allegro';
+                let expected = 'Concerto Op. 4, No. 1: III Allegro';
                 if (locale.startsWith('de')) {
-                    expected = 'Concerto Op. 4 Nr. 1: III Allegro';
+                    expected = 'Concerto Op. 4, Nr. 1: III Allegro';
                 } else if (locale.startsWith('es')) {
-                    expected = 'Concerto opus 4 núm. 1: III Allegro';
+                    expected = 'Concerto opus 4, núm. 1: III Allegro';
                 } else if (locale.startsWith('it')) {
-                    expected = 'Concerto op. 4 num. 1: III Allegro';
+                    expected = 'Concerto op. 4, num. 1: III Allegro';
                 }
 
                 expect(title, locale).to.equal(expected);
@@ -596,6 +624,26 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Für Elise', locale);
                 const expected = locale.startsWith('de') ? 'Für Elise' : '<lang xml:lang="de-DE">Für Elise</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Gavotte In B Minor', () => {
+            const song = { artist: 'Jacques Loussier Trio', title: 'Gavotte In B Minor', album: 'The Bach Book' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                let expected = 'Gavotte In B Minor';
+                if (locale.startsWith('de')) {
+                    expected = 'Gavotte in h-Moll';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Gavotte en si menor';
+                } else if (locale.startsWith('fr')) {
+                    expected = 'Gavotte en si mineur';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Gavotte in si minore';
+                }
+
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -709,6 +757,26 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Prelude No. 1 In C Major', () => {
+            const song = { artist: 'Jacques Loussier Trio', title: 'Prelude No. 1 In C Major', album: 'The Bach Book' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                let expected = 'Prelude No. 1 In C Major';
+                if (locale.startsWith('de')) {
+                    expected = 'Präludium Nr. 1 C-Dur';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Preludio núm. 1 en Do mayor';
+                } else if (locale.startsWith('fr')) {
+                    expected = 'Prélude no. 1 en ut majeur';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Preludio num. 1 in do maggiore';
+                }
+
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Via Con Me', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Via Con Me', locale);
@@ -722,15 +790,15 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const fixedSong = utils.fixSong(song, locale);
                 const title = utils.speakTitle(fixedSong.title, locale);
-                let expected = 'Vivaldi - Allegro, Concerto in G Major, Op. 4 No. 3';
+                let expected = 'Vivaldi - Allegro, Concerto in G Major Op. 4, No. 3';
                 if (locale.startsWith('de')) {
-                    expected = 'Vivaldi - Allegro, Concerto in G Dur, Op. 4 Nr. 3';
+                    expected = 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3';
                 } else if (locale.startsWith('es')) {
-                    expected = 'Vivaldi - Allegro, Concierto en sol mayor, opus 4 núm. 3';
+                    expected = 'Vivaldi - Allegro, Concierto en sol mayor opus 4, núm. 3';
                 } else if (locale.startsWith('fr')) {
-                    expected = 'Vivaldi - Allegro, Concerto en sol majeur, op. 4 no. 3';
+                    expected = 'Vivaldi - Allegro, Concerto en sol majeur op. 4, no. 3';
                 } else if (locale.startsWith('it')) {
-                    expected = 'Vivaldi - Allegro, Concerto in sol maggiore, op. 4 num. 3';
+                    expected = 'Vivaldi - Allegro, Concerto in sol maggiore op. 4, num. 3';
                 }
 
                 expect(title, locale).to.equal(expected);
@@ -839,6 +907,24 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const album = utils.speakAlbum('Kommt zusammen', locale);
                 const expected = locale.startsWith('de') ? 'Kommt zusammen' : '<lang xml:lang="de-DE">Kommt zusammen</lang>';
+                expect(album, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Peer Gynt Suite No. 1 Op.46 (Karajan - BPO)', () => {
+            const song = { artist: 'Edvard Grieg', title: 'Morning Mood (Allegretto pas', album: 'Peer Gynt Suite No. 1 Op.46 (Karajan - BPO)' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const album = utils.speakAlbum(fixedSong.album, locale);
+                let expected = 'Peer Gynt Suite No. 1, Op. 46 (Karajan - B.P.O.)';
+                if (locale.startsWith('de')) {
+                    expected = 'Peer Gynt Suite Nr. 1, Op. 46 (Karajan - B.P.O.)';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Peer Gynt Suite núm. 1, opus 46 (Karajan - B.P.O.)';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Peer Gynt Suite num. 1, op. 46 (Karajan - B.P.O.)';
+                }
+
                 expect(album, locale).to.equal(expected);
             });
         });
