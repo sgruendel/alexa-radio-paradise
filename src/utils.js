@@ -189,6 +189,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Mozart':
     case 'Nena':
     case 'Peter Schilling':
+    case 'Rubin Steiner':
     case 'Schiller':
     case 'Sophie Hunger':
     case 'Wolfsheim':
@@ -224,6 +225,7 @@ exports.speakArtist = function(artist, locale, logger = null) {
     case 'Erik Satie':
     case 'Francis Cabrel':
     case 'Gabin':
+    case 'Habib Koité & Bamada':
     case 'Jacques Loussier Trio':
     case 'Jean-Luc Ponty':
     case 'Jean-Michel Jarre':
@@ -314,6 +316,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Alma, Corazon Y Vida':
     case 'Aye Aye Aye':
     case 'Buana Buana King Kong':
+    case 'Buenas Tardes Amigo':
     case 'Canción Del Mariachi':
     case 'Canción Triste':
     case 'Candela':
@@ -474,6 +477,7 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case 'In Wirklich':
     case 'Kommt zusammen':
     case 'Tag und Nacht':
+    case 'Wunderbar 3':
         albumLocale = DE_DE;
         break;
     case 'Anthogia':
