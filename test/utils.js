@@ -505,6 +505,15 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Bolero', () => {
+            const song = { artist: 'Maurice Ravel', title: 'Bolero', album: 'Boston Symphony Orchestra (1987)' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                expect(title, locale).to.equal('Bolero');
+            });
+        });
+
         it('should work for Brandenburg Concerto No. 5 In D', () => {
             const song = { artist: 'Jacques Loussier Trio', title: 'Brandenburg Concerto No. 5 In D', album: 'Jacques Loussier Trio' };
             locales.forEach(locale => {
@@ -529,6 +538,19 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Busenfreund', locale);
                 const expected = locale.startsWith('de') ? 'Busenfreund' : '<lang xml:lang="de-DE">Busenfreund</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it("should work for C'est La Vie (w/ Natacha Atlas)", () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle("C'est La Vie (w/ Natacha Atlas)", locale);
+                let expected = '<lang xml:lang="fr-FR">C\'est La Vie</lang><lang xml:lang="en-US"> (w/ Natacha Atlas)</lang>';
+                if (locale.startsWith('fr')) {
+                    expected = 'C\'est La Vie<lang xml:lang="en-US"> (w/ Natacha Atlas)</lang>';
+                } else if (locale.startsWith('en')) {
+                    expected = '<lang xml:lang="fr-FR">C\'est La Vie</lang> (w/ Natacha Atlas)';
+                }
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -608,6 +630,19 @@ describe('utils', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Eine Kleine Nachtmusik - Allegro', locale);
                 const expected = locale.startsWith('de') ? 'Eine Kleine Nachtmusik - Allegro' : '<lang xml:lang="de-DE">Eine Kleine Nachtmusik - Allegro</lang>';
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Face à la mer (Massive Attack remix)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Face à la mer (Massive Attack remix)', locale);
+                let expected = '<lang xml:lang="fr-FR">Face à la mer</lang><lang xml:lang="en-US"> (Massive Attack remix)</lang>';
+                if (locale.startsWith('fr')) {
+                    expected = 'Face à la mer<lang xml:lang="en-US"> (Massive Attack remix)</lang>';
+                } else if (locale.startsWith('en')) {
+                    expected = '<lang xml:lang="fr-FR">Face à la mer</lang> (Massive Attack remix)';
+                }
                 expect(title, locale).to.equal(expected);
             });
         });
@@ -741,6 +776,19 @@ describe('utils', () => {
             });
         });
 
+        it('should work for Overture (Concierto de Aranjuez)', () => {
+            locales.forEach(locale => {
+                const title = utils.speakTitle('Overture (Concierto de Aranjuez)', locale);
+                let expected = '<lang xml:lang="en-US">Overture</lang><lang xml:lang="es-ES"> (Concierto de Aranjuez)</lang>';
+                if (locale.startsWith('en')) {
+                    expected = 'Overture<lang xml:lang="es-ES"> (Concierto de Aranjuez)</lang>';
+                } else if (locale.startsWith('es')) {
+                    expected = '<lang xml:lang="en-US">Overture</lang> (Concierto de Aranjuez)';
+                }
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
         it('should work for Plus tôt', () => {
             locales.forEach(locale => {
                 const title = utils.speakTitle('Plus tôt', locale);
@@ -771,6 +819,26 @@ describe('utils', () => {
                     expected = 'Prélude no. 1 en ut majeur';
                 } else if (locale.startsWith('it')) {
                     expected = 'Preludio num. 1 in do maggiore';
+                }
+
+                expect(title, locale).to.equal(expected);
+            });
+        });
+
+        it('should work for Toccata in D Minor', () => {
+            const song = { artist: 'Johann Sebastian Bach', title: 'Toccata in D Minor', album: 'E. Power Biggs, Organ' };
+            locales.forEach(locale => {
+                const fixedSong = utils.fixSong(song, locale);
+                const title = utils.speakTitle(fixedSong.title, locale);
+                let expected = 'Toccata in D Minor';
+                if (locale.startsWith('de')) {
+                    expected = 'Toccata in d-Moll';
+                } else if (locale.startsWith('es')) {
+                    expected = 'Toccata en re menor';
+                } else if (locale.startsWith('fr')) {
+                    expected = 'Toccata en ré mineur';
+                } else if (locale.startsWith('it')) {
+                    expected = 'Toccata in re minore';
                 }
 
                 expect(title, locale).to.equal(expected);

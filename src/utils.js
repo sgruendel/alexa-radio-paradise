@@ -122,6 +122,16 @@ exports.fixSong = function(song, locale) {
         fixedSong.title = 'Schock den Affen';
     } else if (song.title === "Si Jamais J'oublie") {
         fixedSong.title = "Si jamais j'oublie";
+    } else if (song.title === 'Toccata in D Minor') {
+        if (locale && locale.startsWith('de')) {
+            fixedSong.title = 'Toccata in d-Moll';
+        } else if (locale && locale.startsWith('es')) {
+            fixedSong.title = 'Toccata en re menor';
+        } else if (locale && locale.startsWith('fr')) {
+            fixedSong.title = 'Toccata en ré mineur';
+        } else if (locale && locale.startsWith('it')) {
+            fixedSong.title = 'Toccata in re minore';
+        }
     } else if (song.title === 'Vivaldi - Allegro, Concerto in G Major, Op 4 No 3') {
         if (locale && locale.startsWith('de')) {
             fixedSong.title = 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3';
@@ -270,16 +280,31 @@ exports.speakTitle = function(title, locale, logger = null) {
         title1Locale = FR_FR;
         title2 = ' (Part II)';
         title2Locale = EN_US;
+    } else if (title === "C'est La Vie (w/ Natacha Atlas)") {
+        title1 = "C'est La Vie";
+        title1Locale = FR_FR;
+        title2 = ' (w/ Natacha Atlas)';
+        title2Locale = EN_US;
     } else if (title === 'Danza di Cala Luna (with John Williams & Paco Pena)') {
         title1 = 'Danza di Cala Luna';
         title1Locale = IT_IT;
         title2 = ' (with John Williams & Paco Pena)';
+        title2Locale = EN_US;
+    } else if (title === 'Face à la mer (Massive Attack remix)') {
+        title1 = 'Face à la mer';
+        title1Locale = FR_FR;
+        title2 = ' (Massive Attack remix)';
         title2Locale = EN_US;
     } else if (title === "L'Amour est blue (Love is blue)") {
         title1 = escape("L'Amour est blue");
         title1Locale = FR_FR;
         title2 = ' (Love is blue)';
         title2Locale = EN_US;
+    } else if (title === 'Overture (Concierto de Aranjuez)') {
+        title1 = escape('Overture');
+        title1Locale = EN_US;
+        title2 = ' (Concierto de Aranjuez)';
+        title2Locale = ES_ES;
     }
 
     if (title1 && title2) {
@@ -322,8 +347,10 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Candela':
     case 'Chan Chan':
     case 'Concierto de Aranjuez':
+    case 'Concierto De Aranjuez':
     case 'Corazon Espinado (feat. Mana)':
     case 'Cumbanchero':
+    case 'Cumbia Sobre El Rio':
     case 'De Camino a La Vereda':
     case 'Desaparecido':
     case 'Diablo Rojo':
@@ -334,6 +361,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'El Farol':
     case 'El Fuego':
     case 'El Genio Del Dub':
+    case 'El Sonido Nuevo':
     case 'Epoca':
     case 'Entre Dos Aguas':
     case 'Flôr Di Nha Esperança': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
@@ -386,10 +414,8 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Coulibaly':
     case 'Dictature':
     case 'Dis Moi Pourquoi':
-    case 'Face à la mer (Massive Attack remix)':
     case 'Gnossienne No. 1':
     case 'Gymnopedie No. 1':
-    case 'Hou! Mamma Mia (Kwanzaa Posse Remix)':
     case "J'ai tué le commissaire":
     case "J'traîne des pieds":
     case "J'peux pas m'empêcher":
@@ -417,6 +443,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Thé à la Menthe':
     case "Toussaint L'Overture": // as spelled by Santana :)
     case "Travailler C'est Trop Dur":
+    case 'Vide Noir':
     case 'Viens Avec Moi':
         titleLocale = FR_FR;
         break;
@@ -427,6 +454,7 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Via Con Me':
         titleLocale = IT_IT;
         break;
+    case 'Bolero':
     case 'Brandenburgisches Konzert Nr. 5 D-Dur':
     case 'Brandenburg Concierto núm. 5 en re mayor':
     case 'Brandenburg Concerto no. 5 en ré majeur':
@@ -443,6 +471,11 @@ exports.speakTitle = function(title, locale, logger = null) {
     case 'Preludio núm. 1 en Do mayor':
     case 'Prélude no. 1 en ut majeur':
     case 'Preludio num. 1 in do maggiore':
+    case 'Toccata in D Minor':
+    case 'Toccata in d-Moll':
+    case 'Toccata en re menor':
+    case 'Toccata en ré mineur':
+    case 'Toccata in re minore':
     case 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3':
     case 'Vivaldi - Allegro, Concierto en sol mayor opus 4, núm. 3':
     case 'Vivaldi - Allegro, Concerto en sol majeur op. 4, no. 3':
@@ -521,6 +554,7 @@ exports.speakAlbum = function(album, locale, logger = null) {
     case "Plaisirs D'amour":
     case 'Samedi Soir Sur La Terre':
     case 'Sur la Route':
+    case 'Vide Noir':
         albumLocale = FR_FR;
         break;
     case 'Divenire':
