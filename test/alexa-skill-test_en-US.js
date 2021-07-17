@@ -130,6 +130,21 @@ describe('Paradise Playlist Skill (en-US)', () => {
                 },
             },
             {
+                request: alexaTest.addEntityResolutionToRequest(
+                    alexaTest.getIntentRequest('RadioParadiseIntent', { channel: 'world mix' }),
+                    'channel', LIST_OF_CHANNELS, 'World/Eclectic', '3'),
+                saysLike: "<amazon:domain name=\"music\">In RP World/Eclectic Mix, you're listening to ",
+                hasCardTitle: 'RP World/Eclectic Mix',
+                hasCardTextLike: "You're listening to ",
+                hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
+                hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
+                repromptsNothing: true, shouldEndSession: true,
+                hasAttributes: {
+                    index: 0,
+                    song: song => { return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '3'; },
+                },
+            },
+            {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
                     alexaTest.getIntentRequest('RadioParadiseIntent'),
                     'channel', LIST_OF_CHANNELS, 'hauptmix'),
