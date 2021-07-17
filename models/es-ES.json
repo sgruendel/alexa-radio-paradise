@@ -127,8 +127,12 @@
             {
               "id": "3",
               "name": {
-                "value": "Eclectic",
+                "value": "World/Eclectic",
                 "synonyms": [
+                  "World/Eclectic Mix",
+                  "World",
+                  "World Mix",
+                  "Eclectic",
                   "Eclectic Mix"
                 ]
               }
