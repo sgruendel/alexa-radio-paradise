@@ -35,7 +35,7 @@ describe('Radio Paradise helpers', () => {
 
         it('should give songs playing on World/Eclectic Mix', async() => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.eclectic);
-            verifyResult(result, 'RP World/Eclectic Mix', radioParadise.mix.eclectic);
+            verifyResult(result, 'RP World Eclectic Mix', radioParadise.mix.eclectic);
         });
 
         it('should find nothing for non-existing channel', async() => {

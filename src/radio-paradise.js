@@ -23,7 +23,7 @@ exports.getNowPlaying = async mix => {
     if (mix === exports.mix.eclectic) {
         json = await json;
         for (let i = 0; json.song[i]; i++) {
-            json.song[i].channel.title = json.song[i].channel.title.replace('Etc', 'Eclectic');
+            json.song[i].channel.title = json.song[i].channel.title.replace('/Etc', ' Eclectic');
         }
     }
     return json;
