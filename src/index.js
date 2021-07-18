@@ -171,27 +171,50 @@ function getResponseForSong(handlerInput, song, msg, txt) {
     logger.info(cardContent);
     const smallImageUrl = RP_IMAGE_URL + song.cover.replace('\/l\/', '/s/');
     const largeImageUrl = RP_IMAGE_URL + song.cover;
-    if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope).Display) {
+    if (Alexa.getSupportedInterfaces(handlerInput.requestEnvelope)['Alexa.Presentation.APL']) {
         const primaryText = requestAttributes.t(txt, {
             artist: song.artist, song: song.title, album: song.album,
             released: song.year,
         });
-        const coverImage = new Alexa.ImageHelper()
-            .withDescription('album cover')
-            .addImageInstance(smallImageUrl, 'X_SMALL', 160, 160)
-            .addImageInstance(largeImageUrl, 'SMALL', 500, 500)
-            .getImage();
-        const textContent = new Alexa.RichTextContentHelper()
-            .withPrimaryText(primaryText)
-            .withSecondaryText('<font size="2">' + additionalInfo + '</font>')
-            .getTextContent();
+
+        const document = {
+            type: 'APL',
+            version: '1.6',
+            import: [
+                {
+                    name: 'alexa-layouts',
+                    version: '1.3.0',
+                },
+            ],
+            mainTemplate: {
+                parameters: [
+                    'detailTemplateData',
+                ],
+                item: [
+                    {
+                        type: 'AlexaDetail',
+                        headerTitle: '${detailTemplateData.headerTitle}',
+                        primaryText: '${detailTemplateData.primaryText}',
+                        secondaryText: '${detailTemplateData.secondaryText}',
+                        imageSource: '${detailTemplateData.imageSource}',
+                    },
+                ],
+            },
+        };
+        const datasources = {
+            detailTemplateData: {
+                headerTitle: song.channel.title,
+                primaryText: primaryText,
+                secondaryText: '<font size="2">' + additionalInfo + '</font>',
+                imageSource: largeImageUrl,
+            },
+        };
         handlerInput.responseBuilder
-            .addRenderTemplateDirective({
-                type: 'BodyTemplate2',
-                backButton: 'HIDDEN',
-                image: coverImage,
-                title: song.channel.title,
-                textContent: textContent,
+            .addDirective({
+                type: 'Alexa.Presentation.APL.RenderDocument',
+                version: '1.1',
+                document,
+                datasources,
             });
     }
 
