@@ -1,8 +1,8 @@
 'use strict';
 
 const expect = require('chai').expect;
-const { DE_DE, EN_US } = require('../src/utils');
-const utils = require('../src/utils');
+const { DE_DE, EN_US } = require('../utils');
+const utils = require('../utils');
 
 const locales = [ 'de-DE', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-US', 'es-ES', 'es-MX', 'fr-CA', 'fr-FR', 'it-IT' ];
 

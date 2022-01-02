@@ -8,7 +8,7 @@ const LIST_OF_CHANNELS = 'LIST_OF_CHANNELS';
 
 // initialize the testing framework
 alexaTest.initialize(
-    require('../src/index'),
+    require('../index'),
     'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526',
     'amzn1.ask.account.VOID');
 alexaTest.setLocale('de-DE');

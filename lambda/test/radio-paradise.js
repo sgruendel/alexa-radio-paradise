@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const radioParadise = require('../src/radio-paradise');
+const radioParadise = require('../radio-paradise');
 
 function verifyResult(result, channel, mix) {
     expect(result.song, channel).to.exist;
