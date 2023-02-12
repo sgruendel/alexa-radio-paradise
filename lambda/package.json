@@ -19,7 +19,7 @@
   "homepage": "https://github.com/sgruendel/alexa-radio-paradise#readme",
   "dependencies": {
     "ask-sdk-core": "2.12.1",
-    "ask-sdk-model": "1.48",
+    "ask-sdk-model": "1.48.0",
     "i18next": "22.4.9",
     "i18next-sprintf-postprocessor": "0.2.2",
     "node-fetch": "^2.6.7",
