@@ -131,10 +131,10 @@ describe('Paradise Playlist Skill (de-DE)', () => {
             },
             {
                 request: alexaTest.addEntityResolutionToRequest(
-                    alexaTest.getIntentRequest('RadioParadiseIntent', { channel: 'world mix' }),
-                    'channel', LIST_OF_CHANNELS, 'World Eclectic', '3'),
-                saysLike: 'Im <lang xml:lang="en-US">RP World Eclectic Mix</lang> hörst du gerade ',
-                hasCardTitle: 'RP World Eclectic Mix',
+                    alexaTest.getIntentRequest('RadioParadiseIntent', { channel: 'global mix' }),
+                    'channel', LIST_OF_CHANNELS, 'Global', '3'),
+                saysLike: 'Im <lang xml:lang="en-US">RP Global Mix</lang> hörst du gerade ',
+                hasCardTitle: 'RP Global Mix',
                 hasCardTextLike: 'Du hörst gerade ',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',

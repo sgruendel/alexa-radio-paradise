@@ -281,7 +281,7 @@ const CFIRRadioParadiseIntentHandler = {
                 && (value === 'Main' || value === 'Main Mix'
                     || value === 'Mellow' || value === 'Mellow Mix'
                     || value === 'Rock' || value === 'Rock Mix'
-                    || value === 'Eclectic' || value === 'Eclectic Mix')) {
+                    || value === 'Global' || value === 'Global Mix')) {
 
                 canFulfillIntent.slots[name] = {
                     canUnderstand: 'YES',
