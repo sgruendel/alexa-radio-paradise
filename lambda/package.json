@@ -1,65 +1,66 @@
 {
-  "name": "alexa-radio-paradise",
-  "version": "2.8.1",
-  "description": "Alexa Skill for querying playlist from Radio Paradise",
-  "main": "index.js",
-  "scripts": {
-    "reinstall": "rm -rf ./node_modules && npm install",
-    "test": "nyc --reporter=lcov --reporter=text mocha --timeout 7000"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sgruendel/alexa-radio-paradise.git"
-  },
-  "author": "Stefan Gründel",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/sgruendel/alexa-radio-paradise/issues"
-  },
-  "homepage": "https://github.com/sgruendel/alexa-radio-paradise#readme",
-  "dependencies": {
-    "ask-sdk-core": "^2.14.0",
-    "ask-sdk-model": "^1.86.0",
-    "i18next": "^23.7.16",
-    "i18next-sprintf-postprocessor": "^0.2.2",
-    "node-fetch": "^2.7.0",
-    "winston": "^3.11.0"
-  },
-  "devDependencies": {
-    "alexa-skill-test-framework": "^1.2.4",
-    "chai": "^4.4.0",
-    "eslint": "^8.56.0",
-    "eslint-config-strongloop": "^2.1.0",
-    "mocha": "^10.2.0",
-    "nyc": "^15.1.0"
-  },
-  "eslintConfig": {
-    "parserOptions": {
-      "ecmaVersion": 2020
+    "name": "alexa-radio-paradise",
+    "version": "2.8.1",
+    "description": "Alexa Skill for querying playlist from Radio Paradise",
+    "main": "index.js",
+    "scripts": {
+        "reinstall": "rm -rf ./node_modules && npm install",
+        "test": "c8 --reporter=lcov --reporter=text mocha --timeout 7000",
+        "deploy": "ask deploy"
     },
-    "extends": "strongloop",
-    "env": {
-      "commonjs": true,
-      "es6": true,
-      "node": true,
-      "mocha": true
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sgruendel/alexa-radio-paradise.git"
     },
-    "rules": {
-      "indent": [
-        "error",
-        4
-      ],
-      "max-len": [
-        "error",
-        120,
-        4,
-        {
-          "ignoreComments": true,
-          "ignoreUrls": true,
-          "ignoreStrings": true,
-          "ignorePattern": "^\\s*var\\s.+=\\s*(require\\s*\\()|(/)"
+    "author": "Stefan Gründel",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/sgruendel/alexa-radio-paradise/issues"
+    },
+    "homepage": "https://github.com/sgruendel/alexa-radio-paradise#readme",
+    "dependencies": {
+        "ask-sdk-core": "^2.14.0",
+        "ask-sdk-model": "^1.86.0",
+        "i18next": "^23.7.16",
+        "i18next-sprintf-postprocessor": "^0.2.2",
+        "node-fetch": "^2.7.0",
+        "winston": "^3.11.0"
+    },
+    "devDependencies": {
+        "alexa-skill-test-framework": "^1.2.4",
+        "c8": "^9.1.0",
+        "chai": "^4.4.0",
+        "eslint": "^8.56.0",
+        "eslint-config-strongloop": "^2.1.0",
+        "mocha": "^10.2.0"
+    },
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 2020
+        },
+        "extends": "strongloop",
+        "env": {
+            "commonjs": true,
+            "es6": true,
+            "node": true,
+            "mocha": true
+        },
+        "rules": {
+            "indent": [
+                "error",
+                4
+            ],
+            "max-len": [
+                "error",
+                120,
+                4,
+                {
+                    "ignoreComments": true,
+                    "ignoreUrls": true,
+                    "ignoreStrings": true,
+                    "ignorePattern": "^\\s*var\\s.+=\\s*(require\\s*\\()|(/)"
+                }
+            ]
         }
-      ]
     }
-  }
 }
