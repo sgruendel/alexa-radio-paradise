@@ -1,7 +1,6 @@
-'use strict';
+import { expect } from 'chai';
 
-const expect = require('chai').expect;
-const radioParadise = require('../radio-paradise');
+import * as radioParadise from '../radio-paradise.js';
 
 function verifyResult(result, channel, mix) {
     expect(result.song, channel).to.exist;
@@ -18,27 +17,27 @@ function verifyResult(result, channel, mix) {
 
 describe('Radio Paradise helpers', () => {
     describe('#getNowPlaying()', () => {
-        it('should give songs playing on Main Mix', async() => {
+        it('should give songs playing on Main Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.main);
             verifyResult(result, 'RP Main Mix', radioParadise.mix.main);
         });
 
-        it('should give songs playing on Mellow Mix', async() => {
+        it('should give songs playing on Mellow Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.mellow);
             verifyResult(result, 'RP Mellow Mix', radioParadise.mix.mellow);
         });
 
-        it('should give songs playing on Rock Mix', async() => {
+        it('should give songs playing on Rock Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.rock);
             verifyResult(result, 'RP Rock Mix', radioParadise.mix.rock);
         });
 
-        it('should give songs playing on Global Mix', async() => {
+        it('should give songs playing on Global Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.global);
             verifyResult(result, 'RP Global Mix', radioParadise.mix.global);
         });
 
-        it('should find nothing for non-existing channel', async() => {
+        it('should find nothing for non-existing channel', async () => {
             const result = await radioParadise.getNowPlaying('4');
             expect(result.song).to.not.exist;
         });

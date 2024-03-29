@@ -1,7 +1,16 @@
-'use strict';
+// eslint-disable-next-line no-unused-vars -- needed for typedefs
+import winston from 'winston';
 
+// eslint-disable-next-line no-unused-vars -- needed for typedefs
+import * as radioParadise from './radio-paradise.js';
+
+/**
+ * Get country of locale string
+ * @param {string} locale locale string consisting of two letter country and two letter language
+ * @returns locale's country
+ */
 function countryOf(locale) {
-    return locale.substr(0, 2);
+    return locale.substring(0, 2);
 }
 
 const entityMap = {
@@ -13,24 +22,53 @@ const entityMap = {
     '/': '&#x2F;',
 };
 
+/**
+ * Escapes a string for use in XML.
+ * @param {string} str string to escape
+ * @returns escaped string
+ */
 function escape(str) {
     return str.replace(/[&<>"'\/]/g, (s) => {
         return entityMap[s];
     });
 }
 
-const DE_DE = 'de-DE';
-const ES_ES = 'es-ES';
-const EN_US = 'en-US';
-const FR_FR = 'fr-FR';
-const IT_IT = 'it-IT';
+export const DE_DE = 'de-DE';
+export const ES_ES = 'es-ES';
+export const EN_US = 'en-US';
+export const FR_FR = 'fr-FR';
+export const IT_IT = 'it-IT';
 
-var exports = module.exports = {
-    EN_US,
-    DE_DE,
-};
+/**
+ * Converts a duration in seconds to a formatted time string in the format "hh:mm:ss".
+ * @param {number} seconds number of seconds to convert
+ * @returns a string in the format "hh:mm:ss" for number of seconds.
+ */
+export function secondsToTime(seconds) {
+    const h = Math.floor(seconds / 3600)
+        .toString()
+        .padStart(2, '0');
+    const m = Math.floor((seconds % 3600) / 60)
+        .toString()
+        .padStart(2, '0');
+    const s = Math.floor(seconds % 60)
+        .toString()
+        .padStart(2, '0');
 
-exports.fixSong = function(song, locale) {
+    if (h === '00') {
+        return m + ':' + s;
+    }
+    return h + ':' + m + ':' + s;
+}
+
+/**
+ * Returns a fixed version of the specified song object with corrected artist, album, and title names based on specific conditions and locale.
+ * @param {radioParadise.Song} song song to fix
+ * @param {string} locale locale string consisting of two letter country and two letter language
+ * @returns fixed song for locale
+ */
+export function fixSong(song, locale) {
+    /** @type {radioParadise.Song} */
     let fixedSong = Object.assign({}, song);
 
     if (song.artist === 'Nikkfurie' && song.album === 'La Caution') {
@@ -145,9 +183,7 @@ exports.fixSong = function(song, locale) {
             fixedSong.title = 'Vivaldi - Allegro, Concerto in G Major Op. 4, No. 3';
         }
     } else {
-        fixedSong.title = fixedSong.title
-            .replace(/\(w\/ */, '(with ')
-            .replace(/\ w\/ */, ' with ');
+        fixedSong.title = fixedSong.title.replace(/\(w\/ */, '(with ').replace(/\ w\/ */, ' with ');
     }
 
     if (song.album === '20 Jahre: Nena Ft Nena') {
@@ -172,107 +208,122 @@ exports.fixSong = function(song, locale) {
     } else if (song.album === 'Rodrigo Y Gabriela') {
         fixedSong.album = 'Rodrigo y Gabriela';
     } else {
-        fixedSong.album = fixedSong.album
-            .replace(/\(w\/ */, '(with ')
-            .replace(/\ w\/ */, ' with ');
+        fixedSong.album = fixedSong.album.replace(/\(w\/ */, '(with ').replace(/\ w\/ */, ' with ');
     }
 
     return fixedSong;
-};
+}
 
-exports.speakAs = function(locale, str) {
-    return '<lang xml:lang="' + locale + '">' + str + '</lang>';
-};
+/**
+ * Returns XML to speak text in another locale.
+ * @param {string} locale locale string consisting of two letter country and two letter language
+ * @param {string} text text to speak
+ */
+export function speakAs(locale, text) {
+    return '<lang xml:lang="' + locale + '">' + text + '</lang>';
+}
 
-exports.speakArtist = function(artist, locale, logger = null) {
+/**
+ * Return XML to speak an arist name in a locale.
+ * @param {string} artist name of artist
+ * @param {string} locale locale string consisting of two letter country and two letter language
+ * @param {winston.Logger=} logger optional, Winston logger to use; nothing is logged if undefined
+ */
+export function speakArtist(artist, locale, logger = undefined) {
     let artistLocale = EN_US;
     switch (artist) {
-    case '2raumwohnung':
-    case 'Andreas Vollenweider':
-    case 'Beethoven':
-    case 'Bohren & Der Club Of Gore':
-    case 'DJ Schmolli':
-    case 'Edvard Grieg': // TODO: he's actually Norwegian, but German pronounciation should be close enough :)
-    case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
-    case 'Johann Sebastian Bach':
-    case 'Kruder & Dorfmeister':
-    case 'Mozart':
-    case 'Nena':
-    case 'Peter Schilling':
-    case 'Rubin Steiner':
-    case 'Schiller':
-    case 'Sophie Hunger':
-    case 'Wolfsheim':
-        artistLocale = DE_DE;
-        break;
-    case 'Carlos Núñez':
-    case 'Cesária Évora':
-    case 'Chicha Libre':
-    case 'José González':
-    case 'José Larralde':
-    case 'Juanes':
-    case 'Los Bravos':
-    case 'Los Fabulosos Cadillacs':
-    case 'Los Incas':
-    case 'Los Lobos':
-    case 'Los Lobos & Antonio Banderas':
-    case 'Manu Chao':
-    case 'Paco de Lucía':
-    case 'Rodrigo y Gabriela':
-    case 'Rubén González':
-    case 'Santana':
-    case 'Ten Fé':
-        artistLocale = ES_ES;
-        break;
-    case 'Alexandra Stréliski':
-    case 'Ali Farka Touré':
-    case 'Amadou & Mariam':
-    case 'Amina':
-    case 'Angélique Kidjo':
-    case 'Bizet':
-    case 'Claude Debussy':
-    case 'Cœur de Pirate':
-    case 'Erik Satie':
-    case 'Francis Cabrel':
-    case 'Gabin':
-    case 'Habib Koité & Bamada':
-    case 'Jacques Loussier Trio':
-    case 'Jean-Luc Ponty':
-    case 'Jean-Michel Jarre':
-    case 'Les Négresses Vertes':
-    case 'La Caution':
-    case 'Madeleine Peyroux':
-    case 'Marc Moulin':
-    case 'Matmatah':
-    case 'Maurice Ravel':
-    case 'Mory Kanté':
-    case 'Noir Désir':
-    case 'Olivia Ruiz':
-    case 'Paul Mauriat':
-    case 'René Aubry':
-    case 'Vieux Farka Touré':
-    case 'Yann Tiersen':
-    case 'Zaz':
-        artistLocale = FR_FR;
-        break;
-    case 'Antonio Vivaldi':
-    case 'Ennio Morricone':
-    case 'Luca Stricagnoli':
-    case 'Ludovico Einaudi':
-    case 'Paolo Conte':
-    case 'Zucchero':
-        artistLocale = IT_IT;
-        break;
+        case '2raumwohnung':
+        case 'Andreas Vollenweider':
+        case 'Beethoven':
+        case 'Bohren & Der Club Of Gore':
+        case 'DJ Schmolli':
+        case 'Edvard Grieg': // TODO: he's actually Norwegian, but German pronounciation should be close enough :)
+        case 'Hans-Erik Philip': // TODO: he's actually Danish, but German pronounciation should be close enough :)
+        case 'Johann Sebastian Bach':
+        case 'Kruder & Dorfmeister':
+        case 'Mozart':
+        case 'Nena':
+        case 'Peter Schilling':
+        case 'Rubin Steiner':
+        case 'Schiller':
+        case 'Sophie Hunger':
+        case 'Wolfsheim':
+            artistLocale = DE_DE;
+            break;
+        case 'Carlos Núñez':
+        case 'Cesária Évora':
+        case 'Chicha Libre':
+        case 'José González':
+        case 'José Larralde':
+        case 'Juanes':
+        case 'Los Bravos':
+        case 'Los Fabulosos Cadillacs':
+        case 'Los Incas':
+        case 'Los Lobos':
+        case 'Los Lobos & Antonio Banderas':
+        case 'Manu Chao':
+        case 'Paco de Lucía':
+        case 'Rodrigo y Gabriela':
+        case 'Rubén González':
+        case 'Santana':
+        case 'Ten Fé':
+            artistLocale = ES_ES;
+            break;
+        case 'Alexandra Stréliski':
+        case 'Ali Farka Touré':
+        case 'Amadou & Mariam':
+        case 'Amina':
+        case 'Angélique Kidjo':
+        case 'Bizet':
+        case 'Claude Debussy':
+        case 'Cœur de Pirate':
+        case 'Erik Satie':
+        case 'Francis Cabrel':
+        case 'Gabin':
+        case 'Habib Koité & Bamada':
+        case 'Jacques Loussier Trio':
+        case 'Jean-Luc Ponty':
+        case 'Jean-Michel Jarre':
+        case 'Les Négresses Vertes':
+        case 'La Caution':
+        case 'Madeleine Peyroux':
+        case 'Marc Moulin':
+        case 'Matmatah':
+        case 'Maurice Ravel':
+        case 'Mory Kanté':
+        case 'Noir Désir':
+        case 'Olivia Ruiz':
+        case 'Paul Mauriat':
+        case 'René Aubry':
+        case 'Vieux Farka Touré':
+        case 'Yann Tiersen':
+        case 'Zaz':
+            artistLocale = FR_FR;
+            break;
+        case 'Antonio Vivaldi':
+        case 'Ennio Morricone':
+        case 'Luca Stricagnoli':
+        case 'Ludovico Einaudi':
+        case 'Paolo Conte':
+        case 'Zucchero':
+            artistLocale = IT_IT;
+            break;
     }
 
     if (logger && artistLocale !== EN_US) {
         logger.info('Using locale ' + artistLocale + ' for artist ' + artist);
     }
     artist = escape(artist);
-    return locale.startsWith(countryOf(artistLocale)) ? artist : exports.speakAs(artistLocale, artist);
-};
+    return locale.startsWith(countryOf(artistLocale)) ? artist : speakAs(artistLocale, artist);
+}
 
-exports.speakTitle = function(title, locale, logger = null) {
+/**
+ * Return XML to speak a song title name in a locale.
+ * @param {string} title song title
+ * @param {string} locale locale string consisting of two letter country and two letter language
+ * @param {winston.Logger=} logger optional, Winston logger to use; nothing is logged if undefined
+ */
+export function speakTitle(title, locale, logger = undefined) {
     // Test for mixed locales
     let title1, title2, title1Locale, title2Locale;
     if (title === 'Avant La Pluie (Part II)') {
@@ -312,177 +363,179 @@ exports.speakTitle = function(title, locale, logger = null) {
             logger.info('Using locales ' + title1Locale + '/' + title2Locale + ' for title ' + title);
         }
 
-        return (locale.startsWith(countryOf(title1Locale)) ? title1 : exports.speakAs(title1Locale, title1))
-            + (locale.startsWith(countryOf(title2Locale)) ? title2 : exports.speakAs(title2Locale, title2));
+        return (
+            (locale.startsWith(countryOf(title1Locale)) ? title1 : speakAs(title1Locale, title1)) +
+            (locale.startsWith(countryOf(title2Locale)) ? title2 : speakAs(title2Locale, title2))
+        );
     }
 
     let titleLocale = EN_US;
     switch (title) {
-    case '2 von Millionen von Sternen':
-    case '99 Luftballons':
-    case 'Also Sprach Zarathustra':
-    case 'Am Fenster':
-    case 'Bei Mir Bist du Schön':
-    case 'Bei Mir Bist Du Schön':
-    case 'Busenfreund':
-    case 'Da Sind Wir':
-    case 'Eine Kleine Nachtmusik - Allegro':
-    case 'Fiskerne': // TODO: it's actually Danish, but German pronounciation should be close enough :)
-    case 'Für Elise':
-    case 'Ich liebe Didge':
-    case 'Ich Weiß Warum':
-    case 'Lautlos':
-    case 'Major Tom (Völlig Losgelöst)':
-    case 'Schock den Affen':
-        titleLocale = DE_DE;
-        break;
-    case 'A Pesar De Todo':
-    case 'Africa Bamba':
-    case 'Alma, Corazon Y Vida':
-    case 'Aye Aye Aye':
-    case 'Buana Buana King Kong':
-    case 'Buenas Tardes Amigo':
-    case 'Canción Del Mariachi':
-    case 'Canción Triste':
-    case 'Candela':
-    case 'Chan Chan':
-    case 'Concierto de Aranjuez':
-    case 'Concierto De Aranjuez':
-    case 'Corazon Espinado (feat. Mana)':
-    case 'Cumbanchero':
-    case 'Cumbia Sobre El Rio':
-    case 'De Camino a La Vereda':
-    case 'Desaparecido':
-    case 'Diablo Rojo':
-    case 'El Capitalismo Foraneo':
-    case 'El Carretero':
-    case 'El Condor Pasa':
-    case 'El Cuarto de Tula':
-    case 'El Farol':
-    case 'El Fuego':
-    case 'El Genio Del Dub':
-    case 'El Sonido Nuevo':
-    case 'Epoca':
-    case 'Entre Dos Aguas':
-    case 'Flôr Di Nha Esperança': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
-    case 'Futuro':
-    case 'Guajira':
-    case 'La Camisa Negra':
-    case 'La Flor De La Canela':
-    case 'La Vida Tombola':
-    case 'La Vigüela':
-    case 'Los Laureles':
-    case 'Lunático':
-    case 'Luz Amor Y Vida':
-    case 'Luz De Mi Vida':
-    case 'Malagueña Salerosa':
-    case 'Mandinga':
-    case 'Mariposa (en Havana)':
-    case 'Matador':
-    case 'Me Gustas Tu':
-    case 'Me Llaman Calle':
-    case 'Migra':
-    case 'Miss Perfumado': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
-    case 'Oye Como Va':
-    case 'Planta De Los Pies':
-    case 'Plegaria del Árbol Negro':
-    case 'Poquito Para Aqui':
-    case 'Que Te Parece, Cholita':
-    case 'Queremos Paz':
-    case 'Quimey Neuquen (Chancha Via Circuito remix)':
-    case 'Rumba De Barcelona':
-    case 'Samba Pa Ti':
-    case 'Sangue de Beirona': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
-    case 'Santa María (del Buen Ayre)':
-    case 'Se A Cabo':
-    case 'Siempre Que':
-    case 'Siboney':
-    case 'Sodade': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
-    case 'Sodade (live)': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
-    case 'Tomo Y Obligo':
-    case 'Una Música Brutal':
-    case 'Virgen De Amor':
-        titleLocale = ES_ES;
-        break;
-    case "200 Ans d'Hypocrosie":
-    case 'Boulevard De La Mort':
-    case 'Ça Plane Pour Moi':
-    case 'Camions Sauvages':
-    case "Ce N'est Pas Bon":
-    case 'Compagnon De La Vie':
-    case 'Comptine d`un autre ete - l`apres-midi':
-    case 'Coulibaly':
-    case 'Dictature':
-    case 'Dis Moi Pourquoi':
-    case 'Gnossienne No. 1':
-    case 'Gymnopedie No. 1':
-    case "J'ai tué le commissaire":
-    case "J'traîne des pieds":
-    case "J'peux pas m'empêcher":
-    case "Jardin d'hiver":
-    case 'Jardins sous la pluie':
-    case "L'enfant roi":
-    case 'La Cerise':
-    case 'La Corrida':
-    case 'La Femme Accident':
-    case "La Femme D'Argent":
-    case 'La Grande Cascade':
-    case 'Le Vent Nous Portera':
-    case 'Le Voyage De Penelope':
-    case 'Les La Boulange':
-    case 'Les Martyrs':
-    case "M'Bifé Balafon":
-    case 'Madame Papillon':
-    case 'Masiteladi':
-    case 'Mer Du Japon':
-    case 'Mon Amour (with Vieux Farka Touré)':
-    case 'Plus tôt':
-    case 'Prelude':
-    case 'Qué vendrá':
-    case "Si jamais j'oublie":
-    case 'Thé à la Menthe':
-    case "Toussaint L'Overture": // as spelled by Santana :)
-    case "Travailler C'est Trop Dur":
-    case 'Vide Noir':
-    case 'Viens Avec Moi':
-        titleLocale = FR_FR;
-        break;
-    case 'Andare':
-    case 'Divenire':
-    case 'Non Ti Amo Più':
-    case 'Primavera':
-    case 'Via Con Me':
-        titleLocale = IT_IT;
-        break;
-    case 'Bolero':
-    case 'Brandenburgisches Konzert Nr. 5 D-Dur':
-    case 'Brandenburg Concierto núm. 5 en re mayor':
-    case 'Brandenburg Concerto no. 5 en ré majeur':
-    case 'Brandenburg Concerto num. 5 in re maggiore':
-    case 'Concerto Op. 4, Nr. 1: III Allegro':
-    case 'Concerto opus 4, núm. 1: III Allegro':
-    case 'Concerto op. 4, num. 1: III Allegro':
-    case 'Concerto Op. 4, No. 1: III Allegro':
-    case 'Gavotte in h-Moll':
-    case 'Gavotte en si menor':
-    case 'Gavotte en si mineur':
-    case 'Gavotte in si minore':
-    case 'Präludium Nr. 1 C-Dur':
-    case 'Preludio núm. 1 en Do mayor':
-    case 'Prélude no. 1 en ut majeur':
-    case 'Preludio num. 1 in do maggiore':
-    case 'Toccata in D Minor':
-    case 'Toccata in d-Moll':
-    case 'Toccata en re menor':
-    case 'Toccata en ré mineur':
-    case 'Toccata in re minore':
-    case 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3':
-    case 'Vivaldi - Allegro, Concierto en sol mayor opus 4, núm. 3':
-    case 'Vivaldi - Allegro, Concerto en sol majeur op. 4, no. 3':
-    case 'Vivaldi - Allegro, Concerto in sol maggiore op. 4, num. 3':
-        // use native locale
-        titleLocale = locale;
-        break;
+        case '2 von Millionen von Sternen':
+        case '99 Luftballons':
+        case 'Also Sprach Zarathustra':
+        case 'Am Fenster':
+        case 'Bei Mir Bist du Schön':
+        case 'Bei Mir Bist Du Schön':
+        case 'Busenfreund':
+        case 'Da Sind Wir':
+        case 'Eine Kleine Nachtmusik - Allegro':
+        case 'Fiskerne': // TODO: it's actually Danish, but German pronounciation should be close enough :)
+        case 'Für Elise':
+        case 'Ich liebe Didge':
+        case 'Ich Weiß Warum':
+        case 'Lautlos':
+        case 'Major Tom (Völlig Losgelöst)':
+        case 'Schock den Affen':
+            titleLocale = DE_DE;
+            break;
+        case 'A Pesar De Todo':
+        case 'Africa Bamba':
+        case 'Alma, Corazon Y Vida':
+        case 'Aye Aye Aye':
+        case 'Buana Buana King Kong':
+        case 'Buenas Tardes Amigo':
+        case 'Canción Del Mariachi':
+        case 'Canción Triste':
+        case 'Candela':
+        case 'Chan Chan':
+        case 'Concierto de Aranjuez':
+        case 'Concierto De Aranjuez':
+        case 'Corazon Espinado (feat. Mana)':
+        case 'Cumbanchero':
+        case 'Cumbia Sobre El Rio':
+        case 'De Camino a La Vereda':
+        case 'Desaparecido':
+        case 'Diablo Rojo':
+        case 'El Capitalismo Foraneo':
+        case 'El Carretero':
+        case 'El Condor Pasa':
+        case 'El Cuarto de Tula':
+        case 'El Farol':
+        case 'El Fuego':
+        case 'El Genio Del Dub':
+        case 'El Sonido Nuevo':
+        case 'Epoca':
+        case 'Entre Dos Aguas':
+        case 'Flôr Di Nha Esperança': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
+        case 'Futuro':
+        case 'Guajira':
+        case 'La Camisa Negra':
+        case 'La Flor De La Canela':
+        case 'La Vida Tombola':
+        case 'La Vigüela':
+        case 'Los Laureles':
+        case 'Lunático':
+        case 'Luz Amor Y Vida':
+        case 'Luz De Mi Vida':
+        case 'Malagueña Salerosa':
+        case 'Mandinga':
+        case 'Mariposa (en Havana)':
+        case 'Matador':
+        case 'Me Gustas Tu':
+        case 'Me Llaman Calle':
+        case 'Migra':
+        case 'Miss Perfumado': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
+        case 'Oye Como Va':
+        case 'Planta De Los Pies':
+        case 'Plegaria del Árbol Negro':
+        case 'Poquito Para Aqui':
+        case 'Que Te Parece, Cholita':
+        case 'Queremos Paz':
+        case 'Quimey Neuquen (Chancha Via Circuito remix)':
+        case 'Rumba De Barcelona':
+        case 'Samba Pa Ti':
+        case 'Sangue de Beirona': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
+        case 'Santa María (del Buen Ayre)':
+        case 'Se A Cabo':
+        case 'Siempre Que':
+        case 'Siboney':
+        case 'Sodade': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
+        case 'Sodade (live)': // TODO: it's actually Portuguese, but Spanish pronounciation should be close enough :)
+        case 'Tomo Y Obligo':
+        case 'Una Música Brutal':
+        case 'Virgen De Amor':
+            titleLocale = ES_ES;
+            break;
+        case "200 Ans d'Hypocrosie":
+        case 'Boulevard De La Mort':
+        case 'Ça Plane Pour Moi':
+        case 'Camions Sauvages':
+        case "Ce N'est Pas Bon":
+        case 'Compagnon De La Vie':
+        case 'Comptine d`un autre ete - l`apres-midi':
+        case 'Coulibaly':
+        case 'Dictature':
+        case 'Dis Moi Pourquoi':
+        case 'Gnossienne No. 1':
+        case 'Gymnopedie No. 1':
+        case "J'ai tué le commissaire":
+        case "J'traîne des pieds":
+        case "J'peux pas m'empêcher":
+        case "Jardin d'hiver":
+        case 'Jardins sous la pluie':
+        case "L'enfant roi":
+        case 'La Cerise':
+        case 'La Corrida':
+        case 'La Femme Accident':
+        case "La Femme D'Argent":
+        case 'La Grande Cascade':
+        case 'Le Vent Nous Portera':
+        case 'Le Voyage De Penelope':
+        case 'Les La Boulange':
+        case 'Les Martyrs':
+        case "M'Bifé Balafon":
+        case 'Madame Papillon':
+        case 'Masiteladi':
+        case 'Mer Du Japon':
+        case 'Mon Amour (with Vieux Farka Touré)':
+        case 'Plus tôt':
+        case 'Prelude':
+        case 'Qué vendrá':
+        case "Si jamais j'oublie":
+        case 'Thé à la Menthe':
+        case "Toussaint L'Overture": // as spelled by Santana :)
+        case "Travailler C'est Trop Dur":
+        case 'Vide Noir':
+        case 'Viens Avec Moi':
+            titleLocale = FR_FR;
+            break;
+        case 'Andare':
+        case 'Divenire':
+        case 'Non Ti Amo Più':
+        case 'Primavera':
+        case 'Via Con Me':
+            titleLocale = IT_IT;
+            break;
+        case 'Bolero':
+        case 'Brandenburgisches Konzert Nr. 5 D-Dur':
+        case 'Brandenburg Concierto núm. 5 en re mayor':
+        case 'Brandenburg Concerto no. 5 en ré majeur':
+        case 'Brandenburg Concerto num. 5 in re maggiore':
+        case 'Concerto Op. 4, Nr. 1: III Allegro':
+        case 'Concerto opus 4, núm. 1: III Allegro':
+        case 'Concerto op. 4, num. 1: III Allegro':
+        case 'Concerto Op. 4, No. 1: III Allegro':
+        case 'Gavotte in h-Moll':
+        case 'Gavotte en si menor':
+        case 'Gavotte en si mineur':
+        case 'Gavotte in si minore':
+        case 'Präludium Nr. 1 C-Dur':
+        case 'Preludio núm. 1 en Do mayor':
+        case 'Prélude no. 1 en ut majeur':
+        case 'Preludio num. 1 in do maggiore':
+        case 'Toccata in D Minor':
+        case 'Toccata in d-Moll':
+        case 'Toccata en re menor':
+        case 'Toccata en ré mineur':
+        case 'Toccata in re minore':
+        case 'Vivaldi - Allegro, Concerto in G-Dur Op. 4, Nr. 3':
+        case 'Vivaldi - Allegro, Concierto en sol mayor opus 4, núm. 3':
+        case 'Vivaldi - Allegro, Concerto en sol majeur op. 4, no. 3':
+        case 'Vivaldi - Allegro, Concerto in sol maggiore op. 4, num. 3':
+            // use native locale
+            titleLocale = locale;
+            break;
     }
 
     if (logger && titleLocale !== EN_US) {
@@ -491,90 +544,99 @@ exports.speakTitle = function(title, locale, logger = null) {
 
     // "... (Live Acoustic)" works, but "... (live)" or "... (Acoustic Live)" doesn't
     if (titleLocale === EN_US && (title.endsWith('live)') || title.endsWith('Live)'))) {
-        title = escape(title.substr(0, title.length - 5))
-            + '<w role="amazon:NN">' + title.substr(title.length - 5, 4) + '</w>)';
+        title =
+            escape(title.substring(0, title.length - 5)) +
+            '<w role="amazon:NN">' +
+            title.substring(title.length - 5, title.length - 1) +
+            '</w>)';
     } else {
         title = escape(title);
     }
-    return locale.startsWith(countryOf(titleLocale)) ? title : exports.speakAs(titleLocale, title);
-};
+    return locale.startsWith(countryOf(titleLocale)) ? title : speakAs(titleLocale, title);
+}
 
-exports.speakAlbum = function(album, locale, logger = null) {
+/**
+ * Return XML to speak an album name in a locale.
+ * @param {string} album name of album
+ * @param {string} locale locale string consisting of two letter country and two letter language
+ * @param {winston.Logger=} logger optional, Winston logger to use; nothing is logged if undefined
+ */
+export function speakAlbum(album, locale, logger = undefined) {
     let albumLocale = EN_US;
     switch (album) {
-    case '20 Jahre: Nena feat. Nena':
-    case '99 Luftballons':
-    case 'Alles Prima Und Viele Andere Hits':
-    case 'Am Fenster':
-    case 'Eine Kleine Nachtmusik':
-    case 'In Wirklich':
-    case 'Kommt zusammen':
-    case 'Tag und Nacht':
-    case 'Wunderbar 3':
-        albumLocale = DE_DE;
-        break;
-    case 'Anthogia':
-    case 'Cabo Verde':
-    case 'Canciones De Mi Padre':
-    case 'Chicha Libre ¡Sonido amazónico!':
-    case 'Clandestino':
-    case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
-    case 'Degüello':
-    case 'Dos Guitarras Flamencas En America Latina':
-    case 'El Rayo-X':
-    case 'Esperanza':
-    case 'Futuro':
-    case 'La Radiolina':
-    case 'La Revancha Del Tango':
-    case 'Lunático':
-    case 'Mi Sangre':
-    case 'Miss Perfumado':
-    case 'Obras Cumbres':
-    case 'Pa Saber De Flamenco 2':
-    case 'Plegaria del Árbol Negro':
-    case 'Proxima Estacion':
-    case 'Rodrigo y Gabriela':
-    case 'Tres Hombres':
-        albumLocale = ES_ES;
-        break;
-    case 'Amélie':
-    case 'Aprés La Pluie':
-    case 'Cap Enragé':
-    case "Cours d'histoire":
-    case 'Des Visages des Figures':
-    case 'Dimanche à Bamako':
-    case 'Effet Miroir':
-    case 'Hélène Grimaud - Bach':
-    case 'La biographie de Luka Philipsen':
-    case 'La Cerise':
-    case 'La Femme Chocolat':
-    case 'Les Retrouvailles':
-    case 'Miss Météores':
-    case 'Peines de Maures / Arc-en-ciel pour daltoniens':
-    case "Plaisirs D'amour":
-    case 'Samedi Soir Sur La Terre':
-    case 'Sur la Route':
-    case 'Vide Noir':
-        albumLocale = FR_FR;
-        break;
-    case 'Divenire':
-    case 'La Stravaganza':
-    case 'Luca Stricagnoli':
-    case 'Una Mattina':
-        albumLocale = IT_IT;
-        break;
-    case 'Peer Gynt Suite Nr. 1, Op. 46 (Karajan - B.P.O.)':
-    case 'Peer Gynt Suite núm. 1, opus 46 (Karajan - B.P.O.)':
-    case 'Peer Gynt Suite num. 1, op. 46 (Karajan - B.P.O.)':
-    case 'Peer Gynt Suite No. 1, Op. 46 (Karajan - B.P.O.)':
-        // use native locale
-        albumLocale = locale;
-        break;
+        case '20 Jahre: Nena feat. Nena':
+        case '99 Luftballons':
+        case 'Alles Prima Und Viele Andere Hits':
+        case 'Am Fenster':
+        case 'Eine Kleine Nachtmusik':
+        case 'In Wirklich':
+        case 'Kommt zusammen':
+        case 'Tag und Nacht':
+        case 'Wunderbar 3':
+            albumLocale = DE_DE;
+            break;
+        case 'Anthogia':
+        case 'Cabo Verde':
+        case 'Canciones De Mi Padre':
+        case 'Chicha Libre ¡Sonido amazónico!':
+        case 'Clandestino':
+        case 'Concierto de Aranjuez (Joaquin Rodrigo, 1939)':
+        case 'Degüello':
+        case 'Dos Guitarras Flamencas En America Latina':
+        case 'El Rayo-X':
+        case 'Esperanza':
+        case 'Futuro':
+        case 'La Radiolina':
+        case 'La Revancha Del Tango':
+        case 'Lunático':
+        case 'Mi Sangre':
+        case 'Miss Perfumado':
+        case 'Obras Cumbres':
+        case 'Pa Saber De Flamenco 2':
+        case 'Plegaria del Árbol Negro':
+        case 'Proxima Estacion':
+        case 'Rodrigo y Gabriela':
+        case 'Tres Hombres':
+            albumLocale = ES_ES;
+            break;
+        case 'Amélie':
+        case 'Aprés La Pluie':
+        case 'Cap Enragé':
+        case "Cours d'histoire":
+        case 'Des Visages des Figures':
+        case 'Dimanche à Bamako':
+        case 'Effet Miroir':
+        case 'Hélène Grimaud - Bach':
+        case 'La biographie de Luka Philipsen':
+        case 'La Cerise':
+        case 'La Femme Chocolat':
+        case 'Les Retrouvailles':
+        case 'Miss Météores':
+        case 'Peines de Maures / Arc-en-ciel pour daltoniens':
+        case "Plaisirs D'amour":
+        case 'Samedi Soir Sur La Terre':
+        case 'Sur la Route':
+        case 'Vide Noir':
+            albumLocale = FR_FR;
+            break;
+        case 'Divenire':
+        case 'La Stravaganza':
+        case 'Luca Stricagnoli':
+        case 'Una Mattina':
+            albumLocale = IT_IT;
+            break;
+        case 'Peer Gynt Suite Nr. 1, Op. 46 (Karajan - B.P.O.)':
+        case 'Peer Gynt Suite núm. 1, opus 46 (Karajan - B.P.O.)':
+        case 'Peer Gynt Suite num. 1, op. 46 (Karajan - B.P.O.)':
+        case 'Peer Gynt Suite No. 1, Op. 46 (Karajan - B.P.O.)':
+            // use native locale
+            albumLocale = locale;
+            break;
     }
 
     if (logger && albumLocale !== EN_US) {
         logger.info('Using locale ' + albumLocale + ' for album ' + album);
     }
     album = escape(album);
-    return locale.startsWith(countryOf(albumLocale)) ? album : exports.speakAs(albumLocale, album);
-};
+    return locale.startsWith(countryOf(albumLocale)) ? album : speakAs(albumLocale, album);
+}

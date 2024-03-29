@@ -1,5 +1,3 @@
-'use strict';
-
 // include the testing framework
 const alexaTest = require('alexa-skill-test-framework');
 
@@ -8,20 +6,21 @@ const LIST_OF_CHANNELS = 'LIST_OF_CHANNELS';
 
 // initialize the testing framework
 alexaTest.initialize(
-    require('../index'),
+    require('../index.cjs'),
     'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526',
-    'amzn1.ask.account.VOID');
-alexaTest.setLocale('de-DE');
+    'amzn1.ask.account.VOID',
+    'amzn1.ask.device.VOID',
+);
+alexaTest.setLocale('en-US');
 alexaTest.setExtraFeature('questionMarkCheck', false); // songs may contain question marks
 
-describe('Paradise Playlist Skill (de-DE)', () => {
-
+describe('Paradise Playlist Skill (en-US)', () => {
     describe('ErrorHandler', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest(''),
-                says: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
-                reprompts: 'Entschuldigung, das verstehe ich nicht. Bitte wiederhole das?',
+                says: "Sorry, I don't understand. Please say again?",
+                reprompts: "Sorry, I don't understand. Please say again?",
                 shouldEndSession: false,
             },
         ]);
@@ -31,8 +30,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.HelpIntent'),
-                says: 'Du kannst sagen „Öffne Paradise Playlist“ und ich sage dir was gerade im Radio Paradise Main Mix läuft. Oder du fragst nach einem Sender, z.B. „Öffne Paradise Playlist für Rock Mix“.',
-                repromptsNothing: true, shouldEndSession: true,
+                says: "You can say 'Open Paradise Playlist' and I will tell you what's playing now on Radio Paradise Main Mix. Or you can ask for a channel, e.g. 'Open Paradise Playlist for Rock Mix'.",
+                repromptsNothing: true,
+                shouldEndSession: true,
             },
         ]);
     });
@@ -41,7 +41,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getSessionEndedRequest(),
-                saysNothing: true, repromptsNothing: true, shouldEndSession: true,
+                saysNothing: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
             },
         ]);
     });
@@ -50,8 +52,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.CancelIntent'),
-                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
-                repromptsNothing: true, shouldEndSession: true,
+                says: 'See you soon!',
+                repromptsNothing: true,
+                shouldEndSession: true,
             },
         ]);
     });
@@ -60,8 +63,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.StopIntent'),
-                says: '<say-as interpret-as="interjection">bis dann</say-as>.',
-                repromptsNothing: true, shouldEndSession: true,
+                says: 'See you soon!',
+                repromptsNothing: true,
+                shouldEndSession: true,
             },
         ]);
     });
@@ -70,15 +74,18 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
-                saysLike: 'Im <lang xml:lang="en-US">RP Main Mix</lang> hörst du gerade ',
+                saysLike: '<amazon:domain name="music">In RP Main Mix, you\'re listening to ',
                 hasCardTitle: 'RP Main Mix',
-                hasCardTextLike: 'Du hörst gerade ',
+                hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 hasAttributes: {
                     index: 0,
-                    song: song => { return song && song[0] && song[0].title.length > 0; },
+                    song: (song) => {
+                        return song && song[0] && song[0].title.length > 0;
+                    },
                 },
             },
         ]);
@@ -88,68 +95,96 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('RadioParadiseIntent'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Main Mix</lang> hörst du gerade ',
+                saysLike: '<amazon:domain name="music">In RP Main Mix, you\'re listening to ',
                 hasCardTitle: 'RP Main Mix',
-                hasCardTextLike: 'Du hörst gerade ',
+                hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 hasAttributes: {
                     index: 0,
-                    song: song => { return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '0'; },
+                    song: (song) => {
+                        return song && song[0] && song[0].title.length > 0;
+                    },
                 },
             },
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('RadioParadiseIntent', { channel: 'mellow mix' }),
-                    'channel', LIST_OF_CHANNELS, 'Mellow', '1'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Mellow Mix</lang> hörst du gerade ',
+                    'channel',
+                    LIST_OF_CHANNELS,
+                    'Mellow',
+                    '1',
+                ),
+                saysLike: '<amazon:domain name="music">In RP Mellow Mix, you\'re listening to ',
                 hasCardTitle: 'RP Mellow Mix',
-                hasCardTextLike: 'Du hörst gerade ',
+                hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 hasAttributes: {
                     index: 0,
-                    song: song => { return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '1'; },
+                    song: (song) => {
+                        return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '1';
+                    },
                 },
             },
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('RadioParadiseIntent', { channel: 'rock mix' }),
-                    'channel', LIST_OF_CHANNELS, 'Rock', '2'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Rock Mix</lang> hörst du gerade ',
+                    'channel',
+                    LIST_OF_CHANNELS,
+                    'Rock',
+                    '2',
+                ),
+                saysLike: '<amazon:domain name="music">In RP Rock Mix, you\'re listening to ',
                 hasCardTitle: 'RP Rock Mix',
-                hasCardTextLike: 'Du hörst gerade ',
+                hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 hasAttributes: {
                     index: 0,
-                    song: song => { return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '2'; },
+                    song: (song) => {
+                        return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '2';
+                    },
                 },
             },
             {
                 request: alexaTest.addEntityResolutionToRequest(
                     alexaTest.getIntentRequest('RadioParadiseIntent', { channel: 'global mix' }),
-                    'channel', LIST_OF_CHANNELS, 'Global', '3'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Global Mix</lang> hörst du gerade ',
+                    'channel',
+                    LIST_OF_CHANNELS,
+                    'Global',
+                    '3',
+                ),
+                saysLike: '<amazon:domain name="music">In RP Global Mix, you\'re listening to ',
                 hasCardTitle: 'RP Global Mix',
-                hasCardTextLike: 'Du hörst gerade ',
+                hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 hasAttributes: {
                     index: 0,
-                    song: song => { return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '3'; },
+                    song: (song) => {
+                        return song && song[0] && song[0].title.length > 0 && song[0].channel.chan === '3';
+                    },
                 },
             },
             {
                 request: alexaTest.addEntityResolutionNoMatchToRequest(
                     alexaTest.getIntentRequest('RadioParadiseIntent'),
-                    'channel', LIST_OF_CHANNELS, 'hauptmix'),
-                saysLike: 'Ich kenne diesen Kanal leider nicht.',
-                repromptsNothing: true, shouldEndSession: true,
+                    'channel',
+                    LIST_OF_CHANNELS,
+                    'hauptmix',
+                ),
+                saysLike: "I'm sorry, but I don't know that channel.",
+                repromptsNothing: true,
+                shouldEndSession: true,
             },
         ]);
     });
@@ -158,12 +193,14 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.PreviousIntent'),
-                says: 'Davor hörtest du <lang xml:lang="en-US">Sunset Grill</lang> von <lang xml:lang="en-US">Don Henley</lang> aus dem Album <lang xml:lang="en-US">Building the Perfect Beast</lang> von 1984.',
+                says: '<amazon:domain name="music">Previously, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast.</amazon:domain>',
                 hasCardTitle: 'RP Main Mix',
-                hasCardText: 'Davor hörtest du Sunset Grill von Don Henley aus dem Album Building the Perfect Beast von 1984. Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist 6.14, die Länge beträgt 06:16.',
+                hasCardText:
+                    'Previously, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast. Average rating by your fellow Radio Paradise listeners is 6.14, the length is 06:16.',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/B000000OPC.jpg',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 withSessionAttributes: {
                     index: 0,
                     song: {
@@ -183,7 +220,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
                 },
                 hasAttributes: {
                     index: 1,
-                    song: song => { return song && song[1] && song[1].year === 1984; },
+                    song: (song) => {
+                        return song && song[1] && song[1].year === 1984;
+                    },
                 },
             },
         ]);
@@ -193,8 +232,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.PreviousIntent'),
-                says: 'Tut mir leid, aber das ist zu lange her.',
-                repromptsNothing: true, shouldEndSession: true,
+                says: "I'm sorry, but that's too long ago.",
+                repromptsNothing: true,
+                shouldEndSession: true,
                 withSessionAttributes: {
                     index: 0,
                     song: {
@@ -214,12 +254,14 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
-                says: 'Danach hörtest du <lang xml:lang="en-US">Sunset Grill</lang> von <lang xml:lang="en-US">Don Henley</lang> aus dem Album <lang xml:lang="en-US">Building the Perfect Beast</lang> von 1984.',
+                says: '<amazon:domain name="music">Next, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast.</amazon:domain>',
                 hasCardTitle: 'RP Main Mix',
-                hasCardText: 'Danach hörtest du Sunset Grill von Don Henley aus dem Album Building the Perfect Beast von 1984. Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist 6.14, die Länge beträgt 06:16.',
+                hasCardText:
+                    'Next, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast. Average rating by your fellow Radio Paradise listeners is 6.14, the length is 06:16.',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/B000000OPC.jpg',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 withSessionAttributes: {
                     index: 2,
                     song: {
@@ -239,7 +281,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
                 },
                 hasAttributes: {
                     index: 1,
-                    song: song => { return song && song[1] && song[1].year === 1984; },
+                    song: (song) => {
+                        return song && song[1] && song[1].year === 1984;
+                    },
                 },
             },
         ]);
@@ -249,12 +293,13 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Main Mix</lang> hörst du gerade ',
+                saysLike: '<amazon:domain name="music">In RP Main Mix, you\'re listening to ',
                 hasCardTitle: 'RP Main Mix',
-                hasCardTextLike: 'Du hörst gerade ',
+                hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
-                repromptsNothing: true, shouldEndSession: true,
+                repromptsNothing: true,
+                shouldEndSession: true,
                 withSessionAttributes: {
                     index: 0,
                     song: {
@@ -267,7 +312,9 @@ describe('Paradise Playlist Skill (de-DE)', () => {
                 },
                 hasAttributes: {
                     index: 0,
-                    song: song => { return song && song[0] && song[0].title.length > 0; },
+                    song: (song) => {
+                        return song && song[0] && song[0].title.length > 0;
+                    },
                 },
             },
         ]);
