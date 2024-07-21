@@ -154,8 +154,7 @@ async function getNowPlayingResponse(channelId, handlerInput) {
 
 export async function handleRadioParadiseIntent(handlerInput) {
     /** @type {services.IntentRequest} */
-    // @ts-ignore
-    const { request } = handlerInput.requestEnvelope;
+    const request = handlerInput.requestEnvelope.request;
     logger.debug('request', request);
 
     const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
@@ -186,8 +185,7 @@ export async function handleRadioParadiseIntent(handlerInput) {
 
 export async function handlePreviousIntent(handlerInput) {
     /** @type {services.IntentRequest} */
-    // @ts-ignore
-    const { request } = handlerInput.requestEnvelope;
+    const request = handlerInput.requestEnvelope.request;
     logger.debug('request', request);
 
     const attributes = handlerInput.attributesManager.getSessionAttributes();
@@ -205,8 +203,7 @@ export async function handlePreviousIntent(handlerInput) {
 
 export async function handleNextIntentOverflow(handlerInput) {
     /** @type {services.IntentRequest} */
-    // @ts-ignore
-    const { request } = handlerInput.requestEnvelope;
+    const request = handlerInput.requestEnvelope.request;
     logger.debug('request', request);
 
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
@@ -216,8 +213,7 @@ export async function handleNextIntentOverflow(handlerInput) {
 
 export async function handleNextIntent(handlerInput) {
     /** @type {services.IntentRequest} */
-    // @ts-ignore
-    const { request } = handlerInput.requestEnvelope;
+    const request = handlerInput.requestEnvelope.request;
     logger.debug('request', request);
 
     const attributes = handlerInput.attributesManager.getSessionAttributes();
