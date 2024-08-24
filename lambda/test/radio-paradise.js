@@ -10,7 +10,7 @@ function verifyResult(result, channel, mix) {
     expect(result.song[0].title, 'title').to.be.a('string');
     expect(result.song[0].album, 'album').to.be.a('string');
     expect(result.song[0].year, 'year').to.be.a('string');
-    expect(result.song[0].rating, 'rating').to.be.a('string');
+    expect(result.song[0].listener_rating, 'rating').to.be.a('number');
     expect(result.song[0].cover, 'cover').to.be.a('string');
     expect(result.song[0].channel.title, 'channel.title').to.equal(channel);
 }
@@ -19,12 +19,12 @@ describe('Radio Paradise helpers', () => {
     describe('#getNowPlaying()', () => {
         it('should give songs playing on Main Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.main);
-            verifyResult(result, 'RP Main Mix', radioParadise.mix.main);
+            verifyResult(result, 'The Main Mix', radioParadise.mix.main);
         });
 
         it('should give songs playing on Mellow Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.mellow);
-            verifyResult(result, 'RP Mellow Mix', radioParadise.mix.mellow);
+            verifyResult(result, 'The Mellow Mix', radioParadise.mix.mellow);
         });
 
         it('should give songs playing on Rock Mix', async () => {
@@ -38,8 +38,8 @@ describe('Radio Paradise helpers', () => {
         });
 
         it('should find nothing for non-existing channel', async () => {
-            const result = await radioParadise.getNowPlaying('4');
-            expect(result.song).to.not.exist;
+            const result = await radioParadise.getNowPlaying('99');
+            expect(result.song).to.be.empty;
         });
     });
 });

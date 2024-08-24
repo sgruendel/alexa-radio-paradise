@@ -74,8 +74,8 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
-                saysLike: 'Im <lang xml:lang="en-US">RP Main Mix</lang> hörst du gerade ',
-                hasCardTitle: 'RP Main Mix',
+                saysLike: 'Im <lang xml:lang="en-US">The Main Mix</lang> hörst du gerade ',
+                hasCardTitle: 'The Main Mix',
                 hasCardTextLike: 'Du hörst gerade ',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
@@ -95,8 +95,8 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('RadioParadiseIntent'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Main Mix</lang> hörst du gerade ',
-                hasCardTitle: 'RP Main Mix',
+                saysLike: 'Im <lang xml:lang="en-US">The Main Mix</lang> hörst du gerade ',
+                hasCardTitle: 'The Main Mix',
                 hasCardTextLike: 'Du hörst gerade ',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
@@ -117,8 +117,8 @@ describe('Paradise Playlist Skill (de-DE)', () => {
                     'Mellow',
                     '1',
                 ),
-                saysLike: 'Im <lang xml:lang="en-US">RP Mellow Mix</lang> hörst du gerade ',
-                hasCardTitle: 'RP Mellow Mix',
+                saysLike: 'Im <lang xml:lang="en-US">The Mellow Mix</lang> hörst du gerade ',
+                hasCardTitle: 'The Mellow Mix',
                 hasCardTextLike: 'Du hörst gerade ',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
@@ -194,7 +194,7 @@ describe('Paradise Playlist Skill (de-DE)', () => {
             {
                 request: alexaTest.getIntentRequest('AMAZON.PreviousIntent'),
                 says: 'Davor hörtest du <lang xml:lang="en-US">Sunset Grill</lang> von <lang xml:lang="en-US">Don Henley</lang> aus dem Album <lang xml:lang="en-US">Building the Perfect Beast</lang> von 1984.',
-                hasCardTitle: 'RP Main Mix',
+                hasCardTitle: 'The Main Mix',
                 hasCardText:
                     'Davor hörtest du Sunset Grill von Don Henley aus dem Album Building the Perfect Beast von 1984. Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist 6.14, die Länge beträgt 06:16.',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
@@ -213,7 +213,7 @@ describe('Paradise Playlist Skill (de-DE)', () => {
                             rating: 6.14,
                             cover: 'covers/l/B000000OPC.jpg',
                             channel: {
-                                title: 'RP Main Mix',
+                                title: 'The Main Mix',
                             },
                         },
                     },
@@ -255,7 +255,7 @@ describe('Paradise Playlist Skill (de-DE)', () => {
             {
                 request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
                 says: 'Danach hörtest du <lang xml:lang="en-US">Sunset Grill</lang> von <lang xml:lang="en-US">Don Henley</lang> aus dem Album <lang xml:lang="en-US">Building the Perfect Beast</lang> von 1984.',
-                hasCardTitle: 'RP Main Mix',
+                hasCardTitle: 'The Main Mix',
                 hasCardText:
                     'Danach hörtest du Sunset Grill von Don Henley aus dem Album Building the Perfect Beast von 1984. Die durchschnittliche Bewertung aller Radio Paradise-Hörer ist 6.14, die Länge beträgt 06:16.',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
@@ -274,7 +274,7 @@ describe('Paradise Playlist Skill (de-DE)', () => {
                             rating: 6.14,
                             cover: 'covers/l/B000000OPC.jpg',
                             channel: {
-                                title: 'RP Main Mix',
+                                title: 'The Main Mix',
                             },
                         },
                     },
@@ -293,8 +293,8 @@ describe('Paradise Playlist Skill (de-DE)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
-                saysLike: 'Im <lang xml:lang="en-US">RP Main Mix</lang> hörst du gerade ',
-                hasCardTitle: 'RP Main Mix',
+                saysLike: 'Im <lang xml:lang="en-US">The Main Mix</lang> hörst du gerade ',
+                hasCardTitle: 'The Main Mix',
                 hasCardTextLike: 'Du hörst gerade ',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',

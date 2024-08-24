@@ -46,7 +46,7 @@ function getResponseForSong(handlerInput, song, msg, txt) {
         interpolation: { escapeValue: false },
     });
     const additionalInfo = requestAttributes.t('ADDITIONAL_INFO_MESSAGE', {
-        avgRating: song.rating,
+        avgRating: song.listener_rating,
         length: utils.secondsToTime(Number(song.duration) / 1000),
     });
     const cardContent =

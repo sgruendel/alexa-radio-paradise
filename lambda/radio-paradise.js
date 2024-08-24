@@ -14,10 +14,10 @@ const options = {
 
 /** @typedef {Object.<string, number>} Mix */
 export const mix = {
-    main: '0',
-    mellow: '1',
-    rock: '2',
-    global: '3',
+    main: 0,
+    mellow: 1,
+    rock: 2,
+    global: 3,
 };
 
 /**
@@ -65,7 +65,7 @@ export const mix = {
  */
 export async function getNowPlaying(mix) {
     // https://api.radioparadise.com/api/nowplaying_list?&chan=0
-    const response = await fetch(BASE_URL + 'nowplaying_list?chan=' + mix, options);
+    const response = await fetch(BASE_URL + 'nowplaying_list_v2022?chan=' + mix, options);
 
     /** @type {NowPlaying} */
     // @ts-ignore

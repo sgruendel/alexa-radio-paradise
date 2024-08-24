@@ -74,8 +74,8 @@ describe('Paradise Playlist Skill (en-US)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getLaunchRequest(),
-                saysLike: '<amazon:domain name="music">In RP Main Mix, you\'re listening to ',
-                hasCardTitle: 'RP Main Mix',
+                saysLike: '<amazon:domain name="music">In The Main Mix, you\'re listening to ',
+                hasCardTitle: 'The Main Mix',
                 hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
@@ -95,8 +95,8 @@ describe('Paradise Playlist Skill (en-US)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('RadioParadiseIntent'),
-                saysLike: '<amazon:domain name="music">In RP Main Mix, you\'re listening to ',
-                hasCardTitle: 'RP Main Mix',
+                saysLike: '<amazon:domain name="music">In The Main Mix, you\'re listening to ',
+                hasCardTitle: 'The Main Mix',
                 hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
@@ -117,8 +117,8 @@ describe('Paradise Playlist Skill (en-US)', () => {
                     'Mellow',
                     '1',
                 ),
-                saysLike: '<amazon:domain name="music">In RP Mellow Mix, you\'re listening to ',
-                hasCardTitle: 'RP Mellow Mix',
+                saysLike: '<amazon:domain name="music">In The Mellow Mix, you\'re listening to ',
+                hasCardTitle: 'The Mellow Mix',
                 hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
@@ -194,7 +194,7 @@ describe('Paradise Playlist Skill (en-US)', () => {
             {
                 request: alexaTest.getIntentRequest('AMAZON.PreviousIntent'),
                 says: '<amazon:domain name="music">Previously, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast.</amazon:domain>',
-                hasCardTitle: 'RP Main Mix',
+                hasCardTitle: 'The Main Mix',
                 hasCardText:
                     'Previously, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast. Average rating by your fellow Radio Paradise listeners is 6.14, the length is 06:16.',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
@@ -213,7 +213,7 @@ describe('Paradise Playlist Skill (en-US)', () => {
                             rating: 6.14,
                             cover: 'covers/l/B000000OPC.jpg',
                             channel: {
-                                title: 'RP Main Mix',
+                                title: 'The Main Mix',
                             },
                         },
                     },
@@ -255,7 +255,7 @@ describe('Paradise Playlist Skill (en-US)', () => {
             {
                 request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
                 says: '<amazon:domain name="music">Next, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast.</amazon:domain>',
-                hasCardTitle: 'RP Main Mix',
+                hasCardTitle: 'The Main Mix',
                 hasCardText:
                     'Next, you were listening to Sunset Grill by Don Henley from the 1984 album Building the Perfect Beast. Average rating by your fellow Radio Paradise listeners is 6.14, the length is 06:16.',
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/B000000OPC.jpg',
@@ -274,7 +274,7 @@ describe('Paradise Playlist Skill (en-US)', () => {
                             rating: 6.14,
                             cover: 'covers/l/B000000OPC.jpg',
                             channel: {
-                                title: 'RP Main Mix',
+                                title: 'The Main Mix',
                             },
                         },
                     },
@@ -293,8 +293,8 @@ describe('Paradise Playlist Skill (en-US)', () => {
         alexaTest.test([
             {
                 request: alexaTest.getIntentRequest('AMAZON.NextIntent'),
-                saysLike: '<amazon:domain name="music">In RP Main Mix, you\'re listening to ',
-                hasCardTitle: 'RP Main Mix',
+                saysLike: '<amazon:domain name="music">In The Main Mix, you\'re listening to ',
+                hasCardTitle: 'The Main Mix',
                 hasCardTextLike: "You're listening to ",
                 hasSmallImageUrlLike: 'https://img.radioparadise.com/covers/s/',
                 hasLargeImageUrlLike: 'https://img.radioparadise.com/covers/l/',
