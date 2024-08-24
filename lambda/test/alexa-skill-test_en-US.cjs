@@ -210,7 +210,7 @@ describe('Paradise Playlist Skill (en-US)', () => {
                             title: 'Sunset Grill',
                             album: 'Building the Perfect Beast',
                             year: 1984,
-                            rating: 6.14,
+                            listener_rating: 6.14,
                             cover: 'covers/l/B000000OPC.jpg',
                             channel: {
                                 title: 'The Main Mix',
@@ -271,7 +271,7 @@ describe('Paradise Playlist Skill (en-US)', () => {
                             title: 'Sunset Grill',
                             album: 'Building the Perfect Beast',
                             year: 1984,
-                            rating: 6.14,
+                            listener_rating: 6.14,
                             cover: 'covers/l/B000000OPC.jpg',
                             channel: {
                                 title: 'The Main Mix',
