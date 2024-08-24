@@ -33,21 +33,23 @@ export const mix = {
 /**
  * @typedef {Object} Song
  * @property {string} event - Event ID.
- * @property {string} sched_time - Scheduled time.
  * @property {string} song_id - Song ID.
- * @property {string} chan - Channel ID.
- * @property {string} duration - Duration of the song.
- * @property {string} artist - Artist name.
- * @property {string} title - Title of the song.
- * @property {string} album - Album name.
- * @property {string} year - Year of release.
- * @property {string} asin - Amazon Standard Identification Number (ASIN).
- * @property {string} rating - Song rating.
- * @property {string} slideshow - Slideshow images.
+ * @property {number} play_time - Time played.
  * @property {string} cover - URL of the large cover image.
  * @property {string} cover_med - URL of the medium cover image.
  * @property {string} cover_small - URL of the small cover image.
  * @property {Channel} channel - Channel information.
+ * @property {number} chan - Channel ID.
+ * @property {string} album - Album name.
+ * @property {string} artist - Artist name.
+ * @property {string} asin - Amazon Standard Identification Number (ASIN).
+ * @property {string} duration - Duration of the song.
+ * @property {string} ratings_num - Number of total ratings.
+ * @property {[number]} ratings_dist - Number of ratings per category.
+ * @property {number} listener_rating - Average rating.
+ * @property {string} slideshow - Slideshow images.
+ * @property {string} title - Title of the song.
+ * @property {string} year - Year of release.
  */
 
 /**
@@ -60,7 +62,7 @@ export const mix = {
 
 /**
  * Makes an asynchronous request to the Radio Paradise API to retrieve the currently playing song for a given mix.
- * @param {string} mix channel or mix for which to retrieve the currently playing songs.
+ * @param {number} mix channel or mix for which to retrieve the currently playing songs.
  * @returns a promise that resolves to the JSON response from the API.
  */
 export async function getNowPlaying(mix) {

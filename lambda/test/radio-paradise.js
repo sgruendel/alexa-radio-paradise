@@ -10,7 +10,7 @@ function verifyResult(result, channel, mix) {
     expect(result.song[0].title, 'title').to.be.a('string');
     expect(result.song[0].album, 'album').to.be.a('string');
     expect(result.song[0].year, 'year').to.be.a('string');
-    expect(result.song[0].listener_rating, 'rating').to.be.a('number');
+    expect(result.song[0].listener_rating, 'listener_rating').to.be.a('number');
     expect(result.song[0].cover, 'cover').to.be.a('string');
     expect(result.song[0].channel.title, 'channel.title').to.equal(channel);
 }
@@ -38,7 +38,7 @@ describe('Radio Paradise helpers', () => {
         });
 
         it('should find nothing for non-existing channel', async () => {
-            const result = await radioParadise.getNowPlaying('99');
+            const result = await radioParadise.getNowPlaying(99);
             expect(result.song).to.be.empty;
         });
     });

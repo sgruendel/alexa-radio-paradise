@@ -121,6 +121,13 @@ function getResponseForSong(handlerInput, song, msg, txt) {
         .getResponse();
 }
 
+/**
+ * Makes an asynchronous request to the Radio Paradise API to retrieve the currently playing song for a given mix.
+ *
+ * @param {number} channelId RP channel id
+ * @param handlerInput Alexa handler input
+ * @returns
+ */
 async function getNowPlayingResponse(channelId, handlerInput) {
     const locale = Alexa.getLocale(handlerInput.requestEnvelope);
 
@@ -171,7 +178,7 @@ export async function handleRadioParadiseIntent(handlerInput) {
                 return handlerInput.responseBuilder.speak(speechOutput).getResponse();
 
             case ER_SUCCESS_MATCH:
-                channelId = rpaChannel.values[0].value.id;
+                channelId = parseInt(rpaChannel.values[0].value.id);
                 logger.debug('using channel ' + rpaChannel.values[0].value.name);
                 break;
 
