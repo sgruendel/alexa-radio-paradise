@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "reinstall": "rm -rf ./node_modules && npm install",
-        "test": "c8 --reporter=lcov --reporter=text mocha --timeout 12000"
+        "test": "c8 --reporter=lcov --reporter=text mocha --timeout 7000"
     },
     "repository": {
         "type": "git",
@@ -33,9 +33,9 @@
         "alexa-skill-test-framework": "^1.2.4",
         "c8": "^10.1.3",
         "chai": "^5.2.0",
-        "eslint": "^9.28.0",
+        "eslint": "^9.30.0",
         "eslint-config-strongloop": "^2.1.0",
-        "mocha": "^11.6.0"
+        "mocha": "^11.7.1"
     },
     "eslintConfig": {
         "parserOptions": {
