@@ -24,17 +24,17 @@ describe('Radio Paradise helpers', () => {
 
         it('should give songs playing on Mellow Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.mellow);
-            verifyResult(result, 'The Mellow Mix', radioParadise.mix.mellow);
+            verifyResult(result, 'Mellow Mix', radioParadise.mix.mellow);
         });
 
         it('should give songs playing on Rock Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.rock);
-            verifyResult(result, 'RP Rock Mix', radioParadise.mix.rock);
+            verifyResult(result, 'RockIt!', radioParadise.mix.rock);
         });
 
         it('should give songs playing on Global Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.global);
-            verifyResult(result, 'RP Global Mix', radioParadise.mix.global);
+            verifyResult(result, 'Globalized', radioParadise.mix.global);
         });
 
         it('should find nothing for non-existing channel', async () => {
