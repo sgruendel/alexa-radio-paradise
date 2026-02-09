@@ -1,7 +1,8 @@
-const Alexa = require('ask-sdk-core');
-const i18next = require('i18next');
-const sprintf = require('i18next-sprintf-postprocessor');
-const winston = require('winston');
+import Alexa from 'ask-sdk-core';
+import i18next from 'i18next';
+import sprintf from 'i18next-sprintf-postprocessor';
+import winston from 'winston';
+import * as handlers from './handlers.js';
 
 const logger = winston.createLogger({
     level: process.env.LOG_LEVEL || 'info',
@@ -12,9 +13,6 @@ const logger = winston.createLogger({
     ],
     exitOnError: false,
 });
-
-// as index.cjs is CommonJS, we need to use the asynchronous import()
-const handlersPromise = import('./handlers.js');
 
 const SKILL_ID = 'amzn1.ask.skill.9a6c0ff8-b416-407c-be53-1c67a58fe526';
 
@@ -249,7 +247,7 @@ const RadioParadiseIntentHandler = {
         );
     },
     async handle(handlerInput) {
-        return (await handlersPromise).handleRadioParadiseIntent(handlerInput);
+        return handlers.handleRadioParadiseIntent(handlerInput);
     },
 };
 
@@ -295,7 +293,7 @@ const PreviousIntentHandler = {
         return false;
     },
     async handle(handlerInput) {
-        return (await handlersPromise).handlePreviousIntent(handlerInput);
+        return handlers.handlePreviousIntent(handlerInput);
     },
 };
 
@@ -310,7 +308,7 @@ const NextIntentOverflowHandler = {
         return false;
     },
     async handle(handlerInput) {
-        return (await handlersPromise).handleNextIntentOverflow(handlerInput);
+        return handlers.handleNextIntentOverflow(handlerInput);
     },
 };
 
@@ -324,7 +322,7 @@ const NextIntentHandler = {
         return false;
     },
     async handle(handlerInput) {
-        return (await handlersPromise).handleNextIntent(handlerInput);
+        return handlers.handleNextIntent(handlerInput);
     },
 };
 
@@ -392,19 +390,27 @@ const LocalizationInterceptor = {
     },
 };
 
-exports.handler = Alexa.SkillBuilders.custom()
-    .addRequestHandlers(
-        CFIRRadioParadiseIntentHandler,
-        RadioParadiseIntentHandler,
-        HelpIntentHandler,
-        CancelAndStopIntentHandler,
-        PreviousIntentHandler,
-        NextIntentOverflowHandler,
-        NextIntentHandler,
-        SessionEndedRequestHandler,
-    )
-    .addRequestInterceptors(LocalizationInterceptor)
-    .addErrorHandlers(CFIRErrorHandler, ErrorHandler)
-    .withApiClient(new Alexa.DefaultApiClient())
-    .withSkillId(SKILL_ID)
-    .lambda();
+let skill;
+
+export const handler = async function (event, context) {
+    if (!skill) {
+        skill = Alexa.SkillBuilders.custom()
+            .addRequestHandlers(
+                CFIRRadioParadiseIntentHandler,
+                RadioParadiseIntentHandler,
+                HelpIntentHandler,
+                CancelAndStopIntentHandler,
+                PreviousIntentHandler,
+                NextIntentOverflowHandler,
+                NextIntentHandler,
+                SessionEndedRequestHandler,
+            )
+            .addRequestInterceptors(LocalizationInterceptor)
+            .addErrorHandlers(CFIRErrorHandler, ErrorHandler)
+            .withApiClient(new Alexa.DefaultApiClient())
+            .withSkillId(SKILL_ID)
+            .create();
+    }
+
+    return skill.invoke(event, context);
+};
