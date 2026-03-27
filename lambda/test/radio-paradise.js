@@ -34,7 +34,7 @@ describe('Radio Paradise helpers', () => {
 
         it('should give songs playing on Global Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.global);
-            verifyResult(result, 'Globalized', radioParadise.mix.global);
+            verifyResult(result, 'The Globe', radioParadise.mix.global);
         });
 
         it('should find nothing for non-existing channel', async () => {
