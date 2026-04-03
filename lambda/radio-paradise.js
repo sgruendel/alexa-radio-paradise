@@ -17,7 +17,10 @@ export const mix = {
     main: 0,
     mellow: 1,
     rock: 2,
-    global: 3,
+    globe: 3,
+    beyond: 5,
+    serenity: 42,
+    kfat: 945,
 };
 
 /**

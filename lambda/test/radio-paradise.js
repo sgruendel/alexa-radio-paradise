@@ -17,7 +17,7 @@ function verifyResult(result, channel, mix) {
 
 describe('Radio Paradise helpers', () => {
     describe('#getNowPlaying()', () => {
-        it('should give songs playing on Main Mix', async () => {
+        it('should give songs playing on The Main Mix', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.main);
             verifyResult(result, 'The Main Mix', radioParadise.mix.main);
         });
@@ -27,14 +27,29 @@ describe('Radio Paradise helpers', () => {
             verifyResult(result, 'Mellow Mix', radioParadise.mix.mellow);
         });
 
-        it('should give songs playing on Rock Mix', async () => {
+        it('should give songs playing on RockIt!', async () => {
             const result = await radioParadise.getNowPlaying(radioParadise.mix.rock);
             verifyResult(result, 'RockIt!', radioParadise.mix.rock);
         });
 
-        it('should give songs playing on Global Mix', async () => {
-            const result = await radioParadise.getNowPlaying(radioParadise.mix.global);
-            verifyResult(result, 'The Globe', radioParadise.mix.global);
+        it('should give songs playing on The Globe', async () => {
+            const result = await radioParadise.getNowPlaying(radioParadise.mix.globe);
+            verifyResult(result, 'The Globe', radioParadise.mix.globe);
+        });
+
+        it('should give songs playing on Beyond...', async () => {
+            const result = await radioParadise.getNowPlaying(radioParadise.mix.beyond);
+            verifyResult(result, 'Beyond...', radioParadise.mix.beyond);
+        });
+
+        it('should give songs playing on Beyond...', async () => {
+            const result = await radioParadise.getNowPlaying(radioParadise.mix.beyond);
+            verifyResult(result, 'Beyond...', radioParadise.mix.beyond);
+        });
+
+        it('should give songs playing on Beyond...', async () => {
+            const result = await radioParadise.getNowPlaying(radioParadise.mix.beyond);
+            verifyResult(result, 'Beyond...', radioParadise.mix.beyond);
         });
 
         it('should find nothing for non-existing channel', async () => {

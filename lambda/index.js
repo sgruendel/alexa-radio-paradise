@@ -210,12 +210,21 @@ const CFIRRadioParadiseIntentHandler = {
                 name === 'channel' &&
                 (value === 'Main' ||
                     value === 'Main Mix' ||
+                    value === 'The Main Mix' ||
                     value === 'Mellow' ||
                     value === 'Mellow Mix' ||
                     value === 'Rock' ||
                     value === 'Rock Mix' ||
+                    value === 'RockIt!' ||
                     value === 'Global' ||
-                    value === 'Global Mix')
+                    value === 'Global Mix' ||
+                    value === 'Globe' ||
+                    value === 'The Globe' ||
+                    value === 'Beyond' ||
+                    value === 'Beyond...' ||
+                    value === 'Serenity' ||
+                    value === 'KFAT' ||
+                    value === 'K-FAT')
             ) {
                 canFulfillIntent.slots[name] = {
                     canUnderstand: 'YES',
