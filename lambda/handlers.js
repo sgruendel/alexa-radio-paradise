@@ -172,10 +172,11 @@ export async function handleRadioParadiseIntent(handlerInput) {
     let channelId = radioParadise.mix.main;
     if (rpaChannel) {
         switch (rpaChannel.status.code) {
-            case ER_SUCCESS_NO_MATCH:
+            case ER_SUCCESS_NO_MATCH: {
                 logger.error('no match for channel ' + slots.channel.value);
                 const speechOutput = requestAttributes.t('UNKNOWN_CHANNEL_MESSAGE');
                 return handlerInput.responseBuilder.speak(speechOutput).getResponse();
+            }
 
             case ER_SUCCESS_MATCH:
                 channelId = parseInt(rpaChannel.values[0].value.id);

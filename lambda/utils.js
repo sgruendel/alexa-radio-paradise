@@ -28,7 +28,7 @@ const entityMap = {
  * @returns escaped string
  */
 function escape(str) {
-    return str.replace(/[&<>"'\/]/g, (s) => {
+    return str.replace(/[&<>"'/]/g, (s) => {
         return entityMap[s];
     });
 }
@@ -183,7 +183,7 @@ export function fixSong(song, locale) {
             fixedSong.title = 'Vivaldi - Allegro, Concerto in G Major Op. 4, No. 3';
         }
     } else {
-        fixedSong.title = fixedSong.title.replace(/\(w\/ */, '(with ').replace(/\ w\/ */, ' with ');
+        fixedSong.title = fixedSong.title.replace(/\(w\/ */, '(with ').replace(/ w\/ */, ' with ');
     }
 
     if (song.album === '20 Jahre: Nena Ft Nena') {
@@ -208,7 +208,7 @@ export function fixSong(song, locale) {
     } else if (song.album === 'Rodrigo Y Gabriela') {
         fixedSong.album = 'Rodrigo y Gabriela';
     } else {
-        fixedSong.album = fixedSong.album.replace(/\(w\/ */, '(with ').replace(/\ w\/ */, ' with ');
+        fixedSong.album = fixedSong.album.replace(/\(w\/ */, '(with ').replace(/ w\/ */, ' with ');
     }
 
     return fixedSong;

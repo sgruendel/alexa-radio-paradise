@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import * as utils from '../utils.js';
+import * as utils from '../../utils.js';
 
 const locales = ['de-DE', 'en-AU', 'en-CA', 'en-GB', 'en-IN', 'en-US', 'es-ES', 'es-MX', 'fr-CA', 'fr-FR', 'it-IT'];
 
@@ -182,29 +182,25 @@ describe('utils', () => {
         });
 
         it('should work for Concerto Op 4 No 1: III Allegro in English', () => {
-            locales.forEach((locale) => {
-                const song = {
-                    ...EMPTY_SONG,
-                    artist: 'Antonio Vivaldi',
-                    title: 'Concerto Op 4 No 1: III Allegro',
-                    album: 'Vivaldi Masterworks',
-                };
-                const fixedSong = utils.fixSong(song, utils.EN_US);
-                expect(fixedSong.title).to.equal('Concerto Op. 4, No. 1: III Allegro');
-            });
+            const song = {
+                ...EMPTY_SONG,
+                artist: 'Antonio Vivaldi',
+                title: 'Concerto Op 4 No 1: III Allegro',
+                album: 'Vivaldi Masterworks',
+            };
+            const fixedSong = utils.fixSong(song, utils.EN_US);
+            expect(fixedSong.title).to.equal('Concerto Op. 4, No. 1: III Allegro');
         });
 
         it('should work for Concerto Op 4 No 1: III Allegro in German', () => {
-            locales.forEach((locale) => {
-                const song = {
-                    ...EMPTY_SONG,
-                    artist: 'Antonio Vivaldi',
-                    title: 'Concerto Op 4 No 1: III Allegro',
-                    album: 'Vivaldi Masterworks',
-                };
-                const fixedSong = utils.fixSong(song, utils.DE_DE);
-                expect(fixedSong.title).to.equal('Concerto Op. 4, Nr. 1: III Allegro');
-            });
+            const song = {
+                ...EMPTY_SONG,
+                artist: 'Antonio Vivaldi',
+                title: 'Concerto Op 4 No 1: III Allegro',
+                album: 'Vivaldi Masterworks',
+            };
+            const fixedSong = utils.fixSong(song, utils.DE_DE);
+            expect(fixedSong.title).to.equal('Concerto Op. 4, Nr. 1: III Allegro');
         });
 
         it('should work for Corazon Espinado (feat Mana)', () => {

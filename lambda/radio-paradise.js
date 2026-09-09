@@ -7,10 +7,32 @@ const httpsAgent = new https.Agent({
     keepAlive: true,
 });
 const options = {
-    agent: (_parsedURL) => {
-        return httpsAgent;
-    },
+    agent: httpsAgent,
 };
+
+export class HttpError extends Error {
+    /**
+     * @param {number} statusCode HTTP response status.
+     */
+    constructor(statusCode) {
+        super(`Radio Paradise request failed with status ${statusCode}`);
+        this.name = 'HttpError';
+        this.statusCode = statusCode;
+    }
+}
+
+/**
+ * @template T
+ * @param {string} url URL to request.
+ * @returns {Promise<T>} Parsed JSON response.
+ */
+async function getJson(url) {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+        throw new HttpError(response.status);
+    }
+    return /** @type {Promise<T>} */ (response.json());
+}
 
 /** @typedef {Object.<string, number>} Mix */
 export const mix = {
@@ -66,14 +88,9 @@ export const mix = {
 /**
  * Makes an asynchronous request to the Radio Paradise API to retrieve the currently playing song for a given mix.
  * @param {number} mix channel or mix for which to retrieve the currently playing songs.
- * @returns a promise that resolves to the JSON response from the API.
+ * @returns {Promise<NowPlaying>} a promise that resolves to the JSON response from the API.
  */
-export async function getNowPlaying(mix) {
+export function getNowPlaying(mix) {
     // https://api.radioparadise.com/api/nowplaying_list?&chan=0
-    const response = await fetch(BASE_URL + 'nowplaying_list_v2022?chan=' + mix, options);
-
-    /** @type {NowPlaying} */
-    // @ts-ignore
-    const songs = response.json();
-    return songs;
+    return getJson(BASE_URL + 'nowplaying_list_v2022?chan=' + mix);
 }
