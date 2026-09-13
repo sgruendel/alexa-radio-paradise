@@ -1,6 +1,8 @@
 import fetch from 'node-fetch';
 import https from 'https';
 
+import { createRequestSignal } from './request-budget.js';
+
 const BASE_URL = 'https://api.radioparadise.com/api/';
 
 const httpsAgent = new https.Agent({
@@ -26,8 +28,9 @@ export class HttpError extends Error {
  * @param {string} url URL to request.
  * @returns {Promise<T>} Parsed JSON response.
  */
-async function getJson(url) {
-    const response = await fetch(url, options);
+async function getJson(url, { signal = createRequestSignal() } = {}) {
+    signal.throwIfAborted();
+    const response = await fetch(url, { ...options, signal });
     if (!response.ok) {
         throw new HttpError(response.status);
     }
@@ -88,9 +91,10 @@ export const mix = {
 /**
  * Makes an asynchronous request to the Radio Paradise API to retrieve the currently playing song for a given mix.
  * @param {number} mix channel or mix for which to retrieve the currently playing songs.
+ * @param {{signal?: AbortSignal}=} options request options.
  * @returns {Promise<NowPlaying>} a promise that resolves to the JSON response from the API.
  */
-export function getNowPlaying(mix) {
+export function getNowPlaying(mix, options) {
     // https://api.radioparadise.com/api/nowplaying_list?&chan=0
-    return getJson(BASE_URL + 'nowplaying_list_v2022?chan=' + mix);
+    return getJson(BASE_URL + 'nowplaying_list_v2022?chan=' + encodeURIComponent(mix), options);
 }

@@ -14,6 +14,7 @@ const logger = winston.createLogger({
 });
 
 import * as radioParadise from './radio-paradise.js';
+import { createRequestSignal } from './request-budget.js';
 import * as utils from './utils.js';
 
 const RP_IMAGE_URL = 'https://img.radioparadise.com/';
@@ -102,7 +103,7 @@ function getResponseForSong(handlerInput, song, msg, txt) {
         };
         handlerInput.responseBuilder.addDirective({
             type: 'Alexa.Presentation.APL.RenderDocument',
-            version: '1.1',
+            token: handlerInput.requestEnvelope.request.requestId,
             document,
             datasources,
         });
@@ -130,10 +131,11 @@ function getResponseForSong(handlerInput, song, msg, txt) {
  */
 async function getNowPlayingResponse(channelId, handlerInput) {
     const locale = Alexa.getLocale(handlerInput.requestEnvelope);
+    const signal = createRequestSignal(handlerInput.context);
 
     let response;
     await radioParadise
-        .getNowPlaying(channelId)
+        .getNowPlaying(channelId, { signal })
         .then((songs) => {
             /** @type {radioParadise.Song[]} */
             let songArray = [];

@@ -4,7 +4,7 @@ let requestId = 0;
 
 function requestEnvelope(
     request,
-    { locale = 'en-US', sessionNew = true, sessionAttributes = {}, supportedInterfaces = {} } = {},
+    { locale = 'en-US', sessionNew = true, sessionAttributes = {}, supportedInterfaces = {}, sessionId } = {},
 ) {
     requestId += 1;
     const application = { applicationId: SKILL_ID };
@@ -14,7 +14,7 @@ function requestEnvelope(
         version: '1.0',
         session: {
             new: sessionNew,
-            sessionId: `test-session-${requestId}`,
+            sessionId: sessionId ?? `test-session-${requestId}`,
             application,
             attributes: sessionAttributes,
             user,

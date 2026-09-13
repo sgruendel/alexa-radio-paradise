@@ -6,14 +6,25 @@
     "type": "module",
     "scripts": {
         "reinstall": "rm -rf ./node_modules && npm install",
-        "test": "node --env-file-if-exists=.env ./node_modules/.bin/c8 --reporter=lcov --reporter=text mocha",
-        "lambda:zip": "zip -r /tmp/radioParadise.zip node_modules/ package* *.js",
+        "test:unit": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/unit/**/*.js\"",
+        "test:integration": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=7000 --file test/setup.js \"test/integration/**/*.js\"",
+        "test": "node --import ./test/env.js ./node_modules/c8/bin/c8.js mocha --timeout=7000 --file test/setup.js \"test/unit/**/*.js\" \"test/integration/**/*.js\"",
+        "test:contract": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=15000 \"test/contract/**/*.js\"",
+        "lint": "eslint .",
+        "lambda:zip": "rm -f /tmp/radioParadise.zip && zip -r /tmp/radioParadise.zip node_modules/ package* *.js",
         "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name radioParadise --zip-file fileb:///tmp/radioParadise.zip"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/sgruendel/alexa-radio-paradise.git"
     },
+    "keywords": [
+        "alexa",
+        "skill",
+        "radio-paradise",
+        "playlist",
+        "internet-radio"
+    ],
     "author": "Stefan Gründel",
     "license": "GPL-3.0",
     "bugs": {
@@ -37,7 +48,29 @@
         "chai": "^6.2.2",
         "eslint": "^10.10.0",
         "globals": "^17.12.0",
-        "mocha": "^12.0.0",
+        "mocha": "^12.0.1",
         "nock": "^14.0.17"
+    },
+    "c8": {
+        "all": true,
+        "include": [
+            "index.js",
+            "handlers.js",
+            "radio-paradise.js",
+            "request-budget.js",
+            "utils.js"
+        ],
+        "reporter": [
+            "lcov",
+            "text"
+        ],
+        "check-coverage": true,
+        "lines": 90,
+        "statements": 90,
+        "functions": 90,
+        "branches": 85
+    },
+    "engines": {
+        "node": "24.x"
     }
 }
