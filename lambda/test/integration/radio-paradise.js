@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import nock from 'nock';
 
 import * as radioParadise from '../../radio-paradise.js';
-import { nowPlaying } from '../fixtures/radio-paradise.js';
+import { BASE_URL, nowPlaying } from '../fixtures/radio-paradise.js';
 import { mockNowPlaying } from '../helpers/radio-paradise.js';
 
 describe('Radio Paradise helpers', () => {
@@ -32,26 +32,35 @@ describe('Radio Paradise helpers', () => {
             expect(error.name).to.equal('HttpError');
             expect(error.statusCode).to.equal(503);
         });
-    });
 
-    describe('live API', function () {
-        this.timeout(20000);
+        it('aborts while waiting for a response body', async () => {
+            nock(BASE_URL)
+                .get('/api/nowplaying_list_v2022')
+                .query({ chan: String(radioParadise.mix.main) })
+                .delayBody(200)
+                .reply(200, nowPlaying(radioParadise.mix.main));
 
-        before(() => {
-            nock.enableNetConnect(/api\.radioparadise\.com/);
+            let error;
+            try {
+                await radioParadise.getNowPlaying(radioParadise.mix.main, { signal: AbortSignal.timeout(30) });
+            } catch (caught) {
+                error = caught;
+            }
+
+            expect(error.name).to.equal('AbortError');
         });
 
-        after(() => {
-            nock.disableNetConnect();
-        });
+        it('rejects malformed JSON', async () => {
+            mockNowPlaying(radioParadise.mix.main, 200, '{');
 
-        it('returns the Main Mix playlist', async () => {
-            const result = await radioParadise.getNowPlaying(radioParadise.mix.main);
+            let error;
+            try {
+                await radioParadise.getNowPlaying(radioParadise.mix.main);
+            } catch (caught) {
+                error = caught;
+            }
 
-            expect(result.song).to.exist;
-            expect(result.song[0].chan).to.equal(radioParadise.mix.main);
-            expect(result.song[0].artist).to.be.a('string');
-            expect(result.song[0].title).to.be.a('string');
+            expect(error).to.be.instanceOf(SyntaxError);
         });
     });
 });

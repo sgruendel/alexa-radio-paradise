@@ -1,7 +1,8 @@
 import { expect } from 'chai';
+import nock from 'nock';
 
 import { handler } from '../../index.js';
-import { nowPlaying, song } from '../fixtures/radio-paradise.js';
+import { BASE_URL, nowPlaying, song } from '../fixtures/radio-paradise.js';
 import { intentRequest, launchRequest, resolvedSlot, sessionEndedRequest } from '../helpers/alexa.js';
 import { mockNowPlaying } from '../helpers/radio-paradise.js';
 
@@ -53,6 +54,7 @@ describe('Paradise Playlist skill workflow', () => {
                 );
                 expect(result.sessionAttributes.index).to.equal(0);
                 expect(result.sessionAttributes.song[0].title).to.equal('Blue In Green');
+                expect(result.response).not.to.have.property('directives');
             });
 
             for (const intent of ['AMAZON.CancelIntent', 'AMAZON.StopIntent']) {
@@ -145,6 +147,46 @@ describe('Paradise Playlist skill workflow', () => {
         expect(result.response).to.not.have.property('outputSpeech');
         expect(result.response).to.not.have.property('reprompt');
         expect(result.response.shouldEndSession).to.equal(true);
+    });
+
+    it('renders a complete APL directive on screen devices', async () => {
+        mockNowPlaying(0);
+        const event = launchRequest({
+            supportedInterfaces: { 'Alexa.Presentation.APL': { runtime: { maxVersion: '1.6' } } },
+        });
+
+        const result = await handler(event, {});
+
+        expect(result.response.directives).to.have.length(1);
+        const directive = result.response.directives[0];
+        expect(directive).to.have.all.keys('type', 'token', 'document', 'datasources');
+        expect(directive.type).to.equal('Alexa.Presentation.APL.RenderDocument');
+        expect(directive.token).to.equal(event.request.requestId);
+        expect(directive.document).to.include({ type: 'APL', version: '1.6' });
+        expect(directive.datasources.detailTemplateData).to.include({
+            headerTitle: 'The Main Mix',
+            imageSource: 'https://img.radioparadise.com/covers/l/B000000Y6H.jpg',
+        });
+        expect(result.response.card.type).to.equal('Standard');
+    });
+
+    it('limits the Radio Paradise lookup to the remaining Lambda budget', async () => {
+        nock(BASE_URL)
+            .get('/api/nowplaying_list_v2022')
+            .query({ chan: '0' })
+            .delay(200)
+            .reply(200, nowPlaying(0));
+        let budgetReads = 0;
+
+        const result = await handler(launchRequest(), {
+            getRemainingTimeInMillis() {
+                budgetReads += 1;
+                return 550;
+            },
+        });
+
+        expect(budgetReads).to.equal(1);
+        expect(speech(result)).to.contain("Bill's not there right now.");
     });
 
     for (const [channel, name, title] of [

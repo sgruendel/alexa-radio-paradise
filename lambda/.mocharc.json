@@ -1,5 +1,0 @@
-{
-    "file": ["test/setup.js"],
-    "spec": ["test/unit/*.js"],
-    "timeout": 7000
-}
