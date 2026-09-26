@@ -1,6 +1,7 @@
 # alexa-radio-paradise
 
 [![CI](https://github.com/sgruendel/alexa-radio-paradise/actions/workflows/node.js.yaml/badge.svg?branch=master)](https://github.com/sgruendel/alexa-radio-paradise/actions/workflows/node.js.yaml)
+[![Depfu](https://badges.depfu.com/badges/62f6d875bfd87327550a9004a212bf63/count.svg)](https://depfu.com/github/sgruendel/alexa-pegel-online?project_id=33444)
 [![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white)](mise.toml)
 [![License: GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 
