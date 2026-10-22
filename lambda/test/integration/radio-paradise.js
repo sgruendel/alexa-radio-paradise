@@ -37,7 +37,7 @@ describe('Radio Paradise helpers', () => {
             nock(BASE_URL)
                 .get('/api/nowplaying_list_v2022')
                 .query({ chan: String(radioParadise.mix.main) })
-                .delayBody(200)
+                .delay(200)
                 .reply(200, nowPlaying(radioParadise.mix.main));
 
             let error;
