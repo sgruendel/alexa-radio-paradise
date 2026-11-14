@@ -222,6 +222,8 @@ const CFIRRadioParadiseIntentHandler = {
                     value === 'The Globe' ||
                     value === 'Beyond' ||
                     value === 'Beyond...' ||
+                    value === 'Velvet' ||
+                    value === 'Velvet Mix' ||
                     value === 'Serenity' ||
                     value === 'KFAT' ||
                     value === 'K-FAT')

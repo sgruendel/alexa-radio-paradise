@@ -195,6 +195,7 @@ describe('Paradise Playlist skill workflow', () => {
         [2, 'Rock', 'RockIt!'],
         [3, 'Global', 'The Globe'],
         [5, 'Beyond', 'Beyond...'],
+        [9, 'Velvet', 'Velvet'],
         [42, 'Serenity', 'Serenity'],
         [945, 'KFAT', 'KFAT'],
     ]) {

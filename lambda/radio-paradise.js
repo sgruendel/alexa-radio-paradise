@@ -44,6 +44,7 @@ export const mix = {
     rock: 2,
     globe: 3,
     beyond: 5,
+    velvet: 9,
     serenity: 42,
     kfat: 945,
 };
