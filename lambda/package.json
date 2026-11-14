@@ -1,6 +1,6 @@
 {
     "name": "alexa-radio-paradise",
-    "version": "2.11.0",
+    "version": "2.12.0",
     "description": "Alexa Skill for querying playlist from Radio Paradise",
     "main": "index.js",
     "type": "module",
@@ -12,7 +12,8 @@
         "test:contract": "node --import ./test/env.js ./node_modules/mocha/bin/mocha.js --timeout=15000 \"test/contract/**/*.js\"",
         "lint": "eslint .",
         "lambda:zip": "rm -f /tmp/radioParadise.zip && zip -r /tmp/radioParadise.zip node_modules/ package* *.js",
-        "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name radioParadise --zip-file fileb:///tmp/radioParadise.zip"
+        "lambda:deploy": "npm run lambda:zip && aws lambda update-function-code --function-name radioParadise --zip-file fileb:///tmp/radioParadise.zip",
+        "model:deploy": "node --env-file-if-exists=.env scripts/deploy-model.js"
     },
     "repository": {
         "type": "git",
@@ -43,10 +44,10 @@
         "@eslint/js": "^10.0.1",
         "@types/chai": "^5.2.3",
         "@types/mocha": "^10.0.10",
-        "@types/node": "^24.13.3",
+        "@types/node": "^24.19.2",
         "c8": "^12.0.0",
         "chai": "^6.3.0",
-        "eslint": "^10.14.0",
+        "eslint": "^10.15.0",
         "globals": "^17.14.0",
         "mocha": "^12.0.3",
         "nock": "^15.0.6"

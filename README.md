@@ -15,6 +15,19 @@ ID. The local file is ignored by Git.
 The deployed Lambda function must provide `SKILL_ID` in its environment configuration. Offline tests use a
 dummy ID and require no deployment configuration.
 
+## Deployment
+
+Run commands from the `lambda/` directory:
+
+```bash
+npm run lambda:deploy             # upload the Lambda code (AWS CLI)
+npm run model:deploy              # upload all interaction models to the development stage (ASK CLI)
+npm run model:deploy -- de-DE     # upload only the given locale(s)
+```
+
+`model:deploy` uses `SKILL_ID` from `.env` and the default ASK CLI profile, and the model build starts automatically
+after the upload.
+
 ## Testing
 
 Run commands from the `lambda/` directory:
