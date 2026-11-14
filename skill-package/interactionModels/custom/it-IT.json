@@ -153,6 +153,13 @@
                             }
                         },
                         {
+                            "id": "9",
+                            "name": {
+                                "value": "Velvet",
+                                "synonyms": ["Velvet Mix"]
+                            }
+                        },
+                        {
                             "id": "42",
                             "name": {
                                 "value": "Serenity",

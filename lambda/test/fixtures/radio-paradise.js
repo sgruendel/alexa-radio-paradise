@@ -6,6 +6,7 @@ const CHANNEL_TITLES = {
     2: 'RockIt!',
     3: 'The Globe',
     5: 'Beyond...',
+    9: 'Velvet',
     42: 'Serenity',
     945: 'KFAT',
 };
